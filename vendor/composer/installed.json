@@ -1,5 +1,57 @@
 [
     {
+        "name": "asvae/laravel-api-tester",
+        "version": "2.0.9",
+        "version_normalized": "2.0.9.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/asvae/laravel-api-tester.git",
+            "reference": "7d446d4fe308576427c1cb340b662da6d5339e0c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/asvae/laravel-api-tester/zipball/7d446d4fe308576427c1cb340b662da6d5339e0c",
+            "reference": "7d446d4fe308576427c1cb340b662da6d5339e0c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "laravel/framework": "5.2.*",
+            "mockery/mockery": "^0.9.5",
+            "phpunit/phpunit": "~4.0"
+        },
+        "suggest": {
+            "firebase/token-generator": "Token generator for firebase",
+            "ktamas77/firebase-php": "Keep your requests stored in cloud"
+        },
+        "time": "2017-04-18T08:39:13+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Asvae\\ApiTester\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Yauheni Prakopchyk",
+                "email": "ontrew@gmail.com"
+            }
+        ],
+        "description": "Api tester for Laravel Framework",
+        "keywords": [
+            "api",
+            "debug",
+            "laravel"
+        ]
+    },
+    {
         "name": "dingo/api",
         "version": "v2.0.0-alpha1",
         "version_normalized": "2.0.0.0-alpha1",
