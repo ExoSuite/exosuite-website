@@ -12,4 +12,6 @@ before_script:
   - php artisan migrate
 
 script:
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit --testsuite API
+  - vendor/bin/phpunit --testsuite Unit
+  - vendor/bin/phpunit --testsuite Feature
