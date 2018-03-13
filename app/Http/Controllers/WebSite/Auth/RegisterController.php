@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\WebSite\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Http\Controllers\WebSite\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -59,14 +59,19 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
+        //TODO: replace with call to api
         return User::create([
-            'name' => $data['name'],
+            'first_name' => "hello",
+            'last_name' => "toto",
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+
+
     }
 }

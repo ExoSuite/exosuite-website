@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,5 +26,15 @@ Route::get('signup', function() {
 });
 
 Route::get('contact', function() {
-   return view('contact');
+    return view('contact');
 });
+
+Route::get('survey', function() {
+    return view('survey');
+});
+
+
+Route::post('survey', 'SurveyController@postSurvey');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
