@@ -50,6 +50,7 @@ Route::get('princing', function () {
 
 
 Route::post('survey', 'SurveyController@postSurvey');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
