@@ -22,7 +22,7 @@
 
             <div class="col-12 text-center">
                 <br>
-                <small>© TheThemeio 2018, All rights reserved.</small>
+                <small>© ExoSuite 2018, All rights reserved.</small>
             </div>
 
         </div>
