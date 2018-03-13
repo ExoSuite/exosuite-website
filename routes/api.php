@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use \App\Helpers\APINamespaceCreator;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', function (Dingo\Api\Routing\Router $api) {
+    $api->group(['prefix' => 'api'], function (Dingo\Api\Routing\Router $api) {
+        $api->group(['prefix' => 'users'], function (Dingo\Api\Routing\Router $api) {
+            $api->post('/', APINamespaceCreator::create("APIUserController@create"));
+        });
+    });
 });

@@ -2,12 +2,16 @@
 
 namespace App;
 
+use App\Models\Traits\Uuids;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use Uuids;
+    protected $primaryKey = "uuid";
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'nickname', 'email', 'password', "uuid"
     ];
 
     /**
@@ -24,6 +28,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
 }

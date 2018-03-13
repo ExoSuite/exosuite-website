@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'include' => '.*',
+    'include' => 'api/.*',
     'exclude' => [
         'api-tester',
     ],
