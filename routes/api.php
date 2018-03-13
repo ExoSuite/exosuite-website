@@ -19,6 +19,7 @@ $api->version('v1', function (Dingo\Api\Routing\Router $api) {
     $api->group(['prefix' => 'api'], function (Dingo\Api\Routing\Router $api) {
         $api->group(['prefix' => 'users'], function (Dingo\Api\Routing\Router $api) {
             $api->post('/', APINamespaceCreator::create("APIUserController@create"));
+            $api->get('/all', APINamespaceCreator::create('APIUserController@getAllUsers'));
         });
     });
 });

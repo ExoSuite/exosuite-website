@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
+use Illuminate\Database\Eloquent\JsonEncodingException;
 use Illuminate\Http\Request;
 use Validator;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class APIUserController extends APIBaseController
 {
@@ -19,5 +22,15 @@ class APIUserController extends APIBaseController
         if ($validator->fails()) {
             return $this->response->errorBadRequest($validator->errors()->toJson());
         }
+
+        $infos = $request->all();
+        $infos['password'] = Hash::make($infos['password']);
+        User::create($infos);
+
+        return $this->response->created();
+    }
+
+    public function getAllUsers() {
+        return  User::all();
     }
 }
