@@ -44,6 +44,10 @@ Route::get('survey', function() {
     return view('survey');
 });
 
+Route::get('princing', function () {
+   return view('princing');
+});
+
 
 Route::post('survey', 'SurveyController@postSurvey');
 Auth::routes();
