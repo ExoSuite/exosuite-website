@@ -29,6 +29,17 @@ Route::get('contact', function() {
     return view('contact');
 });
 
+Route::get('exosuite', function() {
+    return view('exosuite');
+});
+
+Route::get('exorun', function() {
+    return view('exorun');
+});
+
+Route::get('exofun', function () {
+   return view('exofun');
+});
 Route::get('survey', function() {
     return view('survey');
 });
