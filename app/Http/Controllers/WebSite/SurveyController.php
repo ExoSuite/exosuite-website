@@ -9,7 +9,6 @@ class SurveyController extends Controller
 {
     public function postSurvey(Request $request)
     {
-        dd($request);
         $json = json_decode($request->get('json'), true);
         if (isset($json['Vous êtes intéressé ? Laissez-nous votre mail !']))
             Opinion::create(["survey" => $request->get('json'), "email" => $json['Vous êtes intéressé ? Laissez-nous votre mail !']]);

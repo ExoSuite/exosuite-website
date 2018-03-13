@@ -20,6 +20,11 @@ $api->version('v1', function (Dingo\Api\Routing\Router $api) {
         $api->group(['prefix' => 'users'], function (Dingo\Api\Routing\Router $api) {
             $api->post('/', APINamespaceCreator::create("APIUserController@create"));
             $api->get('/all', APINamespaceCreator::create('APIUserController@getAllUsers'));
+            $api->group(['prefix' => 'from'], function (Dingo\Api\Routing\Router $api) {
+                $api->get('/uuid/{uuid}', APINamespaceCreator::create('APIUserController@getUserByUuid'));
+                $api->get('/email/{email}', APINamespaceCreator::create('APIUserController@getUserByEmail'));
+                $api->get('/name/{name}', APINamespaceCreator::create('APIUserController@getUserByName'));
+            });
         });
     });
 });

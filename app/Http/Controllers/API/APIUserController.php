@@ -33,4 +33,16 @@ class APIUserController extends APIBaseController
     public function getAllUsers() {
         return  User::all();
     }
+
+    public function getUserByUuid($uuid) {
+        return User::find($uuid);
+    }
+
+    public function getUserByEmail($email) {
+        return User::where('email', $email)->first();
+    }
+
+    public function getUserByName($name) {
+        return User::where('first_name', 'like', $name.'%')->orWhere('last_name', 'like', $name.'%')->get();
+    }
 }

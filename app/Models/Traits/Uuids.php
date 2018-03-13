@@ -15,7 +15,7 @@ trait Uuids
         parent::boot();
 
         static::creating(function ($model) {
-            $model->{$model->getKeyName()} = (string)Uuid::generate(5, env("APP_KEY"), Uuid::NS_DNS);
+            $model->{$model->getKeyName()} = (string)Uuid::generate(4);
         });
     }
 }
