@@ -24,13 +24,10 @@
 
                 <div class="col-md-5 mx-auto pb-7">
                     <img src="/img/logoExoSuite.png" />
-                    <p class="lead-4">La futur du sport</p>
+                    <p class="lead-4">Le futur du sport</p>
                     <p class="lead-2 fw-400 mb-7">Découvrez ExoSuite, la suite d'application qui révolutionne le monde du sport !</p>
-                    <a class="btn btn-xl btn-round btn-info" href="#">Commencez ici</a>
-                </div>
-
-                <div class="col-md-5 mx-auto text-center">
-                    <a class="btn btn-xl btn-circle btn-dark p-7" href="https://youtu.be/cwHGS7kPU2I" data-provide="lightbox"><i class="fa fa-play"></i></a>
+                    <a class="btn btn-xl btn-round btn-info" href="/exosuite" style="margin: 0 auto; display: block; margin-bottom: 2%">Commencez ici</a>
+                    <a class="btn btn-xl btn-round btn-google" href="https://youtu.be/cwHGS7kPU2I" data-provide="lightbox" style="margin: 0 auto; display: block;">ExoSuite en video</a>
                 </div>
 
             </div>

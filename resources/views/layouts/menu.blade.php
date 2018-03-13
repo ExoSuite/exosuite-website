@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark custom-nav">
     <div class="container">
 
         <div class="navbar-left">
             <button class="navbar-toggler" type="button">☰</button>
             <a class="navbar-brand" href="/">
-                <img class="logo-menu" src="/img/logoSquare.png" alt="logo">
+                <img class="logo-menu" src="/img/logoSquare.png" alt="logo" style="margin-top: 5%">
             </a>
         </div>
 
@@ -12,8 +12,8 @@
             <nav class="nav nav-navbar ml-auto">
                 <a class="nav-link active" href="/">Accueil</a>
                 <a class="nav-link" href="/contact">Contact</a>
-                <a class="nav-link" href="#">Pricing</a>
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="/exosuite">ExoSuite</a>
+                <a class="nav-link" href="/princing">Tarif</a>
             </nav>
 
             <span class="navbar-divider"></span>

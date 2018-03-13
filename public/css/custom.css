@@ -1,4 +1,12 @@
 .logo-menu {
-    width: 30%;
+    width: 20%;
     height: auto;
+}
+
+.custom-nav {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-exosuite {
+    margin-bottom: 5%;
 }
