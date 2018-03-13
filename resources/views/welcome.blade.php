@@ -10,6 +10,7 @@
         <!-- Fonts -->
         <link href="/css/page.min.css" rel="stylesheet">
         <link href="/css/style.css" rel="stylesheet">
+        <link href="/css/custom.css" rel="stylesheet">
         <link rel="icon" href="/img/favicon.png">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -22,7 +23,7 @@
             <div class="row align-items-center h-100">
 
                 <div class="col-md-5 mx-auto pb-7">
-                    <h1 class="display-3">ExoSuite</h1>
+                    <img src="/img/logoExoSuite.png" />
                     <p class="lead-4">La futur du sport</p>
                     <p class="lead-2 fw-400 mb-7">Découvrez ExoSuite, la suite d'application qui révolutionne le monde du sport !</p>
                     <a class="btn btn-xl btn-round btn-info" href="#">Commencez ici</a>

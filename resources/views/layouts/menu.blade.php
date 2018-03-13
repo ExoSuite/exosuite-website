@@ -3,9 +3,8 @@
 
         <div class="navbar-left">
             <button class="navbar-toggler" type="button">☰</button>
-            <a class="navbar-brand" href="#">
-                <img class="logo-dark" src="/img/logo-dark.png" alt="logo">
-                <img class="logo-light" src="/img/logo-light.png" alt="logo">
+            <a class="navbar-brand" href="/">
+                <img class="logo-menu" src="/img/logoSquare.png" alt="logo">
             </a>
         </div>
 
