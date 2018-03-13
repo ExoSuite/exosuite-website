@@ -4,7 +4,7 @@
 
             <div class="col-md-6">
                 <div class="nav nav-bold nav-uppercase justify-content-center justify-content-md-end">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="/about">A propos de nous</a>
                     <a class="nav-link" href="#">Blog</a>
                     <a class="nav-link" href="/contact">Contact</a>
                 </div>

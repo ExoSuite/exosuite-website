@@ -12,7 +12,7 @@
             <nav class="nav nav-navbar ml-auto">
                 <a class="nav-link active" href="/">Accueil</a>
                 <a class="nav-link" href="/contact">Contact</a>
-                <a class="nav-link" href="/exosuite">ExoSuite</a>
+                <a class="nav-link" href="/exosuite">Notre projet</a>
                 <a class="nav-link" href="/princing">Tarif</a>
             </nav>
 
