@@ -33,8 +33,8 @@ Route::get('survey', function() {
     return view('survey');
 });
 
-
 Route::post('survey', 'SurveyController@postSurvey');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
