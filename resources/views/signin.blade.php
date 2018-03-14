@@ -43,7 +43,7 @@
                 </div>
             </form>
 
-            <div class="divider">Se connecter avec</div>
+            <div class="divider">Ou se connecter avec :</div>
             <div class="text-center">
                 <a class="btn btn-circle btn-sm btn-facebook mr-2" href="#"><i class="fa fa-facebook"></i></a>
                 <a class="btn btn-circle btn-sm btn-google mr-2" href="#"><i class="fa fa-google"></i></a>

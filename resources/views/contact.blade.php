@@ -22,7 +22,7 @@
 <header class="header pt-10 pb-0">
     <div class="container text-center">
         <h1 class="display-4">Contactez-nous</h1>
-        <p class="lead-2 mt-6">Si vous avez une question, une suggestion, ou vous voulez juste nous envoyer un petit mot c'est par ici !</p>
+        <p class="lead-2 mt-6">Si vous avez une question, une suggestion, ou si vous voulez juste nous envoyer un petit mot, c'est par ici !</p>
     </div>
 </header><!-- /.header -->
 
@@ -41,7 +41,7 @@
 
             <div class="row">
                 <form class="col-lg-6 mx-auto p-6 bg-gray rounded" action="../assets/php/sendmail.php" method="POST" data-form="mailer">
-                    <div class="alert alert-success d-on-success">We received your message and will contact you back soon.</div>
+                    <div class="alert alert-success d-on-success">Nous avons bien reçu votre message. Merci !</div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -55,7 +55,7 @@
 
 
                     <div class="form-group">
-                        <textarea class="form-control form-control-lg" rows="4" placeholder="Your Message" name="Votre message"></textarea>
+                        <textarea class="form-control form-control-lg" rows="4" placeholder="Votre message" name="message"></textarea>
                     </div>
 
                     <div class="text-center">
