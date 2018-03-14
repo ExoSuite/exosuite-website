@@ -22,8 +22,8 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h1>ExoRun qu'est-ce que c'est ?</h1>
-                <p class="lead-2 opacity-90 mt-6">Après lecture de cette page, vous allez tous comprendre ! Promis !</p>
+                <h1>Mais qu'est-ce qu'est ExoRun ?</h1>
+                <p class="lead-2 opacity-90 mt-6">Après lecture de cette page, vous allez tout comprendre ! Promis !</p>
             </div>
         </div>
     </div>
@@ -36,31 +36,10 @@
 
             <div class="row">
 
-                <div class="col-md-6 ml-auto order-md-last mb-7 mb-md-0">
+                <div style="margin: auto" class="col-md-6 ml-auto order-md-last mb-7 mb-md-0">
                     <img src="/img/exorun.png" />
                 </div>
 
-                <div class="col-11 mx-auto col-md-5 mx-md-0">
-                    <p class="text-light my-6">Built-in GPS. Water resistance to 50 meters.1 A lightning-fast dual‑core processor. And a display that’s two times brighter than before. Full of features that help you stay active.</p>
-
-                    <ul class="list-unstyled">
-                        <li><span class="mr-1 ti-check text-success small-3"></span> Built in GPS</li>
-                        <li><span class="mr-1 ti-check text-success small-3"></span> Heart Rate Sensor</li>
-                        <li><span class="mr-1 ti-check text-success small-3"></span> Water Resistant 50 Meters</li>
-                        <li><span class="mr-1 ti-check text-success small-3"></span> Comprehensive Workout App</li>
-                    </ul>
-
-                    <div class="row gap-y align-items-center text-center bg-light rounded p-5 mt-7">
-                        <div class="col-md-auto ml-auto order-md-last">
-                            <h4 class="lead-5 mb-0 lh-1 fw-500">$399</h4>
-                            <small class="text-lighter">+ $10 shipping fees</small>
-                        </div>
-
-                        <div class="col-md-auto">
-                            <a class="btn btn-lg btn-primary" href="#">Purchase</a>
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
@@ -68,16 +47,11 @@
 
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h5>Full specification</h5>
+                    <h5 style="text-align: center">La recherche de la performance</h5>
+                    <p>ExoRun permet aux coureurs confirmés et professionels de défier un ghost, représentant un rythme de course voulu, ou celui d'un membre de la communauté. Grâce à la réalité augementée, l'utilisateur verra cette entité se superposer à sa vue, et être en mesure de mieux se situer par rapport à son objectif.</p>
 
-                    <p>Interactively foster interoperable schemas rather than client-centric architectures. Progressively drive collaborative human capital vis-a-vis optimal ideas. Monotonectally fashion cross-platform leadership skills through high standards in manufactured products. Continually reintermediate.</p>
-                    <p>Progressively deliver ethical schemas before equity invested intellectual capital. Rapidiously embrace value-added manufactured products rather than 24/7 information. Credibly whiteboard compelling methodologies installed base action items. Objectively maintain.</p>
-
-                    <h6>Warranty</h6>
-                    <p>Synergistically empower multimedia based scenarios before backward-compatible testing procedures. Interactively disintermediate distinctive portals with state of the art sources. Conveniently architect process-centric quality vectors for cross-platform models. Continually expedite.</p>
-
-                    <h6>Info</h6>
-                    <p>Progressively morph plug-and-play value without market positioning partnerships. Authoritatively myocardinate high standards in deliverables and effective opportunities. Interactively whiteboard premium relationships rather than go forward expertise. Phosfluorescently target process-centric.</p>
+                    <h5 style="margin-top: 10%; text-align: center">Préparation aux évènements</h5>
+                    <p>A l'aube d'un évènement sportif majeur, rien de mieux pour un coureur que s'entraîner sur le parcours concerné en pouvant évaluer son niveau et se comparer aux performances qui l'intéressent.</p>
                 </div>
             </div>
 
