@@ -15,3 +15,11 @@ script:
   - vendor/bin/phpunit --testsuite API
   - vendor/bin/phpunit --testsuite Unit
   - vendor/bin/phpunit --testsuite Feature
+
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      - mysql-client
