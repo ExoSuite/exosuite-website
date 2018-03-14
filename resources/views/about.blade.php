@@ -80,28 +80,28 @@
                         <img src="/img/team/renaud.jpg" alt="..." class="custom_size">
                     </a>
                     <h6>Renaud Juliani</h6>
-                    <small>Developpeur Mobile</small>
+                    <small>Développeur Mobile</small>
                 </div>
                 <div class="col-md-6 col-lg-4 team-1">
                     <a href="#">
                         <img src="/img/team/pierre.jpg" alt="..." class="custom_size">
                     </a>
                     <h6>Pierre Piazza</h6>
-                    <small>Developpeur Mobile</small>
+                    <small>Développeur Mobile</small>
                 </div>
                 <div class="col-md-6 col-lg-4 team-1">
                     <a href="#">
                         <img src="/img/team/stan.jpg" alt="..." class="custom_size">
                     </a>
                     <h6>Stanislas Deneubourg</h6>
-                    <small>Developpeur Web</small>
+                    <small>Développeur Web</small>
                 </div>
                 <div class="col-md-6 col-lg-4 team-1">
                     <a href="#">
                         <img src="/img/team/Yassir-Jabbari.jpg" alt="..." class="custom_size">
                     </a>
                     <h6>Yassir Jabbari</h6>
-                    <small>Developpeur Web</small>
+                    <small>Développeur Web</small>
                 </div>
             </div>
 
