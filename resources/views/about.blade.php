@@ -23,8 +23,8 @@
         <div class="row align-items-center h-100">
 
             <div class="col-md-7 mx-auto">
-                <h1>A propos de nous</h1>
-                <p class="lead-3">Our company was founded in 2013 with a mission to create pretty templates for great startups. We can combine beautiful, modern designs with clean, functional and high-performance code to produce stunning websites. And best of all, we are super passionate about our work. Thought does cognitive into follow and rationale annoyed.</p>
+                <h1 style="text-align: center">A propos de nous</h1>
+                <p class="lead-3">Nous sommes un groupe de 7 étudiants de 3ème année à Epitech Nice, passionnés par l'aspect créatif et technique du développement. ExoSuite est notre projet de fin d'études qui respecte notre vocation : Concevoir un coach sportif innovant et utilisant les dernières technologies.</p>
             </div>
         </div>
     </div>
@@ -32,46 +32,6 @@
 <main class="main-content">
 
     <img src="/img/719292.jpg" />
-
-    <!--
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    | Our Mission
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    !-->
-    <section id="section-mission" class="section">
-        <div class="container">
-            <div class="row gap-y align-items-center">
-
-                <div class="col-md-7 mx-auto">
-                    <h2>Our Mission</h2>
-                    <p class="lead">We’re a team of creative and experienced designers and developers. We used to work as freelancers and we know what do you need and more that, we know what do your customers want from you.</p>
-
-                    <br>
-
-                    <p>
-                        <i class="ti-check text-success mr-2"></i>
-                        <span> Deliver a high quality web design</span>
-                    </p>
-
-                    <p>
-                        <i class="ti-check text-success mr-2"></i>
-                        <span> Support our customers once signing a contract</span>
-                    </p>
-
-                    <p>
-                        <i class="ti-check text-success mr-2"></i>
-                        <span> Streamline an expanded array of web</span>
-                    </p>
-
-                    <p>
-                        <i class="ti-check text-success mr-2"></i>
-                        <span> Pursue web-enabled niche markets with professionals</span>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
 
 
     <!--
@@ -94,11 +54,6 @@
                     </a>
                     <h6>Eric Deschodt</h6>
                     <small>CEO</small>
-                    <div class="social social-gray">
-                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
                 </div>
 
 
@@ -108,11 +63,6 @@
                     </a>
                     <h6>Loïc Dupil</h6>
                     <small>API</small>
-                    <div class="social social-gray">
-                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
                 </div>
 
 
@@ -122,11 +72,6 @@
                     </a>
                     <h6>Loïc Lopez</h6>
                     <small>CTO</small>
-                    <div class="social social-gray">
-                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
                 </div>
 
 
@@ -136,11 +81,6 @@
                     </a>
                     <h6>Renaud Juliani</h6>
                     <small>Developpeur Mobile</small>
-                    <div class="social social-gray">
-                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
                 </div>
                 <div class="col-md-6 col-lg-4 team-1">
                     <a href="#">
@@ -148,11 +88,6 @@
                     </a>
                     <h6>Pierre Piazza</h6>
                     <small>Developpeur Mobile</small>
-                    <div class="social social-gray">
-                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
                 </div>
                 <div class="col-md-6 col-lg-4 team-1">
                     <a href="#">
@@ -160,11 +95,6 @@
                     </a>
                     <h6>Stanislas Deneubourg</h6>
                     <small>Developpeur Web</small>
-                    <div class="social social-gray">
-                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
                 </div>
                 <div class="col-md-6 col-lg-4 team-1">
                     <a href="#">
@@ -172,11 +102,6 @@
                     </a>
                     <h6>Yassir Jabbari</h6>
                     <small>Developpeur Web</small>
-                    <div class="social social-gray">
-                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
                 </div>
             </div>
 
