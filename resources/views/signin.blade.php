@@ -18,7 +18,7 @@
     <main class="main-content">
 
         <div class="bg-white rounded shadow-7 w-400 mw-100 p-6">
-            <h5 class="mb-7">Sign into your account</h5>
+            <h5 class="mb-7">Connectez-vous !</h5>
 
             <form>
                 <div class="form-group">
@@ -32,18 +32,18 @@
                 <div class="form-group flexbox py-3">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" checked>
-                        <label class="custom-control-label">Remember me</label>
+                        <label class="custom-control-label">Se souvenir de moi</label>
                     </div>
 
-                    <a class="text-muted small-2" href="user-recover.html">Forgot password?</a>
+                    <a class="text-muted small-2" href="user-recover.html">Mot de passe oublié ?</a>
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-block btn-primary" type="submit">Login</button>
+                    <button class="btn btn-block btn-primary" type="submit">Se connecter !</button>
                 </div>
             </form>
 
-            <div class="divider">Or Login With</div>
+            <div class="divider">Se connecter avec</div>
             <div class="text-center">
                 <a class="btn btn-circle btn-sm btn-facebook mr-2" href="#"><i class="fa fa-facebook"></i></a>
                 <a class="btn btn-circle btn-sm btn-google mr-2" href="#"><i class="fa fa-google"></i></a>
@@ -52,7 +52,7 @@
 
             <hr class="w-30">
 
-            <p class="text-center text-muted small-2">Don't have an account? <a href="/signup">Register here</a></p>
+            <p class="text-center text-muted small-2">Vous n'êtes pas encore membre ? <a href="/signup">Créez votre compte ici !</a></p>
         </div>
 
     </main><!-- /.main-content -->

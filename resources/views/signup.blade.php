@@ -18,38 +18,38 @@
 <main class="main-content">
 
     <div class="bg-white rounded shadow-7 w-400 mw-100 p-6">
-        <h5 class="mb-7">Create an account</h5>
+        <h5 class="mb-7">Créez un compte !</h5>
 
         <form>
             <div class="form-group">
-                <input type="text" class="form-control" name="name" placeholder="Your Name">
+                <input type="text" class="form-control" name="name" placeholder="Votre nom">
             </div>
 
             <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="Email Address">
+                <input type="email" class="form-control" name="email" placeholder="Votre email">
             </div>
 
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password">
+                <input type="password" class="form-control" name="password" placeholder="Mot de passe">
             </div>
 
             <div class="form-group">
-                <input type="password" class="form-control" name="password-confirm" placeholder="Password (confirm)">
+                <input type="password" class="form-control" name="password-confirm" placeholder="Confirmation du mot de passe">
             </div>
 
             <div class="form-group py-3">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input">
-                    <label class="custom-control-label">I agree to the <a class="ml-1" href="terms.html">terms of service</a></label>
+                    <label class="custom-control-label">Je suis en accord avec les <a class="ml-1" href="terms.html">termes du service.</a></label>
                 </div>
             </div>
 
             <div class="form-group">
-                <button class="btn btn-block btn-primary" type="submit">Register</button>
+                <button class="btn btn-block btn-primary" type="submit">Créer un compte !</button>
             </div>
         </form>
 
-        <div class="divider">Or Register With</div>
+        <div class="divider">Ou s'inscrire via :</div>
         <div class="text-center">
             <a class="btn btn-circle btn-sm btn-facebook mr-2" href="#"><i class="fa fa-facebook"></i></a>
             <a class="btn btn-circle btn-sm btn-google mr-2" href="#"><i class="fa fa-google"></i></a>
@@ -58,7 +58,7 @@
 
         <hr class="w-30">
 
-        <p class="text-center text-muted small-2">Already a member? <a href="/signin">Login here</a></p>
+        <p class="text-center text-muted small-2">Déjà membre ? <a href="/signin">Connectez-vous !</a></p>
     </div>
 
 </main>

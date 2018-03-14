@@ -13,14 +13,14 @@
                 <a class="nav-link" href="/">Accueil</a>
                 <a class="nav-link" href="/contact">Contact</a>
                 <a class="nav-link" href="/exosuite">Notre projet</a>
-                <a class="nav-link" href="/princing">Tarif</a>
+                <a class="nav-link" href="/princing">Tarifs</a>
             </nav>
 
             <span class="navbar-divider"></span>
 
             <div>
-                <a class="btn btn-sm btn-round btn-primary ml-lg-4 mr-2" href="/signin">Sign in</a>
-                <a class="btn btn-sm btn-round btn-outline-primary" href="/signup">Sign up</a>
+                <a class="btn btn-sm btn-round btn-primary ml-lg-4 mr-2" href="/signin">Se connecter</a>
+                <a class="btn btn-sm btn-round btn-outline-primary" href="/signup">Créer un compte</a>
             </div>
         </section>
 
