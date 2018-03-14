@@ -135,7 +135,7 @@
                         <img src="/img/team/renaud.jpg" alt="..." class="custom_size">
                     </a>
                     <h6>Renaud Juliani</h6>
-                    <small>Developpeur mobile</small>
+                    <small>Developpeur Mobile</small>
                     <div class="social social-gray">
                         <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
                         <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
