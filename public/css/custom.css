@@ -10,3 +10,12 @@
 .button-exosuite {
     margin-bottom: 5%;
 }
+
+.custom_size {
+    display: block;
+    max-width:230px;
+    max-height:95px;
+    width: auto;
+    height: auto;
+    margin: auto;
+}

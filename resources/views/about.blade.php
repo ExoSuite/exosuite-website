@@ -76,121 +76,24 @@
 
     <!--
     |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    | Numbers
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    !-->
-    <section class="section text-white" style="background-color: #93a5cf">
-        <div class="container">
-            <div class="row gap-y text-center">
-
-                <div class="col-md-4">
-                    <p class="small text-uppercase ls-2">Finished Projects</p>
-                    <p class="lead-8 lh-1 fw-700 counted" data-provide="countup" data-from="0" data-to="42">42</p>
-                </div>
-
-                <div class="col-md-4">
-                    <p class="small text-uppercase ls-2">Happy Customers</p>
-                    <p class="lead-8 lh-1 fw-700 counted" data-provide="countup" data-from="0" data-to="5478">5,478</p>
-                </div>
-
-                <div class="col-md-4">
-                    <p class="small text-uppercase ls-2">User Satisfaction</p>
-                    <p class="lead-8 lh-1 fw-700 counted" data-provide="countup" data-from="0" data-to="100" data-prefix="%">%100</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!--
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    | Testimonials
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    !-->
-    <section class="section">
-        <div class="container">
-            <header class="section-header">
-                <h2>What People Say</h2>
-                <br>
-                <p class="lead">We waited until we could do it right. Then we did! Instead of creating a carbon copy.</p>
-            </header>
-
-            <div class="row gap-y text-center">
-
-                <div class="col-lg-4">
-                    <blockquote class="blockquote">
-                        <div><img class="avatar avatar-xl" src="../assets/img/avatar/1.jpg" alt="..."></div>
-                        <div class="fs-15 mt-6">When you innovate, you make mistakes. It is best to admit them quickly, and get on with improving your other innovations.</div>
-                        <footer><em>Steve Jobs</em></footer>
-                    </blockquote>
-                </div>
-
-                <div class="col-lg-4">
-                    <blockquote class="blockquote">
-                        <div><img class="avatar avatar-xl" src="../assets/img/avatar/2.jpg" alt="..."></div>
-                        <div class="fs-15 mt-6">Design everything on the assumption that people are not heartless or stupid but marvelously capable, given the chance.</div>
-                        <footer><em>John Jones</em></footer>
-                    </blockquote>
-                </div>
-
-                <div class="col-lg-4">
-                    <blockquote class="blockquote">
-                        <div><img class="avatar avatar-xl" src="../assets/img/avatar/3.jpg" alt="..."></div>
-                        <div class="fs-15 mt-6">Technology is just a tool. In terms of getting the kids working together and motivating them, the teacher is the most important.</div>
-                        <footer><em>Bill Gates</em></footer>
-                    </blockquote>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-
-    <!--
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    | Customers
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    !-->
-    <section class="section bg-gray py-6">
-        <div class="container">
-
-            <div class="partner partner-sm">
-                <img src="../assets/img/partner/1.png" alt="partner 1">
-                <img src="../assets/img/partner/2.png" alt="partner 2">
-                <img src="../assets/img/partner/3.png" alt="partner 3">
-                <img src="../assets/img/partner/4.png" alt="partner 4">
-                <img src="../assets/img/partner/5.png" alt="partner 5">
-                <img src="../assets/img/partner/6.png" alt="partner 6">
-            </div>
-
-        </div>
-    </section>
-
-
-    <!--
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
     | Team
     |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
     !-->
     <section class="section">
         <div class="container">
             <header class="section-header">
-                <small>People</small>
-                <h2>Meet The Team</h2>
+                <h2>L'équipe ExoSuite</h2>
                 <hr>
-                <p class="lead">Meet our small team that make those great products</p>
             </header>
 
 
             <div class="row gap-y">
                 <div class="col-md-6 col-lg-3 team-1">
                     <a href="#">
-                        <img src="../assets/img/avatar/5.jpg" alt="...">
+                        <img src="/img/team/eric.png" alt="..." class="custom_size">
                     </a>
-                    <h6>Morgan Guadis</h6>
-                    <small>Co-Founder &amp; CEO</small>
+                    <h6>Eric Deschodt</h6>
+                    <small>CEO</small>
                     <div class="social social-gray">
                         <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
                         <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
@@ -201,10 +104,10 @@
 
                 <div class="col-md-6 col-lg-3 team-1">
                     <a href="#">
-                        <img src="../assets/img/avatar/6.jpg" alt="...">
+                        <img src="/img/team/dupil.jpg" alt="..." class="custom_size">
                     </a>
-                    <h6>John Senating</h6>
-                    <small>Co-Founder &amp; CTO</small>
+                    <h6>Loïc Dupil</h6>
+                    <small>API</small>
                     <div class="social social-gray">
                         <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
                         <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
@@ -215,10 +118,10 @@
 
                 <div class="col-md-6 col-lg-3 team-1">
                     <a href="#">
-                        <img src="../assets/img/avatar/7.jpg" alt="...">
+                        <img src="/img/team/lopez.jpg" alt="..." class="custom_size">
                     </a>
-                    <h6>Sandi Hormez</h6>
-                    <small>Lead Developer</small>
+                    <h6>Loïc Lopez</h6>
+                    <small>CTO</small>
                     <div class="social social-gray">
                         <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
                         <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
@@ -229,10 +132,46 @@
 
                 <div class="col-md-6 col-lg-3 team-1">
                     <a href="#">
-                        <img src="../assets/img/avatar/8.jpg" alt="...">
+                        <img src="/img/team/renaud.jpg" alt="..." class="custom_size">
                     </a>
-                    <h6>Animor Tiruse</h6>
-                    <small>Designer</small>
+                    <h6>Renaud Juliani</h6>
+                    <small>Developpeur mobile</small>
+                    <div class="social social-gray">
+                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 team-1">
+                    <a href="#">
+                        <img src="/img/team/pierre.jpg" alt="..." class="custom_size">
+                    </a>
+                    <h6>Pierre Piazza</h6>
+                    <small>Developpeur Mobile</small>
+                    <div class="social social-gray">
+                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 team-1">
+                    <a href="#">
+                        <img src="/img/team/stan.jpg" alt="..." class="custom_size">
+                    </a>
+                    <h6>Stanislas Deneubourg</h6>
+                    <small>Developpeur Web</small>
+                    <div class="social social-gray">
+                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 team-1">
+                    <a href="#">
+                        <img src="/img/team/Yassir-Jabbari.jpg" alt="..." class="custom_size">
+                    </a>
+                    <h6>Yassir Jabbari</h6>
+                    <small>Developpeur Web</small>
                     <div class="social social-gray">
                         <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
                         <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
