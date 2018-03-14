@@ -15,7 +15,7 @@ $(function() {
 
   page.config({
 
-    /*
+   /* /!*
     |--------------------------------------------------------------------------
     | Google API Key
     |--------------------------------------------------------------------------
@@ -25,11 +25,11 @@ $(function() {
     |
     | https://developers.google.com/maps/documentation/javascript/get-api-key
     |
-    */
+    *!/
 
     googleApiKey: 'AIzaSyDRBLFOTTh2NFM93HpUA4ZrA99yKnCAsto',
 
-    /*
+    /!*
     |--------------------------------------------------------------------------
     | Google Analytics Tracking
     |--------------------------------------------------------------------------
@@ -37,11 +37,11 @@ $(function() {
     | If you want to use Google Analytics, you can specify your Tracking ID in
     | this option. Your key would be a value like: UA-12345678-9
     |
-    */
+    *!/
 
     googleAnalyticsId: 'UA-73325209-2',
 
-    /*
+    /!*
     |--------------------------------------------------------------------------
     | Google reCAPTCHA
     |--------------------------------------------------------------------------
@@ -52,12 +52,12 @@ $(function() {
     |
     | http://www.google.com/recaptcha/admin
     |
-    */
+    *!/
 
     reCaptchaSiteKey:  '6Ldaf0MUAAAAAHdsMv_7dND7BSTvdrE6VcQKpM-n',
 
     // See available languages: https://developers.google.com/recaptcha/docs/language
-    reCaptchaLanguage: '',
+    reCaptchaLanguage: '',*/
 
     /*
     |--------------------------------------------------------------------------

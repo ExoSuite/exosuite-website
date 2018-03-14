@@ -114,7 +114,7 @@
     | CTA
     |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
     !-->
-    <section class="section text-center py-12" style="background-image: url(../assets/img/thumb/15.jpg)" data-overlay="7">
+    <section class="section text-center py-12" data-overlay="7">
         <div class="container">
             <h2 class="display-4 text-white mb-7"><strong>Découvrez Exosuite.</strong></h2>
             <a class="btn btn-lg btn-round btn-info" href="exosuite">Qu'est-ce qu'ExoSuite ?</a>
@@ -124,7 +124,7 @@
 
 </main>
 @include('layouts.footer')
-<script src="/js/page.min.js"></script>
+<script src="/js/page.js"></script>
 <script src="/js/script.js"></script>
 </body>
 </html>
