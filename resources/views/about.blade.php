@@ -24,7 +24,7 @@
 
             <div class="col-md-7 mx-auto">
                 <h1 style="text-align: center">A propos de nous</h1>
-                <p class="lead-3">Nous sommes un groupe de 7 étudiants de 3ème année à Epitech Nice, passionnés par l'aspect créatif et technique du développement. ExoSuite est notre projet de fin d'études qui respecte notre vocation : Concevoir un coach sportif innovant et utilisant les dernières technologies.</p>
+                <p class="lead-3">Nous sommes un groupe de sept étudiants de troisième année à Epitech Nice, passionnés par l'aspect créatif et technique du développement. ExoSuite est notre projet de fin d'études qui respecte notre vocation : Concevoir un coach sportif innovant et utilisant les dernières technologies.</p>
             </div>
         </div>
     </div>
