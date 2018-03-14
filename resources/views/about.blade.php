@@ -87,7 +87,7 @@
             </header>
 
 
-            <div class="row gap-y">
+            <div class="row gap-y center_team">
                 <div class="col-md-6 col-lg-3 team-1">
                     <a href="#">
                         <img src="/img/team/eric.png" alt="..." class="custom_size">
@@ -142,7 +142,7 @@
                         <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 team-1">
+                <div class="col-md-6 col-lg-4 team-1">
                     <a href="#">
                         <img src="/img/team/pierre.jpg" alt="..." class="custom_size">
                     </a>
@@ -154,7 +154,7 @@
                         <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 team-1">
+                <div class="col-md-6 col-lg-4 team-1">
                     <a href="#">
                         <img src="/img/team/stan.jpg" alt="..." class="custom_size">
                     </a>
@@ -166,7 +166,7 @@
                         <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 team-1">
+                <div class="col-md-6 col-lg-4 team-1">
                     <a href="#">
                         <img src="/img/team/Yassir-Jabbari.jpg" alt="..." class="custom_size">
                     </a>
