@@ -44,10 +44,10 @@
                     <h2 class="text-light my-6">ExoSuite est une suite d'applications pour lunettes connectées.</h2>
 
                     <ul class="list-unstyled">
-                        <li><span class="mr-1 ti-check text-success small-3"></span>Une nouvelle ère du coaching sportif</li>
-                        <li><span class="mr-1 ti-check text-success small-3"></span>Une expérience immersive</li>
-                        <li><span class="mr-1 ti-check text-success small-3"></span>Une utilisation des technologies les plus récentes</li>
-                        <li><span class="mr-1 ti-check text-success small-3"></span>Un esprit communautaire fort</li>
+                        <li><span class="mr-1 text-success small-3"></span>✓ Une nouvelle ère du coaching sportif</li>
+                        <li><span class="mr-1 text-success small-3"></span>✓ Une expérience immersive</li>
+                        <li><span class="mr-1 text-success small-3"></span>✓ Une utilisation des technologies les plus récentes</li>
+                        <li><span class="mr-1 text-success small-3"></span>✓ Un esprit communautaire fort</li>
                     </ul>
 
                 </div>
