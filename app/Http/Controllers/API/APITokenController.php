@@ -13,7 +13,7 @@ class APITokenController extends APIBaseController
         ApiToken::InitTokensTypes();
     }
 
-    public function authorize() {
+    public function authorizeToken() {
         return ApiToken::$RefreshToken->expirationTime;
     }
 
