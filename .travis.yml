@@ -1,7 +1,22 @@
+sudo: required
+
 language: php
 
 php:
   - "7.2"
+
+env:
+  global:
+    - SITE_URL="http://exosuite.local"
+    - SITE_DOMAIN="exosuite.local"
+    - API_SITE_DOMAIN="api.exosuite.local"
+
+install:
+  - sudo cp ServerConfig/site-available/* /etc/nginx/sites-available/
+  - sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
+  - sudo ln -s /etc/nginx/sites-available/$API_SITE_DOMAIN /etc/nginx/sites-enabled/
+  - sudo rm -rf /etc/php/7.2/fpm/pool.d
+  - sudo cp -r ServerConfig/pool.d /etc/php/7.2/fpm/
 
 before_script:
   - cp .env.travis .env
@@ -10,6 +25,8 @@ before_script:
   - composer install --no-interaction
   - php artisan key:generate
   - php artisan migrate
+  - sudo service php7.2-fpm restart
+  - sudo service nginx restart
 
 script:
   - vendor/bin/phpunit --testsuite API
@@ -26,3 +43,6 @@ addons:
     packages:
       - mysql-server
       - mysql-client
+      - php7.2-fpm
+      - php7.2-mysql
+      - nginx
