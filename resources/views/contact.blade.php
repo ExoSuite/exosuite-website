@@ -22,7 +22,7 @@
 <header class="header pt-10 pb-0">
     <div class="container text-center">
         <h1 class="display-4">Contactez-nous</h1>
-        <p style="text-align: justify" class="lead-2 mt-6">Si vous avez une question, une suggestion, ou si vous voulez juste nous envoyer un petit mot, c'est par ici !</p>
+        <p style="text-align: center" class="lead-2 mt-6">Si vous avez une question, une suggestion, ou si vous voulez juste nous envoyer un petit mot, c'est par ici !</p>
     </div>
 </header><!-- /.header -->
 
