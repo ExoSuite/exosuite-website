@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link href="/css/page.min.css" rel="stylesheet">
         <link href="/css/style.css" rel="stylesheet">
-        <link rel="icon" href="/img/favicon.png">
+        <link rel="icon" href="/img/logoSquare.png">
     </head>
 
     <body class="layout-centered bg-img" style="background-image: url(/img/bg/4.jpg);">
