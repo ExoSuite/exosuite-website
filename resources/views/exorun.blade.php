@@ -22,7 +22,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h1>Mais qu'est-ce qu'est ExoRun ?</h1>
+                <h1>Mais qu'est-ce qu'ExoRun ?</h1>
                 <p class="lead-2 opacity-90 mt-6">Après lecture de cette page, vous allez tout comprendre ! Promis !</p>
             </div>
         </div>

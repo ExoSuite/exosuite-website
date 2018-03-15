@@ -1,15 +1,30 @@
+sudo: required
+
 language: php
 
 php:
   - "7.2"
 
+env:
+  global:
+    - SITE_URL="http://exosuite.local"
+    - SITE_DOMAIN="exosuite.local"
+    - API_SITE_DOMAIN="api.exosuite.local"
+
 before_script:
+  - sudo cp ServerConfig/site-available/* /etc/nginx/sites-available/
+  - sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
+  - sudo ln -s /etc/nginx/sites-available/$API_SITE_DOMAIN /etc/nginx/sites-enabled/
+  - sudo rm -rf /etc/php/7.2/fpm/pool.d
+  - sudo cp -r ServerConfig/pool.d /etc/php/7.2/fpm/
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
   - composer install --no-interaction
   - php artisan key:generate
   - php artisan migrate
+  - sudo service php7.2-fpm restart
+  - sudo service nginx restart
 
 script:
   - vendor/bin/phpunit --testsuite API
@@ -17,9 +32,13 @@ script:
   - vendor/bin/phpunit --testsuite Feature
 
 addons:
+  hosts:
+    - exosuite.local
+    - api.exosuite.local
   apt:
     sources:
       - mysql-5.7-trusty
     packages:
       - mysql-server
       - mysql-client
+      - nginx
