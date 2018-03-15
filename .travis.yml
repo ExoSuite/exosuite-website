@@ -11,10 +11,13 @@ env:
     - SITE_DOMAIN="exosuite.local"
     - API_SITE_DOMAIN="api.exosuite.local"
 
-before_script:
+install:
   - sudo add-apt-repository ppa:ondrej/php -y
   - sudo apt-get update --no-install-recommends --force-yes
   - sudo apt-get install php7.2 php7.2-common php7.2-cli php7.2-fpm  --no-install-suggests --no-install-recommends --force-yes
+
+before_script:
+
   - sudo cp ServerConfig/sites-available/* /etc/nginx/sites-available/
   - sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
   - sudo ln -s /etc/nginx/sites-available/$API_SITE_DOMAIN /etc/nginx/sites-enabled/
