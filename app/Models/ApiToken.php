@@ -20,7 +20,6 @@ use Webpatser\Uuid\Uuid;
 class ApiToken extends Model
 {
     use ApiTokenType;
-    use Uuids;
     use Tokens;
 
     public $incrementing = false;

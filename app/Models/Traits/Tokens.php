@@ -14,6 +14,7 @@ trait Tokens
         parent::boot();
 
         static::creating(function (ApiToken $model) {
+            $model->{$model->getKeyName()} = (string)Uuid::generate(4);
             $model->{$model->token} = Str::random(60);
         });
     }
