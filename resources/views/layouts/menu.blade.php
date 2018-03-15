@@ -4,7 +4,7 @@
         <div class="navbar-left">
             <button class="navbar-toggler" type="button">☰</button>
             <a class="navbar-brand" href="/">
-                <img class="logo-menu" src="/img/logoSquare.png" alt="logo" style="margin-top: 5%">
+                <img class="logo-menu" src="/img/logoSquare.png" alt="logo" style="margin-top: 5%; width: 100%; height: auto;">
             </a>
         </div>
 
