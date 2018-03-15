@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Database\Eloquent\JsonEncodingException;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\User;
