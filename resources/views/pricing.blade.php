@@ -39,7 +39,7 @@
                 <div class="pricing-2">
                     <h2 class="price">0<span class="price-unit">€</span></h2>
                     <h6 class="plan-name">ExoRun</h6>
-                    <p class="plan-description">Une seule course disponible à la fois<br />Un seul fantôme chargé<br />Pas d'accès aux fantômes des champions</p>
+                    <p style="text-align: center" class="plan-description">Une seule course disponible à la fois<br />Un seul fantôme chargé<br />Pas d'accès aux fantômes des champions</p>
                     <br>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                 <div class="pricing-2">
                     <h2 class="price">0<span class="price-unit">€</span></h2>
                     <h6 class="plan-name">ExoFun</h6>
-                    <p class="plan-description">Pas de récompenses journalières<br />Partage communautaire restreint<br />Pas d'accès aux scores des champions</p>
+                    <p style="text-align: center" class="plan-description">Pas de récompenses journalières<br />Partage communautaire restreint<br />Pas d'accès aux scores des champions</p>
                     <br>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 <div class="pricing-2">
                     <h2 class="price">3,99<span class="price-unit">€/mois</span></h2>
                     <h6 class="plan-name">Abonnement premium</h6>
-                    <p class="plan-description">Entrainement Personnalisé<br />Vidéos d’échauffements (pré et post courses)<br />Entrainement proposé par des coachs professionnels
+                    <p style="text-align: center" class="plan-description">Entrainement Personnalisé<br />Vidéos d’échauffements (pré et post courses)<br />Entrainement proposé par des coachs professionnels
                     <br />Créations de parcours illimités<br />Fantômes illimités<br />Organisation évènements</p>
                     <br>
                 </div>

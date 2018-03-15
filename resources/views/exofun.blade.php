@@ -47,10 +47,10 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h5 style="text-align: center">Le sport ludique</h5>
-                    <p>ExoFun permet aux personnes peu enclines au sport de le pratiquer en s'amusant, à travers des mini-jeux. Grâce à la réalité augementée, l'utilisateur va pourra collecter des objets visibles sur l'interface de ses lunettes connectées, et ainsi courir tout en s'amusant.</p>
+                    <p style="text-align: justify">ExoFun permet aux personnes peu enclines au sport de le pratiquer en s'amusant, à travers des mini-jeux. Grâce à la réalité augementée, l'utilisateur va pourra collecter des objets visibles sur l'interface de ses lunettes connectées, et ainsi courir tout en s'amusant.</p>
 
                     <h5 style="margin-top: 10%; text-align: center">Un esprit communautaire</h5>
-                    <p>Des classements seront disponibles pour les mini-jeux afin de renforcer l'aspect communautaire. De surcroît, des évènements collectifs seront proposés à la communauté pour leur permettre de se rassembler et de pratiquer du sport en groupe.</p>
+                    <p style="text-align: justify">Des classements seront disponibles pour les mini-jeux afin de renforcer l'aspect communautaire. De surcroît, des évènements collectifs seront proposés à la communauté pour leur permettre de se rassembler et de pratiquer du sport en groupe.</p>
                 </div>
             </div>
 
