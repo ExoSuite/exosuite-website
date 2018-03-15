@@ -48,10 +48,10 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h5 style="text-align: center">La recherche de la performance</h5>
-                    <p>ExoRun permet aux coureurs confirmés et professionels de défier un ghost, représentant un rythme de course voulu, ou celui d'un membre de la communauté. Grâce à la réalité augementée, l'utilisateur verra cette entité se superposer à sa vue, et être en mesure de mieux se situer par rapport à son objectif.</p>
+                    <p style="text-align: justify">ExoRun permet aux coureurs confirmés et professionels de défier un ghost, représentant un rythme de course voulu, ou celui d'un membre de la communauté. Grâce à la réalité augementée, l'utilisateur verra cette entité se superposer à sa vue, et être en mesure de mieux se situer par rapport à son objectif.</p>
 
                     <h5 style="margin-top: 10%; text-align: center">Préparation aux évènements</h5>
-                    <p>A l'aube d'un évènement sportif majeur, rien de mieux pour un coureur que s'entraîner sur le parcours concerné en pouvant évaluer son niveau et se comparer aux performances qui l'intéressent.</p>
+                    <p style="text-align: justify">A l'aube d'un évènement sportif majeur, rien de mieux pour un coureur que s'entraîner sur le parcours concerné en pouvant évaluer son niveau et se comparer aux performances qui l'intéressent.</p>
                 </div>
             </div>
 

@@ -13,7 +13,7 @@
                 <a class="nav-link" href="/">Accueil</a>
                 <a class="nav-link" href="/contact">Contact</a>
                 <a class="nav-link" href="/exosuite">Notre projet</a>
-                <a class="nav-link" href="/princing">Tarifs</a>
+                <a class="nav-link" href="/pricing">Tarifs</a>
             </nav>
 
             <span class="navbar-divider"></span>

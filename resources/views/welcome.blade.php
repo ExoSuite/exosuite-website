@@ -25,7 +25,7 @@
                 <div class="col-md-5 mx-auto pb-7">
                     <img src="/img/logoExoSuite.png" alt="Logo ExoSuite"/>
                     <p class="lead-4">Le futur du sport</p>
-                    <p class="lead-2 fw-400 mb-7">Découvrez ExoSuite, la suite d'applications qui révolutionne le monde du sport !</p>
+                    <p style="text-align: justify" class="lead-2 fw-400 mb-7">Découvrez ExoSuite, la suite d'applications qui révolutionne le monde du sport !</p>
                     <a class="btn btn-xl btn-round btn-info" href="/exosuite" style="margin: 0 auto; display: block; margin-bottom: 2%">Commencez ici</a>
                     <a class="btn btn-xl btn-round btn-google" href="https://youtu.be/cwHGS7kPU2I" data-provide="lightbox" style="margin: 0 auto; display: block;">ExoSuite en vidéo</a>
                 </div>
