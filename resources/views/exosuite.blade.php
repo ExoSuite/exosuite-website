@@ -43,12 +43,7 @@
                 <div class="col-11 mx-auto col-md-5 mx-md-0">
                     <h2 class="text-light my-6">ExoSuite est une suite d'applications pour lunettes connectées.</h2>
 
-                    <ul class="list-unstyled">
-                        <li><span class="mr-1 text-success small-3"></span>✓ Une nouvelle ère du coaching sportif</li>
-                        <li><span class="mr-1 text-success small-3"></span>✓ Une expérience immersive</li>
-                        <li><span class="mr-1 text-success small-3"></span>✓ Une utilisation des technologies les plus récentes</li>
-                        <li><span class="mr-1 text-success small-3"></span>✓ Un esprit communautaire fort</li>
-                    </ul>
+                    <p style="text-align: justify">✓ Une nouvelle ère du coaching sportif<br>✓ Une expérience immersive<br>✓ Une utilisation des technologies les plus avancées<br>✓ Un esprit communautaire fort</p>
 
                 </div>
 
@@ -56,19 +51,18 @@
 
             <hr class="my-8">
 
-            <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h5 style="text-align: center">ExoSuite, une approche innovante du coaching sportif</h5>
 
-                    <p>Avec ExoSuite, la suite d'applications pour lunettes connectées, vous aurez la possibilité de courir contre des entités représentant les performances d'autres utilisateurs, que vous pourrez rencontrer lors d'évènements communautaires.</p>
-                    <p>Enfilez vos lunettes connectées et devenez acteur d'une révolution en matière de coaching sportif prônant un aspect communautaire amplifié, et obtenez un suivi personnalisé, quand et où vous voulez, afin d'améliorer vos performances ou pratiquer le sport de façon ludique.</p>
+                    <p style="text-align: justify">Avec ExoSuite, la suite d'applications pour lunettes connectées, vous aurez la possibilité de courir contre des entités représentant les performances d'autres utilisateurs, que vous pourrez rencontrer lors d'évènements communautaires.</p>
+                    <p style="text-align: justify">Enfilez vos lunettes connectées et devenez acteur d'une révolution en matière de coaching sportif prônant un aspect communautaire amplifié, et obtenez un suivi personnalisé, quand et où vous voulez, afin d'améliorer vos performances ou pratiquer le sport de façon ludique.</p>
 
                     <h5 style="margin-top: 10%; text-align: center">ExoRun</h5>
-                    <p>ExoRun est une application de running destinée aux coureurs réguliers et professionnels souhaitant améliorer leurs performances et observer leur évolution, tout en pouvant se préparer pour des évènements sportifs et se mesurer à d'autres membres de la communauté.</p>
+                    <p style="text-align: justify">ExoRun est une application de running destinée aux coureurs réguliers et professionnels souhaitant améliorer leurs performances et observer leur évolution, tout en pouvant se préparer pour des évènements sportifs et se mesurer à d'autres membres de la communauté.</p>
                     <button type="button" class="btn btn-outline-primary button-exosuite" onclick="location.href = '/exorun'">Découvrez ExoRun</button>
 
                     <h5 style="margin-top: 10%; text-align: center">ExoFun</h5>
-                    <p>ExoFun est une application de running destinée aux coureurs occasionnels, ou aux personnes désireuses de se remettre en forme. A travers un système très communautaire alliant mini-jeux ludiques et classements, ExoFun permet la pratique du sport en s'amusant.</p>
+                    <p style="text-align: justify">ExoFun est une application de running destinée aux coureurs occasionnels, ou aux personnes désireuses de se remettre en forme. A travers un système très communautaire alliant mini-jeux ludiques et classements, ExoFun permet la pratique du sport en s'amusant.</p>
                     <button type="button" class="btn btn-outline-info button-exosuite" onclick="location.href = '/exofun'">Découvrez ExoFun</button>
                 </div>
             </div>

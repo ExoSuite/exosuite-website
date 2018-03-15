@@ -8,7 +8,9 @@
 }
 
 .button-exosuite {
-    margin-bottom: 5%;
+    margin: auto;
+    text-align: center;
+    display: block;
 }
 
 .custom_size {
