@@ -12,7 +12,7 @@ env:
     - API_SITE_DOMAIN="api.exosuite.local"
 
 before_script:
-  - sudo cp ServerConfig/site-available/* /etc/nginx/sites-available/
+  - sudo cp ServerConfig/sites-available/* /etc/nginx/sites-available/
   - sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
   - sudo ln -s /etc/nginx/sites-available/$API_SITE_DOMAIN /etc/nginx/sites-enabled/
   - sudo rm -rf /etc/php/7.2/fpm/pool.d
