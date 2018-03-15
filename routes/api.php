@@ -26,7 +26,7 @@ $api->version('v1', function (Dingo\Api\Routing\Router $api) {
                 $api->get('/name/{name}', APINamespaceCreator::create('APIUserController@getUserByName'));
             });
             $api->group(['prefix' => 'oauth'], function (Dingo\Api\Routing\Router $api) {
-                $api->get('/authorize', APINamespaceCreator::create('APITokenController@authorize'));
+                $api->get('/authorize', APINamespaceCreator::create('APITokenController@authorizeToken'));
             });
         });
     });
