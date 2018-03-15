@@ -19,8 +19,8 @@
             <span class="navbar-divider"></span>
 
             <div>
-                <a class="btn btn-sm btn-round btn-primary ml-lg-4 mr-2" href="/signin">Se connecter</a>
-                <a class="btn btn-sm btn-round btn-outline-primary" href="/signup">Créer un compte</a>
+                <a class="btn btn-sm btn-round btn-primary ml-lg-4 mr-2" href="/login">Se connecter</a>
+                <a class="btn btn-sm btn-round btn-outline-primary" href="/register">Créer un compte</a>
             </div>
         </section>
 

@@ -1,47 +1,53 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <title>ExoSuite</title>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <!-- Styles -->
+    <link href="/css/page.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
+    <!-- Favicons -->
+    <link rel="icon" href="/img/logoSquare.png">
+</head>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+<body class="layout-centered bg-img" style="background-image: url(/img/bg/4.jpg);">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+<!-- Main Content -->
+<main class="main-content">
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <div class="bg-white rounded shadow-7 w-400 mw-100 p-6">
+        <h5 class="mb-6">Réinitialiser votre mot de passe</h5>
+
+        <form method="POST" action="{{ route('password.email') }}" class="input-line1">
+            @csrf
+            <div class="form-group">
+                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email or old('email') }}" required autofocus placeholder="Adresse mail">
+
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
             </div>
-        </div>
+
+            <button class="btn btn-lg btn-block btn-primary" type="submit">Réinitialiser</button>
+        </form>
+
     </div>
-</div>
-@endsection
+
+</main><!-- /.main-content -->
+
+
+<!-- Scripts -->
+<script src="/js/page.min.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
