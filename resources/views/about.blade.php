@@ -31,7 +31,7 @@
 </header>
 <main class="main-content">
 
-    <img src="/img/719292.jpg" />
+    <img src="/img/719292.jpg" alt="Photo d'illustration"/>
 
 
     <!--
