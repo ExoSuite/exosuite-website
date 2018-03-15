@@ -43,6 +43,4 @@ addons:
     packages:
       - mysql-server
       - mysql-client
-      - php7.2-fpm
-      - php7.2-mysql
       - nginx
