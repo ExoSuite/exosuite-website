@@ -31,7 +31,7 @@ trait ApiTokenType {
     /**
      * @var bool
      */
-    private static $bInitialized = false;
+    private static $Initialized = false;
 
 
     /**
@@ -41,14 +41,14 @@ trait ApiTokenType {
         ApiTokenType::$RefreshToken = RefreshToken::getInstance(RefreshToken::class);
         ApiTokenType::$AccessToken = AccessToken::getInstance(AccessToken::class);
         ApiTokenType::$Token = Token::getInstance(Token::class);
-        self::$bInitialized = true;
+        self::$Initialized = true;
     }
 
     /**
      * ApiTokenType constructor.
      */
     public function __construct() {
-        if (!self::$bInitialized) {
+        if (!self::$Initialized) {
             self::init();
         }
     }
