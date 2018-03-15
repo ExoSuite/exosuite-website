@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ExoSuite</title>
+    <title>ExoSuite - Se connecter</title>
 
     <!-- Fonts -->
     <link href="/css/page.min.css" rel="stylesheet">

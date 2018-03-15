@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>ExoSuite</title>
+    <title>ExoSuite - Réinitialiser mot de passe</title>
 
     <!-- Styles -->
     <link href="/css/page.min.css" rel="stylesheet">
