@@ -16,7 +16,7 @@
 
         <br>
 
-        <small>© ExoSuite 2018, All rights reserved.</small>
+        <small>© ExoSuite 2018, Tous droits réservés.</small>
 
     </div>
 </footer>
