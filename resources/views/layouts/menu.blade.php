@@ -10,10 +10,10 @@
 
         <section class="navbar-mobile">
             <nav class="nav nav-navbar ml-auto">
-                <a class="nav-link" href="/">Accueil</a>
-                <a class="nav-link" href="/contact">Contact</a>
-                <a class="nav-link" href="/exosuite">Notre projet</a>
-                <a class="nav-link" href="/pricing">Tarifs</a>
+                <a class="nav-link custom-link" href="/">Accueil</a>
+                <a class="nav-link custom-link" href="/contact">Contact</a>
+                <a class="nav-link custom-link" href="/exosuite">Notre projet</a>
+                <a class="nav-link custom-link" href="/pricing">Tarifs</a>
             </nav>
 
             <span class="navbar-divider"></span>
