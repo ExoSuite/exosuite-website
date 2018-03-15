@@ -16,7 +16,7 @@ use \App\Helpers\APINamespaceCreator;
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', function (Dingo\Api\Routing\Router $api) {
-    $api->group(['middleware' => 'client_app', 'prefix' => 'api'], function (Dingo\Api\Routing\Router $api) {
+    $api->group(['middleware' => 'client_app'], function (Dingo\Api\Routing\Router $api) {
         $api->group(['prefix' => 'users'], function (Dingo\Api\Routing\Router $api) {
             $api->post('/', APINamespaceCreator::create("APIUserController@create"));
             $api->get('/all', APINamespaceCreator::create('APIUserController@getAllUsers'));
