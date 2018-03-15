@@ -11,14 +11,12 @@ env:
     - SITE_DOMAIN="exosuite.local"
     - API_SITE_DOMAIN="api.exosuite.local"
 
-install:
+before_script:
   - sudo cp ServerConfig/site-available/* /etc/nginx/sites-available/
   - sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
   - sudo ln -s /etc/nginx/sites-available/$API_SITE_DOMAIN /etc/nginx/sites-enabled/
   - sudo rm -rf /etc/php/7.2/fpm/pool.d
   - sudo cp -r ServerConfig/pool.d /etc/php/7.2/fpm/
-
-before_script:
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
