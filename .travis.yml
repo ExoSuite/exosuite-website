@@ -17,6 +17,9 @@ script:
   - vendor/bin/phpunit --testsuite Feature
 
 addons:
+  hosts:
+    - exosuite.local
+    - api.exosuite.local
   apt:
     sources:
       - mysql-5.7-trusty
