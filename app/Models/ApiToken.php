@@ -19,10 +19,14 @@ use Webpatser\Uuid\Uuid;
  */
 class ApiToken extends Model
 {
-    use ApiTokenType;
     use Tokens;
 
     public $incrementing = false;
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+    }
 
     /**
      * @var array

@@ -12,7 +12,6 @@ use App\Models\TokenTypes\Token;
  */
 trait ApiTokenType {
 
-
     /**
      * @var RefreshToken
      */
@@ -29,27 +28,11 @@ trait ApiTokenType {
     public static $Token;
 
     /**
-     * @var bool
-     */
-    private static $Initialized = false;
-
-
-    /**
      *
      */
-    private static function init() {
-        ApiTokenType::$RefreshToken = RefreshToken::getInstance(RefreshToken::class);
-        ApiTokenType::$AccessToken = AccessToken::getInstance(AccessToken::class);
-        ApiTokenType::$Token = Token::getInstance(Token::class);
-        self::$Initialized = true;
-    }
-
-    /**
-     * ApiTokenType constructor.
-     */
-    public function __construct() {
-        if (!self::$Initialized) {
-            self::init();
-        }
+    public static function InitTokensTypes() {
+        self::$RefreshToken = RefreshToken::getInstance();
+        self::$AccessToken = AccessToken::getInstance();
+        self::$Token = Token::getInstance();
     }
 }

@@ -8,6 +8,7 @@ use Webpatser\Uuid\Uuid;
 
 trait Tokens
 {
+    use ApiTokenType;
 
     protected static function boot()
     {
