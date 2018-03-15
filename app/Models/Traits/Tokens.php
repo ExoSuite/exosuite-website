@@ -2,7 +2,9 @@
 
 namespace App\Models\Traits;
 
+use App\Models\ApiToken;
 use Illuminate\Support\Str;
+use Webpatser\Uuid\Uuid;
 
 trait Tokens
 {
@@ -11,8 +13,8 @@ trait Tokens
     {
         parent::boot();
 
-        static::creating(function ($model) {
+        static::creating(function (ApiToken $model) {
             $model->{$model->token} = Str::random(60);
         });
-        }
+    }
 }
