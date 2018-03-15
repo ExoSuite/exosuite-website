@@ -64,7 +64,7 @@
 </main>
 
 <!-- Scripts -->
-<script src="/js/page.min.js"></script>
+<script src="/js/page.js"></script>
 <script src="/js/script.js"></script>
 </body>
 </html>
