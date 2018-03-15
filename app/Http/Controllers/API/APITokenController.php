@@ -16,4 +16,8 @@ class APITokenController extends APIBaseController
     public function authorize() {
         return ApiToken::$RefreshToken->expirationTime;
     }
+
+    public function getToken() {
+        return ApiToken::$Token->expirationTime;
+    }
 }
