@@ -37,7 +37,7 @@
             <div class="row" style="font-size: 28px">
 
                 <div class="col-md-6 ml-auto order-md-last mb-7 mb-md-0">
-                    <img src="/img/preview/proto.jpg" />
+                    <img src="/img/proto.jpg" alt="Illustration lunettes connectées"/>
                 </div>
 
                 <div class="col-11 mx-auto col-md-5 mx-md-0">
@@ -66,8 +66,6 @@
                     <button type="button" class="btn btn-outline-info button-exosuite" onclick="location.href = '/exofun'">Découvrez ExoFun</button>
                 </div>
             </div>
-
-        </div>
     </section>
 </main>
 

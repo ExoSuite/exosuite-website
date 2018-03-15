@@ -37,7 +37,7 @@
             <div class="row">
 
                 <div style="margin: auto" class="col-md-6 ml-auto order-md-last mb-7 mb-md-0">
-                    <img src="/img/exorun.png" />
+                    <img src="/img/exorun.png" alt="Illustration montrant ExoRun"/>
                 </div>
 
 

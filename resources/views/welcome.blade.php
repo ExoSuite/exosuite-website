@@ -23,7 +23,7 @@
             <div class="row align-items-center h-100">
 
                 <div class="col-md-5 mx-auto pb-7">
-                    <img src="/img/logoExoSuite.png" />
+                    <img src="/img/logoExoSuite.png" alt="Logo ExoSuite"/>
                     <p class="lead-4">Le futur du sport</p>
                     <p class="lead-2 fw-400 mb-7">Découvrez ExoSuite, la suite d'applications qui révolutionne le monde du sport !</p>
                     <a class="btn btn-xl btn-round btn-info" href="/exosuite" style="margin: 0 auto; display: block; margin-bottom: 2%">Commencez ici</a>

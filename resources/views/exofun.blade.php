@@ -37,7 +37,7 @@
             <div class="row">
 
                 <div class="col-md-6 ml-auto order-md-last mb-7 mb-md-0">
-                    <img src="/img/exofun.png" />
+                    <img src="/img/exofun.png" alt="Illustration montrant ExoFun"/>
                 </div>
 
             </div>
