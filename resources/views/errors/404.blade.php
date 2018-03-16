@@ -11,7 +11,7 @@
     <link href="/css/page.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/logoSquare.png">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
