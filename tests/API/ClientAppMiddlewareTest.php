@@ -3,11 +3,13 @@
 namespace Tests\API;
 
 use App\Helpers\APIClientAppHelper;
-use Tests\TestCase;
+use GuzzleHttp\Exception\GuzzleException;
+use Tests\APITestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Request;
 
-class ClientAppMiddlewareTest extends TestCase
+class ClientAppMiddlewareTest extends APITestCase
 {
     /**
      * A basic test example.
@@ -20,16 +22,20 @@ class ClientAppMiddlewareTest extends TestCase
         return 'http://'.env('API_DOMAIN').'/'.$uri;
     }
 
-    public function assertUnauthorizedCallToApi()
+    public function testAssertUnauthorizedCallToApi()
     {
-        $response = $this->call('GET', $this->httpAPIUri('api/users/all'));
+        $response = $this->call('POST', $this->httpAPIUri('api/authenticate/register'));
         $response->assertStatus(401);
     }
 
-    public function assertAuthorizedCallToApi()
+    public function testAssertAuthorizedCallToApiIncompleteRequest()
     {
-
-        $response = $this->call('GET', $this->httpAPIUri('api/users/all'), [], [], [], ['client-web', APIClientAppHelper::getClienWebAppToken()]);
-        $response->assertStatus(200);
+        $request = new Request();
+        try {
+            $this->APICall($request, 'POST', 'api/authenticate/register', $request->all());
+            $this->assertStatus(400, $this->response->getStatusCode());
+        } catch (GuzzleException $e) {
+            $this->assertStatus(400, $e->getCode());
+        }
     }
 }

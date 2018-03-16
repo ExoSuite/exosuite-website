@@ -2,26 +2,21 @@
 
 namespace App\Http\Controllers\WebSite\Auth;
 
-use App\Helpers\APIClientAppHelper;
-use App\Models\User;
-use GuzzleHttp\Psr7\Request as APIRequest;
 use App\Http\Controllers\WebSite\Controller;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
 
 class RegisterController extends Controller
 {
-    private function ApiUri(Request $request, string $apiUri)
-    {
-        return APIClientAppHelper::getHttp($request) . APIClientAppHelper::getApiUri() . '/' . $apiUri;
-    }
+
     public function register(Request $request)
     {
-        $client = new Client(['headers' => ['client-web' => APIClientAppHelper::getClientWebAppToken()]]);
-        $response = $client->request('POST', $this->ApiUri($request, 'api/authenticate/register'), [
-           'form_params' => $request->all()
-        ]);
-        return $response->getStatusCode();
+        try {
+            $this->APICall($request, 'POST', 'api/authenticate/register', $request->all());
+        } catch (GuzzleException $e) {
+            return $e->getCode();
+        }
+        return $this->response->getStatusCode();
     }
 
     public function registerView()
