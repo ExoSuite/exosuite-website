@@ -25,11 +25,11 @@ abstract class APITestCase extends BaseTestCase
      */
     protected function assertStatus(int $expectedStatus, int $status)
     {
-        $actual = $expectedStatus;
+        $actual = $status;
 
         PHPUnit::assertTrue(
-            $actual === $status,
-            "Expected status code {$status} but received {$actual}."
+            $actual === $expectedStatus,
+            "Expected status code {$expectedStatus} but received {$actual}."
         );
 
         return $this;
