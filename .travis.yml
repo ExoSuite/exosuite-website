@@ -14,7 +14,7 @@ before_script:
   - sudo cat /etc/nginx/sites-enabled/exosuite.conf
   - sudo cat /etc/nginx/sites-enabled/api.exosuite.conf
   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - sudo ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   - sudo service nginx restart
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
