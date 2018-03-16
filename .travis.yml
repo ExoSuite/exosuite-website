@@ -19,7 +19,6 @@ before_script:
   - sudo rm  ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/*
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   - sudo cp  ServerConfig/pool.d/* ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/
-  - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - sudo ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
