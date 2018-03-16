@@ -11,33 +11,21 @@ env:
     - SITE_DOMAIN="exosuite.local"
     - API_SITE_DOMAIN="api.exosuite.local"
 
+install:
+  - sudo add-apt-repository ppa:ondrej/php -y
+  - sudo apt-get update --no-install-recommends --force-yes
+  - sudo apt-get install php7.2 php7.2-common php7.2-cli php7.2-fpm  --no-install-suggests --no-install-recommends --force-yes
+
 before_script:
+
   - sudo cp ServerConfig/sites-available/* /etc/nginx/sites-available/
   - sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
   - sudo ln -s /etc/nginx/sites-available/$API_SITE_DOMAIN /etc/nginx/sites-enabled/
-  - sudo rm /etc/nginx/sites-enabled/default
-  - sudo rm  ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/*
-  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - sudo cp  ServerConfig/pool.d/* ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/
-  - sudo echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - sudo sed -e "s,/mnt/hgfs/ExoSuiteAPI/public,$(pwd)/public,g" --in-place /etc/nginx/sites-available/$API_SITE_DOMAIN
+  - sudo sed -e "s,/mnt/hgfs/ExoSuiteAPI/public,$(pwd)/public,g" --in-place /etc/nginx/sites-available/$SITE_DOMAIN
 
-  - sudo sed -e 's,listen.owner = www-data,listen.owner = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
-  - sudo sed -e 's,listen.owner = www-data,listen.owner = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-  - sudo sed -e 's,listen.group = www-data,listen.group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
-  - sudo sed -e 's,listen.group = www-data,listen.group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-
-  - sudo sed -e 's,user = www-data,user = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
-  - sudo sed -e 's,user = www-data,user = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-  - sudo sed -e 's,group = www-data,group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
-  - sudo sed -e 's,group = www-data,group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-
-  - sudo sed -e 's,/run/php/php7.2-fpm.sock,/tmp/php7.2-fpm.sock,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
-  - sudo sed -e 's,/run/php/php7.2-fpm-api.sock,/tmp/php7.2-fpm-api.sock,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-
-  - sudo sed -e 's,fastcgi_pass unix:/var/run/php/php7.2-fpm-api.sock;,fastcgi_pass unix:/tmp/php7.2-fpm-api.sock;,g' --in-place /etc/nginx/sites-enabled/$API_SITE_DOMAIN
-  - sudo sed -e 's,fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;,fastcgi_pass unix:/tmp/php7.2-fpm.sock;,g' --in-place /etc/nginx/sites-enabled/$SITE_DOMAIN
-
-  - sudo ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+  - sudo rm -rf /etc/php/7.2/fpm/pool.d
+  - sudo cp -r ServerConfig/pool.d /etc/php/7.2/fpm/
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
@@ -62,4 +50,4 @@ addons:
     packages:
       - mysql-server
       - mysql-client
-      - nginx
+- nginx
