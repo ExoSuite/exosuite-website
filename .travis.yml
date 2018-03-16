@@ -17,7 +17,7 @@ before_script:
   - sudo ln -s /etc/nginx/sites-available/$API_SITE_DOMAIN /etc/nginx/sites-enabled/
   - sudo rm /etc/nginx/sites-enabled/default
   - sudo ls /etc/nginx/sites-enabled/
-  - sudo ls ~/.phpenv/versions/$(phpenv version-name)
+  - sudo ls ~/.phpenv/versions/7.2
 
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   - sudo rm -r ~/.phpenv/versions/$(phpenv version-name)/etc/pool.d
