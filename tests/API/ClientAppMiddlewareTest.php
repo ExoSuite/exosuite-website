@@ -8,6 +8,10 @@ use Tests\APITestCase;
 
 class ClientAppMiddlewareTest extends APITestCase
 {
+    public function testGenerateApiURI() {
+        $this->assertTrue('http://api.exosuite.local/api/authenticate/register' === $this->httpAPIUri('api/authenticate/register'));
+    }
+
     public function testAssertUnauthorizedCallToApi()
     {
         $response = $this->call('POST', $this->httpAPIUri('api/authenticate/register'));
@@ -17,8 +21,6 @@ class ClientAppMiddlewareTest extends APITestCase
     public function testAssertAuthorizedCallToApiIncompleteRequest()
     {
         $request = new Request();
-        throw new \Exception($this->httpAPIUri('api/authenticate/register'));
-        $this->assertTrue('http://api.exosuite.local/api/authenticate/register' === $this->httpAPIUri('api/authenticate/register'));
         try {
             $this->APICall($request, 'POST', 'api/authenticate/register', $request->all(), [], $this->createAPIDomainCallBack());
             $this->assertStatus(400, $this->response->getStatusCode());
