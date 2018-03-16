@@ -17,11 +17,11 @@ install:
   - sudo apt-get install php7.2 php7.2-mbstring php7.2-xml php7.2-json php7.2-common php7.2-cli php7.2-fpm  --no-install-suggests --no-install-recommends --force-yes
 
 before_script:
-  - sudo sed -e "s,/mnt/hgfs/ExoSuiteAPI/public,$(pwd)/public,g" --in-place ServerConfig/sites-available/$API_SITE_DOMAIN
-  - sudo sed -e "s,/mnt/hgfs/ExoSuiteAPI/public,$(pwd)/public,g" --in-place ServerConfig/sites-available/$SITE_DOMAIN
+  - sudo sed -e "s,/mnt/hgfs/ExoSuiteAPI/public,$(pwd)/public,g" --in-place ServerConfig/sites-available/api.exosuite.conf
+  - sudo sed -e "s,/mnt/hgfs/ExoSuiteAPI/public,$(pwd)/public,g" --in-place ServerConfig/sites-available/exosuite.conf
   - sudo cp ServerConfig/sites-available/* /etc/nginx/sites-available/
-  - sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
-  - sudo ln -s /etc/nginx/sites-available/$API_SITE_DOMAIN /etc/nginx/sites-enabled/
+  - sudo ln -s /etc/nginx/sites-available/api.exosuite.conf /etc/nginx/sites-enabled/
+  - sudo ln -s /etc/nginx/sites-available/exosuite.conf /etc/nginx/sites-enabled/
   - sudo rm -rf /etc/php/7.2/fpm/pool.d
   - sudo cp -r ServerConfig/pool.d /etc/php/7.2/fpm/
   - cp .env.travis .env
