@@ -20,14 +20,14 @@ before_script:
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   - sudo cp  ServerConfig/pool.d/* ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/
   - sudo echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - sudo sed -e 's,listen.owner = www-data,listen.owner = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
-  - sudo sed -e 's,listen.owner = www-data,listen.owner = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-  - sudo sed -e 's,listen.group = www-data,listen.group = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
-  - sudo sed -e 's,listen.group = www-data,listen.group = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-  - sudo sed -e 's,owner = www-data,owner = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
-  - sudo sed -e 's,owner = www-data,owner = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-  - sudo sed -e 's,group = www-data,group = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
-  - sudo sed -e 's,group = www-data,group = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
+  - sudo sed -e 's,listen.owner = www-data,listen.owner = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
+  - sudo sed -e 's,listen.owner = www-data,listen.owner = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
+  - sudo sed -e 's,listen.group = www-data,listen.group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
+  - sudo sed -e 's,listen.group = www-data,listen.group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
+  - sudo sed -e 's,user = www-data,user = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
+  - sudo sed -e 's,user = www-data,user = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
+  - sudo sed -e 's,group = www-data,group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
+  - sudo sed -e 's,group = www-data,group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
   - sudo cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   - cp .env.travis .env
