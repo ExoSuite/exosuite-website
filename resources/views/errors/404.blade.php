@@ -20,9 +20,17 @@
 <main class="main-content text-center pb-lg-8">
     <div class="container">
 
-        <img src="/img/error/SpiffyCloseFlee-max-1mb.gif" />
-        <h1 class="display-1 text-muted mb-7">Ah !</h1>
-        <p class="lead">Cette page n'existe pas</p>
+        @if(rand(0, 2) == 0)
+            <img src="/img/error/SpiffyCloseFlee-max-1mb.gif" />
+            <h1 class="display-1 text-muted mb-7">Ah !</h1>
+        @elseif(rand(0, 2) == 1)
+            <img src="/img/error/p4sxib.gif" />
+            <h1 class="display-1 text-muted mb-7">Okay !</h1>
+        @else
+            <img src="/img/error/BountifulResponsibleArgali-size_restricted.gif" />
+            <h1 class="display-1 text-muted mb-7">WAOUH !</h1>
+        @endif
+        <p class="lead">Erreur 404 : Cette page n'existe pas</p>
         <br>
         <button class="btn btn-secondary w-150 mr-2" type="button" onclick="window.history.back();">Retour</button>
         <a class="btn btn-secondary w-150" href="/">Accueil</a>
