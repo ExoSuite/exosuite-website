@@ -13,5 +13,6 @@ class ApiController extends Controller
         $client = new Client(['base_uri' => 'https://httpbin.org']);
         $response = $client->request('GET', 'anything');
         return(APIClientAppHelper::getHttp($request));
+
     }
 }
