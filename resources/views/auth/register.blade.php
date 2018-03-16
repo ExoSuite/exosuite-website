@@ -47,7 +47,7 @@
             </div>
 
             <div class="form-group">
-                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Mot de passe">
+                <input id="name" type="password" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Mot de passe">
 
                 @if ($errors->has('name'))
                     <span class="invalid-feedback">
