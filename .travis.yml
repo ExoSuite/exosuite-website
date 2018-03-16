@@ -48,4 +48,4 @@ addons:
     packages:
       - mysql-server
       - mysql-client
-- nginx
+      - nginx
