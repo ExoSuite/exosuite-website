@@ -14,6 +14,16 @@
     <link rel="icon" href="/img/logoSquare.png">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115859959-1');
+    </script>
+
 
 </head>
 <body>
@@ -36,7 +46,7 @@
 
             <div class="row">
 
-                <div class="col-md-6 ml-auto order-md-last mb-7 mb-md-0">
+                <div style="margin: auto" class="col-md-6 ml-auto order-md-last mb-7 mb-md-0">
                     <img src="/img/exofun.png" alt="Illustration montrant ExoFun"/>
                 </div>
 

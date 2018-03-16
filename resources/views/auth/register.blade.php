@@ -12,6 +12,16 @@
     <link href="/css/style.css" rel="stylesheet">
     <link rel="icon" href="/img/logoSquare.png">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115859959-1');
+    </script>
+
 </head>
 
 <body class="layout-centered bg-img" style="background-image: url(/img/bg/4.jpg);">
@@ -37,7 +47,7 @@
             </div>
 
             <div class="form-group">
-                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Mot de passe">
+                <input id="name" type="password" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Mot de passe">
 
                 @if ($errors->has('name'))
                     <span class="invalid-feedback">

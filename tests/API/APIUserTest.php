@@ -15,6 +15,6 @@ class APIUserTest extends TestCase
      */
     public function testExample()
     {
-
+        $this->assertTrue(true);
     }
 }

@@ -11,24 +11,42 @@
     <link href="/css/page.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/logoSquare.png">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115859959-1');
+    </script>
 
 </head>
 <body class="layout-centered bg-gray">
 <main class="main-content text-center pb-lg-8">
     <div class="container">
 
-        @if(rand(0, 2) == 0)
+        @if(rand(0, 5) == 0)
             <img src="/img/error/SpiffyCloseFlee-max-1mb.gif" />
             <h1 class="display-1 text-muted mb-7">Ah !</h1>
-        @elseif(rand(0, 2) == 1)
+        @elseif(rand(0, 5) == 1)
             <img src="/img/error/p4sxib.gif" />
             <h1 class="display-1 text-muted mb-7">Okay !</h1>
-        @else
+        @elseif(rand(0, 5) == 2)
             <img src="/img/error/BountifulResponsibleArgali-size_restricted.gif" />
             <h1 class="display-1 text-muted mb-7">WAOUH !</h1>
+        @elseif(rand(0, 5) == 3)
+            <img src="/img/error/projet.gif" />
+            <h1 class="display-1 text-muted mb-7">Parce que c'est notre PROJEEEEEET (oups...)</h1>
+        @elseif(rand(0, 5) == 4)
+            <img src="\img\error\4RZEL9m.gif" />
+            <h1 class="display-1 text-muted mb-7">Tu peux pas y acceder s'il n'existe pas</h1>
+        @else
+            <img src="\img\error\bruh.gif" />
+            <h1 class="display-1 text-muted mb-7">BRUH</h1>
         @endif
         <p class="lead">Erreur 404 : Cette page n'existe pas</p>
         <br>
