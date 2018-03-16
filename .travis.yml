@@ -34,8 +34,8 @@ before_script:
   - sudo sed -e 's,/run/php/php7.2-fpm.sock,/tmp/php7.2-fpm.sock,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo sed -e 's,/run/php/php7.2-fpm-api.sock,/tmp/php7.2-fpm-api.sock,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
 
-  - sudo sed -e 's,fastcgi_pass unix:/var/run/php/php7.2-fpm-api.sock;,fastcgi_pass unix:/tmp/php7.2-fpm-api.sock;,g' --in-place /etc/nginx/sites-available/$API_SITE_DOMAIN
-  - sudo sed -e 's,fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;,fastcgi_pass unix:/tmp/php7.2-fpm.sock;,g' --in-place /etc/nginx/sites-available/SITE_DOMAIN
+  - sudo sed -e 's,fastcgi_pass unix:/var/run/php/php7.2-fpm-api.sock;,fastcgi_pass unix:/tmp/php7.2-fpm-api.sock;,g' --in-place /etc/nginx/sites-enabled/$API_SITE_DOMAIN
+  - sudo sed -e 's,fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;,fastcgi_pass unix:/tmp/php7.2-fpm.sock;,g' --in-place /etc/nginx/sites-enabled/$SITE_DOMAIN
 
   - sudo ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   - cp .env.travis .env
