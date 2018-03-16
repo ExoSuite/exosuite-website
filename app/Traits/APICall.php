@@ -17,12 +17,12 @@ trait APICall
 
     /**
      * @param Request $request
-     * @param string $apiUri
+     * @param string $APIUri
      * @return string
      */
-    private function ApiUri(Request $request, string $apiUri)
+    private static function ApiUri(Request $request, string $APIUri)
     {
-        return APIClientAppHelper::getHttp($request) . APIClientAppHelper::getApiUri() . '/' . $apiUri;
+        return APIClientAppHelper::getHttp($request) . APIClientAppHelper::getApiUri() . '/' . $APIUri;
     }
 
     /**
@@ -31,14 +31,19 @@ trait APICall
      * @param string $APIUri
      * @param array $body
      * @param array $headers
+     * @param string $urlCreator
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    protected function APICall(Request $request, string $method, string $APIUri, array $body, array $headers = [])
+    protected function APICall(Request $request, string $method, string $APIUri,
+                               array $body, array $headers = [], $urlCreator = null)
     {
         $client = new Client(['headers' => ['client-web' => APIClientAppHelper::getClientWebAppToken(), $headers]]);
-        $this->response =
-            $client->request($method, $this->ApiUri($request, $APIUri),
-                ['form_params' => $body]
-            );
+
+        if ($urlCreator === null)
+            $APIUri = $this->ApiUri($request, $APIUri);
+        else
+            $APIUri = call_user_func($urlCreator, $APIUri);
+
+        $this->response = $client->request($method, $APIUri, ['form_params' => $body]);
     }
 }
