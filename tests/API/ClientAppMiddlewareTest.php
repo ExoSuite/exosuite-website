@@ -20,9 +20,8 @@ class ClientAppMiddlewareTest extends APITestCase
 
     public function testAssertAuthorizedCallToApiIncompleteRequest()
     {
-        $request = new Request();
         try {
-            $this->APICall($request, 'POST', 'api/authenticate/register', $request->all(), [], $this->createAPIDomainCallBack());
+            $this->APICall(new Request(), 'POST', 'api/authenticate/register', [], [], $this->createAPIDomainCallBack());
             $this->assertStatus(400, $this->response->getStatusCode());
         } catch (GuzzleException $e) {
             $this->assertStatus(400, $e->getCode());
