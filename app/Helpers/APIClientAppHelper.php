@@ -24,4 +24,9 @@ class APIClientAppHelper
         else
             return 'http://';
     }
+
+    public static function getApiUri()
+    {
+        return (env("API_DOMAIN"));
+    }
 }

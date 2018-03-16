@@ -44,9 +44,14 @@ Route::get('about', function () {
    return view('about');
 });
 
-Route::get('test', 'ApiController@requestApi');
-
 Route::post('survey', 'SurveyController@postSurvey');
 
-Auth::routes();
+Route::group(["prefix" => "register"], function() {
+   Route::get('/', "Auth\RegisterController@registerView")->name('register');
+   Route::post('/', 'Auth\RegisterController@register')->name('registerAPI');
+});
 
+Route::group(["prefix" => "login"], function() {
+    Route::get('/', function () {})->name('login');
+    //Route::post('/');
+});

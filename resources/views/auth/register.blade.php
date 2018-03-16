@@ -31,29 +31,32 @@
     <div class="bg-white rounded shadow-7 w-400 mw-100 p-6">
         <h5 class="mb-7">Créez un compte !</h5>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('registerAPI') }}">
+            @csrf
             <div class="form-group">
-                <input type="text" class="form-control" name="name" placeholder="Votre nom">
+                <input type="text" class="form-control" name="first_name" placeholder="Votre prénom" required autofocus value="{{ old('first_name') }}">
             </div>
 
             <div class="form-group">
-                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="Votre adresse Mail">
+                <input type="text" class="form-control" name="last_name" placeholder="Votre nom" required value="{{ old('last_name') }}">
+            </div>
 
-                @if ($errors->has('email'))
+            <div class="form-group">
+                <input type="text" class="form-control" name="nickname" placeholder="Nom d'utilisateur (optionnel)" value="{{ old('nickname') }}">
+            </div>
+
+            <div class="form-group">
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="Votre adresse Mail">
+
+                {{--@if ($errors->has('email'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
-                @endif
+                @endif--}}
             </div>
 
             <div class="form-group">
-                <input id="name" type="password" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Mot de passe">
-
-                @if ($errors->has('name'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                @endif
+                <input id="name" type="password" class="form-control" name="password" required placeholder="Mot de passe">
             </div>
 
             <div class="form-group">

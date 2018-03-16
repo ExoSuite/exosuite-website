@@ -2,76 +2,30 @@
 
 namespace App\Http\Controllers\WebSite\Auth;
 
+use App\Helpers\APIClientAppHelper;
 use App\Models\User;
+use GuzzleHttp\Psr7\Request as APIRequest;
 use App\Http\Controllers\WebSite\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    private function ApiUri(Request $request, string $apiUri)
     {
-        $this->middleware('guest');
+        return APIClientAppHelper::getHttp($request) . APIClientAppHelper::getApiUri() . '/' . $apiUri;
+    }
+    public function register(Request $request)
+    {
+        $client = new Client(['headers' => ['client-web' => APIClientAppHelper::getClientWebAppToken()]]);
+        $response = $client->request('POST', $this->ApiUri($request, 'api/authenticate/register'), [
+           'form_params' => $request->all()
+        ]);
+        return $response->getStatusCode();
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function registerView()
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
-    protected function create(array $data)
-    {
-        //TODO: replace with call to api
-        return User::create([
-            'first_name' => "hello",
-            'last_name' => "toto",
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-
-
-
+        return view("auth.register");
     }
 }
