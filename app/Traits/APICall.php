@@ -2,10 +2,10 @@
 
 namespace App\Traits;
 
-use GuzzleHttp\Client;
-use Psr\Http\Message\ResponseInterface;
-use Illuminate\Http\Request;
 use App\Helpers\APIClientAppHelper;
+use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+use Psr\Http\Message\ResponseInterface;
 
 
 trait APICall
@@ -33,7 +33,8 @@ trait APICall
      * @param array $headers
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    protected function APICall(Request $request, string $method, string $APIUri, array $body, array $headers = []) {
+    protected function APICall(Request $request, string $method, string $APIUri, array $body, array $headers = [])
+    {
         $client = new Client(['headers' => ['client-web' => APIClientAppHelper::getClientWebAppToken(), $headers]]);
         $this->response =
             $client->request($method, $this->ApiUri($request, $APIUri),

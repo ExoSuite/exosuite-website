@@ -9,7 +9,8 @@ use App\Models\TokenTypes\RefreshToken;
  * Trait ApiTokenType
  * @package App\Models\Traits
  */
-trait ApiTokenType {
+trait ApiTokenType
+{
 
     /**
      * @var RefreshToken
@@ -24,7 +25,8 @@ trait ApiTokenType {
     /**
      *
      */
-    public static function InitTokensTypes() {
+    public static function InitTokensTypes()
+    {
         self::$RefreshToken = RefreshToken::getInstance();
         self::$AccessToken = AccessToken::getInstance();
     }

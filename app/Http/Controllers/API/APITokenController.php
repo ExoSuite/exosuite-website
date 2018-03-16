@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\ApiToken;
+use App\Models\User;
 use App\Rules\APITokenRule;
 use Illuminate\Http\Request;
 use Validator;
-use App\Models\User;
 
 class APITokenController extends APIBaseController
 {
@@ -16,21 +16,24 @@ class APITokenController extends APIBaseController
         ApiToken::InitTokensTypes();
     }
 
-    private function createUserRefreshToken(string $user_id) {
+    private function createUserRefreshToken(string $user_id)
+    {
         return ApiToken::create([
             'token_type' => ApiToken::$RefreshToken->type,
             'user_id' => $user_id
         ]);
     }
 
-    private function createUserAccessToken(string $user_id) {
+    private function createUserAccessToken(string $user_id)
+    {
         return ApiToken::create([
             'token_type' => ApiToken::$AccessToken->type,
             'user_id' => $user_id
         ]);
     }
 
-    public function grantUserRefreshToken(Request $request) {
+    public function grantUserRefreshToken(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|uuid|exists:users'
         ]);
@@ -41,8 +44,7 @@ class APITokenController extends APIBaseController
 
         $user_id = $request->get('user_id');
         $refresh_token = ApiToken::where('token_type', ApiToken::$RefreshToken->type)->where('user_id', $user_id);
-        if ($refresh_token->exists())
-        {
+        if ($refresh_token->exists()) {
             $refresh_token->delete();
             ApiToken::where('token_type', ApiToken::$AccessToken->type)->where('user_id', $user_id)->delete();
         }
@@ -56,7 +58,8 @@ class APITokenController extends APIBaseController
         ];
     }
 
-    public function grantUserAccessToken(Request $request) {
+    public function grantUserAccessToken(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'user_id' => 'bail|required|uuid|exists:users',
             'refresh_token' => ['required', new APITokenRule($request->get('user_id'), ApiToken::$RefreshToken->type)]

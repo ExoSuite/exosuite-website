@@ -34,4 +34,9 @@ abstract class APITestCase extends BaseTestCase
 
         return $this;
     }
+
+    protected function httpAPIUri(string $uri): string
+    {
+        return "http://" . env('API_DOMAIN') . "/{$uri}";
+    }
 }

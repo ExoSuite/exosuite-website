@@ -2,10 +2,10 @@
 
 namespace App\Rules;
 
-use Illuminate\Contracts\Validation\Rule;
-use App\Models\ApiToken;
 use App\Models\AClasses\AbstractApiToken;
+use App\Models\ApiToken;
 use App\Models\User;
+use Illuminate\Contracts\Validation\Rule;
 
 class APITokenRule implements Rule
 {
@@ -27,16 +27,15 @@ class APITokenRule implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param  string $attribute
+     * @param  mixed $value
      * @return bool
      */
     public function passes($attribute, $value)
     {
         $token = ApiToken::where('token_type', $this->token_type)->where('user_id', $this->user_id);
 
-        if ($this->token_type === ApiToken::$RefreshToken->type)
-        {
+        if ($this->token_type === ApiToken::$RefreshToken->type) {
             return strlen($value) == AbstractApiToken::$length && $token->exists()
                 && $value === $token->first()->token && User::find($this->user_id)->refresh_token === $value;
         }

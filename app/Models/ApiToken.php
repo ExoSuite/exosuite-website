@@ -26,7 +26,7 @@ class ApiToken extends Model
      * @var array
      */
     protected $fillable = [
-      'token_type', 'token', 'user_id'
+        'token_type', 'token', 'user_id'
     ];
 
     protected $hidden = [

@@ -13,15 +13,16 @@ use Illuminate\Http\Request;
 class APIClientAppHelper
 {
 
-    public static function getClientWebAppToken() {
+    public static function getClientWebAppToken()
+    {
         return env('CLIENT_WEB_APP');
     }
 
-    public static function getHttp(Request $request) {
+    public static function getHttp(Request $request)
+    {
         if ($request->secure()) {
             return 'https://';
-        }
-        else
+        } else
             return 'http://';
     }
 

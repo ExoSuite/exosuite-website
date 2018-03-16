@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property Uuid client_uuid
  * @property string client_name
  */
-
 class ClientApp extends Model
 {
     /**

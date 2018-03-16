@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Helpers\APIClientAppHelper;
-use Illuminate\Http\Request;
-use Validator;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Validator;
 
 class APIUserController extends APIBaseController
 {
@@ -30,19 +29,23 @@ class APIUserController extends APIBaseController
         return $this->response->created();
     }
 
-    public function getAllUsers() {
-        return  User::all();
+    public function getAllUsers()
+    {
+        return User::all();
     }
 
-    public function getUserByUuid($uuid) {
+    public function getUserByUuid($uuid)
+    {
         return User::find($uuid);
     }
 
-    public function getUserByEmail($email) {
+    public function getUserByEmail($email)
+    {
         return User::where('email', $email)->first();
     }
 
-    public function getUserByName($name) {
-        return User::where('first_name', 'like', $name.'%')->orWhere('last_name', 'like', $name.'%')->get();
+    public function getUserByName($name)
+    {
+        return User::where('first_name', 'like', $name . '%')->orWhere('last_name', 'like', $name . '%')->get();
     }
 }

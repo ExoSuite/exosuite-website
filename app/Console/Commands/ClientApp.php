@@ -44,8 +44,7 @@ class ClientApp extends Command
         $client_uuid = (string)Uuid::generate(4);
         if (ClientAppModel::where('client_name', $app_name)->exists()) {
             ClientAppModel::where('client_name', $app_name)->update(['client_uuid' => $client_uuid]);
-        }
-        else {
+        } else {
             ClientAppModel::create(['client_name' => $app_name, 'client_uuid' => $client_uuid]);
         }
 

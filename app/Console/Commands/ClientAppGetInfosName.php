@@ -42,9 +42,8 @@ class ClientAppGetInfosName extends Command
         if ($client->exists()) {
             $client_app = $client->first();
             $this->info("the client's uuid is " . $client_app->client_uuid . " and his name " . $client_app->client_name . ".");
-        }
-        else
-            $this->error("This name \"".$this->argument('name')."\" doesn't match in database.");
+        } else
+            $this->error("This name \"" . $this->argument('name') . "\" doesn't match in database.");
 
     }
 }

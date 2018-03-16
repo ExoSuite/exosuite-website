@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Models\Traits\Uuids;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Webpatser\Uuid\Uuid;
 
 /**

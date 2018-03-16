@@ -2,26 +2,12 @@
 
 namespace Tests\API;
 
-use App\Helpers\APIClientAppHelper;
 use GuzzleHttp\Exception\GuzzleException;
-use Tests\APITestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
+use Tests\APITestCase;
 
 class ClientAppMiddlewareTest extends APITestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @param string $uri
-     * @return string
-     */
-    private function httpAPIUri(string $uri)  : string
-    {
-        return 'http://'.env('API_DOMAIN').'/'.$uri;
-    }
-
     public function testAssertUnauthorizedCallToApi()
     {
         $response = $this->call('POST', $this->httpAPIUri('api/authenticate/register'));

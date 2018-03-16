@@ -44,13 +44,12 @@ class ClientAppGetInfosUUID extends Command
             $this->error("This UUID isn't a valid one");
             return;
         }
-        $uuid =ClientAppModel::where('client_uuid', $this->argument('uuid'));
+        $uuid = ClientAppModel::where('client_uuid', $this->argument('uuid'));
         if ($uuid->exists()) {
             $client_app = $uuid->first();
             $this->info("the client's uuid is " . $client_app->client_uuid . " and his name " . $client_app->client_name . ".");
-        }
-        else
-            $this->error("This UUID \"".$this->argument('uuid')."\" doesn't match in database.");
+        } else
+            $this->error("This UUID \"" . $this->argument('uuid') . "\" doesn't match in database.");
 
     }
 }

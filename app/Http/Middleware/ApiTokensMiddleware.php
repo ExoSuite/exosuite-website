@@ -12,14 +12,13 @@ class ApiTokensMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        if ($request->exists('access_token') && $request->exists('user_id'))
-        {
+        if ($request->exists('access_token') && $request->exists('user_id')) {
             ApiToken::InitTokensTypes();
             $validator = Validator::make($request->all(),
                 [
@@ -32,8 +31,7 @@ class ApiTokensMiddleware
                 return response($validator->errors()->toJson(), 403);
             }
             return $next($request);
-        }
-        else
+        } else
             return response("Unauthorized", 403);
 
     }

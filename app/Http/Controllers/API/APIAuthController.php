@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class APIAuthController extends APIBaseController
 {
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
 
     }
 }
