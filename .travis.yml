@@ -20,16 +20,24 @@ before_script:
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   - sudo cp  ServerConfig/pool.d/* ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/
   - sudo echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
   - sudo sed -e 's,listen.owner = www-data,listen.owner = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo sed -e 's,listen.owner = www-data,listen.owner = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
   - sudo sed -e 's,listen.group = www-data,listen.group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo sed -e 's,listen.group = www-data,listen.group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
+
   - sudo sed -e 's,user = www-data,user = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo sed -e 's,user = www-data,user = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
   - sudo sed -e 's,group = www-data,group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo sed -e 's,group = www-data,group = travis,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-  - sudo cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
-  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+
+  - sudo sed -e 's,/run/php/php7.2-fpm.sock,/tmp/php7.2-fpm.sock,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
+  - sudo sed -e 's,/run/php/php7.2-fpm-api.sock,/tmp/php7.2-fpm-api.sock,g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
+
+  - sudo sed -e 's,fastcgi_pass unix:/var/run/php/php7.2-fpm-api.sock;,fastcgi_pass unix:/tmp/php7.2-fpm-api.sock;,g' --in-place /etc/nginx/sites-available/$API_SITE_DOMAIN
+  - sudo sed -e 's,fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;,fastcgi_pass unix:/tmp/php7.2-fpm.sock;,g' --in-place /etc/nginx/sites-available/SITE_DOMAIN
+
+  - sudo ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
