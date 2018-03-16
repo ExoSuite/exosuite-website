@@ -11,27 +11,24 @@ env:
     - SITE_DOMAIN="exosuite.local"
     - API_SITE_DOMAIN="api.exosuite.local"
 
-install:
-  - sudo add-apt-repository ppa:ondrej/php -y
-  - sudo apt-get update --no-install-recommends --force-yes
-  - sudo apt-get install php7.2 php7.2-mbstring php7.2-xml php7.2-json php7.2-common php7.2-cli php7.2-fpm  --no-install-suggests --no-install-recommends --force-yes
-
 before_script:
   - sudo cp ServerConfig/sites-available.travis/* /etc/nginx/sites-available/
   - sudo ln -s /etc/nginx/sites-available/api.exosuite.conf /etc/nginx/sites-enabled/
   - sudo ln -s /etc/nginx/sites-available/exosuite.conf /etc/nginx/sites-enabled/
-  - sudo rm  /etc/php/7.2/fpm/pool.d/*
-  - sudo cp ServerConfig/pool.d.travis/* /etc/php/7.2/fpm/
+  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+  - sudo rm ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/*
+  - sudo cp ServerConfig/pool.d.travis/* ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/
   - sudo cat /etc/nginx/sites-enabled/exosuite.conf
   - sudo cat /etc/nginx/sites-enabled/api.exosuite.conf
+  - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+  - sudo service nginx restart
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
   - composer install --no-interaction
   - php artisan key:generate
   - php artisan migrate
-  - sudo service php7.2-fpm restart
-  - sudo service nginx restart
 
 script:
   - vendor/bin/phpunit --testsuite API
