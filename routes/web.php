@@ -44,6 +44,7 @@ Route::get('about', function () {
    return view('about');
 });
 
+Route::get('test', 'ApiController@requestApi');
 
 Route::post('survey', 'SurveyController@postSurvey');
 

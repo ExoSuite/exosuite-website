@@ -8,7 +8,7 @@
 
 namespace App\Helpers;
 
-use Illuminate\Support\Request;
+use Illuminate\Http\Request;
 
 class APIClientAppHelper
 {
@@ -18,7 +18,10 @@ class APIClientAppHelper
     }
 
     public static function getHttp(Request $request) {
-        $request->secure();
+        if ($request->secure()) {
+            return 'https://';
+        }
+        else
+            return 'http://';
     }
-
 }
