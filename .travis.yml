@@ -16,12 +16,10 @@ before_script:
   - sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
   - sudo ln -s /etc/nginx/sites-available/$API_SITE_DOMAIN /etc/nginx/sites-enabled/
   - sudo rm /etc/nginx/sites-enabled/default
-  - sudo ls /etc/nginx/sites-enabled/
-  - sudo ls ~/.phpenv/versions/$(phpenv version-name)/php
-
+  - sudo rm  ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/*
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - sudo rm -r ~/.phpenv/versions/$(phpenv version-name)/etc/pool.d
-  - sudo cp -r ServerConfig/pool.d ~/.phpenv/versions/$(phpenv version-name)/etc
+  - sudo cp  ServerConfig/pool.d/* ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm
+  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
