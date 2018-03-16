@@ -9,7 +9,7 @@ class RefreshToken extends AbstractApiToken {
 
     private function __construct() {
         $this->type = 'refresh_token';
-        $this->expirationTime = 15;
+        $this->expirationTime = null;
     }
 
     public static function getInstance() {

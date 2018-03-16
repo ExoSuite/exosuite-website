@@ -2,6 +2,7 @@
 
 namespace App\Models\Traits;
 
+use App\Models\AClasses\AbstractApiToken;
 use App\Models\ApiToken;
 use Illuminate\Support\Str;
 use Webpatser\Uuid\Uuid;
@@ -16,7 +17,7 @@ trait Tokens
 
         static::creating(function (ApiToken $model) {
             $model->{$model->getKeyName()} = (string)Uuid::generate(4);
-            $model->{$model->token} = Str::random(60);
+            $model->token = Str::random(AbstractApiToken::$length);
         });
     }
 }

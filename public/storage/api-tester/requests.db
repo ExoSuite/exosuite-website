@@ -1,1 +1,1 @@
-{"path":"\/","name":null,"method":"GET","headers":[],"body":[],"id":"EEn1bwTjOIMCeCy2"}
+{"method":"POST","path":"api\/users","name":null,"body":{"email":"exosuite@epitech.eu","password":"coucou","password_confirmation":"coucou","first_name":"exo","last_name":"suite"},"headers":[{"key":"Accept","value":"application\/vnd.exosuiteapi.v1+json"},{"key":"client-web","value":"bc9082bc-c7ba-48ca-bd09-4d3b8c3eafe4"}],"id":"vGAqlb2mrxvC3wMu"}

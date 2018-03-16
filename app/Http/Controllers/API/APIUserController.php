@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Helpers\APIClientAppHelper;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\User;

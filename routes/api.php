@@ -13,20 +13,33 @@ use \App\Helpers\APINamespaceCreator;
 |
 */
 
+use Dingo\Api\Routing\Router;
+
 $api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', function (Dingo\Api\Routing\Router $api) {
-    $api->group(['middleware' => 'client_app', 'prefix' => 'api'], function (Dingo\Api\Routing\Router $api) {
-        $api->group(['prefix' => 'users'], function (Dingo\Api\Routing\Router $api) {
+$api->version('v1', function (Router $api) {
+    $api->group(['middleware' => 'client_app', 'prefix' => 'api'], function (Router $api) {
+        $api->group(['prefix' => 'users'], function (Router $api) {
             $api->post('/', APINamespaceCreator::create("APIUserController@create"));
             $api->get('/all', APINamespaceCreator::create('APIUserController@getAllUsers'));
-            $api->group(['prefix' => 'from'], function (Dingo\Api\Routing\Router $api) {
+            $api->group(['prefix' => 'from'], function (Router $api) {
                 $api->get('/uuid/{uuid}', APINamespaceCreator::create('APIUserController@getUserByUuid'));
                 $api->get('/email/{email}', APINamespaceCreator::create('APIUserController@getUserByEmail'));
                 $api->get('/name/{name}', APINamespaceCreator::create('APIUserController@getUserByName'));
             });
-            $api->group(['prefix' => 'oauth'], function (Dingo\Api\Routing\Router $api) {
-                $api->get('/authorize', APINamespaceCreator::create('APITokenController@authorizeToken'));
+        });
+
+        $api->group(['prefix' => 'authenticate'], function (Router $api)
+        {
+            $api->post('/login',  APINamespaceCreator::create('APIAuthController@login'));
+        });
+
+        $api->group(['prefix' => 'oauth'], function (Router $api) {
+            $api->group(['prefix' => 'user'], function (Router $api) {
+                $api->group(['prefix' => '/grant'], function (Router $api) {
+                    $api->post('/accessToken', APINamespaceCreator::create('APITokenController@grantUserAccessToken'));
+                    $api->post('/refreshToken', APINamespaceCreator::create('APITokenController@grantUserRefreshToken'));
+                });
             });
         });
     });

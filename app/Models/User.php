@@ -25,7 +25,7 @@ class User extends Authenticatable
     /**
      * @var string
      */
-    protected $primaryKey = "uuid";
+    protected $primaryKey = "user_id";
     /**
      * @var bool
      */
@@ -37,7 +37,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'nickname', 'email', 'password', "uuid"
+        'first_name', 'last_name', 'nickname', 'email', 'password', "user_id", 'refresh_token'
     ];
 
     /**

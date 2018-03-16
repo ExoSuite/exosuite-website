@@ -4,7 +4,6 @@ namespace App\Models\Traits;
 
 use App\Models\TokenTypes\AccessToken;
 use App\Models\TokenTypes\RefreshToken;
-use App\Models\TokenTypes\Token;
 
 /**
  * Trait ApiTokenType
@@ -23,16 +22,10 @@ trait ApiTokenType {
     public static $AccessToken;
 
     /**
-     * @var Token
-     */
-    public static $Token;
-
-    /**
      *
      */
     public static function InitTokensTypes() {
         self::$RefreshToken = RefreshToken::getInstance();
         self::$AccessToken = AccessToken::getInstance();
-        self::$Token = Token::getInstance();
     }
 }

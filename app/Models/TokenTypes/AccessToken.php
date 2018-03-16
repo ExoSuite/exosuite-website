@@ -9,7 +9,7 @@ class AccessToken extends AbstractApiToken {
 
 
     private function __construct() {
-        $this->expirationTime = null;
+        $this->expirationTime = 15;
         $this->type = 'access_token';
     }
 
