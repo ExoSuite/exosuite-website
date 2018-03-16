@@ -3,6 +3,9 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use App\Models\ApiToken;
+use App\Models\AClasses\AbstractApiToken;
+use App\Models\User;
 
 class APITokenRule implements Rule
 {
@@ -15,7 +18,7 @@ class APITokenRule implements Rule
      * @param string $user_id
      * @param string $token_type
      */
-    public function __construct(string $user_id, string $token_type)
+    public function __construct($user_id, $token_type)
     {
         $this->user_id = $user_id;
         $this->token_type = $token_type;
@@ -30,10 +33,15 @@ class APITokenRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        $validator = Validator::make(['user_id', $this->user_id,  'user_id' => 'bail|required|uuid|exists:users']);
         $token = ApiToken::where('token_type', $this->token_type)->where('user_id', $this->user_id);
 
-        return strlen($value) == AbstractApiToken::$length && $validator->passes() && $token->exists() && $value === $token->first()->token;
+        if ($this->token_type === ApiToken::$RefreshToken->type)
+        {
+            return strlen($value) == AbstractApiToken::$length && $token->exists()
+                && $value === $token->first()->token && User::find($this->user_id)->refresh_token === $value;
+        }
+
+        return strlen($value) == AbstractApiToken::$length && $token->exists() && $value === $token->first()->token;
     }
 
     /**

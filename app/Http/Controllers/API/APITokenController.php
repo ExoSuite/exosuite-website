@@ -6,6 +6,7 @@ use App\Models\ApiToken;
 use App\Rules\APITokenRule;
 use Illuminate\Http\Request;
 use Validator;
+use App\Models\User;
 
 class APITokenController extends APIBaseController
 {
@@ -41,10 +42,16 @@ class APITokenController extends APIBaseController
         $user_id = $request->get('user_id');
         $refresh_token = ApiToken::where('token_type', ApiToken::$RefreshToken->type)->where('user_id', $user_id);
         if ($refresh_token->exists())
+        {
             $refresh_token->delete();
+            ApiToken::where('token_type', ApiToken::$AccessToken->type)->where('user_id', $user_id)->delete();
+        }
+
+        $refresh_token = $this->createUserRefreshToken($user_id)->token;
+        User::find($user_id)->update(['refresh_token' => $refresh_token]);
 
         return [
-            'refresh_token' => $this->createUserRefreshToken($user_id)->token,
+            'refresh_token' => $refresh_token,
             'access_token' => $this->createUserAccessToken($user_id)->token
         ];
     }
@@ -52,7 +59,7 @@ class APITokenController extends APIBaseController
     public function grantUserAccessToken(Request $request) {
         $validator = Validator::make($request->all(), [
             'user_id' => 'bail|required|uuid|exists:users',
-            'refresh_token' => ['required', new APITokenRule($request->get('user_id'), ApiToken::$AccessToken->type)]
+            'refresh_token' => ['required', new APITokenRule($request->get('user_id'), ApiToken::$RefreshToken->type)]
         ]);
 
         if ($validator->fails()) {

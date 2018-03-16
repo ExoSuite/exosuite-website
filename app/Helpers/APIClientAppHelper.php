@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class APIClientAppHelper
 {
 
-    public static function getClienWebAppToken() {
+    public static function getClientWebAppToken() {
         return env('CLIENT_WEB_APP');
     }
 

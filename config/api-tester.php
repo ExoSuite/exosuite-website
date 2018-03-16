@@ -152,7 +152,7 @@ return [
         'file' => [
             'class' => Asvae\ApiTester\Storages\JsonStorage::class,
             'options' => [
-                'path' => 'storage/api-tester/requests.db'
+                'path' => '../storage/api-tester/requests.db'
             ]
         ],
         'firebase' => [

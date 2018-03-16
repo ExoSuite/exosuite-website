@@ -16,6 +16,7 @@ use Webpatser\Uuid\Uuid;
  * @property string email
  * @property string first_name
  * @property string last_name
+ * @property string refresh_token
  */
 class User extends Authenticatable
 {
