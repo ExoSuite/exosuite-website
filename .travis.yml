@@ -24,6 +24,8 @@ before_script:
   - sudo ln -s /etc/nginx/sites-available/exosuite.conf /etc/nginx/sites-enabled/
   - sudo rm -rf /etc/php/7.2/fpm/pool.d
   - sudo cp -r ServerConfig/pool.d /etc/php/7.2/fpm/
+  - sudo cat /etc/nginx/sites-enabled/exosuite.conf
+  - sudo cat /etc/nginx/sites-enabled/api.exosuite.conf
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
