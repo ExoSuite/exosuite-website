@@ -28,6 +28,7 @@ before_script:
   - sudo sed -e 's,owner = www-data,owner = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
   - sudo sed -e 's,group = www-data,group = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo sed -e 's,group = www-data,group = ${travis.user},g' --in-place ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
+  - sudo cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/api.conf
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
