@@ -29,15 +29,21 @@
 <main class="main-content text-center pb-lg-8">
     <div class="container">
 
-        @if(rand(0, 2) == 0)
+        @if(rand(0, 4) == 0)
             <img src="/img/error/SpiffyCloseFlee-max-1mb.gif" />
             <h1 class="display-1 text-muted mb-7">Ah !</h1>
-        @elseif(rand(0, 2) == 1)
+        @elseif(rand(0, 4) == 1)
             <img src="/img/error/p4sxib.gif" />
             <h1 class="display-1 text-muted mb-7">Okay !</h1>
-        @else
+        @elseif(rand(0, 4) == 2)
             <img src="/img/error/BountifulResponsibleArgali-size_restricted.gif" />
             <h1 class="display-1 text-muted mb-7">WAOUH !</h1>
+        @elseif(rand(0, 4) == 3)
+            <img src="/img/error/projet.gif" />
+            <h1 class="display-1 text-muted mb-7">Parce que c'est notre PROJEEEEEET (oups...)</h1>
+        @else
+            <img src="\img\error\4RZEL9m.gif" />
+            <h1 class="display-1 text-muted mb-7">Tu peux pas y acceder s'il n'existe pas</h1>
         @endif
         <p class="lead">Erreur 404 : Cette page n'existe pas</p>
         <br>
