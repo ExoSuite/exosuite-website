@@ -17,6 +17,7 @@ class ClientAppMiddlewareTest extends APITestCase
     public function testAssertAuthorizedCallToApiIncompleteRequest()
     {
         $request = new Request();
+        throw new \Exception($this->httpAPIUri('api/authenticate/register'));
         $this->assertTrue('http://api.exosuite.local/api/authenticate/register' === $this->httpAPIUri('api/authenticate/register'));
         try {
             $this->APICall($request, 'POST', 'api/authenticate/register', $request->all(), [], $this->createAPIDomainCallBack());
