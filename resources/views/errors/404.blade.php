@@ -37,16 +37,16 @@
             <h1 class="display-1 text-muted mb-7">Okay !</h1>
         @elseif(rand(0, 5) == 2)
             <img src="/img/error/BountifulResponsibleArgali-size_restricted.gif" />
-            <h1 class="display-1 text-muted mb-7">WAOUH !</h1>
+            <h1 class="display-1 text-muted mb-7">Wow !</h1>
         @elseif(rand(0, 5) == 3)
             <img src="/img/error/projet.gif" />
             <h1 class="display-1 text-muted mb-7">Parce que c'est notre PROJEEEEEET (oups...)</h1>
         @elseif(rand(0, 5) == 4)
             <img src="\img\error\4RZEL9m.gif" />
-            <h1 class="display-1 text-muted mb-7">Tu peux pas y acceder s'il n'existe pas</h1>
+            <h1 class="display-1 text-muted mb-7">Tu ne peux pas accéder à une page si elle n'existe pas</h1>
         @else
             <img src="\img\error\bruh.gif" />
-            <h1 class="display-1 text-muted mb-7">BRUH</h1>
+            <h1 class="display-1 text-muted mb-7">Bruh</h1>
         @endif
         <p class="lead">Erreur 404 : Cette page n'existe pas</p>
         <br>
