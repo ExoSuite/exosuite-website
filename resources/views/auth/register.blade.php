@@ -40,12 +40,11 @@
         @endif
         <h5 class="mb-7">Créez un compte !</h5>
 
-        <form method="POST" action="{{ route('registerAPI') }}">
+        <form id="form" method="POST" action="{{ route('registerAPI') }}">
             @csrf
             <div class="form-group">
                 <input type="text" class="form-control" name="first_name" placeholder="Votre prénom" required autofocus value="{{ old('first_name') }}">
             </div>
-
             <div class="form-group">
                 <input type="text" class="form-control" name="last_name" placeholder="Votre nom" required value="{{ old('last_name') }}">
             </div>
@@ -74,6 +73,7 @@
 
             <div class="form-group">
                 <button class="btn btn-block btn-primary" type="submit">Créer un compte !</button>
+                @captcha
             </div>
         </form>
 

@@ -47,6 +47,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         try {
+            $this->validate($request, ['g-recaptcha-response' => 'required|captcha']);
             $this->APICall($request, 'POST', 'api/authenticate/login', $request->all());
         } catch (BadResponseException $e) {
             $response = json_decode($e->getResponse()->getBody()->getContents(), true);

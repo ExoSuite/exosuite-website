@@ -48,6 +48,7 @@
             </div>
 
             <button class="btn btn-lg btn-block btn-primary" type="submit">Réinitialiser</button>
+            @captcha
         </form>
 
     </div>
