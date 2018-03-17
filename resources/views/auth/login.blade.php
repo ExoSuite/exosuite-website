@@ -61,6 +61,7 @@
 
             <div class="form-group">
                 <button class="btn btn-block btn-primary" type="submit">Se connecter !</button>
+                @captcha
             </div>
         </form>
 
