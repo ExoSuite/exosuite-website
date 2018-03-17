@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Jobs\AccessTokenKiller;
 use App\Models\ApiToken;
 use App\Models\User;
 use App\Rules\APITokenRule;
@@ -74,7 +75,12 @@ class APITokenController extends APIBaseController
         if ($accessToken->exists())
             $accessToken->delete();
 
-        return ['access_token' => $this->createUserAccessToken($user_id)->token];
+        $accessToken = $this->createUserAccessToken($user_id);
+        $accessTokenKiller = new AccessTokenKiller($accessToken->id);
+        $accessTokenKiller->delay(now()->addMinutes(ApiToken::$AccessToken->expirationTime));
+        $this->dispatch($accessTokenKiller);
+
+        return ['access_token' => $accessToken->token];
     }
 
 }

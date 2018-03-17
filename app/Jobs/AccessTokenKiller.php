@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Models\ClientApp;
+use App\Models\ApiToken;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -13,17 +13,16 @@ class AccessTokenKiller implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $uuid;
+    private $token_uuid;
 
     /**
      * Create a new job instance.
      *
-     * @param string $database
-     * @return void
+     * @param string $token_uuid
      */
-    public function __construct(string $client_uuid)
+    public function __construct(string $token_uuid)
     {
-        $this->uuid = $client_uuid;
+        $this->token_uuid = $token_uuid;
     }
 
     /**
@@ -33,6 +32,6 @@ class AccessTokenKiller implements ShouldQueue
      */
     public function handle()
     {
-        ClientApp::find($this->uuid)->delete();
+        ApiToken::find($this->token_uuid)->delete();
     }
 }
