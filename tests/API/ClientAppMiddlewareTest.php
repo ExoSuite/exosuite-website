@@ -26,7 +26,6 @@ class ClientAppMiddlewareTest extends APITestCase
         try {
             $client->request('POST', 'http://api.exosuite.local/api/authenticate/register', ['form_params' => []]);
         } catch (GuzzleException $e) {
-            throw new \Exception($e->getMessage());
             $this->assertStatus(400, $e->getCode());
         }
     }
