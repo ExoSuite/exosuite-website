@@ -15,7 +15,7 @@ class APIUserController extends APIBaseController
             'email' => 'required|unique:users|email',
             'first_name' => 'required|max:50|alpha',
             'last_name' => 'required|max:50|alpha',
-            'nickname' => 'sometimes|min:3|max:25',
+            'nickname' => 'max:25',
             'password' => 'required|min:8|max:255|confirmed'
         ]);
         if ($validator->fails()) {
