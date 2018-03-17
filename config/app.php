@@ -148,6 +148,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Asvae\ApiTester\ServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */

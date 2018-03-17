@@ -29,6 +29,15 @@
 <main class="main-content">
 
     <div class="bg-white rounded shadow-7 w-400 mw-100 p-6">
+        @if(!$errors->isEmpty())
+            @foreach($errors->all() as $error)
+                <div class="error">
+                    <span class="text-danger">
+                        <strong>{{ $error }}</strong>
+                    </span>
+                </div>
+            @endforeach
+        @endif
         <h5 class="mb-7">Créez un compte !</h5>
 
         <form method="POST" action="{{ route('registerAPI') }}">

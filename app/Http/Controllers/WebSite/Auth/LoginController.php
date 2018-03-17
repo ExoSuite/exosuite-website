@@ -4,6 +4,8 @@ namespace App\Http\Controllers\WebSite\Auth;
 
 use App\Http\Controllers\WebSite\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use GuzzleHttp\Exception\GuzzleException;
 
 class LoginController extends Controller
 {
@@ -25,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -35,5 +37,27 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function loginView()
+    {
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        try {
+            $this->APICall($request, 'POST', 'api/authenticate/login', $request->all());
+        } catch (BadResponseException $e) {
+            $response = json_decode($e->getResponse()->getBody()->getContents(), true);
+            $message = json_decode($response['message'], true);
+            return view('auth.login')->withErrors($message);
+        }
+        return redirect('/login');
+    }
+
+    public function recoverView()
+    {
+        return view('auth.passwords.email');
     }
 }

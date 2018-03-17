@@ -35,7 +35,7 @@
     <div class="bg-white rounded shadow-7 w-400 mw-100 p-6">
         <h5 class="mb-6">Réinitialiser votre mot de passe</h5>
 
-        <form method="POST" action="{{ route('password.email') }}" class="input-line1">
+        <form method="POST" action="/recover" class="input-line1">
             @csrf
             <div class="form-group">
                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email or old('email') }}" required autofocus placeholder="Adresse mail">

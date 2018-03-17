@@ -29,26 +29,24 @@
 <main class="main-content">
 
     <div class="bg-white rounded shadow-7 w-400 mw-100 p-6">
+        @if(!$errors->isEmpty())
+            @foreach($errors->all() as $error)
+                <div class="error">
+                    <span class="text-danger">
+                        <strong>{{ $error }}</strong>
+                    </span>
+                </div>
+            @endforeach
+        @endif
         <h5 class="mb-7">Connectez-vous !</h5>
-
-        <form  method="POST" action="{{ route('login') }}">
+        <form  method="POST" action="/login">
             @csrf
             <div class="form-group">
-                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="Adresse mail">
-                @if ($errors->has('email'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                @endif
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Adresse mail">
             </div>
 
             <div class="form-group">
-                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Mot de passe">
-                @if ($errors->has('password'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
+                <input id="password" type="password" class="form-control" name="password" required placeholder="Mot de passe">
             </div>
 
             <div class="form-group flexbox py-3">
@@ -58,7 +56,7 @@
                     </label>
                 </div>
 
-                <a class="text-muted small-2" href="{{ route('password.request') }}">Mot de passe oublié ?</a>
+                <a class="text-muted small-2" href="/login/recover">Mot de passe oublié ?</a>
             </div>
 
             <div class="form-group">

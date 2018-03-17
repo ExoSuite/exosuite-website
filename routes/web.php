@@ -52,6 +52,7 @@ Route::group(["prefix" => "register"], function() {
 });
 
 Route::group(["prefix" => "login"], function() {
-    Route::get('/', function () {})->name('login');
-    //Route::post('/');
+    Route::get('/', 'Auth\LoginController@loginView')->name('login');
+    Route::post('/', 'Auth\LoginController@login')->name('loginAPI');
+    Route::get('/recover', 'Auth\LoginController@recoverView')->name('recover');
 });
