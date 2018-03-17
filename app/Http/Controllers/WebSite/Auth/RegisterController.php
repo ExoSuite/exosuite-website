@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\WebSite\Auth;
 
 use App\Http\Controllers\WebSite\Controller;
-use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -13,10 +13,12 @@ class RegisterController extends Controller
     {
         try {
             $this->APICall($request, 'POST', 'api/authenticate/register', $request->all());
-        } catch (GuzzleException $e) {
-            return $e->getCode();
+        } catch (BadResponseException $e) {
+            $response = json_decode($e->getResponse()->getBody()->getContents(), true);
+            $message = json_decode($response['message'], true);
+            return view('auth.register')->withErrors($message);
         }
-        return $this->response->getStatusCode();
+        return redirect('/login');
     }
 
     public function registerView()
