@@ -5,7 +5,6 @@ namespace App\Http\Controllers\WebSite\Auth;
 use App\Http\Controllers\WebSite\Controller;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;
-use Validator;
 
 class RegisterController extends Controller
 {

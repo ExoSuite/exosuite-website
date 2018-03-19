@@ -56,3 +56,13 @@ Route::group(["prefix" => "login"], function() {
     Route::post('/', 'Auth\LoginController@login')->name('loginAPI');
     Route::get('/recover', 'Auth\LoginController@recoverView')->name('recover');
 });
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(["prefix" => "profile"], function () {
+        Route::get('/', 'ProfileController@profileView')->name('profile');
+        Route::get('/edit', 'ProfileController@editProfileView');
+        Route::post('/edit', 'ProfileController@editProfile');
+    });
+});
+
+Route::get('logout', 'Auth\LoginController@logout');

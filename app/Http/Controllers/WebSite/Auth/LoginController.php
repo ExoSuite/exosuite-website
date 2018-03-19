@@ -5,7 +5,7 @@ namespace App\Http\Controllers\WebSite\Auth;
 use App\Http\Controllers\WebSite\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\BadResponseException;
 
 class LoginController extends Controller
 {
@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -42,19 +42,6 @@ class LoginController extends Controller
     public function loginView()
     {
         return view('auth.login');
-    }
-
-    public function login(Request $request)
-    {
-        try {
-            $this->validate($request, ['g-recaptcha-response' => 'required|captcha']);
-            $this->APICall($request, 'POST', 'api/authenticate/login', $request->all());
-        } catch (BadResponseException $e) {
-            $response = json_decode($e->getResponse()->getBody()->getContents(), true);
-            $message = json_decode($response['message'], true);
-            return view('auth.login')->withErrors($message);
-        }
-        return redirect('/login');
     }
 
     public function recoverView()
