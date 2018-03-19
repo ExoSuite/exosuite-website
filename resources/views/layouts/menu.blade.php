@@ -19,8 +19,14 @@
             <span class="navbar-divider"></span>
 
             <div>
+                @guest
                 <a class="btn btn-sm btn-round btn-primary ml-lg-4 mr-2" href="/login">Se connecter</a>
                 <a class="btn btn-sm btn-round btn-outline-primary" href="/register">Créer un compte</a>
+                @endguest
+                    @auth
+                        <a class="btn btn-sm btn-round btn-primary ml-lg-4 mr-2" href="/profile">Mon profil</a>
+                        <a class="btn btn-sm btn-round btn-outline-primary" href="/logout">Se déconnecter</a>
+                        @endauth
             </div>
         </section>
 
