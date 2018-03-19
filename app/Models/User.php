@@ -49,4 +49,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password'
     ];
+
+    public function courses()
+    {
+        return $this->hasMany('App\Models\Course', 'user_id');
+    }
 }

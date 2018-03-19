@@ -48,4 +48,16 @@ class APIUserController extends APIBaseController
     {
         return User::where('first_name', 'like', $name . '%')->orWhere('last_name', 'like', $name . '%')->get();
     }
+
+    public function getUserCourses($uuid)
+    {
+        $validation = Validator::make(['user_id' => $uuid], [
+            'user_id' => 'required|uuid|exists:users',
+        ]);
+        if ($validation->fails()) {
+            return $this->response->errorBadRequest($validation->errors()->toJson());
+        }
+        return User::find($uuid)->courses()->get();
+
+    }
 }
