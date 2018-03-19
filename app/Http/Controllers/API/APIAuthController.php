@@ -19,6 +19,6 @@ class APIAuthController extends APIBaseController
         ]);
         if ($validator->fails())
             return $this->response->errorUnauthorized($validator->errors()->toJson());
-        return User::where("email", $request->get('email'))->first();
+        return ['user_id' => User::where("email", $request->get('email'))->first()->user_id];
     }
 }
