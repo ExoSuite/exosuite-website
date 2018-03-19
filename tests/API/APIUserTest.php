@@ -24,7 +24,7 @@ class APIUserTest extends APITestCase
                     "password" => "unittest",
                     "password_confirmation" => "unittest"
                 ], [], $this->createAPIDomainCallBack());
-            $this->assertStatus(200, $this->response->getStatusCode());
+            $this->assertStatus(201, $this->response->getStatusCode());
         } catch (GuzzleException $e) {
             $this->assertStatus(200, $e->getCode());
         }
