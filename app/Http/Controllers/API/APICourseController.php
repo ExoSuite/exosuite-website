@@ -48,4 +48,5 @@ class APICourseController extends APIBaseController
         }
         return Course::where('user_id', $user_id)->first()->User()->first();
     }
+
 }

@@ -16,7 +16,7 @@ class Course extends Model
     public $incrementing = false;
 
     protected $fillable = [
-      'user_id', 'uuid', 'title', 'description', 'checkpoints'
+      'user_id', 'uuid', 'title', 'description', 'checkpoints', 'checkpoint_times'
     ];
 
     protected $casts = [
@@ -26,5 +26,10 @@ class Course extends Model
     public function User()
     {
         return $this->belongsTo('App\Models\User', "user_id");
+    }
+
+    public function coursepptime()
+    {
+        return $this->hasMany('App\Models\CourseUptime', 'uuid');
     }
 }
