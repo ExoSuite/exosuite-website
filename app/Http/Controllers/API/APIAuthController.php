@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Rules\LoginPasswordRule;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 
 class APIAuthController extends APIBaseController
@@ -17,8 +18,14 @@ class APIAuthController extends APIBaseController
             'password' =>
                 ["required", new LoginPasswordRule($request->get('password'), $request->get('email'))]
         ]);
+
         if ($validator->fails())
-            return $this->response->errorUnauthorized($validator->errors()->toJson());
-        return ['user_id' => User::where("email", $request->get('email'))->first()->user_id];
+            return $this->response->errorForbidden($validator->errors()->toJson());
+        $user = User::where("email", $request->get('email'))->first();
+        return [
+            'user_id' => $user->user_id,
+            'email' => $user->email,
+            'password' => Hash::createArgonDriver()->make($user->password)
+        ];
     }
 }

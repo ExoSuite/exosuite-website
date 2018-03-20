@@ -1,6 +1,7 @@
 <?php
 
-use \App\Helpers\APINamespaceCreator;
+use App\Helpers\APINamespaceCreator;
+use Dingo\Api\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,8 +13,6 @@ use \App\Helpers\APINamespaceCreator;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-use Dingo\Api\Routing\Router;
 
 $api = app('Dingo\Api\Routing\Router');
 
