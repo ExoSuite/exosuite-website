@@ -51,6 +51,11 @@ $api->version('v1', function (Router $api) {
                 $api->get('/title/{title}', APINamespaceCreator::create('APICourseController@getCoursesByTitle'));
                 $api->post('/new', APINamespaceCreator::create('APICourseController@create'));
                 $api->get('/user/{user_id}', APINamespaceCreator::create('APICourseController@getUserByCourseUserId'));
+                $api->group(['prefix' => 'uptimes'], function (Router $api) {
+                    $api->post('/newTime', APINamespaceCreator::create('APICheckpointsTimesController@create'));
+                    $api->get('/all/id/{uuid}', APINamespaceCreator::create('APICheckpointsTimesController@getAllCourseTimes'));
+                });
+
             });
         });
     });
