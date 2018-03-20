@@ -1,4 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark custom-nav">
+@if (isset($mark) && $mark == true)
+<nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
+    @else
+        <nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
+            @endif
     <div class="container">
 
         <div class="navbar-left">

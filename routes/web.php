@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('contact', function() {
-    return view('contact');
+    return view('contact')->with(array('mark' => true));
 });
 
 Route::get('exosuite', function() {
@@ -41,7 +41,7 @@ Route::get('pricing', function () {
 });
 
 Route::get('about', function () {
-   return view('about');
+   return view('about')->with(array('mark' => true));
 });
 
 Route::post('survey', 'SurveyController@postSurvey');
