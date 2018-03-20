@@ -34,7 +34,7 @@ $api->version('v1', function (Router $api) {
             });
         });
 
-//        $api->group(['middleware' => 'ApiToken'], function (Router $api) {
+        $api->group(['middleware' => 'ApiToken'], function (Router $api) {
             $api->group(['prefix' => 'users'], function (Router $api) {
                 $api->get('/all', APINamespaceCreator::create('APIUserController@getAllUsers'));
                 $api->get('/courses/{uuid}', APINamespaceCreator::create('APIUserController@getUserCourses'));
@@ -51,7 +51,7 @@ $api->version('v1', function (Router $api) {
                 $api->post('/new', APINamespaceCreator::create('APICourseController@create'));
                 $api->get('/user/{user_id}', APINamespaceCreator::create('APICourseController@getUserByCourseUserId'));
             });
-        //      });
+        });
     });
 
 });
