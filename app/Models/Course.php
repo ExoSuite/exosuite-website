@@ -11,12 +11,12 @@ class Course extends Model
 {
     use Uuids;
 
-    protected $primaryKey = 'uuid';
+    protected $primaryKey = 'course_id';
 
     public $incrementing = false;
 
     protected $fillable = [
-      'user_id', 'uuid', 'title', 'description', 'checkpoints', 'checkpoint_times'
+      'user_id', 'course_id', 'title', 'description', 'checkpoints', 'checkpoint_times'
     ];
 
     protected $casts = [
@@ -30,6 +30,6 @@ class Course extends Model
 
     public function coursepptime()
     {
-        return $this->hasMany('App\Models\CourseUptime', 'uuid');
+        return $this->hasMany('App\Models\CourseUptime', 'course_id');
     }
 }

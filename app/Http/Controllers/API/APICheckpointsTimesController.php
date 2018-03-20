@@ -11,7 +11,7 @@ class APICheckpointsTimesController extends APIBaseController
     public function create(Request $request)
     {
         $validation = Validator::make($request->all(), [
-           'uuid' => 'required|uuid|exists:courses',
+           'courses_id' => 'required|uuid|exists:courses',
            'checkpoints_times' => 'required'
         ]);
         if ($validation->fails())
@@ -24,9 +24,15 @@ class APICheckpointsTimesController extends APIBaseController
         return $this->response->created();
     }
 
-    public function getAllCourseTimes($uuid)
+    public function getAllCourseTimes($course_id)
     {
-        return CourseUptime::where('uuid', $uuid)->get();
+        return CourseUptime::where('course_id', $course_id)->get();
+    }
+
+    public function getFinalCourseTime($course_id)
+    {
+        $x = end(CourseUptime::where('course_id', $course_id)->first('checkpoints_times'));
+        return ($x);
     }
 
 }

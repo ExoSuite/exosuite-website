@@ -17,7 +17,7 @@ class CreateCourses extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->uuid('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
-            $table->uuid('uuid')->primary();
+            $table->uuid('course_id')->primary();
             $table->string('title');
             $table->string('description')->nullable();
             $table->json('checkpoints');

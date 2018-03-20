@@ -15,8 +15,8 @@ class CreateCourseUptimesTable extends Migration
     {
         Schema::enableForeignKeyConstraints();
         Schema::create('course_uptimes', function (Blueprint $table) {
-            $table->uuid('uuid');
-            $table->foreign('uuid')->references('uuid')->on('courses');
+            $table->uuid('course_id');
+            $table->foreign('course_id')->references('course_id')->on('courses');
             $table->uuid('id')->primary();
             $table->json('checkpoints_times');
             $table->timestamps();

@@ -14,7 +14,7 @@ class CourseUptime extends Model
     public $incrementing = false;
 
     protected $fillable = [
-        'uuid', 'id', 'checkpoints_times'
+        'course_id', 'id', 'checkpoints_times'
     ];
 
     protected $casts = [
@@ -23,6 +23,6 @@ class CourseUptime extends Model
 
     public function Course()
     {
-        return $this->belongsTo('App\Models\Course', 'uuid');
+        return $this->belongsTo('App\Models\Course', 'course_id');
     }
 }
