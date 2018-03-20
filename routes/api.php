@@ -1,6 +1,7 @@
 <?php
 
-use \App\Helpers\APINamespaceCreator;
+use App\Helpers\APINamespaceCreator;
+use Dingo\Api\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,8 +13,6 @@ use \App\Helpers\APINamespaceCreator;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-use Dingo\Api\Routing\Router;
 
 $api = app('Dingo\Api\Routing\Router');
 
@@ -35,7 +34,7 @@ $api->version('v1', function (Router $api) {
             });
         });
 
-        $api->group(['middleware' => 'ApiToken'], function (Router $api) {
+//        $api->group(['middleware' => 'ApiToken'], function (Router $api) {
             $api->group(['prefix' => 'users'], function (Router $api) {
                 $api->get('/all', APINamespaceCreator::create('APIUserController@getAllUsers'));
                 $api->get('/courses/{uuid}', APINamespaceCreator::create('APIUserController@getUserCourses'));
@@ -52,7 +51,7 @@ $api->version('v1', function (Router $api) {
                 $api->post('/new', APINamespaceCreator::create('APICourseController@create'));
                 $api->get('/user/{user_id}', APINamespaceCreator::create('APICourseController@getUserByCourseUserId'));
             });
-        });
+        //      });
     });
 
 });

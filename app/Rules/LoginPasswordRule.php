@@ -2,13 +2,15 @@
 
 namespace App\Rules;
 
-use Illuminate\Contracts\Validation\Rule;
 use App\Models\User;
+use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class LoginPasswordRule implements Rule
 {
-    private $pass;
+    private $password;
     private $email;
+
     /**
      * Create a new rule instance.
      *
@@ -17,23 +19,32 @@ class LoginPasswordRule implements Rule
      */
     public function __construct($password, $email)
     {
-        $this->pass = $password;
+        $this->password = $password;
         $this->email = $email;
     }
 
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param  string $attribute
+     * @param  mixed $value
      * @return bool
      */
     public function passes($attribute, $value)
     {
-        if ($this->pass && $this->email)
-            return \Hash::check($this->pass, User::where('email', $this->email)->first()->password);
-        else
-            return false;
+        if ($this->password && $this->email) {
+            $user = User::where('email', $this->email)->first();
+            if (Hash::check($this->password, $user->password))
+                return true;
+            else
+                try {
+                    return Hash::createArgonDriver()->check($user->password, $this->password);
+                } catch (\Exception $exception) {
+                    return false;
+                }
+
+        }
+        return false;
     }
 
     /**
