@@ -27,10 +27,14 @@ class APITokenController extends APIBaseController
 
     private function createUserAccessToken(string $user_id)
     {
-        return ApiToken::create([
+        $accessToken = ApiToken::create([
             'token_type' => ApiToken::$AccessToken->type,
             'user_id' => $user_id
         ]);
+        $accessTokenKiller = new AccessTokenKiller($accessToken->id);
+        $accessTokenKiller->delay(now()->addMinutes(ApiToken::$AccessToken->expirationTime));
+        $this->dispatch($accessTokenKiller);
+        return $accessToken;
     }
 
     public function grantUserRefreshToken(Request $request)
@@ -47,7 +51,9 @@ class APITokenController extends APIBaseController
         $refresh_token = ApiToken::where('token_type', ApiToken::$RefreshToken->type)->where('user_id', $user_id);
         if ($refresh_token->exists()) {
             $refresh_token->delete();
-            ApiToken::where('token_type', ApiToken::$AccessToken->type)->where('user_id', $user_id)->delete();
+            $access_token = ApiToken::where('token_type', ApiToken::$AccessToken->type)->where('user_id', $user_id);
+            if ($access_token->exists())
+                $access_token->delete();
         }
 
         $refresh_token = $this->createUserRefreshToken($user_id)->token;
@@ -75,12 +81,7 @@ class APITokenController extends APIBaseController
         if ($accessToken->exists())
             $accessToken->delete();
 
-        $accessToken = $this->createUserAccessToken($user_id);
-        $accessTokenKiller = new AccessTokenKiller($accessToken->id);
-        $accessTokenKiller->delay(now()->addMinutes(ApiToken::$AccessToken->expirationTime));
-        $this->dispatch($accessTokenKiller);
-
-        return ['access_token' => $accessToken->token];
+        return ['access_token' => $this->createUserAccessToken($user_id)->token];
     }
 
 }
