@@ -6,6 +6,7 @@ use App\Models\ApiToken;
 use App\Rules\APITokenRule;
 use Closure;
 use Validator;
+use Illuminate\Http\Response;
 
 class ApiTokensMiddleware
 {
@@ -18,21 +19,27 @@ class ApiTokensMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->exists('access_token') && $request->exists('user_id')) {
+        if ($request->headers->has('access-token') && $request->headers->has('user-id')) {
             ApiToken::InitTokensTypes();
-            $validator = Validator::make($request->all(),
+            $credentials = [
+                'user_id' => $request->header('user-id'),
+                'access_token' => $request->header('access-token')
+            ];
+            $validator = Validator::make($credentials,
                 [
                     'user_id' => 'bail|required|uuid|exists:users',
-                    'access_token' => ['required', new APITokenRule($request->get('user_id'), ApiToken::$AccessToken->type)]
+                    'access_token' => ['required',
+                        new APITokenRule($request->headers->get('user-id'), ApiToken::$AccessToken->type)
+                    ]
                 ]
             );
 
             if ($validator->fails()) {
-                return response($validator->errors()->toJson(), 403);
+                return response($validator->errors()->toJson(), Response::HTTP_FORBIDDEN);
             }
             return $next($request);
         } else
-            return response("Unauthorized", 403);
+            return response("Unauthorized", Response::HTTP_FORBIDDEN);
 
     }
 }
