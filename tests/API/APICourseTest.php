@@ -75,6 +75,7 @@ class APICourseTest extends APITestCase
     {
         $this->APICall(new Request(), 'POST', 'courses/new',
             [
+                "user_id" => $this->user_id,
                 "title" => "test",
                 "access_token" => $this->access_token,
             ], [], $this->createAPIDomainCallBack());
