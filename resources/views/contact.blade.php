@@ -104,7 +104,7 @@
                     <h5>Nice, FRANCE</h5>
                     <br>
                     <p>13 Rue Saint François de Paule<br>Epitech</p>
-                    <p>Téléphone: +1 987 123 6548<br>Email: EIP.ExoSuite@gmail.com</p>
+                    <p>Email: EIP.ExoSuite@gmail.com</p>
                     <br>
                 </div>
 
