@@ -1,20 +1,40 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\API;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Request;
+use Tests\APITestCase;
 
-class APICourseTest extends TestCase
+class APICourseTest extends APITestCase
 {
+    use RefreshDatabase;
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testExample()
+    public function testRegisterUser()
     {
-        $this->assertTrue(true);
+        try {
+            $this->registerUnitTestUser();
+            $this->assertStatus(201, $this->response->getStatusCode());
+        } catch (GuzzleException $e) {
+            $this->assertStatus(201, $e->getCode());
+        }
+    }
+
+    public function testNewCourseWithNoUserID()
+    {
+        try {
+            $this->APICall(new Request(), 'POST', 'courses/new',
+                [
+                    "title" => "test",
+                    "checkpoints" => ["0" => "issou"],
+                ], [], $this->createAPIDomainCallBack());
+        } catch (GuzzleException $e) {
+            $this->assertStatus(400, $e->getCode());
+        }
     }
 }
