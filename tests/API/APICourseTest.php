@@ -24,20 +24,16 @@ class APICourseTest extends APITestCase
                 "password" => "unittest",
             ], [], $this->createAPIDomainCallBack());
         $this->assertStatus(Response::HTTP_OK);
-        if ($this->currentHttpStatus === Response::HTTP_OK) {
-            $response = json_decode($this->response->getBody()->getContents(), true);
-            $this->user_id = $response['user_id'];
-            $this->APICall('POST', 'oauth/user/grant/refreshToken',
-                [
-                    "user_id" => $this->user_id,
-                ], [], $this->createAPIDomainCallBack());
-            $this->assertStatus(Response::HTTP_OK);
-            if ($this->currentHttpStatus === Response::HTTP_OK) {
-                $response = json_decode($this->response->getBody()->getContents(), true);
-                $this->refresh_token = $response['refresh_token'];
-                $this->access_token = $response['access_token'];
-            }
-        }
+        $response = json_decode($this->response->getBody()->getContents(), true);
+        $this->user_id = $response['user_id'];
+        $this->APICall('POST', 'oauth/user/grant/refreshToken',
+            [
+                "user_id" => $this->user_id,
+            ], [], $this->createAPIDomainCallBack());
+        $this->assertStatus(Response::HTTP_OK);
+        $response = json_decode($this->response->getBody()->getContents(), true);
+        $this->refresh_token = $response['refresh_token'];
+        $this->access_token = $response['access_token'];
     }
 
     public function testNewCourseWithNoUserID()
