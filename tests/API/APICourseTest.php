@@ -37,4 +37,28 @@ class APICourseTest extends APITestCase
             $this->assertStatus(400, $e->getCode());
         }
     }
+
+    public function testNewCourseWithNoTitle()
+    {
+        try {
+            $this->APICall(new Request(), 'POST', 'courses/new',
+                [
+                    "checkpoints" => ["0" => "issou"],
+                ], [], $this->createAPIDomainCallBack());
+        } catch (GuzzleException $e) {
+            $this->assertStatus(400, $e->getCode());
+        }
+    }
+
+    public function testNewCourseWithNoCheckpoints()
+    {
+        try {
+            $this->APICall(new Request(), 'POST', 'courses/new',
+                [
+                    "title" => "test",
+                ], [], $this->createAPIDomainCallBack());
+        } catch (GuzzleException $e) {
+            $this->assertStatus(400, $e->getCode());
+        }
+    }
 }
