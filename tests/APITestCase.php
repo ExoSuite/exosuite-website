@@ -44,4 +44,19 @@ abstract class APITestCase extends BaseTestCase
     {
         return array($this, "httpAPIUri");
     }
+
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    protected function registerUnitTestUser()
+    {
+        $this->APICall(new Request(), 'POST', 'authenticate/register',
+            [
+                "email" => "unittest@exosuite.fr",
+                "first_name" => "unit",
+                "last_name" => "test",
+                "password" => "unittest",
+                "password_confirmation" => "unittest"
+            ], [], $this->createAPIDomainCallBack());
+    }
 }
