@@ -3,11 +3,13 @@
 namespace Tests\API;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Tests\APITestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
+use Tests\APITestCase;
 
 class APIUserTest extends APITestCase
 {
+    use RefreshDatabase;
     /**
      * A basic test example.
      *
@@ -16,14 +18,7 @@ class APIUserTest extends APITestCase
     public function testRegisterUser()
     {
         try {
-            $this->APICall(new Request(), 'POST', 'authenticate/register',
-                [
-                    "email" => "unittest@exosuite.fr",
-                    "first_name" => "unit",
-                    "last_name" => "test",
-                    "password" => "unittest",
-                    "password_confirmation" => "unittest"
-                ], [], $this->createAPIDomainCallBack());
+            $this->registerUnitTestUser();
             $this->assertStatus(201, $this->response->getStatusCode());
         } catch (GuzzleException $e) {
             $this->assertStatus(201, $e->getCode());
