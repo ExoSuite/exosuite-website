@@ -50,9 +50,20 @@
         <div class="container">
 
             <div class="row">
-                <form class="col-lg-6 mx-auto p-6 bg-gray rounded" action="../assets/php/sendmail.php" method="POST" data-form="mailer">
-                    <div class="alert alert-success d-on-success">Nous avons bien reçu votre message. Merci !</div>
-
+                <form class="col-lg-6 mx-auto p-6 bg-gray rounded" action="/contact" method="POST">
+                    @csrf
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if (isset($send))
+                        <div class="alert alert-success">Nous avons bien reçu votre message 😁</div>
+                    @endif
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input class="form-control form-control-lg" type="text" name="name" placeholder="Votre nom">

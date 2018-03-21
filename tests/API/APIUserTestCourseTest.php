@@ -5,35 +5,37 @@ namespace Tests\API;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Tests\APITestCase;
 use Illuminate\Http\Response;
 
-class APICourseTest extends APITestCase
+class APIUserTestCourseTest extends APITestCase
 {
-    private $user_id;
+    static private $user_id;
 
-    private $refresh_token;
+    static private $refresh_token;
 
-    private $access_token;
+    static private $access_token;
 
     public function testLogin()
     {
         $this->APICall('POST', 'authenticate/login',
             [
                 "email" => "unittest@exosuite.fr",
-                "password" => "unittest",
+                "password" => "unittest"
             ], [], $this->createAPIDomainCallBack());
         $this->assertStatus(Response::HTTP_OK);
         $response = json_decode($this->response->getBody()->getContents(), true);
-        $this->user_id = $response['user_id'];
+        self::$user_id = $response['user_id'];
+
         $this->APICall('POST', 'oauth/user/grant/refreshToken',
             [
-                "user_id" => $this->user_id,
+                "user_id" => self::$user_id
             ], [], $this->createAPIDomainCallBack());
         $this->assertStatus(Response::HTTP_OK);
         $response = json_decode($this->response->getBody()->getContents(), true);
-        $this->refresh_token = $response['refresh_token'];
-        $this->access_token = $response['access_token'];
+        self::$refresh_token = $response['refresh_token'];
+        self::$access_token = $response['access_token'];
     }
 
     public function testNewCourseWithNoUserID()
@@ -42,9 +44,8 @@ class APICourseTest extends APITestCase
         $this->APICall('POST', 'courses/new',
             [
                 "title" => "test",
-                "checkpoints" => [0 => "issou"],
-                "access_token" => $this->access_token,
-            ], [], $this->createAPIDomainCallBack());
+                "checkpoints" => [0 => "test_checkpoint"]
+            ], ["access-token" => self::$access_token ], $this->createAPIDomainCallBack());
         $this->assertStatus(Response::HTTP_FORBIDDEN);
     }
 
@@ -52,10 +53,9 @@ class APICourseTest extends APITestCase
     {
         $this->APICall('POST', 'courses/new',
             [
-                "user_id" => $this->user_id,
-                "checkpoints" => [0 => "issou"],
-                "access_token" => $this->access_token,
-            ], [], $this->createAPIDomainCallBack());
+                "user_id" => self::$user_id,
+                "checkpoints" => [0 => "test_checkpoint"]
+            ], ["access-token" => self::$access_token, "user-id" => self::$user_id], $this->createAPIDomainCallBack());
         $this->assertStatus(Response::HTTP_BAD_REQUEST);
     }
 
@@ -63,10 +63,9 @@ class APICourseTest extends APITestCase
     {
         $this->APICall('POST', 'courses/new',
             [
-                "user_id" => $this->user_id,
-                "title" => "test",
-                "access_token" => $this->access_token,
-            ], [], $this->createAPIDomainCallBack());
+                "user_id" => self::$user_id,
+                "title" => "test"
+            ], ["access-token" => self::$access_token, "user-id" => self::$user_id], $this->createAPIDomainCallBack());
         $this->assertStatus(Response::HTTP_BAD_REQUEST);
     }
 
@@ -74,11 +73,11 @@ class APICourseTest extends APITestCase
     {
         $this->APICall('POST', 'courses/new',
             [
-                "user_id" => $this->user_id,
+                "user_id" => self::$user_id,
                 "title" => "test",
-                "checkpoints" => [0 => "issou"],
-                "access_token" => $this->access_token,
-            ], [], $this->createAPIDomainCallBack());
-        $this->assertStatus(Response::HTTP_OK);
+                "description" => "ceci_est_un_test",
+                "checkpoints" => [0 => "test_checkpoint"],
+            ], ["access-token" => self::$access_token, "user-id" => self::$user_id], $this->createAPIDomainCallBack());
+        $this->assertStatus(Response::HTTP_CREATED);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Traits;
 use App\Helpers\APIClientAppHelper;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Psr\Http\Message\ResponseInterface;
 
 
@@ -37,7 +38,9 @@ trait APICall
     protected function APICall(Request $request, string $method, string $APIUri,
                                array $body, array $headers = [], $urlCreator = null)
     {
-        $client = new Client(['headers' => ['client-web' => APIClientAppHelper::getClientWebAppToken(), $headers]]);
+        $headers['client-web'] = APIClientAppHelper::getClientWebAppToken();
+        Log::info("headers", $headers);
+        $client = new Client(['headers' => $headers]);
 
         if ($urlCreator === null)
             $APIUri = $this->ApiUri($request, $APIUri);

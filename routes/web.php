@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('contact', function() {
-    return view('contact')->with(array('mark' => true));
-});
+Route::get('contact', 'ContactController@index');
+Route::post('contact', 'ContactController@contact');
 
 Route::get('exosuite', function() {
     return view('exosuite');
