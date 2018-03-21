@@ -84,7 +84,7 @@
     | Map
     |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
     !-->
-    <section class="section text-white bg-dark bg-img" style="background-image: url(/img/thumb/14.jpg)" data-overlay="6">
+    <section class="section text-white bg-dark bg-img" data-overlay="6">
         <div class="container">
             <div class="row gap-y align-items-center">
 
@@ -95,12 +95,6 @@
                     <p>13 Rue Saint François de Paule<br>Epitech</p>
                     <p>Téléphone: +1 987 123 6548<br>Email: EIP.ExoSuite@gmail.com</p>
                     <br>
-                    <h6>Suivez-nous !</h6>
-                    <div class="social social-sm social-inverse">
-                        <a class="social-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="social-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="social-instagram" href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
                 </div>
 
 

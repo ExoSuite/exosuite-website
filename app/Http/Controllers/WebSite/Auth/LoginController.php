@@ -4,8 +4,6 @@ namespace App\Http\Controllers\WebSite\Auth;
 
 use App\Http\Controllers\WebSite\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use GuzzleHttp\Exception\BadResponseException;
 
 class LoginController extends Controller
 {
