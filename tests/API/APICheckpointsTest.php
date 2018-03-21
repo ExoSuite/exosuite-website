@@ -8,9 +8,17 @@ use Illuminate\Http\Request;
 use Tests\APITestCase;
 
 
-class APICheckpointsTest extends TestCase
+class APICheckpointsTest extends APITestCase
 {
     use RefreshDatabase;
+
+    private $user_id;
+
+    private $course_id;
+
+    private $refresh_token;
+
+    private $access_token;
     /**
      * A basic test example.
      *
