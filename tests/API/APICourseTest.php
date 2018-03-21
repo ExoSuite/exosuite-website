@@ -45,7 +45,7 @@ class APICourseTest extends APITestCase
                 "checkpoints" => [0 => "issou"],
                 "access_token" => $this->access_token,
             ], [], $this->createAPIDomainCallBack());
-        $this->assertStatus(Response::HTTP_BAD_REQUEST);
+        $this->assertStatus(Response::HTTP_FORBIDDEN);
     }
 
     public function testNewCourseWithNoTitle()
