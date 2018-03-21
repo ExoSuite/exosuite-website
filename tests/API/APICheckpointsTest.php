@@ -16,13 +16,4 @@ class APICheckpointsTest extends TestCase
      *
      * @return void
      */
-    public function testRegisterUser()
-    {
-        try {
-            $this->registerUnitTestUser();
-            $this->assertStatus(201, $this->response->getStatusCode());
-        } catch (GuzzleException $e) {
-            $this->assertStatus(201, $e->getCode());
-        }
-    }
 }
