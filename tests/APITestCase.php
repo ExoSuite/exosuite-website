@@ -9,12 +9,18 @@
 namespace Tests;
 
 use App\Traits\APICall;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Http\Request;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 abstract class APITestCase extends BaseTestCase
 {
-    use CreatesApplication, APICall;
+    use CreatesApplication;
+    use APICall {
+        APICall::APICall as protected APITraitCall;
+    }
+    protected $currentHttpStatus;
 
     /**
      * Assert that the response has the given status code.
@@ -23,13 +29,12 @@ abstract class APITestCase extends BaseTestCase
      * @param  int $status
      * @return $this
      */
-    protected function assertStatus(int $expectedStatus, int $status)
+    protected function assertStatus(int $expectedStatus)
     {
-        $actual = $status;
 
         PHPUnit::assertTrue(
-            $actual === $expectedStatus,
-            "Expected status code {$expectedStatus} but received {$actual}."
+            $this->currentHttpStatus === $expectedStatus,
+            "Expected status code {$expectedStatus} but received {$this->currentHttpStatus}."
         );
 
         return $this;
@@ -46,11 +51,26 @@ abstract class APITestCase extends BaseTestCase
     }
 
     /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @param string $method
+     * @param string $APIUri
+     * @param array $body
+     * @param array $headers
+     * @param string $urlCreator
      */
+    protected function APICall(string $method, string $APIUri,
+                               array $body, array $headers = [], $urlCreator = null)
+    {
+        try {
+            $this->APITraitCall(new Request(), $method, $APIUri, $body, $headers, $urlCreator);
+            $this->currentHttpStatus = $this->response->getStatusCode();
+        } catch (GuzzleException $e) {
+            $this->currentHttpStatus = $e->getCode();
+        }
+    }
+
     protected function registerUnitTestUser()
     {
-        $this->APICall(new Request(), 'POST', 'authenticate/register',
+        $this->APICall('POST', 'authenticate/register',
             [
                 "email" => "unittest@exosuite.fr",
                 "first_name" => "unit",

@@ -2,14 +2,21 @@
 
 namespace Tests\API;
 
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Tests\APITestCase;
 
 class APIUserTest extends APITestCase
 {
     use RefreshDatabase;
+
+    protected function tryRegister($credentials)
+    {
+        $this->APICall(
+            'POST', 'authenticate/register', $credentials, [], $this->createAPIDomainCallBack()
+        );
+    }
+
     /**
      * A basic test example.
      *
@@ -17,86 +24,68 @@ class APIUserTest extends APITestCase
      */
     public function testRegisterUser()
     {
-        try {
-            $this->registerUnitTestUser();
-            $this->assertStatus(201, $this->response->getStatusCode());
-        } catch (GuzzleException $e) {
-            $this->assertStatus(201, $e->getCode());
-        }
+        $this->registerUnitTestUser();
+        $this->assertStatus(Response::HTTP_CREATED);
     }
 
     public function testRegisterWithNoConfirmPassword()
     {
-        try {
-            $this->APICall(new Request(), 'POST', 'authenticate/register',
-                [
-                    "email" => "unittest@exosuite.fr",
-                    "first_name" => "unit",
-                    "last_name" => "test",
-                    "password" => "unittest",
-                ], [], $this->createAPIDomainCallBack());
-        } catch (GuzzleException $e) {
-            $this->assertStatus(400, $e->getCode());
-        }
+        $this->tryRegister([
+            "email" => "unittest@exosuite.fr",
+            "first_name" => "unit",
+            "last_name" => "test",
+            "password" => "unittest",
+        ]);
+        $this->assertStatus(Response::HTTP_BAD_REQUEST);
     }
 
     public function testRegisterWithNoPasswords()
     {
-        try {
-            $this->APICall(new Request(), 'POST', 'authenticate/register',
-                [
-                    "email" => "unittest@exosuite.fr",
-                    "first_name" => "unit",
-                    "last_name" => "test",
-                ], [], $this->createAPIDomainCallBack());
-        } catch (GuzzleException $e) {
-            $this->assertStatus(400, $e->getCode());
-        }
+        $this->tryRegister([
+            "email" => "unittest@exosuite.fr",
+            "first_name" => "unit",
+            "last_name" => "test",
+        ]);
+        $this->assertStatus(Response::HTTP_BAD_REQUEST);
     }
 
     public function testRegisterWithNoFirstName()
     {
-        try {
-            $this->APICall(new Request(), 'POST', 'authenticate/register',
-                [
-                    "email" => "unittest@exosuite.fr",
-                    "last_name" => "test",
-                    "password" => "unittest",
-                    "password_confirmation" => "unittest"
-                ], [], $this->createAPIDomainCallBack());
-        } catch (GuzzleException $e) {
-            $this->assertStatus(400, $e->getCode());
-        }
+        $this->tryRegister([
+            "email" => "unittest@exosuite.fr",
+            "last_name" => "test",
+            "password" => "unittest",
+            "password_confirmation" => "unittest"
+        ]);
+        $this->assertStatus(Response::HTTP_BAD_REQUEST);
     }
 
 
     public function testRegisterWithNoLastName()
     {
-        try {
-            $this->APICall(new Request(), 'POST', 'authenticate/register',
-                [
-                    "email" => "unittest@exosuite.fr",
-                    "first_name" => "test",
-                    "password" => "unittest",
-                    "password_confirmation" => "unittest"
-                ], [], $this->createAPIDomainCallBack());
-        } catch (GuzzleException $e) {
-            $this->assertStatus(400, $e->getCode());
-        }
+        $this->tryRegister([
+            "email" => "unittest@exosuite.fr",
+            "first_name" => "test",
+            "password" => "unittest",
+            "password_confirmation" => "unittest"
+        ]);
+        $this->assertStatus(Response::HTTP_BAD_REQUEST);
     }
 
     public function testRegisterWithNoEmail()
     {
-        try {
-            $this->APICall(new Request(), 'POST', 'authenticate/register',
-                [
-                    "first_name" => "unit",
-                    "last_name" => "test",
-                    "password" => "unittest",
-                    "password_confirmation" => "unittest"
-                ], [], $this->createAPIDomainCallBack());
-        } catch (GuzzleException $e) {
-            $this->assertStatus(400, $e->getCode());
-        }
+        $this->tryRegister([
+            "first_name" => "unit",
+            "last_name" => "test",
+            "password" => "unittest",
+            "password_confirmation" => "unittest"
+        ]);
+        $this->assertStatus(Response::HTTP_BAD_REQUEST);
+    }
+
+    public function testAlreadyRegisteredEmail()
+    {
+        $this->registerUnitTestUser();
+        $this->assertStatus(Response::HTTP_BAD_REQUEST);
     }
 }
