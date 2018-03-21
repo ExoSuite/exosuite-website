@@ -35,32 +35,30 @@ $api->version('v1', function (Router $api) {
         });
 
         $api->group(['middleware' => 'ApiToken'], function (Router $api) {
+            $api->group(['prefix' => 'users'], function (Router $api) {
+                $api->get('/all', APINamespaceCreator::create('APIUserController@getAllUsers'));
+                $api->get('/courses/{uuid}', APINamespaceCreator::create('APIUserController@getUserCourses'));
+                $api->group(['prefix' => 'from'], function (Router $api) {
+                    $api->get('/uuid/{uuid}', APINamespaceCreator::create('APIUserController@getUserByUuid'));
+                    $api->get('/email/{email}', APINamespaceCreator::create('APIUserController@getUserByEmail'));
+                    $api->get('/name/{name}', APINamespaceCreator::create('APIUserController@getUserByName'));
+                });
 
-        });
-
-
-    });
-
-    $api->group(['prefix' => 'api/users'], function (Router $api) {
-        $api->get('/all', APINamespaceCreator::create('APIUserController@getAllUsers'));
-        $api->get('/courses/{uuid}', APINamespaceCreator::create('APIUserController@getUserCourses'));
-        $api->group(['prefix' => 'from'], function (Router $api) {
-            $api->get('/uuid/{uuid}', APINamespaceCreator::create('APIUserController@getUserByUuid'));
-            $api->get('/email/{email}', APINamespaceCreator::create('APIUserController@getUserByEmail'));
-            $api->get('/name/{name}', APINamespaceCreator::create('APIUserController@getUserByName'));
-        });
-
-    });
-        $api->group(['prefix' => 'api/courses'], function (Router $api) {
-            $api->get('/all', APINamespaceCreator::create('APICourseController@getAllCourses'));
-            $api->get('/title/{title}', APINamespaceCreator::create('APICourseController@getCoursesByTitle'));
-            $api->post('/new', APINamespaceCreator::create('APICourseController@create'));
-            $api->get('/user/{user_id}', APINamespaceCreator::create('APICourseController@getUserByCourseUserId'));
-            $api->group(['prefix' => 'uptimes'], function (Router $api) {
-                $api->post('/newTime', APINamespaceCreator::create('APICheckpointsTimesController@create'));
-                $api->get('/all/course_id/{course_id}', APINamespaceCreator::create('APICheckpointsTimesController@getAllCourseTimes'));
-                $api->get('/finalCourseTime/course_id/{course_id}', APINamespaceCreator::create('APICheckpointsTimesController@getFinalCourseTime'));
             });
+            $api->group(['prefix' => 'courses'], function (Router $api) {
+                $api->get('/all', APINamespaceCreator::create('APICourseController@getAllCourses'));
+                $api->get('/title/{title}', APINamespaceCreator::create('APICourseController@getCoursesByTitle'));
+                $api->post('/new', APINamespaceCreator::create('APICourseController@create'));
+                $api->get('/user/{user_id}', APINamespaceCreator::create('APICourseController@getUserByCourseUserId'));
+                $api->group(['prefix' => 'uptimes'], function (Router $api) {
+                    $api->post('/newTime', APINamespaceCreator::create('APICheckpointsTimesController@create'));
+                    $api->get('/all/course_id/{course_id}', APINamespaceCreator::create('APICheckpointsTimesController@getAllCourseTimes'));
+                    $api->get('/finalCourseTime/course_id/{course_id}', APINamespaceCreator::create('APICheckpointsTimesController@getFinalCourseTime'));
+                });
 
+            });
         });
+
+    });
+
 });
