@@ -10,19 +10,11 @@ use Illuminate\Http\Response;
 
 class APICourseTest extends APITestCase
 {
-    use RefreshDatabase;
-
     private $user_id;
 
     private $refresh_token;
 
     private $access_token;
-
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
 
     public function testLogin()
     {
