@@ -26,7 +26,7 @@ class APICourseTest extends APITestCase
 
     public function testLogin()
     {
-        $this->APICall(new Request(), 'POST', 'authenticate/login',
+        $this->APICall('POST', 'authenticate/login',
             [
                 "email" => "unittest@exosuite.fr",
                 "password" => "unittest",
@@ -51,7 +51,7 @@ class APICourseTest extends APITestCase
     public function testNewCourseWithNoUserID()
     {
 
-        $this->APICall(new Request(), 'POST', 'courses/new',
+        $this->APICall('POST', 'courses/new',
             [
                 "title" => "test",
                 "checkpoints" => [0 => "issou"],
@@ -62,7 +62,7 @@ class APICourseTest extends APITestCase
 
     public function testNewCourseWithNoTitle()
     {
-        $this->APICall(new Request(), 'POST', 'courses/new',
+        $this->APICall('POST', 'courses/new',
             [
                 "user_id" => $this->user_id,
                 "checkpoints" => [0 => "issou"],
@@ -73,7 +73,7 @@ class APICourseTest extends APITestCase
 
     public function testNewCourseWithNoCheckpoints()
     {
-        $this->APICall(new Request(), 'POST', 'courses/new',
+        $this->APICall('POST', 'courses/new',
             [
                 "user_id" => $this->user_id,
                 "title" => "test",
@@ -84,7 +84,7 @@ class APICourseTest extends APITestCase
 
     public function testNewCourseOK()
     {
-        $this->APICall(new Request(), 'POST', 'courses/new',
+        $this->APICall('POST', 'courses/new',
             [
                 "user_id" => $this->user_id,
                 "title" => "test",
