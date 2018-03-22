@@ -4,8 +4,7 @@
 ![php-badge](https://img.shields.io/badge/php-%3E%3D%207.2-blue.svg?style=flat-square)
 ![nginx](https://img.shields.io/badge/NGINX-nginx%2F1.10.3-brightgreen.svg?style=flat-square)
 ![supervisor](https://img.shields.io/badge/supervisor-3.3.1-brightgreen.svg?style=flat-square)
-<br>
-Laravel: ![laravel](https://poser.pugx.org/laravel/framework/v/stable.svg?format=flat-square)
+![laravel](https://poser.pugx.org/laravel/framework/v/stable.svg?format=flat-square)
 
 
 
