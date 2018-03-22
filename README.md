@@ -72,7 +72,7 @@ sudo cp ServerConfig/Supervisor/laravel-worker.conf /etc/supervisor/conf.d
 ```
 
 ### Restart servers
-```
+```bash
 sudo service php7.2-fpm restart
 sudo service nginx restart
 sudo supervisorctl reread
@@ -84,7 +84,7 @@ sudo supervisorctl start laravel-worker:*
 ## Client tokens
 ### Client Web Token
 #### Generate token for web front-end
-***web token are generated in .env with the key : CLIENT_WEB_APP=***
+*web tokens are generated in .env file with the key : CLIENT_WEB_APP=*
 
 ```bash
 php artisan client_web_app:generate
@@ -93,7 +93,21 @@ php artisan client_web_app:generate
 >**result : CLIENT_WEB_APP=bc9082bc-c7ba-48ca-bd09-4d3b8c3eafe4**
 
 #### Generate token for ExoSuite Apps
- 
+##### List of available commands from artisan
+```bash
+php artisan client_app:generate                   
+php artisan client_app:get_infos_name             
+php artisan client_app:get_infos_uuid
+```
+
+###### Example to generate Client App token for ExoRun
+```
+php artisan client_app:generate ExoRun
+<span style="color:green">Client created on app ExoRun and with UUID 8bdb4408-5ebd-4f5c-864f-96a71fc88f61 successfully.</span>
+```
+
+
+
 
 ### Access token
 
