@@ -1,5 +1,3 @@
-# ExoSuiteAPI
-
 <p align="center">
 <img src="https://www.versioneye.com/user/projects/5ab3aee70fb24f44833013cb/badge.svg?style=flat-square">
 <img src="https://img.shields.io/badge/php-%3E%3D%207.2-blue.svg?style=flat-square">
