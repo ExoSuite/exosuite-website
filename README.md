@@ -90,7 +90,7 @@ sudo supervisorctl start laravel-worker:*
 php artisan client_web_app:generate
 ```
 
->***result : CLIENT_WEB_APP=bc9082bc-c7ba-48ca-bd09-4d3b8c3eafe4***
+>**result : CLIENT_WEB_APP=bc9082bc-c7ba-48ca-bd09-4d3b8c3eafe4**
 
 #### Generate token for ExoSuite Apps
  
