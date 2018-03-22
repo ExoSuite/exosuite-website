@@ -6,8 +6,10 @@
 ![composer](https://img.shields.io/badge/composer-1.6.3-brightgreen.svg?style=flat-square)
 ![nginx](https://img.shields.io/badge/NGINX-nginx%2F1.10.3-brightgreen.svg?style=flat-square)
 ![supervisor](https://img.shields.io/badge/supervisor-3.3.1-brightgreen.svg?style=flat-square)
-![laravel](https://poser.pugx.org/laravel/framework/v/stable.svg?format=flat-square)
+
+<p align="center">
+<img src="https://laravel.com/assets/img/components/logo-laravel.svg">
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+</p>
 
 
-
-EPITECH EIP EXOSUITE API
