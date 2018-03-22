@@ -7,7 +7,9 @@
 </p>
 
 <p align="center">
-<img src="https://laravel.com/assets/img/components/logo-laravel.svg">
+    <a href="https://laravel.com/">
+        <img src="https://laravel.com/assets/img/components/logo-laravel.svg">
+    </a>
 </p>
 <p align="center">
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
