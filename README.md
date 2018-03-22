@@ -84,13 +84,13 @@ sudo supervisorctl start laravel-worker:*
 ## Client tokens
 ### Client Web Token
 #### Generate token for web front-end
-*web tokens are generated in .env file with the key : CLIENT_WEB_APP=*
+*Web tokens are generated in .env file with the key : CLIENT_WEB_APP=*
 
 ```bash
 php artisan client_web_app:generate
 ```
 
->**result : CLIENT_WEB_APP=bc9082bc-c7ba-48ca-bd09-4d3b8c3eafe4**
+>**Result : CLIENT_WEB_APP=bc9082bc-c7ba-48ca-bd09-4d3b8c3eafe4**
 
 #### Generate token for ExoSuite Apps
 ##### List of available commands from artisan
@@ -100,15 +100,16 @@ php artisan client_app:get_infos_name
 php artisan client_app:get_infos_uuid
 ```
 
-###### Example to generate Client App token for ExoRun
-```
-php artisan client_app:generate ExoRun
-<span style="color:green">Client created on app ExoRun and with UUID 8bdb4408-5ebd-4f5c-864f-96a71fc88f61 successfully.</span>
-```
+##### Example for ExoRun
+**Generate token**
+<img src="https://user-images.githubusercontent.com/17724398/37781443-03be3ef6-2df1-11e8-8308-47fbc843d3fa.png"/>
 
+**Get client app info by name**
+<img src="https://user-images.githubusercontent.com/17724398/37781633-5e33fa92-2df1-11e8-9491-960809a71ac8.png"/>
 
+**Get client app info by uuid**
+<img src="https://user-images.githubusercontent.com/17724398/37781959-134ee70c-2df2-11e8-97f3-20621c437c8e.png"/>
 
-
-### Access token
+### Access token and refresh token
 
 
