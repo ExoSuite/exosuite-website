@@ -23,9 +23,9 @@ class APICourseController extends APIBaseController
         }
 
         $infos = $request->all();
-        Course::create($infos);
+        $course = Course::create($infos);
 
-        return$this->response->created();
+        return $this->response->created(null, ['course_id' => $course->course_id]);
     }
 
     public function getAllCourses()

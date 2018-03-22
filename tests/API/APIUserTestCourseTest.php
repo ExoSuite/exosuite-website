@@ -76,7 +76,7 @@ class APIUserTestCourseTest extends APITestCase
                 "user_id" => self::$user_id,
                 "title" => "test",
                 "description" => "ceci_est_un_test",
-                "checkpoints" => [0 => "test_checkpoint"],
+                "checkpoints" => [0 => "test_checkpoint"]
             ], ["access-token" => self::$access_token, "user-id" => self::$user_id], $this->createAPIDomainCallBack());
         $this->assertStatus(Response::HTTP_CREATED);
     }

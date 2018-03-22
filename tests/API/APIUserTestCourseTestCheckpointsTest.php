@@ -5,6 +5,7 @@ namespace Tests\API;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Tests\APITestCase;
 use Illuminate\Http\Response;
 
@@ -44,11 +45,21 @@ class APIUserTestCourseTestCheckpointsTest extends APITestCase
                 "user_id" => self::$user_id,
                 "title" => "test",
                 "description" => "ceci_est_un_test",
-                "checkpoints" => [0 => "test_checkpoint"],
-                "access_token" => self::$access_token,
+                "checkpoints" => "{}"
             ], ["access-token" => self::$access_token, "user-id" => self::$user_id], $this->createAPIDomainCallBack());
         $this->assertStatus(Response::HTTP_CREATED);
         $response = json_decode($this->response->getBody()->getContents(), true);
+        Log::info("response {$this->response->getBody()->getContents()}");
         self::$course_id = $response['course_id'];
+    }
+
+    public function testNewCheckpointsTimesOK()
+    {
+        $this->APICall('POST', 'courses/uptimes/newTime',
+            [
+                "course_id" => self::$course_id,
+                "checkpoints_times" => json_encode([0 => "test_checkpoint"])
+            ], ["access-token" => self::$access_token, "user-id" => self::$user_id], $this->createAPIDomainCallBack());
+        $this->assertStatus(Response::HTTP_CREATED);
     }
 }

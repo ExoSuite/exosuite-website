@@ -11,8 +11,8 @@ class APICheckpointsTimesController extends APIBaseController
     public function create(Request $request)
     {
         $validation = Validator::make($request->all(), [
-           'courses_id' => 'required|uuid|exists:courses',
-           'checkpoints_times' => 'required'
+           'course_id' => 'required|uuid|exists:courses',
+           'checkpoints_times' => 'required|json'
         ]);
         if ($validation->fails())
         {
