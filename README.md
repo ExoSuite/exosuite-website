@@ -15,10 +15,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 </p>
 
-#Installation Debian 9
+# Installation Debian 9
 
 ### Prerequisites
-```
+```bash
 sudo apt-get install apt-transport-https lsb-release ca-certificates
 sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
@@ -81,6 +81,20 @@ sudo supervisorctl start laravel-worker:*
 ```
 
 # Security tokens
+## Client tokens
+### Client Web Token
+#### Generate token for web front-end
+***web token are generated in .env with the key : CLIENT_WEB_APP=***
+
+```bash
+php artisan client_web_app:generate
+```
+
+>***result : CLIENT_WEB_APP=bc9082bc-c7ba-48ca-bd09-4d3b8c3eafe4***
+
+#### Generate token for ExoSuite Apps
+ 
+
 ### Access token
 
 
