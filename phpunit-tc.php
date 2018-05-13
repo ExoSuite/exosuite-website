@@ -181,7 +181,7 @@ class TeamCity_PHPUnit_Framework_TestListener
 class TeamCity_PHPUnit_TextUI_Command
     extends PHPUnit\TextUI\Command
 {
-    public static function main($exit = TRUE)
+    public static function main($exit = TRUE) : int
     {
         $command = new TeamCity_PHPUnit_TextUI_Command();
         $command->run($_SERVER['argv'], $exit);
