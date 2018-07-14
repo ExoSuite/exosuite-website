@@ -41,6 +41,10 @@ Route::get('about', function () {
    return view('about')->with(array('mark' => true));
 });
 
+Route::get('/departures', function () {
+    return view('departures');
+});
+
 Route::post('survey', 'SurveyController@postSurvey');
 
 Route::group(["prefix" => "register"], function() {
