@@ -99,15 +99,6 @@
                          data-visual="ring shadow-hard flip"
                          data-face="slot">
                     </div>
-                    <p>Départ pour Paris</p>
-                </div>
-                <div class="col-md-3">
-                    Yassir Jabbari
-                    <div class="soon"
-                         data-due="2018-08-06 13:45:00"
-                         data-visual="ring shadow-hard flip"
-                         data-face="slot">
-                    </div>
                     <p>Départ pour Québec</p>
                 </div>
             </div>
