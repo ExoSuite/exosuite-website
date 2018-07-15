@@ -70,7 +70,7 @@
                          data-visual="ring shadow-hard flip"
                          data-face="slot">
                     </div>
-                    <p>Départ pour Québec</p>
+                    <p>Départ pour Rimouski</p>
                 </div>
             </div>
             <div class="row">
@@ -90,7 +90,7 @@
                          data-visual="ring shadow-hard flip"
                          data-face="slot">
                     </div>
-                    <p>Départ pour Keimyung</p>
+                    <p>Départ pour Rimouski</p>
                 </div>
                 <div class="col-md-3">
                     Yassir Jabbari
