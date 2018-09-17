@@ -1,7 +1,7 @@
 127.0.0.1	localhost
 127.0.0.1	exosuite
-127.0.0.1	exosuite.local
-127.0.0.1	api.exosuite.local
+192.168.153.130	exosuite.local
+192.168.153.130	api.exosuite.local
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback
