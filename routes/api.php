@@ -1,7 +1,6 @@
 <?php
 
 use App\Helpers\APINamespaceCreator;
-use Dingo\Api\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +13,7 @@ use Dingo\Api\Routing\Router;
 |
 */
 
-$api = app('Dingo\Api\Routing\Router');
-
-$api->version('v1', function (Router $api) {
+/*$api->version('v1', function (Router $api) {
     $api->group(['middleware' => 'client_app', 'prefix' => 'api'], function (Router $api) {
 
         $api->group(['prefix' => 'authenticate'], function (Router $api)
@@ -61,4 +58,4 @@ $api->version('v1', function (Router $api) {
 
     });
 
-});
+});*/
