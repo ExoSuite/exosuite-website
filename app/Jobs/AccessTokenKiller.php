@@ -34,7 +34,8 @@ class AccessTokenKiller implements ShouldQueue
     public function handle()
     {
         $token = ApiToken::find($this->token_uuid);
-        if ($token->exists())
+        if ($token->exists()) {
             $token->delete();
+        }
     }
 }

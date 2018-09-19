@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\WebSite;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
@@ -16,8 +16,7 @@ class ContactController extends Controller
     {
         $inputs = $request->all();
         $this->validate($request, ['name' => 'required', 'email' => 'required|email', 'message' => 'required']);
-        Mail::send('emails.contact', array('inputs' => $inputs), function($message) use ($inputs)
-        {
+        Mail::send('emails.contact', array('inputs' => $inputs), function ($message) use ($inputs) {
             $message->from($inputs['email'], 'ExoSuite');
             $message->to('EIP.ExoSuite@gmail.com', 'ExoSuite')->subject('Message reçu du formulaire de contact du site');
         });

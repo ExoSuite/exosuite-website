@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\WebSite\Auth;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\WebSite\Controller;
+
+use App\Http\Controllers\Controller;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -79,8 +80,7 @@ class LoginController extends Controller
 
         try {
             $this->attemptLogin($request);
-        }
-        catch (ClientException $exception) {
+        } catch (ClientException $exception) {
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts

@@ -57,7 +57,8 @@
             "php artisan ide-helper:meta",
             "php artisan ide-helper:models",
             "@php artisan package:discover"
-        ]
+        ],
+        "reformat": "./vendor/bin/phpcbf ./app ./tests ./database ./routes --standard=PSR12"
     },
     "config": {
         "preferred-install": "dist",

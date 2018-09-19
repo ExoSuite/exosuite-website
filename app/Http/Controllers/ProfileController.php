@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\WebSite;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,19 +22,25 @@ class ProfileController extends Controller
     public function editProfile(Request $request)
     {
         $user = Auth::user();
-        $inputs =$request->all();
-        if (isset($inputs['firstname']))
+        $inputs = $request->all();
+        if (isset($inputs['firstname'])) {
             $user->update(['first_name' => $inputs['firstname']]);
-        if (isset($inputs['lastname']))
+        }
+        if (isset($inputs['lastname'])) {
             $user->update(['last_name' => $inputs['lastname']]);
-        if (isset($inputs['city']))
+        }
+        if (isset($inputs['city'])) {
             $user->update(['city' => $inputs['city']]);
-        if (isset($inputs['birthday']))
+        }
+        if (isset($inputs['birthday'])) {
             $user->update(['birthday' => $inputs['birthday']]);
-        if (isset($inputs['about']))
+        }
+        if (isset($inputs['about'])) {
             $user->update(['about' => $inputs['about']]);
-        if (isset($inputs['nickname']))
-            $user->update(['nickname'=> $inputs['nickname']]);
+        }
+        if (isset($inputs['nickname'])) {
+            $user->update(['nickname' => $inputs['nickname']]);
+        }
         return redirect('profile');
     }
 }

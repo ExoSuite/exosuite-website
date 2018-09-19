@@ -35,20 +35,24 @@ trait APICall
      * @param string $urlCreator
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    protected function APICall(Request $request, string $method, string $APIUri,
-                               array $body, array $headers = [], $urlCreator = null)
-    {
+    protected function APICall(
+        Request $request,
+        string $method,
+        string $APIUri,
+        array $body,
+        array $headers = [],
+        $urlCreator = null
+    ) {
         $headers['client-web'] = APIClientAppHelper::getClientWebAppToken();
         Log::info("headers", $headers);
         $client = new Client(['headers' => $headers]);
 
-        if ($urlCreator === null)
+        if ($urlCreator === null) {
             $APIUri = $this->ApiUri($request, $APIUri);
-        else
+        } else {
             $APIUri = call_user_func($urlCreator, $APIUri);
+        }
 
         $this->response = $client->request($method, $APIUri, ['form_params' => $body]);
     }
-
-
 }

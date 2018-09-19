@@ -11,48 +11,36 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'SimpleViewController@home');
+
+Route::group(['prefix' => 'contact'], function () {
+    Route::get('/', 'ContactController@index');
+    Route::post('/', 'ContactController@contact');
 });
 
-Route::get('contact', 'ContactController@index');
-Route::post('contact', 'ContactController@contact');
+Route::get('exosuite', 'SimpleViewController@exosuite');
 
-Route::get('exosuite', function() {
-    return view('exosuite');
-});
+Route::get('exorun', 'SimpleViewController@exorun');
 
-Route::get('exorun', function() {
-    return view('exorun');
-});
+Route::get('exofun', 'SimpleViewController@exofun');
 
-Route::get('exofun', function () {
-   return view('exofun');
-});
-Route::get('survey', function() {
-    return view('survey');
-});
+Route::get('pricing', 'SimpleViewController@pricing');
 
-Route::get('pricing', function () {
-   return view('pricing');
-});
+Route::get('about', 'SimpleViewController@about');
 
-Route::get('about', function () {
-   return view('about')->with(array('mark' => true));
-});
-
-Route::get('/departures', function () {
+/*Route::get('/departures', function () {
     return view('departures');
+});*/
+
+/*Route::get('survey', 'SurveyController@index');
+Route::post('survey', 'SurveyController@postSurvey');*/
+
+Route::group(["prefix" => "register"], function () {
+    Route::get('/', "Auth\RegisterController@registerView")->name('register');
+    Route::post('/', 'Auth\RegisterController@register')->name('registerAPI');
 });
 
-Route::post('survey', 'SurveyController@postSurvey');
-
-Route::group(["prefix" => "register"], function() {
-   Route::get('/', "Auth\RegisterController@registerView")->name('register');
-   Route::post('/', 'Auth\RegisterController@register')->name('registerAPI');
-});
-
-Route::group(["prefix" => "login"], function() {
+Route::group(["prefix" => "login"], function () {
     Route::get('/', 'Auth\LoginController@loginView')->name('login');
     Route::post('/', 'Auth\LoginController@login')->name('loginAPI');
     Route::get('/recover', 'Auth\LoginController@recoverView')->name('recover');
