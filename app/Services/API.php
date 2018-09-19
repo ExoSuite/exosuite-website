@@ -24,11 +24,10 @@ class API
 
     public function post(string $uri, array $data, array $headers = [])
     {
-        /*$promise = $this->client->postAsync($uri,
+        $promise = $this->client->postAsync($uri,
             ['json' => $data, 'headers' => $headers]);
         $promise->then(function (Response $response) {
             return json_decode($response->getBody());
-        })->wait();*/
-        $this->client->request('POST', $uri, ['json' => $data, 'headers' => $headers]);
+        })->wait();
     }
 }

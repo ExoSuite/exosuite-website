@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-    \App\Facades\API::post('oauth/tokens', []);
     return view('welcome');
 });
 

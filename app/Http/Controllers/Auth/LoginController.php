@@ -46,7 +46,7 @@ class LoginController extends Controller
      */
     protected function attemptLogin(Request $request)
     {
-
+        //TODO Mettre le Login via API Ici en utilisant la classe Services/API
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
