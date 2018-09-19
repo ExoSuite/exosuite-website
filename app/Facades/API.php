@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Facade;
  * Class API
  * @package App\Facades
  * @method array post(string $uri, array $data, array $headers = [])
+ * @method array get(string $uri, array $data = [], array $headers = [])
+ * @method array put(string $uri, array $data, array $headers = [])
+ * @method array patch(string $uri, array $data, array $headers = [])
+ * @method array delete(string $uri, array $data = [], array $headers = [])
  */
 class API extends Facade
 {

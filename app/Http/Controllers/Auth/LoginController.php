@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\WebSite\Auth;
 
 use App\Http\Controllers\WebSite\Controller;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -76,8 +77,10 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
-        if ($this->attemptLogin($request)) {
-            return $this->sendLoginResponse($request);
+        try {
+            $this->attemptLogin($request);
+        }
+        catch (ClientException $exception) {
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
