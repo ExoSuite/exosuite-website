@@ -27,8 +27,8 @@ class API
      */
     private function wait($promise)
     {
-        $promise->then(function (Response $response) {
-            return json_decode($response->getBody());
+        return (array) $promise->then(function (Response $response) {
+            return json_decode($response->getBody()->getContents());
         })->wait();
     }
 

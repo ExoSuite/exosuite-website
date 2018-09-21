@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 @head()
-<meta name="title" content="ExoSuite, Le futur du sport !"/>
+<meta name="description" content="Apercevez nos vocations qui ont fait naître le projet ExoSuite, et faites connaissance avec notre équipe !"/>
 @endhead
 <body>
 @include('layouts.menu')

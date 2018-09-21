@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 
+use App\Facades\API;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -44,17 +45,16 @@ class LoginController extends Controller
      * Attempt to log the user into the application.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return bool
+     * @return \Illuminate\Http\Response
      */
     protected function attemptLogin(Request $request)
     {
         //TODO Mettre le Login via API Ici en utilisant la classe Services/API
+        $response = API::post('/auth/login', $request->only(['email', 'password']));
         $request->session()->regenerate();
+        session($response);
 
         $this->clearLoginAttempts($request);
-
-        return $this->authenticated($request, $this->guard()->user())
-            ?: redirect()->intended($this->redirectPath());
     }
 
     /**
@@ -74,12 +74,13 @@ class LoginController extends Controller
         // the IP address of the client making these requests into this application.
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
-
             return $this->sendLockoutResponse($request);
         }
 
         try {
             $this->attemptLogin($request);
+            return $this->authenticated($request, $this->guard()->user())
+                ?: redirect()->intended($this->redirectPath());
         } catch (ClientException $exception) {
         }
 

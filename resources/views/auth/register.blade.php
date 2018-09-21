@@ -50,7 +50,7 @@
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" name="nickname" placeholder="Nom d'utilisateur (optionnel)" value="{{ old('nickname') }}">
+                <input type="text" class="form-control" name="nick_name" placeholder="Nom d'utilisateur (optionnel)" value="{{ old('nick_name') }}">
             </div>
 
             <div class="form-group">
@@ -73,7 +73,9 @@
 
             <div class="form-group">
                 <button class="btn btn-block btn-primary" type="submit">Créer un compte !</button>
-                @captcha
+                @if (\App::environment("production"))
+                    @captcha
+                @endif
             </div>
         </form>
 
