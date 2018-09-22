@@ -25,7 +25,8 @@ class ApiTokensMiddleware
                 'user_id' => $request->header('user-id'),
                 'access_token' => $request->header('access-token')
             ];
-            $validator = Validator::make($credentials,
+            $validator = Validator::make(
+                $credentials,
                 [
                     'user_id' => 'bail|required|uuid|exists:users',
                     'access_token' => ['required',
@@ -38,8 +39,8 @@ class ApiTokensMiddleware
                 return response($validator->errors()->toJson(), Response::HTTP_FORBIDDEN);
             }
             return $next($request);
-        } else
+        } else {
             return response("Unauthorized", Response::HTTP_FORBIDDEN);
-
+        }
     }
 }

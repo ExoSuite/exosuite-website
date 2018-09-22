@@ -27,6 +27,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    'api-domain' => env('API_DOMAIN', 'https://api.exosuite.fr/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -146,7 +147,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Asvae\ApiTester\ServiceProvider::class,
 
 
         /*
@@ -162,6 +162,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class,
+        \App\Providers\FacadesServiceProvider::class
 
     ],
 

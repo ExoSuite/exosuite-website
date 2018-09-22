@@ -16,7 +16,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-115859959-1');
@@ -39,20 +43,23 @@
             @endforeach
         @endif
         <h5 class="mb-7">Connectez-vous !</h5>
-        <form  method="POST" action="/login">
+        <form method="POST" action="/login">
             @csrf
             <div class="form-group">
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Adresse mail">
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required
+                       autofocus placeholder="Adresse mail">
             </div>
 
             <div class="form-group">
-                <input id="password" type="password" class="form-control" name="password" required placeholder="Mot de passe">
+                <input id="password" type="password" class="form-control" name="password" required
+                       placeholder="Mot de passe">
             </div>
 
             <div class="form-group flexbox py-3">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Se souvenir de moi') }}
+                        <input type="checkbox"
+                               name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Se souvenir de moi') }}
                     </label>
                 </div>
 
@@ -61,7 +68,9 @@
 
             <div class="form-group">
                 <button class="btn btn-block btn-primary" type="submit">Se connecter !</button>
-                @captcha
+                @if (\App::environment("production"))
+                    @captcha
+                @endif
             </div>
         </form>
 
@@ -74,7 +83,8 @@
 
         <hr class="w-30">
 
-        <p class="text-center text-muted small-2">Vous n'êtes pas encore membre ? <a href="{{ route('register') }}">Créez votre compte ici !</a></p>
+        <p class="text-center text-muted small-2">Vous n'êtes pas encore membre ? <a href="{{ route('register') }}">Créez
+                votre compte ici !</a></p>
     </div>
 
 </main><!-- /.main-content -->

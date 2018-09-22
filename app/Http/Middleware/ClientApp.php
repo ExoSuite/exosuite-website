@@ -26,8 +26,9 @@ class ClientApp
             $client = ClientAppModel::where('client_name', $request->header('client-app'));
             if ($client->exists() && $client->first()->client_uuid === $request->header('client-app-uuid')) {
                 return $next($request);
-            } else
+            } else {
                 return response("", 401);
+            }
         }
         return response("", 401);
     }

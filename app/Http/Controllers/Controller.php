@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\WebSite;
+namespace App\Http\Controllers;
 
 use App\Traits\APICall;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 /**
  * Class Controller
- * @package App\Http\Controllers\WebSite
+ * @package App\Http\Controllers
  */
 class Controller extends BaseController
 {

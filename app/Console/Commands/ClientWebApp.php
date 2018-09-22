@@ -45,8 +45,9 @@ class ClientWebApp extends Command
         $fp = fopen($envFile, 'w');
         fwrite($fp, $str);
         fclose($fp);
-        if (file_exists(App::getCachedConfigPath()))
+        if (file_exists(App::getCachedConfigPath())) {
             Artisan::call("config:cache");
+        }
     }
 
     /**

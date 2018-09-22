@@ -34,15 +34,15 @@ class LoginPasswordRule implements Rule
     {
         if ($this->password && $this->email) {
             $user = User::where('email', $this->email)->first();
-            if (Hash::check($this->password, $user->password))
+            if (Hash::check($this->password, $user->password)) {
                 return true;
-            else
+            } else {
                 try {
                     return Hash::createArgonDriver()->check($user->password, $this->password);
                 } catch (\Exception $exception) {
                     return false;
                 }
-
+            }
         }
         return false;
     }

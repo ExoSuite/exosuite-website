@@ -48,8 +48,8 @@ class ClientAppGetInfosUUID extends Command
         if ($uuid->exists()) {
             $client_app = $uuid->first();
             $this->info("the client's uuid is " . $client_app->client_uuid . " and his name " . $client_app->client_name . ".");
-        } else
+        } else {
             $this->error("This UUID \"" . $this->argument('uuid') . "\" doesn't match in database.");
-
+        }
     }
 }
