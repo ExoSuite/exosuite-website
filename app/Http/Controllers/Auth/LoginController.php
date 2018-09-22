@@ -49,12 +49,13 @@ class LoginController extends Controller
      */
     protected function attemptLogin(Request $request)
     {
-        //TODO Mettre le Login via API Ici en utilisant la classe Services/API
         $response = API::post('/auth/login', $request->only(['email', 'password']));
-        $request->session()->regenerate();
-        session($response);
 
-        $this->clearLoginAttempts($request);
+        $this->guard()->attempt(
+            $this->credentials($request), $request->filled('remember')
+        );
+
+        return $this->sendLoginResponse($request, $response);
     }
 
     /**
@@ -78,9 +79,7 @@ class LoginController extends Controller
         }
 
         try {
-            $this->attemptLogin($request);
-            return $this->authenticated($request, $this->guard()->user())
-                ?: redirect()->intended($this->redirectPath());
+            return $this->attemptLogin($request);
         } catch (ClientException $exception) {
         }
 
@@ -90,6 +89,25 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param array $apiData
+     * @return \Illuminate\Http\Response
+     */
+    protected function sendLoginResponse(Request $request, array $apiData)
+    {
+        $request->session()->regenerate();
+
+        session($apiData);
+
+        $this->clearLoginAttempts($request);
+
+        return $this->authenticated($request, $this->guard()->user())
+            ?: redirect()->intended($this->redirectPath());
     }
 
     public function loginView()

@@ -67,6 +67,19 @@ return [
             'sslmode' => 'prefer',
         ],
 
+        'pgsql_api' => [
+            'driver' => 'pgsql',
+            'host' => env('DB_HOST_API', '127.0.0.1'),
+            'port' => env('DB_PORT_API', '5432'),
+            'database' => env('DB_DATABASE_API', 'forge'),
+            'username' => env('DB_USERNAME_API', 'forge'),
+            'password' => env('DB_PASSWORD_API', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST', 'localhost'),
