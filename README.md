@@ -6,6 +6,7 @@
 <img src="https://img.shields.io/badge/supervisor-3.3.1-brightgreen.svg?style=flat-square">
 </p>
 
+
 <p align="center">
     <a href="https://laravel.com/">
         <img src="https://laravel.com/assets/img/components/logo-laravel.svg">
