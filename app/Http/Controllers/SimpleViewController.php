@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\API;
+
 class SimpleViewController extends Controller
 {
     public function home()

@@ -48,9 +48,12 @@ Route::group(["prefix" => "login"], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(["prefix" => "profile"], function () {
-        Route::get('/', 'ProfileController@profileView')->name('profile');
-        Route::get('/edit', 'ProfileController@editProfileView');
-        Route::post('/edit', 'ProfileController@editProfile');
+        Route::get('/', 'ProfileController@myProfileView')->name('profile');
+        Route::get('/edit', 'ProfileController@editMyProfileView');
+        Route::post('/edit', 'ProfileController@editMyProfile');
+    });
+    Route::group(["prefix" => "user"], function () {
+        Route::get('/{id}', 'ProfileController@profileView');
     });
 });
 

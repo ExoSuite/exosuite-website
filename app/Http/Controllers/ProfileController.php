@@ -7,19 +7,25 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    public function profileView()
+    public function myProfileView()
     {
         $user = Auth::user();
         return view('profile')->with(array('user' => $user));
     }
 
-    public function editProfileView()
+    public function editMyProfileView()
     {
         $user = Auth::user();
         return view('editprofile')->with(array('user' => $user));
     }
 
-    public function editProfile(Request $request)
+    public function profileView($id)
+    {
+        $user = Auth::user();
+        return view('profile')->with(array('user' => $user, 'id' => $id));
+    }
+
+    public function editMyProfile(Request $request)
     {
         $user = Auth::user();
         $inputs = $request->all();

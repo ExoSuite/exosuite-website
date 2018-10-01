@@ -18,7 +18,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-115859959-1');
@@ -31,8 +35,16 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h1>Votre profil utilisateur</h1>
-                <a class="btn btn-xl btn-round btn-info" href="/profile/edit" style="margin: 0 auto; display: block; margin-bottom: 2%">Editez votre profil</a>
+                @if (!isset($id))
+                    <h1>Votre profil utilisateur</h1>
+                    <a class="btn btn-xl btn-round btn-info" href="/profile/edit"
+                       style="margin: 0 auto; display: block; margin-bottom: 2%">Editez votre profil</a>
+                @else
+                    <h1>Le profil utilisateur de {{ $user->first_name }} {{ $user->last_name }}</h1>
+                    <p class="custom-center">{{ $user->nickname }}</p>
+                    <a class="btn btn-xl btn-round btn-info" href="#"
+                       style="margin: 0 auto; display: block; margin-bottom: 2%">Suivre</a>
+                @endif
             </div>
         </div>
     </div>
@@ -41,35 +53,29 @@
     <div class="section" id="section-content">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <img src="http://www.web-soluces.net/webmaster/avatar/FaceCo-Homme.png" alt="..." class="rounded custom-avatar">
-                    <p class="lead custom-center">Bonjour je m'appelle {{ $user->first_name }} {{ $user->last_name }}<br />
-                        @if (isset($user->nickname))
-                            Mon nom d'utilisateur est {{ $user->nickname }}
-                        @else
-                            Je n'ai pas de nom d'utilisateur
-                        @endif
-                        <br />
-                        @if (isset($user->city))
-                            J'habite {{ $user->city }}
-                        @else
-                            Je n'ai pas encore entré le nom de ma ville
-                        @endif
-                        <br />
-                        @if (isset($user->birthday))
-                            J'ai {{ date_diff(date_create($user->birthday), date_create(date("Y-m-d")))->format('%Y') }} ans
-                        @else
-                            Je n'ai pas encore entré ma date de naissance
-                        @endif
-                        <br/></p>
-                    @if (isset($user->about))
-                        <p>A propos de moi : </p>
-                        <p>{{ $user->about }}</p>
+                <div class="col-sm-3">
+                    <img src="/img/profile_default.png" alt="..."
+                         class="rounded custom-avatar">
+                    <p class="lead">{{ $user->first_name }} {{ $user->last_name }}</p>
+                    <p>{{ $user->nickname }}</p>
+                    <p>{{ $user->city }}</p>
+                    @if (isset($user->birthday))
+                        J'ai {{ date_diff(date_create($user->birthday), date_create(date("Y-m-d")))->format('%Y') }}
+                        ans
                     @endif
+                    <div class="col-sm-12 without-padding">
+                        <p>Followers</p>
+                        <div>
+                            <a href="#"><img src="/img/profile_default.png" class="image-miniature"/></a>
+                            <a href="#"><img src="/img/profile_default.png" class="image-miniature"/></a>
+                            <a href="#"><img src="/img/profile_default.png" class="image-miniature"/></a>
+                            <a href="#"><img src="/img/profile_default.png" class="image-miniature"/></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="text-center my-6">
-                <img class="rounded-md" src="/img/719292.jpg" alt="Image d'illustration">
+                <div class="text-center col-sm-9">
+                    <img class="rounded-md" src="/img/719292.jpg" alt="Image d'illustration">
+                </div>
             </div>
         </div>
     </div>
