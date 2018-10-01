@@ -21,6 +21,8 @@ class API
      * @var Client
      */
     private $client;
+    public static $client_id;
+    public static $client_secret;
 
     /**
      * @param $promise
@@ -40,6 +42,11 @@ class API
         $this->client = new Client([
             'base_uri' => config('app.api-domain')
         ]);
+    }
+
+    public static function initClient() {
+        self::$client_id = config('app.website_client_id_api');
+        self::$client_secret = config('app.website_client_secret');
     }
 
     /**

@@ -214,5 +214,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
+    'website_client_secret' => env('WEBSITE_CLIENT_SECRET'),
+    'website_client_id_api' => env('WEBSITE_CLIENT_ID_API')
 ];

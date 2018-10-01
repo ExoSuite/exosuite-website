@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Services\API as APIService;
 
 class LoginController extends Controller
 {
@@ -49,8 +50,9 @@ class LoginController extends Controller
      */
     protected function attemptLogin(Request $request)
     {
-        $response = API::post('/auth/login', $request->only(['email', 'password']));
-
+        $data = $request->only(['email', 'password']);
+        $data = array_merge($data, API::getWebsiteCredentials());
+        $response = API::post('/auth/login', $data);
         $this->guard()->attempt(
             $this->credentials($request), $request->filled('remember')
         );
@@ -81,6 +83,7 @@ class LoginController extends Controller
         try {
             return $this->attemptLogin($request);
         } catch (ClientException $exception) {
+            dd($exception->getMessage());
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts

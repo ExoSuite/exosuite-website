@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "530f0bb55ecf19e4b3f4b421a1530f10",
+    "content-hash": "30c7dc6577ea3abd3aa10d0d2f306712",
     "packages": [
         {
             "name": "albertcht/invisible-recaptcha",
@@ -1437,6 +1437,36 @@
                 "random"
             ],
             "time": "2018-07-02T15:55:56+00:00"
+        },
+        {
+            "name": "peterpetrus/passport-token",
+            "version": "0.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/peterpetrus/passport-token.git",
+                "reference": "6c3f2f1a5cc6490ce34d21e2fec38cc1f6b09ec8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/peterpetrus/passport-token/zipball/6c3f2f1a5cc6490ce34d21e2fec38cc1f6b09ec8",
+                "reference": "6c3f2f1a5cc6490ce34d21e2fec38cc1f6b09ec8",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Dirty Decoder for Laravel Passport (Bearer) Access Token",
+            "time": "2018-06-28T19:11:13+00:00"
         },
         {
             "name": "psr/container",
