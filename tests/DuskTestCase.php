@@ -1,0 +1,56 @@
+<?php
+
+namespace Tests;
+
+use Laravel\Dusk\TestCase as BaseTestCase;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\Remote\DesiredCapabilities;
+use Symfony\Component\Process\Process;
+
+/**
+ * Class DuskTestCase
+ * @package Tests
+ */
+abstract class DuskTestCase extends BaseTestCase
+{
+    use CreatesApplication;
+
+    /**
+     * @return bool
+     */
+    private static function isLocal()
+    {
+        return env('APP_ENV') === 'local';
+    }
+
+    /**
+     * Prepare for Dusk test execution.
+     *
+     * @beforeClass
+     * @return void
+     */
+    public static function prepare()
+    {
+        if (self::isLocal()) {
+            self::startChromeDriver();
+        }
+    }
+
+    /**
+     * Create the RemoteWebDriver instance.
+     *
+     * @return \Facebook\WebDriver\Remote\RemoteWebDriver
+     */
+    protected function driver()
+    {
+        if (self::isLocal()) {
+            return parent::driver();
+        }
+        else {
+            $port = getenv('PHANTOM_JS_PORT');
+            return RemoteWebDriver::create(
+                "http://localhost:{$port}/wd/hub", DesiredCapabilities::phantomjs()
+            );
+        }
+    }
+}
