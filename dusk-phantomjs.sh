@@ -6,6 +6,6 @@ export PHANTOM_JS_PORT=${PORT}
 
 ./tests/bin/phantomjs --webdriver=${PORT} > /dev/null 2>&1 & > /dev/null 2>&1
 
-php artisan dusk
+./vendor/bin/phpunit --log-junit test-reports/phpunit.xml -c ./phpunit.dusk.xml
 
 lsof -i tcp:${PORT} | awk 'NR!=1 {print $2}' | xargs kill
