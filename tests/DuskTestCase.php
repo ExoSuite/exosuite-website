@@ -2,9 +2,7 @@
 
 namespace Tests;
 
-use Illuminate\Support\Facades\App;
 use Laravel\Dusk\TestCase as BaseTestCase;
-use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Symfony\Component\Process\Process;
@@ -18,26 +16,11 @@ abstract class DuskTestCase extends BaseTestCase
     use CreatesApplication;
 
     /**
-     * @var Process
-     */
-    static protected $phantomJS;
-
-    /**
      * @return bool
      */
     private static function isLocal()
     {
         return env('APP_ENV') === 'local';
-    }
-
-    /**
-     *
-     */
-    private static function initHeadless()
-    {
-        $cmd = getcwd() . '/tests/bin/phantomjs --webdriver=4444';
-        self::$phantomJS = new Process($cmd);
-        self::$phantomJS->start();
     }
 
     /**
@@ -50,8 +33,6 @@ abstract class DuskTestCase extends BaseTestCase
     {
         if (self::isLocal()) {
             self::startChromeDriver();
-        } else {
-            self::initHeadless();
         }
     }
 
@@ -66,20 +47,10 @@ abstract class DuskTestCase extends BaseTestCase
             return parent::driver();
         }
         else {
+            $port = getenv('PHANTOM_JS_PORT');
             return RemoteWebDriver::create(
-                'http://localhost:4444/wd/hub', DesiredCapabilities::phantomjs()
+                "http://localhost:{$port}/wd/hub", DesiredCapabilities::phantomjs()
             );
         }
-    }
-
-    /**
-     *
-     */
-    protected function tearDown()
-    {
-        if (!self::isLocal()) {
-            self::$phantomJS->stop();
-        }
-        parent::tearDown();
     }
 }
