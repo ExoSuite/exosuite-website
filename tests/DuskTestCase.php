@@ -47,9 +47,8 @@ abstract class DuskTestCase extends BaseTestCase
             return parent::driver();
         }
         else {
-            $port = getenv('PHANTOM_JS_PORT');
             return RemoteWebDriver::create(
-                "http://localhost:{$port}/wd/hub", DesiredCapabilities::phantomjs()
+                "http://phantomjs:4444/wd/hub", DesiredCapabilities::phantomjs()
             );
         }
     }
