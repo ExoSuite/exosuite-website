@@ -32,6 +32,7 @@ class User extends Authenticatable
         'id',
         'first_name',
         'last_name',
+        'nick_name',
         'email',
         'password',
         'remember_token'
@@ -42,7 +43,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [ 'password' ];
+    protected $hidden = ['password', 'email_verified_at'];
 
     protected $connection = 'pgsql_api';
 }
