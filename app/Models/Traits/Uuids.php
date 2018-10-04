@@ -2,6 +2,7 @@
 
 namespace App\Models\Traits;
 
+use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 
 trait Uuids
@@ -14,7 +15,7 @@ trait Uuids
     {
         parent::boot();
 
-        static::creating(function ($model) {
+        static::creating(function (Model $model) {
             $model->{$model->getKeyName()} = (string)Uuid::generate(4);
         });
     }

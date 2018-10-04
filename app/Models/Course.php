@@ -16,7 +16,6 @@ use Webpatser\Uuid\Uuid;
  * @property string description
  * @property json checkpoints
  */
-
 class Course extends Model
 {
     use Uuids;
@@ -26,7 +25,7 @@ class Course extends Model
     public $incrementing = false;
 
     protected $fillable = [
-      'user_id', 'course_id', 'title', 'description', 'checkpoints'
+        'user_id', 'course_id', 'title', 'description', 'checkpoints'
     ];
 
     protected $casts = [
