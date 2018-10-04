@@ -26,6 +26,7 @@ class API
 
     /**
      * @param $promise
+     * @return array
      */
     private function wait($promise)
     {
@@ -54,6 +55,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function post(string $uri, array $data, array $headers = [])
     {
@@ -65,6 +67,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function get(string $uri, array $data = [], array $headers = [])
     {
@@ -76,6 +79,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function patch(string $uri, array $data, array $headers = [])
     {
@@ -87,6 +91,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function put(string $uri, array $data, array $headers = [])
     {
@@ -98,6 +103,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function delete(string $uri, array $data = [], array $headers = [])
     {
