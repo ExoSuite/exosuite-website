@@ -45,18 +45,21 @@ abstract class DuskTestCase extends BaseTestCase
     protected function driver()
     {
         if (self::isLocal()) {
-            $options = (new ChromeOptions)->addArguments([
+            $options = (new ChromeOptions())->addArguments([
                 '--no-sandbox'
             ]);
 
             return RemoteWebDriver::create(
-                'http://localhost:9515', DesiredCapabilities::chrome()->setCapability(
-                ChromeOptions::CAPABILITY, $options
-            ));
-        }
-        else {
+                'http://localhost:9515',
+                DesiredCapabilities::chrome()->setCapability(
+                    ChromeOptions::CAPABILITY,
+                    $options
+                )
+            );
+        } else {
             return RemoteWebDriver::create(
-                "http://phantomjs.local:4444/wd/hub", DesiredCapabilities::phantomjs()
+                "http://phantomjs.local:4444/wd/hub",
+                DesiredCapabilities::phantomjs()
             );
         }
     }

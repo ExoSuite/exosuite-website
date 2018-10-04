@@ -30,7 +30,7 @@ class FacadesServiceProvider extends ServiceProvider
             return new API();
         });
         App::singleton('InternalRequest', function ($app) {
-           return new InternalRequest($app);
+            return new InternalRequest($app);
         });
     }
 }

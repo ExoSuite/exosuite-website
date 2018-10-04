@@ -44,7 +44,8 @@ class API
         ]);
     }
 
-    public static function initClient() {
+    public static function initClient()
+    {
         self::$client_id = config('app.website_client_id_api');
         self::$client_secret = config('app.website_client_secret');
     }

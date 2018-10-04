@@ -8,7 +8,7 @@ class SimpleViewController extends Controller
 {
     public function home()
     {
-        return view ('welcome');
+        return view('welcome');
     }
 
     public function exosuite()

@@ -54,7 +54,8 @@ class LoginController extends Controller
         $data = array_merge($data, API::getWebsiteCredentials());
         $response = API::post('/auth/login', $data);
         $this->guard()->attempt(
-            $this->credentials($request), $request->filled('remember')
+            $this->credentials($request),
+            $request->filled('remember')
         );
 
         return $this->sendLoginResponse($request, $response);
