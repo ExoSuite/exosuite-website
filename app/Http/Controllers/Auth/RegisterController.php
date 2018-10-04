@@ -14,10 +14,11 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        if ($request->filled('nick_name'))
+        if ($request->filled('nick_name')) {
             $data = $request->all();
-        else
+        } else {
             $data = $request->except('nick_name');
+        }
         try {
             // TODO : Remettre en place le recaptcha ici et dans le login
             //$this->validate($request, ['g-recaptcha-response' => 'required|captcha']);

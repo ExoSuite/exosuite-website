@@ -14,7 +14,8 @@
         "laravel/tinker": "^1.0",
         "peterpetrus/passport-token": "^0.0.7",
         "symfony/psr-http-message-bridge": "^1.0",
-        "webpatser/laravel-uuid": "^3.0"
+        "webpatser/laravel-uuid": "^3.0",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.4",

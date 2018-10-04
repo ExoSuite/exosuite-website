@@ -12,6 +12,7 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 use PeterPetrus\Auth\PassportToken;
 use App\Services\API as APIService;
+use RuntimeException;
 
 /**
  * Class API
@@ -42,11 +43,9 @@ class API extends Facade
 
     private static function checkAccessToken($instance)
     {
-        if (session()->exists('access_token'))
-        {
+        if (session()->exists('access_token')) {
             $token = new PassportToken(session('access_token'));
-            if ($token->expired)
-            {
+            if ($token->expired) {
                 $response = $instance->post('/oauth/token', [
                     'grant_type' => 'refresh_token',
                     'refresh_token' => session('refresh_token'),

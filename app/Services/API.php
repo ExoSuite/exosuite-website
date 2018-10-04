@@ -26,6 +26,7 @@ class API
 
     /**
      * @param $promise
+     * @return array
      */
     private function wait($promise)
     {
@@ -44,7 +45,8 @@ class API
         ]);
     }
 
-    public static function initClient() {
+    public static function initClient()
+    {
         self::$client_id = config('app.website_client_id_api');
         self::$client_secret = config('app.website_client_secret');
     }
@@ -53,6 +55,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function post(string $uri, array $data, array $headers = [])
     {
@@ -64,6 +67,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function get(string $uri, array $data = [], array $headers = [])
     {
@@ -75,6 +79,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function patch(string $uri, array $data, array $headers = [])
     {
@@ -86,6 +91,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function put(string $uri, array $data, array $headers = [])
     {
@@ -97,6 +103,7 @@ class API
      * @param string $uri
      * @param array $data
      * @param array $headers
+     * @return array
      */
     public function delete(string $uri, array $data = [], array $headers = [])
     {

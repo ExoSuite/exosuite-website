@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use Facebook\WebDriver\Chrome\ChromeOptions;
 use Laravel\Dusk\TestCase as BaseTestCase;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
@@ -44,12 +45,21 @@ abstract class DuskTestCase extends BaseTestCase
     protected function driver()
     {
         if (self::isLocal()) {
-            return parent::driver();
-        }
-        else {
-            $port = getenv('PHANTOM_JS_PORT');
+            $options = (new ChromeOptions())->addArguments([
+                '--no-sandbox'
+            ]);
+
             return RemoteWebDriver::create(
-                "http://localhost:{$port}/wd/hub", DesiredCapabilities::phantomjs()
+                'http://localhost:9515',
+                DesiredCapabilities::chrome()->setCapability(
+                    ChromeOptions::CAPABILITY,
+                    $options
+                )
+            );
+        } else {
+            return RemoteWebDriver::create(
+                "http://127.0.0.1:4444/wd/hub",
+                DesiredCapabilities::phantomjs()
             );
         }
     }
