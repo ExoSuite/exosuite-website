@@ -12,6 +12,7 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 use PeterPetrus\Auth\PassportToken;
 use App\Services\API as APIService;
+use RuntimeException;
 
 /**
  * Class API
