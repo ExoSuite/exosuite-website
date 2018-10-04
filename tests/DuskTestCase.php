@@ -48,7 +48,7 @@ abstract class DuskTestCase extends BaseTestCase
         }
         else {
             return RemoteWebDriver::create(
-                "http://phantomjs:4444/wd/hub", DesiredCapabilities::phantomjs()
+                "http://phantomjs.local:4444/wd/hub", DesiredCapabilities::phantomjs()
             );
         }
     }
