@@ -215,5 +215,41 @@ return [
 
     ],
     'website_client_secret' => env('WEBSITE_CLIENT_SECRET'),
-    'website_client_id_api' => env('WEBSITE_CLIENT_ID_API')
+    'website_client_id_api' => env('WEBSITE_CLIENT_ID_API'),
+    'debug_blacklist' => [
+        '_ENV' => [
+            'APP_KEY',
+            'DB_PASSWORD',
+            'REDIS_PASSWORD',
+            'MAIL_PASSWORD',
+            'PUSHER_APP_KEY',
+            'PUSHER_APP_SECRET',
+            'MAIL_USERNAME',
+            'MAIL_HOST',
+            'MAIL_PORT',
+            'DB_HOST',
+            'DB_USERNAME',
+            'DB_CONNECTION',
+            'DB_DATABASE',
+            'WEBSITE_CLIENT_SECRET',
+            'WEBSITE_CLIENT_ID_API'
+        ],
+        '_SERVER' => [
+            'APP_KEY',
+            'DB_PASSWORD',
+            'REDIS_PASSWORD',
+            'MAIL_PASSWORD',
+            'PUSHER_APP_KEY',
+            'PUSHER_APP_SECRET',
+            'MAIL_USERNAME',
+            'MAIL_HOST',
+            'MAIL_PORT',
+            'DB_HOST',
+            'DB_USERNAME',
+            'DB_CONNECTION',
+            'DB_DATABASE',
+            'WEBSITE_CLIENT_SECRET',
+            'WEBSITE_CLIENT_ID_API'
+        ]
+    ]
 ];
