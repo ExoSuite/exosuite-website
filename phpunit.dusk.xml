@@ -26,4 +26,7 @@
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="MAIL_DRIVER" value="array"/>
     </php>
+    <logging>
+        <log type="junit" target="test-reports/phpunit.xml"/>
+    </logging>
 </phpunit>
