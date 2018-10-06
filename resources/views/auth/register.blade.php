@@ -50,7 +50,7 @@
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" name="nickname" placeholder="Nom d'utilisateur (optionnel)" value="{{ old('nick_name') }}">
+                <input type="text" class="form-control" name="nick_name" placeholder="Nom d'utilisateur (optionnel)" value="{{ old('nick_name') }}">
             </div>
 
             <div class="form-group">

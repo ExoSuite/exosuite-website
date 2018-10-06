@@ -2,26 +2,37 @@
 
 namespace Tests\Browser;
 
-
-use App\Models\User;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Facade;
 
 class RegisterTest extends DuskTestCase
 {
-    public function testExample()
+    use WithFaker;
+
+    /**
+     * @throws \Throwable
+     */
+    public function testPostRegisterForm()
     {
+
         $this->browse(function (Browser $browser) {
-            $browser->visit(route('registerAPI'))
-                ->type('first_name', 'Jean')
-                ->type('last_name', 'Dupont')
-                ->type('nickname', 'jdupont')
-                ->type('email', 'test@test.fr')
-                ->type('password', 'Test123')
-                ->type('password_confirmation', 'Test123')
+
+            $route = route('registerAPI');
+            $password = str_random() . '0';
+
+            $browser->visit($route)
+                ->assertPathIs('/register')
+                ->type('first_name', $this->faker->firstName)
+                ->type('last_name', $this->faker->lastName)
+                ->type('nick_name', str_random(5))
+                ->type('email', $this->faker->email)
+                ->type('password', $password)
+                ->type('password_confirmation', $password)
                 ->click('#submit-register')
-                ->assertPathIs('/register');
+                ->assertPathIs('/profile');
         });
     }
 }

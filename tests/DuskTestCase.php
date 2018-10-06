@@ -7,6 +7,7 @@ use Laravel\Dusk\TestCase as BaseTestCase;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Symfony\Component\Process\Process;
+use App\Services\API;
 
 /**
  * Class DuskTestCase
@@ -32,6 +33,7 @@ abstract class DuskTestCase extends BaseTestCase
      */
     public static function prepare()
     {
+        API::initClient();
         if (self::isLocal()) {
             self::startChromeDriver();
         }

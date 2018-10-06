@@ -27,7 +27,6 @@ class RegisterController extends Controller
             return redirect('profile');
         } catch (ClientException $e) {
             $response = json_decode($e->getResponse()->getBody()->getContents(), true);
-            dd($response);
             $message = $response['errors'];
             return view('auth.register')->withErrors($message);
         }
