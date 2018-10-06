@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Console\Utils;
 use App\Facades\API;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
@@ -46,16 +47,6 @@ class RetrieveAPIClient extends Command
         }
     }
 
-    private function setEnvironmentValue($envKey, $envValue)
-    {
-        $path = base_path('.env');
-        if (file_exists($path)) {
-            file_put_contents($path, str_replace(
-                $envKey . '=' . env($envKey), $envKey . '=' . $envValue, file_get_contents($path)
-            ));
-        }
-    }
-
     /**
      * Execute the console command.
      *
@@ -65,7 +56,7 @@ class RetrieveAPIClient extends Command
     {
         $this->isAbleToRun();
         $response = API::get('staging/client');
-        $this->setEnvironmentValue("WEBSITE_CLIENT_SECRET", $response['client_id']);
-        $this->setEnvironmentValue("WEBSITE_CLIENT_ID_API", $response['client_secret']);
+        Utils::setEnvironmentValue("WEBSITE_CLIENT_SECRET", $response['client_id']);
+        Utils::setEnvironmentValue("WEBSITE_CLIENT_ID_API", $response['client_secret']);
     }
 }
