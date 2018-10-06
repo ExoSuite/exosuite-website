@@ -39,7 +39,7 @@ abstract class DuskTestCase extends BaseTestCase
     public static function prepare()
     {
         API::initClient();
-        if (self::isLocal()) {
+        if (self::isLocal() or self::duskDriver() === 'CHROME') {
             self::startChromeDriver();
             return;
         }
@@ -77,6 +77,7 @@ abstract class DuskTestCase extends BaseTestCase
             $chrome =  DesiredCapabilities::chrome()
                 ->setCapability(ChromeOptions::CAPABILITY, $options)
                 ->setCapability('acceptInsecureCerts', TRUE);
+
             return RemoteWebDriver::create(
                 'http://localhost:9515', $chrome
             );
