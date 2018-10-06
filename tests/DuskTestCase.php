@@ -41,7 +41,6 @@ abstract class DuskTestCase extends BaseTestCase
         API::initClient();
         if (self::isLocal() or self::duskDriver() === 'CHROME') {
             self::startChromeDriver();
-            return;
         }
     }
 
