@@ -43,7 +43,6 @@ abstract class DuskTestCase extends BaseTestCase
             self::startChromeDriver();
             return;
         }
-
     }
 
     /**
@@ -68,7 +67,7 @@ abstract class DuskTestCase extends BaseTestCase
         }
 
         if ($this->duskDriver() === 'CHROME') {
-            $options = (new ChromeOptions)->addArguments([
+            $options = (new ChromeOptions())->addArguments([
                 '--disable-gpu',
                 '--headless',
                 '--no-sandbox',
@@ -76,19 +75,17 @@ abstract class DuskTestCase extends BaseTestCase
 
             $chrome =  DesiredCapabilities::chrome()
                 ->setCapability(ChromeOptions::CAPABILITY, $options)
-                ->setCapability('acceptInsecureCerts', TRUE);
+                ->setCapability('acceptInsecureCerts', true);
 
             return RemoteWebDriver::create(
-                'http://localhost:9515', $chrome
+                'http://localhost:9515',
+                $chrome
             );
-        }
-
-        else if ($this->duskDriver() === 'PHANTOMJS') {
+        } elseif ($this->duskDriver() === 'PHANTOMJS') {
             return RemoteWebDriver::create(
                 "http://127.0.0.1:4444/wd/hub",
                 DesiredCapabilities::phantomjs()
             );
         }
-
     }
 }
