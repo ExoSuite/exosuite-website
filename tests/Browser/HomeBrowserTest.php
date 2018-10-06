@@ -14,7 +14,7 @@ class HomeBrowserTest extends DuskTestCase
      * @return void
      * @throws \Throwable
      */
-    public function testBasicExample()
+    public function testHome()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')->assertGuest();
