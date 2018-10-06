@@ -18,7 +18,6 @@ class HomeBrowserTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')->assertGuest();
-            $browser->screenshot("home");
         });
     }
 }

@@ -25,6 +25,11 @@ abstract class DuskTestCase extends BaseTestCase
         return env('APP_ENV') === 'local';
     }
 
+    private static function duskDriver()
+    {
+        return env('DUSK_DRIVER');
+    }
+
     /**
      * Prepare for Dusk test execution.
      *
@@ -34,10 +39,11 @@ abstract class DuskTestCase extends BaseTestCase
     public static function prepare()
     {
         API::initClient();
-        /*if (self::isLocal()) {
+        if (self::isLocal()) {
             self::startChromeDriver();
-        }*/
-        self::startChromeDriver();
+            return;
+        }
+
     }
 
     /**
@@ -47,7 +53,7 @@ abstract class DuskTestCase extends BaseTestCase
      */
     protected function driver()
     {
-       /* if (self::isLocal()) {
+        if (self::isLocal()) {
             $options = (new ChromeOptions())->addArguments([
                 '--no-sandbox'
             ]);
@@ -59,22 +65,29 @@ abstract class DuskTestCase extends BaseTestCase
                     $options
                 )
             );
-        } else {
+        }
+
+        if ($this->duskDriver() === 'CHROME') {
+            $options = (new ChromeOptions)->addArguments([
+                '--disable-gpu',
+                '--headless',
+                '--no-sandbox',
+            ]);
+
+            $chrome =  DesiredCapabilities::chrome()
+                ->setCapability(ChromeOptions::CAPABILITY, $options)
+                ->setCapability('acceptInsecureCerts', TRUE);
+            return RemoteWebDriver::create(
+                'http://localhost:9515', $chrome
+            );
+        }
+
+        else if ($this->duskDriver() === 'PHANTOMJS') {
             return RemoteWebDriver::create(
                 "http://127.0.0.1:4444/wd/hub",
                 DesiredCapabilities::phantomjs()
             );
-        }*/
-        $options = (new ChromeOptions)->addArguments([
-            '--disable-gpu',
-            '--headless',
-            '--no-sandbox',
-        ]);
+        }
 
-        return RemoteWebDriver::create(
-            'http://localhost:9515', DesiredCapabilities::chrome()->setCapability(
-            ChromeOptions::CAPABILITY, $options
-        )->setCapability('acceptInsecureCerts', TRUE)
-        );
     }
 }

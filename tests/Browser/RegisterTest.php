@@ -24,7 +24,6 @@ class RegisterTest extends DuskTestCase
             $password = str_random() . '0';
 
             $browser->visit($route)
-                ->screenshot("registerAPI")
                 ->assertPathIs('/register')
                 ->type('first_name', $this->faker->firstName)
                 ->type('last_name', $this->faker->lastName)
