@@ -3,6 +3,7 @@
 namespace Tests\Browser;
 
 use Laravel\Dusk\Browser;
+use Tests\Browser\Pages\HomePage;
 use Tests\DuskTestCase;
 
 class HomeBrowserTest extends DuskTestCase
@@ -16,7 +17,7 @@ class HomeBrowserTest extends DuskTestCase
     public function testHome()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')->assertGuest();
+            $browser->visit(new HomePage());
         });
     }
 }
