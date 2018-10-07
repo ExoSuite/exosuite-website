@@ -2,11 +2,9 @@
 
 namespace Tests\Browser;
 
-use Tests\DuskTestCase;
-use Laravel\Dusk\Browser;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Facade;
+use Laravel\Dusk\Browser;
+use Tests\DuskTestCase;
 
 class RegisterTest extends DuskTestCase
 {
