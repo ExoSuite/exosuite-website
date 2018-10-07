@@ -26,7 +26,6 @@ class RegisterController extends Controller
             InternalRequest::request(Request::METHOD_POST, route('loginAPI'), $data);
             return redirect('profile');
         } catch (ClientException $e) {
-            dd($e);
             $response = json_decode($e->getResponse()->getBody()->getContents(), true);
             $message = $response['errors'];
             return view('auth.register')->withErrors($message);
