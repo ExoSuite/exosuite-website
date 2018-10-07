@@ -48,12 +48,12 @@ class API
 
     public static function initClient()
     {
-        if (env('APP_ENV') !== 'production') {
-            self::$client_id = env('WEBSITE_CLIENT_SECRET');
-            self::$client_secret = env('WEBSITE_CLIENT_ID_API');
-        } else {
-            self::$client_id = config('app.website_client_id_api');
+        if (env('APP_ENV') === 'production' || \Config::get('app.env') === 'production') {
+            self::$client_id = (int)config('app.website_client_id_api');
             self::$client_secret = config('app.website_client_secret');
+        } else {
+            self::$client_id = (int)env('WEBSITE_CLIENT_ID_API');
+            self::$client_secret = env('WEBSITE_CLIENT_SECRET');
         }
     }
 
