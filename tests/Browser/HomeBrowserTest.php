@@ -2,9 +2,9 @@
 
 namespace Tests\Browser;
 
-use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\Browser\Pages\HomePage;
+use Tests\DuskTestCase;
 
 class HomeBrowserTest extends DuskTestCase
 {
@@ -14,10 +14,10 @@ class HomeBrowserTest extends DuskTestCase
      * @return void
      * @throws \Throwable
      */
-    public function testBasicExample()
+    public function testHome()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')->assertGuest();
+            $browser->visit(new HomePage());
         });
     }
 }

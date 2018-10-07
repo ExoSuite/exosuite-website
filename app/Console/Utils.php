@@ -20,7 +20,9 @@ class Utils
         $path = base_path('.env');
         if (file_exists($path)) {
             file_put_contents($path, str_replace(
-                $envKey . '=' . env($envKey), $envKey . '=' . $envValue, file_get_contents($path)
+                $envKey . '=' . env($envKey),
+                $envKey . '=' . $envValue,
+                file_get_contents($path)
             ));
         }
     }

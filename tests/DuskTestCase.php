@@ -2,11 +2,11 @@
 
 namespace Tests;
 
+use App\Services\API;
 use Facebook\WebDriver\Chrome\ChromeOptions;
-use Laravel\Dusk\TestCase as BaseTestCase;
-use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
-use Symfony\Component\Process\Process;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Laravel\Dusk\TestCase as BaseTestCase;
 
 /**
  * Class DuskTestCase
@@ -24,6 +24,11 @@ abstract class DuskTestCase extends BaseTestCase
         return env('APP_ENV') === 'local';
     }
 
+    private static function duskDriver()
+    {
+        return env('DUSK_DRIVER');
+    }
+
     /**
      * Prepare for Dusk test execution.
      *
@@ -32,7 +37,8 @@ abstract class DuskTestCase extends BaseTestCase
      */
     public static function prepare()
     {
-        if (self::isLocal()) {
+        API::initClient();
+        if (self::isLocal() or self::duskDriver() === 'CHROME') {
             self::startChromeDriver();
         }
     }
@@ -56,7 +62,24 @@ abstract class DuskTestCase extends BaseTestCase
                     $options
                 )
             );
-        } else {
+        }
+
+        if ($this->duskDriver() === 'CHROME') {
+            $options = (new ChromeOptions())->addArguments([
+                '--disable-gpu',
+                '--headless',
+                '--no-sandbox',
+            ]);
+
+            $chrome =  DesiredCapabilities::chrome()
+                ->setCapability(ChromeOptions::CAPABILITY, $options)
+                ->setCapability('acceptInsecureCerts', true);
+
+            return RemoteWebDriver::create(
+                'http://localhost:9515',
+                $chrome
+            );
+        } elseif ($this->duskDriver() === 'PHANTOMJS') {
             return RemoteWebDriver::create(
                 "http://127.0.0.1:4444/wd/hub",
                 DesiredCapabilities::phantomjs()

@@ -72,7 +72,7 @@
             </div>
 
             <div class="form-group">
-                <button class="btn btn-block btn-primary" type="submit">Créer un compte !</button>
+                <button class="btn btn-block btn-primary" id="submit-register"  type="submit">Créer un compte !</button>
                 @if (\App::environment("production"))
                     @captcha
                 @endif

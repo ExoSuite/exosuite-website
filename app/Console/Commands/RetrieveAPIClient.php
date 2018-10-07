@@ -40,7 +40,8 @@ class RetrieveAPIClient extends Command
     /**
      *
      */
-    private function isAbleToRun() {
+    private function isAbleToRun()
+    {
         if (App::environment("production")) {
             $this->warn("Unable to run this command in " . env("APP_ENV") . ".");
             exit();
