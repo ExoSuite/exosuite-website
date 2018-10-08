@@ -11,6 +11,7 @@ namespace App\Services;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 
 /**
  * Class API
@@ -48,7 +49,7 @@ class API
 
     public static function initClient()
     {
-        if (env('APP_ENV') === 'production' || \Config::get('app.env') === 'production') {
+        if (env('APP_ENV') === 'production' || Config::get('app.env') === 'production') {
             self::$client_id = (int)config('app.website_client_id_api');
             self::$client_secret = config('app.website_client_secret');
         } else {
