@@ -18,11 +18,12 @@ class RegisterTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
 
-            $route = route('registerAPI');
+            $route = route('registerAPI', [], false);
+            $expectedAfterClick = route('profile', [], false);
             $password = str_random() . '0';
 
             $browser->visit($route)
-                ->assertPathIs('/register')
+                ->assertPathIs($route)
                 ->type('first_name', $this->faker->firstName)
                 ->type('last_name', $this->faker->lastName)
                 ->type('nick_name', str_random(5))
@@ -30,7 +31,7 @@ class RegisterTest extends DuskTestCase
                 ->type('password', $password)
                 ->type('password_confirmation', $password)
                 ->click('#submit-register')
-                ->assertPathIs('/profile');
+                ->assertPathIs($expectedAfterClick);
         });
     }
 }
