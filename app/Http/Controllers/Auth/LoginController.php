@@ -86,7 +86,7 @@ class LoginController extends Controller
             return $this->attemptLogin($request);
         } catch (ClientException $exception) {
             dd($exception->getMessage());
-            // TODO: define behavior to print the error messages
+            // TODO: define behavior to print the error messages in $this->sendFailedLoginResponse($request);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
