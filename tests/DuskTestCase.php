@@ -75,7 +75,8 @@ abstract class DuskTestCase extends BaseTestCase
         if ($this->duskDriver() === 'CHROME') {
             $options = (new ChromeOptions())->addArguments([
                 '--disable-gpu',
-                '--headless'
+                '--headless',
+                '--no-sandbox'
             ]);
 
             $chrome =  DesiredCapabilities::chrome()
