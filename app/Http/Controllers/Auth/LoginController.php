@@ -84,6 +84,7 @@ class LoginController extends Controller
         try {
             return $this->attemptLogin($request);
         } catch (ClientException $exception) {
+            dd($exception->getMessage());
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
