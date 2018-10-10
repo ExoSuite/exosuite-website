@@ -11,18 +11,26 @@ namespace App\Services;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
+use App\Contracts\MakeAPIRequest;
 
 /**
  * Class API
  * @package App\Services
  */
-class API
+class API implements MakeAPIRequest
 {
     /**
      * @var Client
      */
     private $client;
+    /**
+     * @var
+     */
     public static $client_id;
+    /**
+     * @var
+     */
     public static $client_secret;
 
     /**
@@ -46,14 +54,17 @@ class API
         ]);
     }
 
+    /**
+     * @return void
+     */
     public static function initClient()
     {
-        if (env('APP_ENV') !== 'production') {
-            self::$client_id = env('WEBSITE_CLIENT_SECRET');
-            self::$client_secret = env('WEBSITE_CLIENT_ID_API');
-        } else {
-            self::$client_id = config('app.website_client_id_api');
+        if (env('APP_ENV') === 'production' or Config::get('app.env') === 'production') {
+            self::$client_id = (int)config('app.website_client_id_api');
             self::$client_secret = config('app.website_client_secret');
+        } else {
+            self::$client_id = (int)env('WEBSITE_CLIENT_ID_API');
+            self::$client_secret = env('WEBSITE_CLIENT_SECRET');
         }
     }
 

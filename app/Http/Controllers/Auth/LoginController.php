@@ -9,6 +9,7 @@ use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Services\API as APIService;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -84,6 +85,8 @@ class LoginController extends Controller
         try {
             return $this->attemptLogin($request);
         } catch (ClientException $exception) {
+            dd($exception->getMessage());
+            // TODO: define behavior to print the error in $this->sendFailedLoginResponse($request);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
@@ -92,6 +95,20 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    /**
+     * Get the failed login response instance.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return void
+     *
+     */
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => [trans('auth.failed')],
+        ]);
     }
 
     /**

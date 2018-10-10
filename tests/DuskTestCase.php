@@ -7,6 +7,8 @@ use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Laravel\Dusk\TestCase as BaseTestCase;
+use \Illuminate\Container\Container as Container;
+use \Illuminate\Support\Facades\Facade as Facade;
 
 /**
  * Class DuskTestCase
@@ -29,6 +31,13 @@ abstract class DuskTestCase extends BaseTestCase
         return env('DUSK_DRIVER');
     }
 
+    protected function setUp()
+    {
+        $this->createApplication();
+        API::initClient();
+        parent::setUp();
+    }
+
     /**
      * Prepare for Dusk test execution.
      *
@@ -37,7 +46,6 @@ abstract class DuskTestCase extends BaseTestCase
      */
     public static function prepare()
     {
-        API::initClient();
         if (self::isLocal() or self::duskDriver() === 'CHROME') {
             self::startChromeDriver();
         }
@@ -68,7 +76,7 @@ abstract class DuskTestCase extends BaseTestCase
             $options = (new ChromeOptions())->addArguments([
                 '--disable-gpu',
                 '--headless',
-                '--no-sandbox',
+                '--no-sandbox'
             ]);
 
             $chrome =  DesiredCapabilities::chrome()

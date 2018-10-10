@@ -57,7 +57,8 @@ class RetrieveAPIClient extends Command
     {
         $this->isAbleToRun();
         $response = API::get('staging/client');
-        Utils::setEnvironmentValue("WEBSITE_CLIENT_SECRET", $response['client_id']);
-        Utils::setEnvironmentValue("WEBSITE_CLIENT_ID_API", $response['client_secret']);
+        Utils::setEnvironmentValue("WEBSITE_CLIENT_ID_API", $response['client_id']);
+        Utils::setEnvironmentValue("WEBSITE_CLIENT_SECRET", $response['client_secret']);
+        $this->output->success('Successfully set WEBSITE_CLIENT_SECRET WEBSITE_CLIENT_ID_API in .env!');
     }
 }
