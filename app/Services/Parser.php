@@ -9,11 +9,18 @@
 namespace App\Services;
 
 
+/**
+ * Class Parser
+ * @package App\Services
+ */
 class Parser
 {
-    static function parseDomainFromEnv() : string
+    /**
+     * @return string
+     */
+    public static function parseDomainFromEnv() : string
     {
-        $url = env('APP_URL') ? env('APP_URL') : Config::get('app.url');;
-        return ('.' . strstr($url, 'e'));
+        $parsed_url = parse_url(env('APP_URL') ?? config('app.url'));
+        return ".{$parsed_url['host']}";
     }
 }
