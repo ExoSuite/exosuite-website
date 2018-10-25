@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Services\API as APIService;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\URL;
 
 class LoginController extends Controller
 {
@@ -121,10 +122,12 @@ class LoginController extends Controller
     protected function sendLoginResponse(Request $request, array $apiData)
     {
         $request->session()->regenerate();
-
         session($apiData);
-
         $this->clearLoginAttempts($request);
+
+        if ($request->query('redirect_uri')) {
+            return redirect()->to($request->query('redirect_uri'));
+        }
 
         return $this->authenticated($request, $this->guard()->user())
             ?: redirect()->intended($this->redirectPath());
@@ -132,7 +135,7 @@ class LoginController extends Controller
 
     public function loginView()
     {
-        return view('auth.login');
+        return view('auth.login')->with('action', Url::full());
     }
 
     public function recoverView()
