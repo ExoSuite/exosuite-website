@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Facades\API;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginUser;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -47,10 +48,10 @@ class LoginController extends Controller
     /**
      * Attempt to log the user into the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param LoginUser $request
      * @return \Illuminate\Http\Response
      */
-    protected function attemptLogin(Request $request)
+    protected function attemptLogin(LoginUser $request)
     {
         $data = $request->only(['email', 'password']);
         $data = array_merge($data, API::getWebsiteCredentials());
@@ -66,15 +67,13 @@ class LoginController extends Controller
     /**
      * Handle a login request to the application.
      *
-     * @param Request $request
+     * @param LoginUser $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function login(Request $request)
+    public function login(LoginUser $request)
     {
-        $this->validateLogin($request);
-
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
@@ -86,7 +85,7 @@ class LoginController extends Controller
         try {
             return $this->attemptLogin($request);
         } catch (ClientException $exception) {
-            dd($exception->getMessage());
+            // dd($exception->getMessage());
             // TODO: define behavior to print the error in $this->sendFailedLoginResponse($request);
         }
 

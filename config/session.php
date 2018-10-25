@@ -150,7 +150,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', Parser::parseDomainFromEnv()),
+    'domain' => env('SESSION_DOMAIN', Parser::getDomainForSession()),
 
     /*
     |--------------------------------------------------------------------------
