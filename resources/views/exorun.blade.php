@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="icon_box equalheight top60 wow fadeInUp">
-                        <i class="fa fa-bicycle"></i>
+                        <i class="fas fa-running"></i>
                         <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Sport de haut niveau</a></h4>
                         <hr>
                         <p class="no_bottom">Nos coachs sportifs sont là pour vous aider à vous surpasser.</p>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="icon_box equalheight top60 wow fadeInUp">
-                        <i class="fa fa-umbrella"></i>
+                        <i class="fa fa-cloud"></i>
                         <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Technologie</a></h4>
                         <hr>
                         <p class="no_bottom">La puissance de la réalité augmentée au service de votre effort.</p>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="icon_box equalheight top60 wow fadeInUp">
-                        <i class="fa fa-bar-chart"></i>
+                        <i class="fa fa-users"></i>
                         <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Social</a>
                         </h4>
                         <hr>

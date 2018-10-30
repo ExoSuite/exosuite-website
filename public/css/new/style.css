@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700|PT+Serif:400,400i,700,700i');
+@font-face {
+    font-family: FontAwesome;
+    src: url(/fonts/FontAwesome.otf);
+}
 
 /*Table Of Contents 
 body
