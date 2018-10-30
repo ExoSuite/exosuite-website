@@ -43,7 +43,7 @@
             @endforeach
         @endif
         <h5 class="mb-7">Connectez-vous !</h5>
-        <form method="POST" action="/login">
+        <form method="POST" action="{{$action}}">
             @csrf
             <div class="form-group">
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required
