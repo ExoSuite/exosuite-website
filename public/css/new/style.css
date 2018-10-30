@@ -142,6 +142,11 @@ button {
 .padding_bottom_half {
     padding-bottom: 4.375rem;
 }
+
+.text-shadowed {
+    text-shadow: 2px 2px 3px black;
+}
+
 .margin_bottom_half{
     margin-bottom: 4.375rem;
 }
@@ -751,6 +756,10 @@ ul.social.dark li a:focus{
    background: url(/images/bgintro-seven.jpg) no-repeat;
 }
 
+.width-max {
+    width: 100%;
+}
+
 /*-----  Intro Style & two Ends ------ */
 
 
@@ -854,7 +863,7 @@ ul.social li a::before, ul.social li a::after{
 	text-align: center;
 }
 .navbar-brand > img{
-    width: 100%;
+    width: 8em;
 }
 .navbar-brand .logo{
     opacity: 1;
@@ -1456,13 +1465,13 @@ ul.top-right li a:hover.instagram{
     /*video & Image BAnners Starts */
 /*-------------------------------*/
 .caption-video{
-    background: url(/images/bg-video3.jpg) no-repeat;
+    background: url(/img/background.jpg) no-repeat;
 }
 .personal-banner{
    background: url(/images/bg-personal.jpg) no-repeat;
 }
 .parallax-static{
-	background: url(/images/bg-parallax-video.jpg) no-repeat;
+	background: url(/img/exosuite-page-background.png) no-repeat;
 }
 .parallax-video{
 	background: url(/images/bg-video-cover.jpg) no-repeat;
@@ -2154,7 +2163,7 @@ ul.top-right li a:hover.instagram{
     /*Single Parallax */
 /*-------------------------------*/
 #single-parallx{
-    background: url(/images/single-parallax.jpg) no-repeat;
+    background: url(/img/quote-background.jpg) no-repeat;
     background-position: center center;
     -webkit-background-size: cover;
     background-size: cover;

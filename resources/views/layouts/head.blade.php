@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/new/style.css">
     <link rel="stylesheet" href="/css/new/gradient.css">
     <link rel="stylesheet" href="/css/new/typo2.css">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/img/exosuite-icon.svg">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
     <script>

@@ -28,6 +28,12 @@ Route::get('pricing', 'SimpleViewController@pricing');
 
 Route::get('about', 'SimpleViewController@about');
 
+Route::get('team', 'SimpleViewController@team');
+
+Route::get('blog', 'SimpleViewController@comingsoon');
+
+Route::get('social', 'SimpleViewController@social');
+
 /*Route::get('/departures', function () {
     return view('departures');
 });*/

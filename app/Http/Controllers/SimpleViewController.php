@@ -33,4 +33,19 @@ class SimpleViewController extends Controller
     {
         return view('about');
     }
+
+    public function team()
+    {
+        return view('team');
+    }
+
+    public function comingsoon()
+    {
+        return view('comingsoon');
+    }
+
+    public function social()
+    {
+        return view('social');
+    }
 }
