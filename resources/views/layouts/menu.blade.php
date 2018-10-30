@@ -1,39 +1,49 @@
-@if (isset($mark) && $mark == true)
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
-        @else
-            <nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
-                @endif
-                <div class="container">
-
-                    <div class="navbar-left">
-                        <button class="navbar-toggler" type="button">☰</button>
-                        <a class="navbar-brand" href="/">
-                            <img class="logo-menu" src="/img/logoSquare.png" alt="logo"
-                                 style="margin-top: 5%; width: 100%; height: auto;">
-                        </a>
-                    </div>
-
-                    <section class="navbar-mobile">
-                        <nav class="nav nav-navbar ml-auto">
-                            <a class="nav-link custom-link" href="/">Accueil</a>
-                            <a class="nav-link custom-link" href="/contact">Contact</a>
-                            <a class="nav-link custom-link" href="/exosuite">Notre projet</a>
-                            <a class="nav-link custom-link" href="/pricing">Tarifs</a>
-                        </nav>
-
-                        <span class="navbar-divider"></span>
-
-                        <div>
-                            @guest
-                                <a class="btn btn-sm btn-round btn-primary ml-lg-4 mr-2" href="/login">Se connecter</a>
-                                <a class="btn btn-sm btn-round btn-outline-primary" href="/register">Créer un compte</a>
-                            @endguest
-                            @auth
-                                <a class="btn btn-sm btn-round btn-primary ml-lg-4 mr-2" href="/profile">Mon profil</a>
-                                <a class="btn btn-sm btn-round btn-outline-primary" href="/logout">Se déconnecter</a>
-                            @endauth
+<header id="main-navigation">
+    <div id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fixed-collapse-navbar" aria-expanded="true">
+                                <span class="icon-bar top-bar"></span>
+                                <span class="icon-bar middle-bar"></span>
+                                <span class="icon-bar bottom-bar"></span>
+                            </button>
+                            <a class="navbar-brand logo-center" href="/">
+                                <img src="/img/logoExoSuite.png" alt="logo" class="logo">
+                                <img src="/img/logoExoSuite.png" alt="logo" class="scrolled-logo">
+                            </a>
                         </div>
-                    </section>
-
+                        <div id="fixed-collapse-navbar" class="navbar-collapse collapse scrolly">
+                            <div class="navbar-left-1">
+                                <ul class="nav navbar-nav navbar-left">
+                                    <li><a href="/">Accueil</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/exosuite">Notre projet</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/exosuite">ExoSuite : La suite d'application</a></li>
+                                            <li><a href="/exorun">ExoRun : Pour les coureurs confirmés</a></li>
+                                            <li><a href="/exofun">ExoFun : Pour les coureurs occasionnels</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/social">Réseau Social</a></li>
+                                    <li><a href="/team">L'équipe</a></li>
+                                    </ul>
+                            </div>
+                            <div class="navbar-right-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="/pricing">Tarifs</a></li>
+                                    <li><a href="/blog">Blog</a></li>
+                                    <li><a href="/login">Se connecter</a></li>
+                                    <li><a href="/contact">Contactez nous</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-            </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main-Navigation ends -->

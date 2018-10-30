@@ -5,118 +5,148 @@
 @endhead
 <body>
 @include('layouts.menu')
+@include('layouts.preloader')
 
-<header class="header pt-10 pb-0">
-    <div class="container text-center">
-        <h1 class="display-4">Contactez-nous</h1>
-        <p class="lead-2 mt-6">Si vous avez une question, une suggestion, ou si vous voulez juste nous envoyer un petit mot, c'est par ici !</p>
-    </div>
-</header><!-- /.header -->
-
-
-<!-- Main Content -->
-<main class="main-content">
-
-
-    <!--
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    | Contact form
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    !-->
-    <section class="section">
+<div class="wrapper">
+    <!--Page header-->
+    <section class="padding_top parallaxie" style="background-color: #262626">
         <div class="container">
-
             <div class="row">
-                <form class="col-lg-6 mx-auto p-6 bg-gray rounded" action="/contact" method="POST">
-                    @csrf
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if (isset($send))
-                        <div class="alert alert-success">Nous avons bien reçu votre message 😁</div>
-                    @endif
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input class="form-control form-control-lg" type="text" name="name" placeholder="Votre nom">
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Votre adresse mail">
-                        </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="intro-text center padding_half wow fadeInUp">
+                        <span class="heading-title bottom20">Vous aimez parler ?</span>
+                        <h2 class="whitecolor text-capitalize bottom45">Contactez-nous !</h2>
+                        <ul class="breadcrumbs">
+                            <li><a href="index-multi.html">Accueil</a></li>
+                            <li>Contactez-nous</li>
+                        </ul>
                     </div>
-
-
-                    <div class="form-group">
-                        <textarea class="form-control form-control-lg" rows="4" placeholder="Votre message" name="message"></textarea>
-                    </div>
-
-                    <div class="text-center">
-                        <button class="btn btn-lg btn-primary" type="submit">Envoyer</button>
-                    </div>
-                </form>
+                </div>
             </div>
-
         </div>
     </section>
+    <!--Page header ends-->
 
-
-
-    <!--
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    | Map
-    |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    !-->
-    <section class="section text-white bg-dark bg-img" data-overlay="6">
+    <!--Contact form-->
+    <section id="contact-form" class="padding_bottom" style="padding-top: 8.75em">
         <div class="container">
-            <div class="row gap-y align-items-center">
-
-                <div class="col-md-5">
-                    <p class="text-uppercase small opacity-70 fw-600 ls-1">Où nous trouver</p>
-                    <h5>Nice, FRANCE</h5>
-                    <br>
-                    <p>13 Rue Saint François de Paule<br>Epitech</p>
-                    <p>Email: EIP.ExoSuite@gmail.com</p>
-                    <br>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <form class="getin_form wow fadeInUp" action="/contact" method="POST">
+                        @csrf
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if (isset($send))
+                            <div class="alert alert-success">Nous avons bien reçu votre message 😁</div>
+                        @endif
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group bottom45">
+                                    <input class="form-control" type="text" name="name" placeholder="Votre nom" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group bottom45">
+                                    <input class="form-control" type="email" name="email" placeholder="Votre adresse mail" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group bottom45">
+                                    <textarea class="form-control" name="message" placeholder="Votre message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="button defaulthole">Envoyer</button>
+                            </div>
+                        </div>
+                        @if (\App::environment("production"))
+                            @captcha
+                        @endif
+                    </form>
                 </div>
-
-
-                <div class="col-md-7">
-                    <div class="h-400 rounded" id="map"></div>
-                    <script>
-                        function initMap() {
-                            var uluru = {lat: -25.363, lng: 131.044};
-                            var map = new google.maps.Map(document.getElementById('map'), {
-                                zoom: 13,
-                                center: new google.maps.LatLng(43.696023, 7.270137)
-                            });
-                            var marker = new google.maps.Marker({
-                                position: map.getCenter(),
-                                animation: google.maps.Animation.BOUNCE,
-                                map: map
-                            });
-                        }
-                    </script>
-                    <script async defer
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMH4RnwbRjqjY6eCK5OXeth9YhfbBcjW0&callback=initMap">
-                    </script>
-                </div>
-
             </div>
         </div>
     </section>
-
-</main><!-- /.main-content -->
+    <!--Contact form ends-->
+</div>
 
 @include('layouts.footer')
-<!-- Scripts -->
-<script src="/js/page.js"></script>
-<script src="/js/script.js"></script>
+<!-- jQuery Files -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/js/new/bootstrap.min.js"></script>
 
+<!--to view items on reach-->
+<script src="/js/new/jquery.appear.js"></script>
+
+<!--Swiper slider-->
+<script src="/js/new/swiper.jquery.min.js"></script>
+
+<!--Owl slider-->
+<script src="/js/new/owl.carousel.min.js"></script>
+
+<!--number counters-->
+<script src="/js/new/jquery-countTo.js"></script>
+
+<!--equalize the same heights of block-->
+<script src="/js/new/jquery.matchHeight-min.js"></script>
+
+<!--for parallax bgs-->
+<script src="/js/new/parallaxie.js"></script>
+
+<!--for CountDown Timer-->
+<script src="/js/new/dscountdown.min.js"></script>
+
+<!--Open popup fancybox on images-->
+<script src="/js/new/jquery.fancybox.min.js"></script>
+
+<!--Portfolio galleries-->
+<script src="/js/new/jquery.cubeportfolio.min.js"></script>
+
+<!--Progressbar s in circle forms-->
+<script src="/js/new/circle-progress.min.js"></script>
+
+<!--scrollbar on blocks-->
+<script src="/js/new/simplebar.js"></script>
+
+<!--Video Pops support for youtube, viemo etc-->
+<script src="/js/new/viedobox_video.js"></script>
+
+<!--youtube background video-->
+<script src="/js/new/jquery.mb.YTPlayer.min.js"></script>
+
+<!-- Type It -->
+<script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
+
+<!-- WOW Transitions -->
+<script src="/js/new/wow.min.js"></script>
+
+<!--Revolution SLider-->
+<script src="/js/new/revolution/jquery.themepunch.tools.min.js"></script>
+<script src="/js/new/revolution/jquery.themepunch.revolution.min.js"></script>
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+<script src="/js/new/revolution/extensions/revolution.extension.actions.min.js"></script>
+<script src="/js/new/revolution/extensions/revolution.extension.carousel.min.js"></script>
+<script src="/js/new/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="/js/new/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="/js/new/revolution/extensions/revolution.extension.migration.min.js"></script>
+<script src="/js/new/revolution/extensions/revolution.extension.navigation.min.js"></script>
+<script src="/js/new/revolution/extensions/revolution.extension.parallax.min.js"></script>
+<script src="/js/new/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="/js/new/revolution/extensions/revolution.extension.video.min.js"></script>
+
+
+<!--Synx scripts-->
+<script src="/js/new/functions.js"></script>
+
+<!--Google map API-->
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>
+<script src="/js/new/map.js"></script>
 </body>
 </html>
