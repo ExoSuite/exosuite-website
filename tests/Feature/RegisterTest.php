@@ -15,7 +15,7 @@ class RegisterTest extends TestCase
      */
     public function testGoRegisterPage()
     {
-        $response = $this->post(route('login', [], false));
+        $response = $this->get(route('login', [], false));
 
         $response->assertOk();
     }
