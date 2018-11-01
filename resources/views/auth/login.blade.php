@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ExoSuite - Se connecter</title>
+    <title>ExoSuite</title>
 
-    <!-- Fonts -->
-    <link href="/css/page.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link rel="icon" href="/img/logoSquare.png">
+    <link rel="icon" href="/img/exosuite-icon.svg">
+    <link rel="stylesheet" href="/css/new/site.css">
+    <link rel="stylesheet" href="/css/new/login.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
@@ -28,70 +27,72 @@
 
 </head>
 
-<body class="layout-centered bg-img" style="background-image: url(/img/bg/4.jpg);">
-<!-- Main Content -->
-<main class="main-content">
-
-    <div class="bg-white rounded shadow-7 w-400 mw-100 p-6">
-        @if(!$errors->isEmpty())
-            @foreach($errors->all() as $error)
-                <div class="error">
+<body style="background-image: url(/img/bg/4.jpg);">
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-12">
+            @if(!$errors->isEmpty())
+                @foreach($errors->all() as $error)
+                    <div class="error">
                     <span class="text-danger">
                         <strong>{{ $error }}</strong>
                     </span>
-                </div>
-            @endforeach
-        @endif
-        <h5 class="mb-7">Connectez-vous !</h5>
-        <form method="POST" action="{{$action}}">
-            @csrf
-            <div class="form-group">
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required
-                       autofocus placeholder="Adresse mail">
-            </div>
-
-            <div class="form-group">
-                <input id="password" type="password" class="form-control" name="password" required
-                       placeholder="Mot de passe">
-            </div>
-
-            <div class="form-group flexbox py-3">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"
-                               name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Se souvenir de moi') }}
-                    </label>
-                </div>
-
-                <a class="text-muted small-2" href="/login/recover">Mot de passe oublié ?</a>
-            </div>
-
-            <div class="form-group">
-                <button class="btn btn-block btn-primary" type="submit">Se connecter !</button>
-                @if (\App::environment("production"))
-                    @captcha
-                @endif
-            </div>
-        </form>
-
-        <div class="divider">Ou se connecter avec :</div>
-        <div class="text-center">
-            <a class="btn btn-circle btn-sm btn-facebook mr-2" href="#"><i class="fa fa-facebook"></i></a>
-            <a class="btn btn-circle btn-sm btn-google mr-2" href="#"><i class="fa fa-google"></i></a>
-            <a class="btn btn-circle btn-sm btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                    </div>
+                @endforeach
+            @endif
         </div>
-
-        <hr class="w-30">
-
-        <p class="text-center text-muted small-2">Vous n'êtes pas encore membre ? <a href="{{ route('register') }}">Créez
-                votre compte ici !</a></p>
+        <div class="col-md-6 login-form-1">
+            <form method="POST" action="/login">
+                <h3>@lang('website.login.signin')</h3>
+                @csrf
+                <div class="form-group">
+                    <input id="email" name="email" type="email" class="form-control" placeholder="@lang('website.login.mail')" value="{{ old('email') }}" required autofocus/>
+                </div>
+                <div class="form-group">
+                    <input id="password" type="password" class="form-control" name="password" required
+                           placeholder="@lang('website.login.password')" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="@lang('website.login.signin')"/>
+                </div>
+            </form>
+            <div class="form-group">
+                <a href="#" class="btnForgetPwd">@lang('website.login.forgotPassword')</a>
+            </div>
+        </div>
+        <div class="col-md-6 login-form-2">
+            <form action="/register" method="POST">
+                @csrf
+                <div class="login-logo">
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                </div>
+                <h3>@lang('website.register')</h3>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="first_name" placeholder="@lang('website.register.firstName')" required autofocus value="{{ old('first_name') }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="last_name" placeholder="@lang('website.register.lastName')" required value="{{ old('last_name') }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="nick_name" placeholder="@lang('website.register.nickName')" value="{{ old('nick_name') }}">
+                </div>
+                <div class="form-group">
+                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="@lang('website.register.email')">
+                </div>
+                <div class="form-group">
+                    <input id="name" type="password" class="form-control" name="password" required placeholder="@lang('website.register.password')">
+                </div>
+                <div class="form-group">
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="@lang('website.register.passwordConfirm')">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="@lang('website.register')"/>
+                </div>
+            </form>
+        </div>
     </div>
-
-</main><!-- /.main-content -->
-
-
-<!-- Scripts -->
-<script src="/js/page.js"></script>
-<script src="/js/script.js"></script>
+</div>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/js/new/bootstrap.min.js"></script>
 </html>

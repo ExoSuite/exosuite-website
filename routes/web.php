@@ -13,6 +13,8 @@
 
 Route::get('/', 'SimpleViewController@home');
 
+Route::get('/language/{locale}', 'LanguageController@language');
+
 Route::group(['prefix' => 'contact'], function () {
     Route::get('/', 'ContactController@index');
     Route::post('/', 'ContactController@contact');

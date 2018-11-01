@@ -17,6 +17,5 @@ class HomeTest extends TestCase
 
         $response->assertOk();
         $response->assertSeeText("ExoSuite");
-        $response->assertSeeText("La suite d'application qui révolutionne le monde du sport !");
     }
 }

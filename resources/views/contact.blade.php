@@ -14,11 +14,11 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="intro-text center padding_half wow fadeInUp">
-                        <span class="heading-title bottom20">Vous aimez parler ?</span>
-                        <h2 class="whitecolor text-capitalize bottom45">Contactez-nous !</h2>
+                        <span class="heading-title bottom20">@lang('website.contact')</span>
+                        <h2 class="whitecolor text-capitalize bottom45">@lang('website.contact.title')</h2>
                         <ul class="breadcrumbs">
-                            <li><a href="index-multi.html">Accueil</a></li>
-                            <li>Contactez-nous</li>
+                            <li><a href="index-multi.html">@lang('website.menu.home')</a></li>
+                            <li>@lang('website.menu.contact')</li>
                         </ul>
                     </div>
                 </div>
@@ -49,21 +49,21 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group bottom45">
-                                    <input class="form-control" type="text" name="name" placeholder="Votre nom" required>
+                                    <input class="form-control" type="text" name="name" placeholder="@lang('website.contact.name')" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group bottom45">
-                                    <input class="form-control" type="email" name="email" placeholder="Votre adresse mail" required>
+                                    <input class="form-control" type="email" name="email" placeholder="@lang('website.contact.email')" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group bottom45">
-                                    <textarea class="form-control" name="message" placeholder="Votre message"></textarea>
+                                    <textarea class="form-control" name="message" placeholder="@lang('website.contact.message')"></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <button type="submit" class="button defaulthole">Envoyer</button>
+                                <button type="submit" class="button defaulthole">@lang('website.contact.send')</button>
                             </div>
                         </div>
                         @if (\App::environment("production"))
