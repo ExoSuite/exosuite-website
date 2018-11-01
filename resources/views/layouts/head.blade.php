@@ -7,11 +7,11 @@
 
     <title>ExoSuite</title>
 
-    <!-- Fonts -->
     <link rel="stylesheet" href="/css/new/site.css">
     <link rel="stylesheet" href="/css/new/style.css">
     <link rel="stylesheet" href="/css/new/gradient.css">
     <link rel="stylesheet" href="/css/new/typo2.css">
+    <link rel="stylesheet" href="/css/new/language-dropdown.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <link rel="icon" href="/img/exosuite-icon.svg">
     <!-- Global site tag (gtag.js) - Google Analytics -->

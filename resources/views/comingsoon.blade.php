@@ -19,9 +19,8 @@
                 <div class="center-block">
                     <div class="intro-text center wow fadeInUp">
                         <span class="heading-title whitecolor bottom25">Blog</span>
-                        <h1 class="whitecolor bottom25">Bientôt Disponible</h1>
-                        <h4 class="whitecolor heading_space">Nous travaillons afin de vous rendre votre expérience
-                            irreprochable.</h4>
+                        <h1 class="whitecolor bottom25">@lang('website.comingSoon')</h1>
+                        <h4 class="whitecolor heading_space">@lang('website.comingSoon.subTitle')</h4>
                     </div>
                     <div class="row">
                         {{--<div class="col-md-12 col-sm-12">
@@ -39,9 +38,9 @@
                                 </form>
                             </div>--}}
                             <ul class="social white text-center top20 wow fadeInUp">
-                                <li><a href="https://www.facebook.com/ExoSuiteProject/"><i class="fa fa-facebook"></i>
+                                <li><a href="https://www.facebook.com/ExoSuiteProject/"><i class="fab fa-facebook"></i>
                                     </a></li>
-                                <li><a href="https://twitter.com/ExoSuiteEIP"><i class="fa fa-twitter"></i> </a></li>
+                                <li><a href="https://twitter.com/ExoSuiteEIP"><i class="fab fa-twitter"></i> </a></li>
                         </div>
                     </div>
                 </div>

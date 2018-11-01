@@ -18,25 +18,25 @@
                         <div id="fixed-collapse-navbar" class="navbar-collapse collapse scrolly">
                             <div class="navbar-left-1">
                                 <ul class="nav navbar-nav navbar-left">
-                                    <li><a href="/">Accueil</a></li>
+                                    <li><a href="/">@lang('website.menu.home')</a></li>
                                     <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/exosuite">Notre projet</a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/exosuite">@lang('website.menu.project')</a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="/exosuite">ExoSuite : La suite d'application</a></li>
-                                            <li><a href="/exorun">ExoRun : Pour les coureurs confirmés</a></li>
-                                            <li><a href="/exofun">ExoFun : Pour les coureurs occasionnels</a></li>
+                                            <li><a href="/exosuite">@lang('website.menu.exosuite')</a></li>
+                                            <li><a href="/exorun">@lang('website.menu.exorun')</a></li>
+                                            <li><a href="/exofun">@lang('website.menu.exofun')</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/social">Réseau Social</a></li>
-                                    <li><a href="/team">L'équipe</a></li>
+                                    <li><a href="/social">@lang('website.menu.socialNetwork')</a></li>
+                                    <li><a href="/team">@lang('website.menu.team')</a></li>
                                     </ul>
                             </div>
                             <div class="navbar-right-1">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="/pricing">Tarifs</a></li>
-                                    <li><a href="/blog">Blog</a></li>
-                                    <li><a href="/login">Se connecter</a></li>
-                                    <li><a href="/contact">Contactez nous</a></li>
+                                    <li><a href="/pricing">@lang('website.menu.pricing')</a></li>
+                                    <li><a href="/blog">@lang('website.menu.blog')</a></li>
+                                    <li><a href="/login">@lang('website.menu.connect')</a></li>
+                                    <li><a href="/contact">@lang('website.menu.contact')</a></li>
                                 </ul>
                             </div>
                         </div>

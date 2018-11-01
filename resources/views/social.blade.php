@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 @head()
 <meta name="description"
-      content="L'équipe de développement ExoSuite"/>
+      content="Partagez avec vos amis grâce à notre réseau social !"/>
 @endhead
 <body>
 @include('layouts.menu')
@@ -17,9 +17,9 @@
                 <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-11">
                     <div class="item-titles whitecolor text-center wow zoomIn text-shadowed">
                         <h3 class="bottom10">
-                            Réseau <strong>Social</strong>
+                            @lang('website.menu.socialNetwork')
                         </h3>
-                        <p>Partagez vos performances, défiez vos amis</p>
+                        <p>@lang('website.social.subtitle')</p>
                     </div>
                 </div>
             </div>
@@ -31,11 +31,10 @@
                 <div class="col-md-5 col-md-offset-7 col-sm-8 col-sm-offset-4 col-xs-11 col-xs-offset-1">
                     <div class="item-titles whitecolor text-right wow fadeInRight text-shadowed">
                         <h3 class="bottom10">
-                            Partagez vos <strong>performances</strong>
+                            @lang('website.social.shareTitle')
                         </h3>
-                        <p>Vous aimez montrer que vous êtes le meilleur ? Partagez vos performances et montrer à vos
-                            amis qui est le meilleur !</p>
-                        <p>Partagez, likez, commentez le contenu de vos amis</p>
+                        <p>@lang('website.social.shareDescription1')</p>
+                        <p>@lang('website.social.shareDescription2')</p>
                     </div>
                 </div>
             </div>
@@ -47,9 +46,9 @@
                 <div class="col-md-5 col-sm-8 col-xs-11">
                     <div class="item-titles whitecolor wow fadeInLeft text-shadowed">
                         <h3 class="bottom10">
-                            Défiez vos <strong>amis</strong>
+                            @lang('website.social.defiTitle')
                         </h3>
-                        <p>Gagnez des récompenses, accomplissez les défis de vos amis</p>
+                        <p>@lang('website.social.defiDescription')</p>
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-4 col-xs-1"></div>

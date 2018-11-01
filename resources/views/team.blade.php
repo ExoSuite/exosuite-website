@@ -15,11 +15,11 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="intro-text center padding_half wow fadeInUp">
-                        <span class="heading-title bottom20">L'équipe</span>
-                        <h2 class="whitecolor text-capitalize bottom45">Découvrez qui nous sommes</h2>
+                        <span class="heading-title bottom20">@lang('website.menu.team')</span>
+                        <h2 class="whitecolor text-capitalize bottom45">@lang('website.team.title')</h2>
                         <ul class="breadcrumbs">
-                            <li><a href="/">Accueil</a></li>
-                            <li>L'équipe</li>
+                            <li><a href="/">@lang('website.menu.home')</a></li>
+                            <li>@lang('website.menu.team')</li>
                         </ul>
                     </div>
                 </div>
@@ -33,12 +33,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="intro-text center wow fadeInUp">
-                        <span class="heading-title bottom25">Les innovateurs</span>
-                        <h2 class="darkcolor text-capitalize heading_space">L'équipe ExoSuite</h2>
-                        <p style="margin-bottom: 8.75em">Nous sommes un groupe de sept étudiants de quatrième année à EPITECH, passionnés par
-                            l'aspect créatif et technique du développement. ExoSuite est notre projet de fin d'études
-                            qui respecte notre vocation : Concevoir un coach sportif innovant et utilisant les dernières
-                            technologies.</p>
+                        <span class="heading-title bottom25">@lang('website.team.inno')</span>
+                        <h2 class="darkcolor text-capitalize heading_space">@lang('website.team.teamTitle')</h2>
+                        <p style="margin-bottom: 8.75em">@lang('website.team.teamDescription')</p>
                     </div>
                 </div>
             </div>
@@ -53,16 +50,10 @@
                                     </div>
                                     <div class="team-text equalheight">
                                         <h3>Eric DESCHODT</h3>
-                                        <span>Chef d'équipe</span>
-                                        <p class="top20 bottom20">A geek who is into fashion &amp; of course design
-                                            which
-                                            has always been one of the largest factors to her success in the
-                                            industry.</p>
+                                        <span>@lang('website.team.ericJob')</span>
+                                        <p class="top20 bottom20">@lang('website.team.ericDescription')</p>
                                         <ul class="social">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-behance"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i> </a></li>
+                                            <li><a href="https://www.linkedin.com/in/deschodteric/"><i class="fab fa-linkedin"></i> </a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -74,16 +65,10 @@
                                     </div>
                                     <div class="team-text equalheight">
                                         <h3>Loïc DUPIL</h3>
-                                        <span>Développeur API</span>
-                                        <p class="top20 bottom20">A geek who is into fashion &amp; of course design
-                                            which
-                                            has always been one of the largest factors to her success in the
-                                            industry.</p>
+                                        <span>@lang('website.team.dupilJob')</span>
+                                        <p class="top20 bottom20">@lang('website.team.dupilDescription')</p>
                                         <ul class="social">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-behance"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i> </a></li>
+                                            <li><a href="https://www.linkedin.com/in/lo%C3%AFc-dupil-04789b10a/"><i class="fab fa-linkedin"></i> </a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -95,16 +80,10 @@
                                     </div>
                                     <div class="team-text equalheight">
                                         <h3>Loïc LOPEZ</h3>
-                                        <span>Responsable Développement</span>
-                                        <p class="top20 bottom20">A geek who is into fashion &amp; of course design
-                                            which
-                                            has always been one of the largest factors to her success in the
-                                            industry.</p>
+                                        <span>@lang('website.team.lopezJob')</span>
+                                        <p class="top20 bottom20">@lang('website.team.lopezDescription')</p>
                                         <ul class="social">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-behance"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i> </a></li>
+                                            <li><a href="https://www.linkedin.com/in/loiclopez/"><i class="fab fa-linkedin"></i> </a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -116,16 +95,10 @@
                                     </div>
                                     <div class="team-text equalheight">
                                         <h3>Renaud JULIANI</h3>
-                                        <span>Développeur Application</span>
-                                        <p class="top20 bottom20">A geek who is into fashion &amp; of course design
-                                            which
-                                            has always been one of the largest factors to her success in the
-                                            industry.</p>
+                                        <span>@lang('website.team.renaudJob')</span>
+                                        <p class="top20 bottom20">@lang('website.team.renaudDescription')</p>
                                         <ul class="social">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-behance"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i> </a></li>
+                                            <li><a href="https://www.linkedin.com/in/renaudjuliani/"><i class="fab fa-linkedin"></i> </a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -137,16 +110,10 @@
                                     </div>
                                     <div class="team-text equalheight">
                                         <h3>Pierre PIAZZA</h3>
-                                        <span>Développeur Web</span>
-                                        <p class="top20 bottom20">A geek who is into fashion &amp; of course design
-                                            which
-                                            has always been one of the largest factors to her success in the
-                                            industry.</p>
+                                        <span>@lang('website.team.pierreJob')</span>
+                                        <p class="top20 bottom20">@lang('website.team.pierreDescription')</p>
                                         <ul class="social">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-behance"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i> </a></li>
+                                            <li><a href="https://www.linkedin.com/in/pierre-piazza-77089b10a/"><i class="fab fa-linkedin"></i> </a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -158,16 +125,10 @@
                                     </div>
                                     <div class="team-text equalheight">
                                         <h3>Stanislas DENEUBOURG</h3>
-                                        <span>Responsable Assurance Qualitée</span>
-                                        <p class="top20 bottom20">A geek who is into fashion &amp; of course design
-                                            which
-                                            has always been one of the largest factors to her success in the
-                                            industry.</p>
+                                        <span>@lang('website.team.stanJob')</span>
+                                        <p class="top20 bottom20">@lang('website.team.stanDescription')</p>
                                         <ul class="social">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-behance"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i> </a></li>
+                                            <li><a href="https://www.linkedin.com/in/stanislas-deneubourg/"><i class="fab fa-linkedin"></i> </a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -179,16 +140,10 @@
                                     </div>
                                     <div class="team-text equalheight">
                                         <h3>Yassir JABBARI</h3>
-                                        <span>Responsable Développement WEB</span>
-                                        <p class="top20 bottom20">A geek who is into fashion &amp; of course design
-                                            which
-                                            has always been one of the largest factors to her success in the
-                                            industry.</p>
+                                        <span>@lang('website.team.yassirJob')</span>
+                                        <p class="top20 bottom20">@lang('website.team.yassirDescription')</p>
                                         <ul class="social">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-behance"></i> </a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i> </a></li>
+                                            <li><a href="https://www.linkedin.com/in/yassirjabbari/"><i class="fab fa-linkedin"></i> </a></li>
                                         </ul>
                                     </div>
                                 </div>
