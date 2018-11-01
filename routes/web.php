@@ -43,10 +43,12 @@ Route::get('social', 'SimpleViewController@social');
 /*Route::get('survey', 'SurveyController@index');
 Route::post('survey', 'SurveyController@postSurvey');*/
 
-Route::group(["prefix" => "register"], function () {
+/*Route::group(["prefix" => "register"], function () {
     Route::get('/', "Auth\RegisterController@registerView")->name('register');
     Route::post('/', 'Auth\RegisterController@register')->name('registerAPI');
-});
+});*/
+
+Route::post('/register', 'Auth\RegisterController@register')->name('registerAPI');
 
 Route::group(["prefix" => "login"], function () {
     Route::get('/', 'Auth\LoginController@loginView')->name('login');
