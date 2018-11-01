@@ -18,10 +18,11 @@
                     <div class="center-block text-center wow fadeInUp">
                         <div class="center-item">
                             <h2 class="top50 bottom35 whitecolor text-shadowed">ExoSuite<span
-                                        class="block subtitle"> La suite d'application pour lunettes connectées</span>
+                                        class="block subtitle">@lang('website.exosuite.subtitle')</span>
                             </h2>
-                            <a href="#features" class="button default scrollings">Fonctionnalités</a> &nbsp; <a
-                                    href="/pricing" class="button whitehole">Nos tarifs</a>
+                            <a href="#features" class="button default scrollings">@lang('website.exosuite.features')</a>
+                            &nbsp; <a
+                                    href="/pricing" class="button whitehole">@lang('website.exosuite.pricing')</a>
                         </div>
                     </div>
                 </div>
@@ -39,15 +40,11 @@
                 <div class="col-md-2 col-sm-1"></div>
                 <div class="col-md-8 col-sm-10">
                     <div class="intro-text center bottom15 wow fadeInUp">
-                        <span class="heading-title bottom25">Mais qu'est-ce qu'ExoSuite</span>
-                        <h2 class="darkcolor bottom45">ExoSuite, une approche innovante du coaching sportif</h2>
-                        <p class="bottom45">Avec ExoSuite, la suite d'applications pour lunettes connectées, vous aurez
-                            la possibilité de courir contre des entités représentant les performances d'autres
-                            utilisateurs, que vous pourrez rencontrer lors d'évènements communautaires.</p>
+                        <span class="heading-title bottom25">@lang('website.exosuite.exosuiteProject')</span>
+                        <h2 class="darkcolor bottom45">@lang('website.exosuite.exosuiteProjectTitle')</h2>
+                        <p class="bottom45">@lang('website.exosuite.exosuiteProjectDescription1')</p>
                         <p class="bottom45">
-                            Enfilez vos lunettes connectées et devenez acteur d'une révolution en matière de coaching
-                            sportif prônant un aspect communautaire amplifié, et obtenez un suivi personnalisé, quand et
-                            où vous voulez, afin d'améliorer vos performances ou pratiquer le sport de façon ludique.
+                            @lang('website.exosuite.exosuiteProjectDescription2')
                         </p>
                     </div>
                 </div>
@@ -57,26 +54,26 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="icon_box equalheight top60 wow fadeInUp">
                         <i class="fas fa-running"></i>
-                        <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Sport</a></h4>
+                        <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">@lang('website.exosuite.sport')</a></h4>
                         <hr>
-                        <p class="no_bottom">Une nouvelle ère du coaching sportif.</p>
+                        <p class="no_bottom">@lang('website.exosuite.sportDescription')</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="icon_box equalheight top60 wow fadeInUp">
                         <i class="fa fa-cloud"></i>
-                        <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Technologie</a></h4>
+                        <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">@lang('website.exosuite.tech')</a></h4>
                         <hr>
-                        <p class="no_bottom">Une utilisation des technologies les plus avancées.</p>
+                        <p class="no_bottom">@lang('website.exosuite.techDescription')</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="icon_box equalheight top60 wow fadeInUp">
                         <i class="fa fa-users"></i>
-                        <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">Social</a>
+                        <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">@lang('website.exosuite.social')</a>
                         </h4>
                         <hr>
-                        <p class="no_bottom">Un esprit communautaire fort.</p>
+                        <p class="no_bottom">@lang('website.exosuite.socialDescription')</p>
                     </div>
                 </div>
             </div>
@@ -90,10 +87,10 @@
             <div class="row">
                 <div class="col-md-5 col-sm-9">
                     <div class="intro-text wow fadeInLeft">
-                        <span class="heading-title bottom25">Il y a ExoFun !</span>
-                        <h2 class="whitecolor bottom45 text-shadowed">Faire du sport en s'amusant est possible avec ExoFun</h2>
-                        <p class="whitecolor text-shadowed">ExoFun est une application de la suite ExoSuite.</p>
-                        <a href="/exofun" class="button default top50">Découvrir l'application ExoFun</a>
+                        <span class="heading-title bottom25">@lang('website.exosuite.exofun')</span>
+                        <h2 class="whitecolor bottom45 text-shadowed">@lang('website.exosuite.exofunTitle')</h2>
+                        <p class="whitecolor text-shadowed">@lang('website.exosuite.exofunDescription')</p>
+                        <a href="/exofun" class="button default top50">@lang('website.exosuite.exofunDiscover')</a>
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-3"></div>
@@ -105,10 +102,10 @@
             <div class="row">
                 <div class="col-md-5 col-sm-9">
                     <div class="intro-text wow fadeInLeft">
-                        <span class="heading-title bottom25">Il y a ExoRun aussi !</span>
-                        <h2 class="whitecolor bottom45">Faire du sport en se challengant est possible avec ExoRun</h2>
-                        <p class="whitecolor">ExoRun est une application de la suite ExoSuite.</p>
-                        <a href="/exorun" class="button default top50">Découvrir l'application ExoRun</a>
+                        <span class="heading-title bottom25">@lang('website.exosuite.exorun')</span>
+                        <h2 class="whitecolor bottom45">@lang('website.exosuite.exorunTitle')</h2>
+                        <p class="whitecolor">@lang('website.exosuite.exorunDescription')</p>
+                        <a href="/exorun" class="button default top50">@lang('website.exosuite.exorunDiscover')</a>
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-3"></div>
