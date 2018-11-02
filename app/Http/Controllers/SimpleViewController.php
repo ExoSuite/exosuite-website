@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Facades\API;
-
 class SimpleViewController extends Controller
 {
     public function home()
@@ -34,5 +32,20 @@ class SimpleViewController extends Controller
     public function about()
     {
         return view('about');
+    }
+
+    public function team()
+    {
+        return view('team');
+    }
+
+    public function comingsoon()
+    {
+        return view('comingsoon');
+    }
+
+    public function social()
+    {
+        return view('social');
     }
 }

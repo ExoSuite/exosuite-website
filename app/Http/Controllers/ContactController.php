@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App;
 use Mail;
 
 class ContactController extends Controller
@@ -15,11 +18,11 @@ class ContactController extends Controller
     public function contact(Request $request)
     {
         $inputs = $request->all();
-        $this->validate($request, ['name' => 'required', 'email' => 'required|email', 'message' => 'required']);
-        Mail::send('emails.contact', array('inputs' => $inputs), function ($message) use ($inputs) {
-            $message->from($inputs['email'], 'ExoSuite');
-            $message->to('EIP.ExoSuite@gmail.com', 'ExoSuite')->subject('Message reçu du formulaire de contact du site');
-        });
-        return redirect('/');
+        $toValidate =  ['name' => 'required', 'email' => 'required|email', 'message' => 'required'];
+        if (App::environment('production'))
+            $toValidate['g-recaptcha-response'] = 'required|captcha';
+        $this->validate($request, $toValidate);
+        Mail::to(array('email' => 'contact@exosuite.fr'))->send(new ContactMail($inputs));
+        return view('/contact')->with(['send' => true]);
     }
 }

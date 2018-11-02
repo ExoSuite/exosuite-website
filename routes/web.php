@@ -13,6 +13,8 @@
 
 Route::get('/', 'SimpleViewController@home');
 
+Route::get('/language/{locale}', 'LanguageController@language');
+
 Route::group(['prefix' => 'contact'], function () {
     Route::get('/', 'ContactController@index');
     Route::post('/', 'ContactController@contact');
@@ -26,7 +28,11 @@ Route::get('exofun', 'SimpleViewController@exofun');
 
 Route::get('pricing', 'SimpleViewController@pricing');
 
-Route::get('about', 'SimpleViewController@about');
+Route::get('team', 'SimpleViewController@team');
+
+Route::get('blog', 'SimpleViewController@comingsoon');
+
+Route::get('social', 'SimpleViewController@social');
 
 /*Route::get('/departures', function () {
     return view('departures');
@@ -35,10 +41,12 @@ Route::get('about', 'SimpleViewController@about');
 /*Route::get('survey', 'SurveyController@index');
 Route::post('survey', 'SurveyController@postSurvey');*/
 
-Route::group(["prefix" => "register"], function () {
+/*Route::group(["prefix" => "register"], function () {
     Route::get('/', "Auth\RegisterController@registerView")->name('register');
     Route::post('/', 'Auth\RegisterController@register')->name('registerAPI');
-});
+});*/
+
+Route::post('/register', 'Auth\RegisterController@register')->name('registerAPI');
 
 Route::group(["prefix" => "login"], function () {
     Route::get('/', 'Auth\LoginController@loginView')->name('login');

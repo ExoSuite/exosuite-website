@@ -1,22 +1,24 @@
-<footer class="footer py-7">
-    <div class="container text-center">
-
-        <div class="social social-bg-pale-brand">
-            <a class="social-facebook" href="https://www.facebook.com/ExoSuiteProject"><i class="fa fa-facebook"></i></a>
-            <a class="social-twitter" href="https://twitter.com/ExoSuiteEIP"><i class="fa fa-twitter"></i></a>
-            {{--<a class="social-youtube" href="#"><i class="fa fa-youtube"></i></a>--}}
+<footer class="bgdefault padding_half">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="languagepicker roundborders">
+                    @if (App::getLocale() == 'fr')
+                        <li><a href="/language/fr"><img src="/img/fr-flag.png"/>Français</a></li>
+                        <li><a href="/language/en"><img src="/img/us-flag.png"/>English</a></li>
+                    @else
+                        <li><a href="/language/en"><img src="/img/us-flag.png"/>English</a></li>
+                        <li><a href="/language/fr"><img src="/img/fr-flag.png"/>Français</a></li>
+                    @endif
+                </ul>
+            </div>
+            <div class="col-md-12 col-sm-12 text-center">
+                <ul class="social white wow bounceIn">
+                    <li><a href="https://www.facebook.com/ExoSuiteProject/"><i class="fab fa-facebook"></i> </a></li>
+                    <li><a href="https://twitter.com/ExoSuiteEIP"><i class="fab fa-twitter"></i> </a></li>
+                </ul>
+                <p class="whitecolor top30 wow fadeInUp">Copyright &copy; 2018 ExoSuite. All rights reserved.</p>
+            </div>
         </div>
-
-        <br>
-
-        <div class="nav nav-bolder nav-uppercase nav-center">
-            <a class="nav-link" href="/about">A propos</a>
-            <a class="nav-link" href="/contact">Contact</a>
-        </div>
-
-        <br>
-
-        <small>© ExoSuite 2018, Tous droits réservés.</small>
-
     </div>
 </footer>
