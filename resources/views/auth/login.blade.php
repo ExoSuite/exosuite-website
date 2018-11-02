@@ -42,15 +42,16 @@
             @endif
         </div>
         <div class="col-md-6 login-form-1">
-            <form method="POST" action="/login">
+            <form method="POST" action="{{\URL::full()}}">
                 <h3>@lang('website.login.signin')</h3>
                 @csrf
                 <div class="form-group">
-                    <input id="email" name="email" type="email" class="form-control" placeholder="@lang('website.login.mail')" value="{{ old('email') }}" required autofocus/>
+                    <input id="email" name="email" type="email" class="form-control"
+                           placeholder="@lang('website.login.mail')" value="{{ old('email') }}" required autofocus/>
                 </div>
                 <div class="form-group">
                     <input id="password" type="password" class="form-control" name="password" required
-                           placeholder="@lang('website.login.password')" />
+                           placeholder="@lang('website.login.password')"/>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btnSubmit" value="@lang('website.login.signin')"/>
@@ -68,22 +69,29 @@
                 </div>
                 <h3>@lang('website.register')</h3>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="first_name" placeholder="@lang('website.register.firstName')" required autofocus value="{{ old('first_name') }}">
+                    <input type="text" class="form-control" name="first_name"
+                           placeholder="@lang('website.register.firstName')" required autofocus
+                           value="{{ old('first_name') }}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="last_name" placeholder="@lang('website.register.lastName')" required value="{{ old('last_name') }}">
+                    <input type="text" class="form-control" name="last_name"
+                           placeholder="@lang('website.register.lastName')" required value="{{ old('last_name') }}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="nick_name" placeholder="@lang('website.register.nickName')" value="{{ old('nick_name') }}">
+                    <input type="text" class="form-control" name="nick_name"
+                           placeholder="@lang('website.register.nickName')" value="{{ old('nick_name') }}">
                 </div>
                 <div class="form-group">
-                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="@lang('website.register.email')">
+                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required
+                           placeholder="@lang('website.register.email')">
                 </div>
                 <div class="form-group">
-                    <input id="name" type="password" class="form-control" name="password" required placeholder="@lang('website.register.password')">
+                    <input id="name" type="password" class="form-control" name="password" required
+                           placeholder="@lang('website.register.password')">
                 </div>
                 <div class="form-group">
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="@lang('website.register.passwordConfirm')">
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                           required placeholder="@lang('website.register.passwordConfirm')">
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btnSubmit" value="@lang('website.register')"/>
