@@ -314,6 +314,7 @@ ul.social.dark li a:focus{
 #navigation.fixed .navbar-default .navbar-nav > li > a,
 #navigation.boxednav .navbar-default .navbar-nav > li > a{
     color: #414141;
+    text-shadow: none;
 }
 .dark #navigation.fixed .navbar-default .navbar-nav > li > a {
     color: #fff;
