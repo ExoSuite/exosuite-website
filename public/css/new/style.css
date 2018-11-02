@@ -117,8 +117,6 @@ button {
 	background: transparent;
 }
 
-
-
 /* Helper Classes & Shorcodes */
 
 .subtitle {
@@ -910,6 +908,7 @@ ul.social li a::before, ul.social li a::after{
 /*menu items*/
 .navbar-default .navbar-nav > li > a{
   color: #fff;
+    text-shadow: 1px 1px 2px black;
   font-size:12px;
   font-weight:600;
   text-transform:uppercase;

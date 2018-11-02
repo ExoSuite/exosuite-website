@@ -28,8 +28,6 @@ Route::get('exofun', 'SimpleViewController@exofun');
 
 Route::get('pricing', 'SimpleViewController@pricing');
 
-Route::get('about', 'SimpleViewController@about');
-
 Route::get('team', 'SimpleViewController@team');
 
 Route::get('blog', 'SimpleViewController@comingsoon');

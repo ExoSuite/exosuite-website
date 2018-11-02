@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="/css/new/typo2.css">
     <link rel="stylesheet" href="/css/new/language-dropdown.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    <link rel="icon" href="/img/exosuite-icon.svg">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <link rel="icon" href="/img/exosuite-icon.ico">
+{{--    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -22,7 +22,7 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-115859959-1');
-    </script>
+    </script>--}}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

@@ -182,7 +182,6 @@
 <script src="/js/new/functions.js"></script>
 
 <!--Google map API-->
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>
 <script src="/js/new/map.js"></script>
 </body>
 </html>
