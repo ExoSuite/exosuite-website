@@ -17,7 +17,7 @@ class PricingTest extends TestCase
      */
     public function testPricingPageIntegrityFrench()
     {
-        Cookie::queue(Localization::$key, 'fr');
+
         $response = $this->get(route('get_pricing'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class PricingTest extends TestCase
 
     public function testPricingPageIntegrityEnglish()
     {
-        Cookie::queue(Localization::$key, 'en');
+
         $response = $this->get(route('get_pricing'));
 
         $response->assertOk();

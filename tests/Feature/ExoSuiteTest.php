@@ -17,7 +17,7 @@ class ExoSuiteTest extends TestCase
      */
     public function testExoSuitePageIntegrityFrench()
     {
-        Cookie::queue(Localization::$key, 'fr');
+
         $response = $this->get(route('get_exosuite'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class ExoSuiteTest extends TestCase
 
     public function testExoSuitePageIntegrityEnglish()
     {
-        Cookie::queue(Localization::$key, 'en');
+
         $response = $this->get(route('get_exosuite'));
 
         $response->assertOk();

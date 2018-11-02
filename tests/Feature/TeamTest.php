@@ -17,7 +17,6 @@ class TeamTest extends TestCase
      */
     public function testTeamPageIntegrityFrench()
     {
-        Cookie::queue(Localization::$key, 'fr');
         $response = $this->get(route('get_team'));
 
         $response->assertOk();
@@ -26,7 +25,6 @@ class TeamTest extends TestCase
 
     public function testTeamPageIntegrityEnglish()
     {
-        Cookie::queue(Localization::$key, 'en');
         $response = $this->get(route('get_team'));
 
         $response->assertOk();

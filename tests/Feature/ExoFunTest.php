@@ -17,7 +17,7 @@ class ExoFunTest extends TestCase
      */
     public function testExoFunPageIntegrityFrench()
     {
-        Cookie::queue(Localization::$key, 'fr');
+
         $response = $this->get(route('get_exofun'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class ExoFunTest extends TestCase
 
     public function testExoFunPageIntegrityEnglish()
     {
-        Cookie::queue(Localization::$key, 'en');
+
         $response = $this->get(route('get_exofun'));
 
         $response->assertOk();

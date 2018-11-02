@@ -17,7 +17,7 @@ class ExoRunTest extends TestCase
      */
     public function testExoRunPageIntegrityFrench()
     {
-        Cookie::queue(Localization::$key, 'fr');
+
         $response = $this->get(route('get_exorun'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class ExoRunTest extends TestCase
 
     public function testExoRunPageIntegrityEnglish()
     {
-        Cookie::queue(Localization::$key, 'en');
+
         $response = $this->get(route('get_exorun'));
 
         $response->assertOk();

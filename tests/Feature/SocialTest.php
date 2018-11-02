@@ -17,7 +17,7 @@ class SocialTest extends TestCase
      */
     public function testSocialPageIntegrityFrench()
     {
-        Cookie::queue(Localization::$key, 'fr');
+
         $response = $this->get(route('get_social'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class SocialTest extends TestCase
 
     public function testSocialPageIntegrityEnglish()
     {
-        Cookie::queue(Localization::$key, 'en');
+
         $response = $this->get(route('get_social'));
 
         $response->assertOk();
