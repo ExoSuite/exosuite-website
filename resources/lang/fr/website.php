@@ -90,7 +90,7 @@ return [
     'team.lopezJob' => 'Responsable développement',
     'team.lopezDescription' => 'Passionné d\'informatique, touche à tout et mordu de technologies.',
     'team.renaudJob' => 'Développeur application',
-    'team.renaudDescription' => 'Je suis passioné par la high-tech et par le voyage.',
+    'team.renaudDescription' => 'Je suis curieux, passionné et j\'aime les défis, ExoSuite sera mon terrain de jeu',
     'team.pierreJob' => 'Développeur Web',
     'team.pierreDescription' => 'Passionné d\'informatique, de jeux vidéo et de paysages. J\'aime voyager.',
     'team.stanJob' => 'Responsable assurance qualité',
