@@ -6,6 +6,7 @@ use App;
 use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\Cookie;
 use Tests\TestCase;
+use App\Models\User;
 
 class HomeTest extends TestCase
 {
@@ -16,7 +17,7 @@ class HomeTest extends TestCase
      */
     public function testHomePageIntegrityFrench()
     {
-
+        App::setLocale('fr');
         $response = $this->get(route('get_home'));
 
         // ASSERT CODE 200
@@ -55,7 +56,7 @@ class HomeTest extends TestCase
 
     public function testHomePageIntegrityEnglish()
     {
-
+        App::setLocale('en');
         $response = $this->get(route('get_home'));
 
         // ASSERT CODE 200

@@ -3,11 +3,7 @@
 namespace Tests\Feature;
 
 use App;
-use App\Http\Middleware\Localization;
-use Illuminate\Support\Facades\Cookie;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ContactTest extends TestCase
 {
@@ -19,7 +15,7 @@ class ContactTest extends TestCase
 
     public function testContactPageIntegrityFrench()
     {
-
+        app()->setLocale('fr');
         $response = $this->get(route('get_contact'));
 
         // ASSERT CODE 200
@@ -50,7 +46,7 @@ class ContactTest extends TestCase
 
     public function testContactPageIntegrityEnglish()
     {
-
+        app()->setLocale('en');
         $response = $this->get(route('get_contact'));
 
         // ASSERT CODE 200

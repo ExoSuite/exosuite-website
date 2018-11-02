@@ -10,21 +10,24 @@ use Illuminate\Support\Facades\Cookie;
 class Localization
 {
     public static $locales = ['fr', 'en'];
-    public static $key = 'locale';
+    CONST KEY = 'locale';
 
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        dd(App::getLocale());
-        $locale = Cookie::get(self::$key);
+        if (App::environment('testing')) {
+            return $next($request);
+        }
+
+        $locale = Cookie::get(self::KEY);
         if (!$locale) {
-            $locale =  $request->getPreferredLanguage(self::$locales);
+            $locale = $request->getPreferredLanguage(self::$locales);
         }
 
         app()->setLocale($locale);

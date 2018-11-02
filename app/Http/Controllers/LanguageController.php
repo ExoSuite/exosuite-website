@@ -8,13 +8,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Localization;
+use Illuminate\Support\Facades\Cookie;
 
 class LanguageController extends Controller
 {
     public function language($locale)
     {
-        if (in_array($locale, \App\Http\Middleware\Localization::$locales))
-            \Illuminate\Support\Facades\Cookie::queue(\App\Http\Middleware\Localization::$key, $locale);
+        if (in_array($locale, Localization::$locales))
+            Cookie::queue(Localization::KEY, $locale);
         return redirect()->back();
     }
 }
