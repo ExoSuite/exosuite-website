@@ -17,7 +17,7 @@ class ExoRunTest extends TestCase
      */
     public function testExoRunPageIntegrityFrench()
     {
-
+        $this->french();
         $response = $this->get(route('get_exorun'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class ExoRunTest extends TestCase
 
     public function testExoRunPageIntegrityEnglish()
     {
-
+        $this->english();
         $response = $this->get(route('get_exorun'));
 
         $response->assertOk();

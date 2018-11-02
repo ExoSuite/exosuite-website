@@ -15,7 +15,7 @@ class ContactTest extends TestCase
 
     public function testContactPageIntegrityFrench()
     {
-        app()->setLocale('fr');
+        $this->french();
         $response = $this->get(route('get_contact'));
 
         // ASSERT CODE 200
@@ -43,7 +43,7 @@ class ContactTest extends TestCase
 
     public function testContactPageIntegrityEnglish()
     {
-        app()->setLocale('en');
+        $this->english();
         $response = $this->get(route('get_contact'));
 
         // ASSERT CODE 200

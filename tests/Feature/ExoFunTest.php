@@ -17,7 +17,7 @@ class ExoFunTest extends TestCase
      */
     public function testExoFunPageIntegrityFrench()
     {
-
+        $this->french();
         $response = $this->get(route('get_exofun'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class ExoFunTest extends TestCase
 
     public function testExoFunPageIntegrityEnglish()
     {
-
+        $this->english();
         $response = $this->get(route('get_exofun'));
 
         $response->assertOk();

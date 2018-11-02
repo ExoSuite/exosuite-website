@@ -17,7 +17,7 @@ class SocialTest extends TestCase
      */
     public function testSocialPageIntegrityFrench()
     {
-
+        $this->french();
         $response = $this->get(route('get_social'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class SocialTest extends TestCase
 
     public function testSocialPageIntegrityEnglish()
     {
-
+        $this->english();
         $response = $this->get(route('get_social'));
 
         $response->assertOk();

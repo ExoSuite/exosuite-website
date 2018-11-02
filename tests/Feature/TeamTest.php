@@ -17,6 +17,7 @@ class TeamTest extends TestCase
      */
     public function testTeamPageIntegrityFrench()
     {
+        $this->french();
         $response = $this->get(route('get_team'));
 
         $response->assertOk();
@@ -25,6 +26,7 @@ class TeamTest extends TestCase
 
     public function testTeamPageIntegrityEnglish()
     {
+        $this->english();
         $response = $this->get(route('get_team'));
 
         $response->assertOk();

@@ -17,7 +17,7 @@ class HomeTest extends TestCase
      */
     public function testHomePageIntegrityFrench()
     {
-        App::setLocale('fr');
+        $this->french();
         $response = $this->get(route('get_home'));
 
         // ASSERT CODE 200
@@ -56,7 +56,7 @@ class HomeTest extends TestCase
 
     public function testHomePageIntegrityEnglish()
     {
-        App::setLocale('en');
+        $this->english();
         $response = $this->get(route('get_home'));
 
         // ASSERT CODE 200

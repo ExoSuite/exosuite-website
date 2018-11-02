@@ -17,7 +17,7 @@ class ExoSuiteTest extends TestCase
      */
     public function testExoSuitePageIntegrityFrench()
     {
-
+        $this->french();
         $response = $this->get(route('get_exosuite'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class ExoSuiteTest extends TestCase
 
     public function testExoSuitePageIntegrityEnglish()
     {
-
+        $this->english();
         $response = $this->get(route('get_exosuite'));
 
         $response->assertOk();

@@ -17,7 +17,7 @@ class PricingTest extends TestCase
      */
     public function testPricingPageIntegrityFrench()
     {
-
+        $this->french();
         $response = $this->get(route('get_pricing'));
 
         $response->assertOk();
@@ -26,7 +26,7 @@ class PricingTest extends TestCase
 
     public function testPricingPageIntegrityEnglish()
     {
-
+        $this->english();
         $response = $this->get(route('get_pricing'));
 
         $response->assertOk();
