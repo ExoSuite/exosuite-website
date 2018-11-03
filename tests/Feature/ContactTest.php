@@ -63,6 +63,8 @@ class ContactTest extends TestCase
         $response->assertSeeText(trans("website.menu.contact"));
 
         // ASSERT PAGE'S TEXT
-
+        $response->assertSeeText(trans("website.contact"));
+        $response->assertSeeText(trans("website.contact.title"));
+        $response->assertSeeText(trans("website.contact.send"));
     }
 }
