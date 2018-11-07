@@ -18,13 +18,6 @@ class LoginTest extends DuskTestCase
      */
     use WithFaker;
 
-//    private $userPassword = null;
-//    private $userFirstName = null;
-//    private $userLastName = null;
-//    private $userNickName = null;
-//    private $userEmail = null;
-//    private $userData = null;
-
     /**
      * @throws \Throwable
      */
@@ -32,30 +25,6 @@ class LoginTest extends DuskTestCase
     public function testPostLoginForm()
     {
         $this->french();
-//        $this->userPassword = str_random() . '0';
-//        $this->userFirstName = $this->faker->firstName;
-//        $this->userLastName = $this->faker->lastName;
-//        $this->userNickName = str_random(5);
-//        $this->userEmail = $this->faker->safeEmail;
-//        $this->userData = [
-//            'first_name' => $this->userFirstName,
-//            'last_name' => $this->userLastName,
-//            'nick_name' => $this->userNickName,
-//            'email' => $this->userEmail,
-//            'password' => $this->userPassword,
-//            'password_confirmation' => $this->userPassword
-//        ];
-//
-//        //Register the user
-//
-//        $this->post(route('registerAPI'), $this->userData);
-//
-//        //Logout the new user
-//
-//        $this->get(route('get_logout'));
-//
-//        //Login as the new user
-
         $this->browse(function (Browser $browser) {
             /* @var User $user */
             $userEmail = $this->faker->safeEmail;
