@@ -46,11 +46,11 @@
                 <h3>@lang('website.login.signin')</h3>
                 @csrf
                 <div class="form-group">
-                    <input id="email" name="email" type="email" class="form-control"
+                    <input dusk="login_email" id="email" name="email" type="email" class="form-control"
                            placeholder="@lang('website.login.mail')" value="{{ old('email') }}" required autofocus/>
                 </div>
                 <div class="form-group">
-                    <input id="password" type="password" class="form-control" name="password" required
+                    <input dusk="login_password" id="password" type="password" class="form-control" name="password" required
                            placeholder="@lang('website.login.password')"/>
                 </div>
                 <div class="form-group">
@@ -82,11 +82,11 @@
                            placeholder="@lang('website.register.nickName')" value="{{ old('nick_name') }}">
                 </div>
                 <div class="form-group">
-                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required
+                    <input dusk="register_email" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required
                            placeholder="@lang('website.register.email')">
                 </div>
                 <div class="form-group">
-                    <input id="name" type="password" class="form-control" name="password" required
+                    <input dusk="register_password" id="name" type="password" class="form-control" name="password" required
                            placeholder="@lang('website.register.password')">
                 </div>
                 <div class="form-group">

@@ -19,6 +19,20 @@ abstract class DuskTestCase extends BaseTestCase
     use CreatesApplication;
 
     /**
+     * @return void
+     */
+    protected function french() : void {
+        app()->setLocale('fr');
+    }
+
+    /**
+     * @return void
+     */
+    protected function english(): void {
+        app()->setLocale('en');
+    }
+
+    /**
      * @return bool
      */
     private static function isLocal()
