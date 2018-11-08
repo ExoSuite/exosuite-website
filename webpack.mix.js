@@ -17,10 +17,11 @@ mix.react('resources/js/app.js', 'public/js')
 */
 
 const { mix } = require('laravel-mix');
-
+mix.styles('resources/sass/website/*.css', 'public/css/all.css');
+mix.scripts('resources/js/website/*.js', 'public/js/all.js');
 mix
-    .js('resources/js/app.ts', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/app.ts', 'public/js').sourceMaps()
+//    .sass('resources/sass/app.scss', 'public/css')
     .webpackConfig({
         module: {
             rules: [
@@ -32,6 +33,6 @@ mix
             ],
         },
         resolve: {
-            extensions: ['.ts', '.tsx'],
+            extensions: ['.ts', '.tsx', '.js'],
         },
     });
