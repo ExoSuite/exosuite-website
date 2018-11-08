@@ -30,7 +30,7 @@ mix.styles([
         'resources/css/login.css'
     ],
     'public/css/all.css'
-).version();
+).sourceMaps().version();
 
 mix.scripts([
         'resources/js/website/jquery.min.js',
@@ -64,7 +64,7 @@ mix.scripts([
         'resources/js/website/functions.js'
     ],
     'public/js/all.js'
-).version();
+).sourceMaps().version();
 
 mix.react('resources/js/app.ts', 'public/js').sourceMaps().version()
 //    .sass('resources/sass/app.scss', 'public/css')
