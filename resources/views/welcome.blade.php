@@ -106,7 +106,8 @@
 @include('layouts.footer')
 <!-- jQuery Files -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="/js/new/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+{{--<script src="/js/new/bootstrap.min.js"></script>
 
 <!--to view items on reach-->
 <script src="/js/new/jquery.appear.js"></script>
@@ -173,6 +174,6 @@
 
 <!--Google map API-->
 <script src="/js/new/map-dark.js"></script>
-<script src="/js/new/map.js"></script>
+<script src="/js/new/map.js"></script>--}}
 </body>
 </html>
