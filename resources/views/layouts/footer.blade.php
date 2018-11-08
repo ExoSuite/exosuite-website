@@ -22,3 +22,4 @@
         </div>
     </div>
 </footer>
+<script src="/js/all.js"></script>

@@ -13,6 +13,8 @@
         "@types/node": "^10.12.3",
         "axios": "^0.18",
         "babel-preset-react": "^6.24.1",
+        "browser-sync": "^2.26.3",
+        "browser-sync-webpack-plugin": "2.0.1",
         "cross-env": "^5.2",
         "laravel-mix": "^2.1",
         "lodash": "^4.17.11",
