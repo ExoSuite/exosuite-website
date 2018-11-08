@@ -105,7 +105,6 @@
 </section>
 @include('layouts.footer')
 <!-- jQuery Files -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="/js/all.js"></script>
 </body>
 </html>

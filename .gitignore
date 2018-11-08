@@ -9,3 +9,7 @@ _ide_helper.php
 _ide_helper_models.php
 test-reports
 /gambolthemes.net/
+public/css/*
+public/js/*
+mix-manifest.json
+
