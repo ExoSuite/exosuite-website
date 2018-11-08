@@ -26,7 +26,8 @@ mix.styles([
         'resources/css/style.css',
         'resources/css/gradient.css',
         'resources/css/typo2.css',
-        'resources/css/language-dropdown.css'
+        'resources/css/language-dropdown.css',
+        'resources/css/login.css'
     ],
     'public/css/all.css'
 ).version();
