@@ -28,7 +28,7 @@ class LoginTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             /* @var User $user */
             $userEmail = $this->faker->safeEmail;
-            $userPassword = str_random(5) . '0';
+            $userPassword = str_random(6) . 'Cz0';
             $user = factory(User::class)->make();
             $user->id = Uuid::generate()->string;
             /* @var array $userData */
