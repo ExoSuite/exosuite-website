@@ -8,9 +8,9 @@
     <title>ExoSuite</title>
 
     <link rel="icon" href="/img/exosuite-icon.svg">
-    <link rel="stylesheet" href="/css/new/site.css">
-    <link rel="stylesheet" href="/css/new/login.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{{ mix('/css/all.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
     <script>
@@ -93,6 +93,5 @@
     </div>
 </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="/js/new/bootstrap.min.js"></script>
+<script src="{{ mix('/js/all.js') }}"></script>
 </html>

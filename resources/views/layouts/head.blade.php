@@ -3,17 +3,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#0642a3"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     {{ $slot }}
 
     <title>ExoSuite</title>
 
-    <link rel="stylesheet" href="/css/new/site.css">
-    <link rel="stylesheet" href="/css/new/style.css">
-    <link rel="stylesheet" href="/css/new/gradient.css">
-    <link rel="stylesheet" href="/css/new/typo2.css">
-    <link rel="stylesheet" href="/css/new/language-dropdown.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{{ mix('/css/all.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    <link rel="icon" href="/img/exosuite-icon.ico">
+    <link rel="icon" href="/img/exosuite-icon.png">
 {{--    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115859959-1"></script>
     <script>
