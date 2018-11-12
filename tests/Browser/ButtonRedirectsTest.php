@@ -2,6 +2,7 @@
 
 namespace Tests\Browser;
 
+use Tests\Browser\Config\RedirectConfig;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -12,22 +13,6 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
  */
 class ButtonRedirectsTest extends DuskTestCase
 {
-    /**
-     *
-     */
-    const source = "source";
-    /**
-     *
-     */
-    const expectedAfterClick = "expectedAfterClick";
-    /**
-     *
-     */
-    const linkText = "linkText";
-    /**
-     *
-     */
-    const dropdownLinkText = "dropdownLinkText";
 
     /**
      * @var array
@@ -44,23 +29,30 @@ class ButtonRedirectsTest extends DuskTestCase
         $homePath = route('get_home', [], false);
         $linkText = trans('website.menu.home');
         $this->tests = [
-            [self::source => $homePath, self::expectedAfterClick => $homePath, self::linkText => $linkText]
+            new RedirectConfig($homePath, $linkText, $homePath)
         ];
     }
 
 
+    /**
+     * @throws \Throwable
+     */
     public function testRedirects() {
         $this->browse(function (Browser $browser) {
 
+
+            /** @var RedirectConfig $test */
             foreach ($this->tests as $test) {
-                $browser->visit($test[self::source])
-                    ->assertPathIs($test[self::source]);
-                if (array_key_exists(self::dropdownLinkText, $test)) {
-                    $browser->waitForLink($test[self::dropdownLinkText])
-                     ->clickLink($test[self::dropdownLinkText]);
+                $browser->visit($test->source)
+                    ->assertPathIs($test->source);
+
+                if ($test->dropdownLinkText != null) {
+                    $browser->waitForLink($test->dropdownLinkText)
+                     ->clickLink($test->dropdownLinkText);
                 }
-                $browser->waitForLink($test[self::linkText])
-                    ->clickLink($test[self::linkText]);
+
+                $browser->waitForLink($test->linkText)
+                    ->clickLink($test->linkText);
             }
 
         });
