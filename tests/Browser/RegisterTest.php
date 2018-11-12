@@ -25,7 +25,7 @@ class RegisterTest extends DuskTestCase
 
             $target = '/login';
             $expectedAfterClick = route('profile', [], false);
-            $password = str_random() . '0';
+            $password = str_random(6) . 'Cz0';
 
             $browser->visit($target)
                 ->assertPathIs($target)
