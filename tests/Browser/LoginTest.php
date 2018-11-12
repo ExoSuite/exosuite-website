@@ -28,7 +28,7 @@ class LoginTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             /* @var User $user */
             $userEmail = $this->faker->safeEmail;
-            $userPassword = str_random(6) . 'Cz0';
+            $userPassword = 'TestCz0';
             $user = factory(User::class)->make();
             $user->id = Uuid::generate()->string;
             /* @var array $userData */
@@ -44,7 +44,7 @@ class LoginTest extends DuskTestCase
                 ->assertPathIs($target)
                 ->keys('@login_email', $userEmail)
                 ->keys('@login_password', $userPassword)
-                ->press(trans('Se connecter !'))
+                ->press(trans('website.login.signin'))
                 ->assertPathIs($expectedAfterClick);
             $this->assertTrue(true);
         });
