@@ -40,7 +40,7 @@
                             <ul class="social white text-center top20 wow fadeInUp">
                                 <li><a href="https://www.facebook.com/ExoSuiteProject/"><i class="fab fa-facebook"></i>
                                     </a></li>
-                                <li><a href="https://twitter.com/ExoSuiteEIP"><i class="fab fa-twitter"></i> </a></li>
+                                <li><a href="https://twitter.com/ExoSuiteAR"><i class="fab fa-twitter"></i> </a></li>
                             </ul>
                         </div>
                     </div>

@@ -15,7 +15,7 @@
             <div class="col-md-12 col-sm-12 text-center">
                 <ul class="social white wow bounceIn">
                     <li><a href="https://www.facebook.com/ExoSuiteProject/"><i class="fab fa-facebook"></i> </a></li>
-                    <li><a href="https://twitter.com/ExoSuiteEIP"><i class="fab fa-twitter"></i> </a></li>
+                    <li><a href="https://twitter.com/ExoSuiteAR"><i class="fab fa-twitter"></i> </a></li>
                 </ul>
                 <p class="whitecolor top30 wow fadeInUp">Copyright &copy; 2018 ExoSuite. All rights reserved.</p>
             </div>
@@ -23,3 +23,4 @@
     </div>
 </footer>
 <script src="{{ mix('/js/all.js') }}"></script>
+<script src="/js/app.js"></script>
