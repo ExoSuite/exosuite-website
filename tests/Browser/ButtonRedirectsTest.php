@@ -16,12 +16,8 @@ class ButtonRedirectsTest extends DuskTestCase
             $linkText = trans('website.menu.home');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -29,19 +25,14 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
-            $expectedAfterClick = '/exosuite';
+            $expectedAfterClick = route('get_exosuite', [], false);
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exosuite');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -49,19 +40,16 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
-            $expectedAfterClick = '/exofun';
+            $expectedAfterClick = route('get_exofun', [], false);
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exofun');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($dropdownLinkText)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -69,19 +57,14 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
-            $expectedAfterClick = '/exorun';
+            $expectedAfterClick = route('get_exorun', [], false);
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exorun');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -89,16 +72,13 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
-            $expectedAfterClick = '/social';
+            $expectedAfterClick = route('get_social', [], false);
             $linkText = trans('website.menu.socialNetwork');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -106,16 +86,13 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
-            $expectedAfterClick = '/team';
+            $expectedAfterClick = route('get_team', [], false);
             $linkText = trans('website.menu.team');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -123,16 +100,13 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
-            $expectedAfterClick = '/pricing';
+            $expectedAfterClick = route('get_pricing', [], false);
             $linkText = trans('website.menu.pricing');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -140,16 +114,13 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
-            $expectedAfterClick = '/blog';
+            $expectedAfterClick = route('get_blog', [], false);
             $linkText = trans('website.menu.blog');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -157,16 +128,13 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
-            $expectedAfterClick = '/login';
+            $expectedAfterClick = route('login', [], false);
             $linkText = trans('website.menu.connect');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -174,107 +142,90 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
-            $expectedAfterClick = '/contact';
+            $expectedAfterClick = route('get_contact', [], false);
             $linkText = trans('website.menu.contact');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToHomeFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
+            $target = route('get_contact', [], false);
             $expectedAfterClick = '/';
             $linkText = trans('website.menu.home');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToExoSuiteFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
-            $expectedAfterClick = '/exosuite';
+            $target = route('get_contact', [], false);
+            $expectedAfterClick = route('get_exosuite', [], false);
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exosuite');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($dropdownLinkText)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToExoFunFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
-            $expectedAfterClick = '/exofun';
+            $target = route('get_contact', [], false);
+            $expectedAfterClick = route('get_exofun', [], false);
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exofun');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($dropdownLinkText)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToExoRunFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
-            $expectedAfterClick = '/exorun';
+            $target = route('get_contact', [], false);
+            $expectedAfterClick = route('get_exorun', [], false);
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exorun');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($dropdownLinkText)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToSocialFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
-            $expectedAfterClick = '/social';
+            $target = route('get_contact', [], false);
+            $expectedAfterClick = route('get_social', [], false);
             $linkText = trans('website.menu.socialNetwork');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
             $this->assertTrue(true);
@@ -284,82 +235,68 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToTeamFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
-            $expectedAfterClick = '/team';
+            $target = route('get_contact', [], false);
+            $expectedAfterClick =  route('get_team', [], false);;
             $linkText = trans('website.menu.team');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToPricingFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
-            $expectedAfterClick = '/pricing';
+            $target = route('get_contact', [], false);
+            $expectedAfterClick = route('get_pricing', [], false);;
             $linkText = trans('website.menu.pricing');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToBlogFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
-            $expectedAfterClick = '/blog';
+            $target = route('get_contact', [], false);
+            $expectedAfterClick = route('get_blog', [], false);;
             $linkText = trans('website.menu.blog');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToLoginFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
+            $target = route('get_contact', [], false);
             $expectedAfterClick = '/login';
             $linkText = trans('website.menu.connect');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToContactFromContact()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/contact';
+            $target = route('get_contact', [], false);
             $expectedAfterClick = '/contact';
             $linkText = trans('website.menu.contact');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
             $this->assertTrue(true);
@@ -374,32 +311,26 @@ class ButtonRedirectsTest extends DuskTestCase
             $linkText = trans('website.menu.home');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToExoSuiteFromExoFun()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exofun';
-            $expectedAfterClick = '/exosuite';
+            $target = route('get_exofun', [], false);
+            $expectedAfterClick = route('get_exosuite', [], false);;
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exosuite');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($dropdownLinkText)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
@@ -412,11 +343,9 @@ class ButtonRedirectsTest extends DuskTestCase
             $linkText = trans('website.menu.exofun');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($dropdownLinkText)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
             $this->assertTrue(true);
@@ -433,7 +362,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($dropdownLinkText)
                 ->pause(1000)
@@ -452,7 +381,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -469,7 +398,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -486,7 +415,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -503,7 +432,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -520,7 +449,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -537,7 +466,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -554,7 +483,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -566,13 +495,13 @@ class ButtonRedirectsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $target = '/exorun';
-            $expectedAfterClick = '/exosuite';
+            $expectedAfterClick = route('get_exosuite', [], false);;
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exosuite');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($dropdownLinkText)
                 ->pause(1000)
@@ -592,7 +521,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($dropdownLinkText)
                 ->pause(1000)
@@ -612,7 +541,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($dropdownLinkText)
                 ->pause(1000)
@@ -631,7 +560,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -648,7 +577,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -665,7 +594,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -682,7 +611,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -699,7 +628,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -716,7 +645,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -727,13 +656,13 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToHomeFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
+            $target = route('get_exosuite', [], false);;
             $expectedAfterClick = '/';
             $linkText = trans('website.menu.home');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -744,34 +673,33 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToExoSuiteFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
-            $expectedAfterClick = '/exosuite';
+            $target = route('get_exosuite', [], false);;
+            $expectedAfterClick = route('get_exosuite', [], false);;
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exosuite');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($dropdownLinkText)
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToExoRunFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
+            $target = route('get_exosuite', [], false);;
             $expectedAfterClick = '/exorun';
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exorun');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($dropdownLinkText)
                 ->pause(1000)
@@ -784,14 +712,14 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToExoFunFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
-            $expectedAfterClick = '/exosuite';
+            $target = route('get_exosuite', [], false);;
+            $expectedAfterClick = route('get_exosuite', [], false);;
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exosuite');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($dropdownLinkText)
                 ->pause(1000)
@@ -804,13 +732,13 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToSocialFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
+            $target = route('get_exosuite', [], false);;
             $expectedAfterClick = '/social';
             $linkText = trans('website.menu.socialNetwork');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -821,13 +749,13 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToTeamFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
+            $target = route('get_exosuite', [], false);;
             $expectedAfterClick = '/team';
             $linkText = trans('website.menu.team');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
+                
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -838,13 +766,13 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToPricingFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
+            $target = route('get_exosuite', [], false);;
             $expectedAfterClick = '/pricing';
             $linkText = trans('website.menu.pricing');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -855,13 +783,13 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToBlogFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
+            $target = route('get_exosuite', [], false);;
             $expectedAfterClick = '/blog';
             $linkText = trans('website.menu.blog');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -872,13 +800,13 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToLoginFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
+            $target = route('get_exosuite', [], false);;
             $expectedAfterClick = '/login';
             $linkText = trans('website.menu.connect');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -889,13 +817,13 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToContactFromExoSuite()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/exosuite';
+            $target = route('get_exosuite', [], false);;
             $expectedAfterClick = '/contact';
             $linkText = trans('website.menu.contact');
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -912,7 +840,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $browser->visit($target)
                 ->assertPathIs($target)
                 ->pause(1000)
-                ->click('@navbar-collapser')
+
                 ->pause(1000)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
@@ -923,57 +851,49 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToExoSuiteFromPricing()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/pricing';
-            $expectedAfterClick = '/exosuite';
+            $target = route('get_pricing', [], false);
+            $expectedAfterClick = route('get_exosuite', [], false);
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exosuite');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($dropdownLinkText)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToExoRunFromPricing()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/pricing';
-            $expectedAfterClick = '/exorun';
+            $target = route('get_pricing', [], false);
+            $expectedAfterClick = route('get_exorun', [], false);
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.exorun');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($dropdownLinkText)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToExoFunFromPricing()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/pricing';
-            $expectedAfterClick = '/pricing';
+            $target = route('get_pricing', [], false);
+            $expectedAfterClick =  route('get_pricing', [], false);
             $dropdownLinkText = trans('website.menu.project');
             $linkText = trans('website.menu.pricing');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($dropdownLinkText)
                 ->clickLink($dropdownLinkText)
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
             $this->assertTrue(true);
@@ -983,31 +903,26 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToSocialFromPricing()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/pricing';
-            $expectedAfterClick = '/social';
+            $target =  route('get_pricing', [], false);
+            $expectedAfterClick =  route('get_social', [], false);
             $linkText = trans('website.menu.socialNetwork');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToTeamFromPricing()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/pricing';
-            $expectedAfterClick = '/team';
+            $target =  route('get_pricing', [], false);
+            $expectedAfterClick =  route('get_team', [], false);;
             $linkText = trans('website.menu.team');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
             $this->assertTrue(true);
@@ -1017,68 +932,56 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testButtonThatRedirectsToPricingFromPricing()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/pricing';
-            $expectedAfterClick = '/pricing';
+            $target =  route('get_pricing', [], false);
+            $expectedAfterClick =  route('get_pricing', [], false);
             $linkText = trans('website.menu.pricing');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToBlogFromPricing()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/pricing';
-            $expectedAfterClick = '/blog';
+            $target =  route('get_pricing', [], false);
+            $expectedAfterClick = route('get_blog', [], false);
             $linkText = trans('website.menu.blog');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToLoginFromPricing()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/pricing';
-            $expectedAfterClick = '/login';
+            $target =  route('get_pricing', [], false);
+            $expectedAfterClick = route('login', [], false);
             $linkText = trans('website.menu.connect');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 
     public function testButtonThatRedirectsToContactFromPricing()
     {
         $this->browse(function (Browser $browser) {
-            $target = '/pricing';
-            $expectedAfterClick = '/pricing';
+            $target = route('get_pricing', [], false);
+            $expectedAfterClick = route('get_pricing', [], false);
             $linkText = trans('website.menu.pricing');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-                ->click('@navbar-collapser')
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
         });
     }
 }
