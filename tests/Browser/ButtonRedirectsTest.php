@@ -6,9 +6,68 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
+/**
+ * Class ButtonRedirectsTest
+ * @package Tests\Browser
+ */
 class ButtonRedirectsTest extends DuskTestCase
 {
-    public function testButtonThatRedirectsToHomeFromHome()
+    /**
+     *
+     */
+    const source = "source";
+    /**
+     *
+     */
+    const expectedAfterClick = "expectedAfterClick";
+    /**
+     *
+     */
+    const linkText = "linkText";
+    /**
+     *
+     */
+    const dropdownLinkText = "dropdownLinkText";
+
+    /**
+     * @var array
+     */
+    private $tests = [];
+
+
+    /**
+     *
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+        $homePath = route('get_home', [], false);
+        $linkText = trans('website.menu.home');
+        $this->tests = [
+            [self::source => $homePath, self::expectedAfterClick => $homePath, self::linkText => $linkText]
+        ];
+    }
+
+
+    public function testRedirects() {
+        $this->browse(function (Browser $browser) {
+
+            foreach ($this->tests as $test) {
+                $browser->visit($test[self::source])
+                    ->assertPathIs($test[self::source]);
+                if (array_key_exists(self::dropdownLinkText, $test)) {
+                    $browser->waitForLink($test[self::dropdownLinkText])
+                     ->clickLink($test[self::dropdownLinkText]);
+                }
+                $browser->waitForLink($test[self::linkText])
+                    ->clickLink($test[self::linkText]);
+            }
+
+        });
+    }
+
+
+    /*public function testButtonThatRedirectsToHomeFromHome()
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
@@ -822,9 +881,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $linkText = trans('website.menu.contact');
             $browser->visit($target)
                 ->assertPathIs($target)
-                ->pause(1000)
-
-                ->pause(1000)
+                ->waitForLink($linkText)
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
             $this->assertTrue(true);
@@ -983,5 +1040,5 @@ class ButtonRedirectsTest extends DuskTestCase
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
         });
-    }
+    }*/
 }
