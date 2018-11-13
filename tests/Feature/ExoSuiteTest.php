@@ -59,7 +59,6 @@ class ExoSuiteTest extends TestCase
         $response->assertSeeText(trans("website.exosuite.exorunDescription"));
         $response->assertSeeText(trans("website.exosuite.exorunDiscover"));
         $response->assertSeeText(trans("website.exosuite.exosuiteTitle"));
-
     }
 
     public function testExoSuitePageIntegrityEnglish()

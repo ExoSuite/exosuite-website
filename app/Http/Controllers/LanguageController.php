@@ -15,8 +15,9 @@ class LanguageController extends Controller
 {
     public function language($locale)
     {
-        if (in_array($locale, Localization::$locales))
+        if (in_array($locale, Localization::$locales)) {
             Cookie::queue(Localization::KEY, $locale);
+        }
         return redirect()->back();
     }
 }

@@ -37,7 +37,8 @@ class ButtonRedirectsTest extends DuskTestCase
     /**
      * @throws \Throwable
      */
-    public function testRedirects() {
+    public function testRedirects()
+    {
         $this->browse(function (Browser $browser) {
 
 
@@ -54,7 +55,6 @@ class ButtonRedirectsTest extends DuskTestCase
                 $browser->waitForLink($test->linkText)
                     ->clickLink($test->linkText);
             }
-
         });
     }
 
@@ -805,7 +805,7 @@ class ButtonRedirectsTest extends DuskTestCase
             $linkText = trans('website.menu.team');
             $browser->visit($target)
                 ->assertPathIs($target)
-                
+
 
                 ->pause(1000)
                 ->clickLink($linkText)

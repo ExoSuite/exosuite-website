@@ -15,14 +15,16 @@ abstract class TestCase extends BaseTestCase
     /**
      * @return void
      */
-    protected function french() : void {
+    protected function french() : void
+    {
         app()->setLocale('fr');
     }
 
     /**
      * @return void
      */
-    protected function english(): void {
+    protected function english(): void
+    {
         app()->setLocale('en');
     }
 }

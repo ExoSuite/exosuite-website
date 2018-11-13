@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Cookie;
 class Localization
 {
     public static $locales = ['fr', 'en'];
-    CONST KEY = 'locale';
+    const KEY = 'locale';
 
     /**
      * Handle an incoming request.

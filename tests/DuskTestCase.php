@@ -22,14 +22,16 @@ abstract class DuskTestCase extends BaseTestCase
     /**
      * @return void
      */
-    protected function french() : void {
+    protected function french() : void
+    {
         app()->setLocale('fr');
     }
 
     /**
      * @return void
      */
-    protected function english(): void {
+    protected function english(): void
+    {
         app()->setLocale('en');
     }
 
@@ -91,7 +93,7 @@ abstract class DuskTestCase extends BaseTestCase
                     $options
                 )
             );
-        } else if ($this->duskDriver() === 'CHROME') {
+        } elseif ($this->duskDriver() === 'CHROME') {
             $options = (new ChromeOptions())->addArguments([
                 '--disable-gpu',
                 '--headless',
@@ -113,7 +115,7 @@ abstract class DuskTestCase extends BaseTestCase
             );
         }
 
-        $size = new WebDriverDimension(1440,900);
+        $size = new WebDriverDimension(1440, 900);
         $driver->manage()->window()->setSize($size);
         return $driver;
     }
