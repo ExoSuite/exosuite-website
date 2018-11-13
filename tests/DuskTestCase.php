@@ -66,7 +66,7 @@ abstract class DuskTestCase extends BaseTestCase
      */
     public static function prepare()
     {
-        if (self::isLocal() or self::duskDriver() === 'CHROME') {
+        if (self::isLocal() and self::duskDriver() === 'CHROME') {
             self::startChromeDriver();
         }
     }
