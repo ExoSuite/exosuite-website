@@ -6,6 +6,7 @@ use App\Services\API;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\WebDriverDimension;
 use Laravel\Dusk\TestCase as BaseTestCase;
 use \Illuminate\Container\Container as Container;
 use \Illuminate\Support\Facades\Facade as Facade;
@@ -75,18 +76,25 @@ abstract class DuskTestCase extends BaseTestCase
      */
     protected function driver()
     {
+//        $driver = RemoteWebDriver::create(env('SELENIUM_HUB', 'http://localhost:4444/wd/hub'), DesiredCapabilities::chrome());
+//        $size = new WebDriverDimension(1440, 900);
+//        $driver->manage()->window()->setSize($size);
+//        return $driver;
         if (self::isLocal()) {
             $options = (new ChromeOptions())->addArguments([
                 '--no-sandbox'
             ]);
 
-            return RemoteWebDriver::create(
+            $driver = RemoteWebDriver::create(
                 'http://localhost:9515',
                 DesiredCapabilities::chrome()->setCapability(
                     ChromeOptions::CAPABILITY,
                     $options
                 )
             );
+            $size = new WebDriverDimension(1440,900);
+            $driver->manage()->window()->setSize($size);
+            return $driver;
         }
 
         if ($this->duskDriver() === 'CHROME') {
@@ -100,10 +108,13 @@ abstract class DuskTestCase extends BaseTestCase
                 ->setCapability(ChromeOptions::CAPABILITY, $options)
                 ->setCapability('acceptInsecureCerts', true);
 
-            return RemoteWebDriver::create(
+            $driver = RemoteWebDriver::create(
                 'http://localhost:9515',
                 $chrome
             );
+            $size = new WebDriverDimension(1440,900);
+            $driver->manage()->window()->setSize($size);
+            return $driver;
         } elseif ($this->duskDriver() === 'PHANTOMJS') {
             return RemoteWebDriver::create(
                 "http://127.0.0.1:4444/wd/hub",
