@@ -3937,11 +3937,6 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-laravel-echo@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/laravel-echo/-/laravel-echo-1.4.1.tgz#61ac9f7f38dafb8a581bd626fd0d74987e9ce2e2"
-  integrity sha512-qJRa9UL2AEnv95X7YYE+RxFr9ojlpXpJe/tRCresRrUv+eA5pDMOu/d3+KdcFqnAXcrJUE8bV5LDHcpOxmxD9A==
-
 laravel-mix@^2.1:
   version "2.1.14"
   resolved "https://registry.yarnpkg.com/laravel-mix/-/laravel-mix-2.1.14.tgz#5c3c778b888e21120aa9d8900c318411da2ec911"

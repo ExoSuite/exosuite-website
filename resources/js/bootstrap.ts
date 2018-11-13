@@ -32,14 +32,11 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-import Echo from "laravel-echo";
+import * as Echo from "laravel-echo"
 
 (<any>window).io = require('socket.io-client');
 
-// @ts-ignore
-if (typeof io !== "undefined") {
-    (<any>window).Echo = new Echo ({
-        broadcaster: 'socket.io',
-        host: 'exosuite-laravel-echo-server:'
-    });
-}
+(<any>window).Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: process.env.MIX_API_DOMAIN + ':6001'
+});

@@ -17,7 +17,7 @@
                     <div class="center-item">
                         <!--Video Button-->
                         <div class="wow zoomIn">
-                            <a href="https://youtu.be/cwHGS7kPU2I"
+                            <a href="https://www.youtube.com/watch?v=DyqO-cFNJco"
                                class="video-btn html5lightbox"><i class="fa fa-play"></i></a>
                         </div>
                         <div class="wow fadeInUp">
