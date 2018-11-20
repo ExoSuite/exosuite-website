@@ -11,28 +11,28 @@
 |
 */
 
-Route::get('/', 'SimpleViewController@home');
+Route::get('/', 'SimpleViewController@home')->name('get_home');
 
 Route::get('/language/{locale}', 'LanguageController@language');
 
 Route::group(['prefix' => 'contact'], function () {
-    Route::get('/', 'ContactController@index');
+    Route::get('/', 'ContactController@index')->name('get_contact');
     Route::post('/', 'ContactController@contact');
 });
 
-Route::get('exosuite', 'SimpleViewController@exosuite');
+Route::get('exosuite', 'SimpleViewController@exosuite')->name('get_exosuite');
 
-Route::get('exorun', 'SimpleViewController@exorun');
+Route::get('exorun', 'SimpleViewController@exorun')->name('get_exorun');
 
-Route::get('exofun', 'SimpleViewController@exofun');
+Route::get('exofun', 'SimpleViewController@exofun')->name('get_exofun');
 
-Route::get('pricing', 'SimpleViewController@pricing');
+Route::get('pricing', 'SimpleViewController@pricing')->name('get_pricing');
 
-Route::get('team', 'SimpleViewController@team');
+Route::get('team', 'SimpleViewController@team')->name('get_team');
 
-Route::get('blog', 'SimpleViewController@comingsoon');
+Route::get('blog', 'SimpleViewController@comingsoon')->name('get_blog');
 
-Route::get('social', 'SimpleViewController@social');
+Route::get('social', 'SimpleViewController@social')->name('get_social');
 
 /*Route::get('/departures', function () {
     return view('departures');
@@ -65,4 +65,4 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
-Route::get('logout', 'Auth\LoginController@logout');
+Route::get('logout', 'Auth\LoginController@logout')->name('get_logout');
