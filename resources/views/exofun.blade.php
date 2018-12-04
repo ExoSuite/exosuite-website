@@ -72,7 +72,7 @@
                         <h4 class="text-capitalize darkcolor bottom10"><a href="javascript:void(0)">@lang('website.exosuite.social')</a>
                         </h4>
                         <hr>
-                        <p class="no_bottom">@lang('website.exosuite.socialDescription')</p>
+                        <p class="no_bottom">@lang('website.exofun.socialDescription')</p>
                     </div>
                 </div>
             </div>

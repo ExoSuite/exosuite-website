@@ -6,6 +6,7 @@ use App\Services\API;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\WebDriverDimension;
 use Laravel\Dusk\TestCase as BaseTestCase;
 use \Illuminate\Container\Container as Container;
 use \Illuminate\Support\Facades\Facade as Facade;
@@ -17,6 +18,22 @@ use \Illuminate\Support\Facades\Facade as Facade;
 abstract class DuskTestCase extends BaseTestCase
 {
     use CreatesApplication;
+
+    /**
+     * @return void
+     */
+    protected function french() : void
+    {
+        app()->setLocale('fr');
+    }
+
+    /**
+     * @return void
+     */
+    protected function english(): void
+    {
+        app()->setLocale('en');
+    }
 
     /**
      * @return bool
@@ -36,6 +53,9 @@ abstract class DuskTestCase extends BaseTestCase
         $this->createApplication();
         API::initClient();
         parent::setUp();
+        foreach (static::$browsers as $browser) {
+            $browser->driver->manage()->deleteAllCookies();
+        }
     }
 
     /**
@@ -46,7 +66,7 @@ abstract class DuskTestCase extends BaseTestCase
      */
     public static function prepare()
     {
-        if (self::isLocal() or self::duskDriver() === 'CHROME') {
+        if (self::isLocal() and self::duskDriver() === 'CHROME') {
             self::startChromeDriver();
         }
     }
@@ -58,21 +78,22 @@ abstract class DuskTestCase extends BaseTestCase
      */
     protected function driver()
     {
+
+
+
         if (self::isLocal()) {
             $options = (new ChromeOptions())->addArguments([
                 '--no-sandbox'
             ]);
 
-            return RemoteWebDriver::create(
+            $driver = RemoteWebDriver::create(
                 'http://localhost:9515',
                 DesiredCapabilities::chrome()->setCapability(
                     ChromeOptions::CAPABILITY,
                     $options
                 )
             );
-        }
-
-        if ($this->duskDriver() === 'CHROME') {
+        } elseif ($this->duskDriver() === 'CHROME') {
             $options = (new ChromeOptions())->addArguments([
                 '--disable-gpu',
                 '--headless',
@@ -83,15 +104,19 @@ abstract class DuskTestCase extends BaseTestCase
                 ->setCapability(ChromeOptions::CAPABILITY, $options)
                 ->setCapability('acceptInsecureCerts', true);
 
-            return RemoteWebDriver::create(
-                'http://localhost:9515',
+            $driver = RemoteWebDriver::create(
+                'http://api.dev.exosuite.fr:4444/wd/hub',
                 $chrome
             );
-        } elseif ($this->duskDriver() === 'PHANTOMJS') {
-            return RemoteWebDriver::create(
-                "http://127.0.0.1:4444/wd/hub",
-                DesiredCapabilities::phantomjs()
+        } else {
+            $driver = RemoteWebDriver::create(
+                'http://api.dev.exosuite.fr:4444/wd/hub',
+                DesiredCapabilities::firefox()
             );
         }
+
+        $size = new WebDriverDimension(1440, 900);
+        $driver->manage()->window()->setSize($size);
+        return $driver;
     }
 }
