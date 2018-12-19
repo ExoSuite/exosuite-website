@@ -2,7 +2,6 @@ import * as React from 'react';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {render} from 'react-dom'
-import * as Cookies from 'js-cookie';
 import {__delay__} from "../lib/lib";
 
 // minified version is also included
