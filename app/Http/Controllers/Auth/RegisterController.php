@@ -28,12 +28,12 @@ class RegisterController extends Controller
         } catch (ClientException $e) {
             $response = json_decode($e->getResponse()->getBody()->getContents(), true);
             $message = $response['errors'];
-            return view('auth.register')->withErrors($message);
+            return view('auth.login')->withErrors($message);
         }
     }
 
     public function registerView()
     {
-        return view("auth.register");
+        return view("auth.login");
     }
 }

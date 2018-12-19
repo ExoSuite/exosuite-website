@@ -66,7 +66,7 @@ mix.scripts([
     'public/js/all.js'
 ).sourceMaps().version();
 
-mix.react('resources/js/app.ts', 'public/js').sourceMaps().version()
+mix.react('resources/js/app.tsx', 'public/js').sourceMaps().version()
 //    .sass('resources/sass/app.scss', 'public/css')
     .webpackConfig({
         module: {

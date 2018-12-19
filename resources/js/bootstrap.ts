@@ -1,3 +1,10 @@
+import {HttpRequest} from "./Request/HttpRequest";
+import * as Echo from "laravel-echo"
+import {Api} from "./Request/Api";
+import {ITokenResponse} from "./Request/ApiTypes";
+import {ApiResponse} from "apisauce";
+import {toast} from "react-toastify";
+
 (<any>window)._ = require('lodash');
 
 /**
@@ -32,11 +39,13 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-import * as Echo from "laravel-echo"
-
 (<any>window).io = require('socket.io-client');
 
-(<any>window).Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: process.env.MIX_API_DOMAIN + ':6001'
-});
+Api.Instance.website.get('token').then((response => {
+    (<any>window).Echo = new Echo({
+        broadcaster: 'socket.io',
+        host: process.env.MIX_API_DOMAIN + ':6001',
+        // @ts-ignore
+        auth: {headers: {Authorization: "Bearer " + response.data.access_token}}
+    });
+}));
