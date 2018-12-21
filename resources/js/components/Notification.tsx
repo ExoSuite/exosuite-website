@@ -44,7 +44,6 @@ export default class Notification extends React.Component {
                     pauseOnHover: true,
                     draggable: true
                 });
-                console.log();
             });
     }
 }

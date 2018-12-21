@@ -1,9 +1,5 @@
-import {HttpRequest} from "./Request/HttpRequest";
-import * as Echo from "laravel-echo"
+ import Echo from "laravel-echo"
 import {Api} from "./Request/Api";
-import {ITokenResponse} from "./Request/ApiTypes";
-import {ApiResponse} from "apisauce";
-import {toast} from "react-toastify";
 
 (<any>window)._ = require('lodash');
 
