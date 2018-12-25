@@ -63,6 +63,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(["prefix" => "user"], function () {
         Route::get('/{id}', 'ProfileController@profileView');
     });
+    Route::get('/token', 'UserSessionController@getUserToken');
+    Route::patch('/token', 'UserSessionController@setUserToken');
 });
 
 Route::get('logout', 'Auth\LoginController@logout')->name('get_logout');

@@ -1076,7 +1076,6 @@ ul.social li a::before, ul.social li a::after{
 .navbar-nav > li > .dropdown-menu li a {
 	color: #fff;
 	border-bottom: none !important;
-	text-transform: capitalize;
 	display: block;
 	font-size: 12px;
     font-weight: 600;

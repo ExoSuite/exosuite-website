@@ -1,3 +1,6 @@
+ import Echo from "laravel-echo"
+import {Api} from "./Request/Api";
+
 (<any>window)._ = require('lodash');
 
 /**
@@ -32,14 +35,13 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-import Echo from "laravel-echo";
-
 (<any>window).io = require('socket.io-client');
 
-// @ts-ignore
-if (typeof io !== "undefined") {
-    (<any>window).Echo = new Echo ({
+Api.Instance.website.get('token').then((response => {
+    (<any>window).Echo = new Echo({
         broadcaster: 'socket.io',
-        host: 'exosuite-laravel-echo-server:'
+        host: process.env.MIX_API_DOMAIN + ':6001',
+        // @ts-ignore
+        auth: {headers: {Authorization: "Bearer " + response.data.access_token}}
     });
-}
+}));
