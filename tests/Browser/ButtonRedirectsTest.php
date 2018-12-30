@@ -40,17 +40,21 @@ class ButtonRedirectsTest extends DuskTestCase
 
             /** @var RedirectConfig $test */
             foreach ($this->tests as $test) {
+                $browser->screenshot("{$test->source}1");
                 $browser->visitRoute($test->source)
                     ->assertRouteIs($test->source);
+                $browser->screenshot("{$test->source}2");
 
                 if ($test->dropdownLinkText != null) {
                     $browser->waitForLink($test->dropdownLinkText)
                      ->clickLink($test->dropdownLinkText);
+                    $browser->screenshot("{$test->dropdownLinkText}1");
                 }
 
                 $browser->waitForLink($test->linkText)
                     ->clickLink($test->linkText)
                     ->assertRouteIs($test->expectedAfterClick);
+                $browser->screenshot("{$test->expectedAfterClick}1");
             }
         });
     }
