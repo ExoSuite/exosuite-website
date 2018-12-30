@@ -476,7 +476,7 @@ return [
             //
         ],
 
-        'connect-src' => [
+        /*'connect-src' => [
             'self' => true,
             'allow' => [
                 'https://api.exosuite.fr:6001',
@@ -486,7 +486,7 @@ return [
                 'ws://api.exosuite.fr:6001',
                 'ws://api.dev.exosuite.fr:6001',
             ]
-        ],
+        ],*/
 
         'font-src' => [
             'self' => true,
