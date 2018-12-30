@@ -26,12 +26,10 @@ class ButtonRedirectsTest extends DuskTestCase
     protected function setUp()
     {
         parent::setUp();
-        $linkText = trans('website.menu.home');
         $this->tests = [
-            new RedirectConfig("get_home", $linkText, "get_home")
+            new RedirectConfig("get_home", trans('website.menu.home'), "get_home")
         ];
     }
-
 
     /**
      * @throws \Throwable
@@ -39,7 +37,6 @@ class ButtonRedirectsTest extends DuskTestCase
     public function testRedirects()
     {
         $this->browse(function (Browser $browser) {
-
 
             /** @var RedirectConfig $test */
             foreach ($this->tests as $test) {
@@ -52,7 +49,8 @@ class ButtonRedirectsTest extends DuskTestCase
                 }
 
                 $browser->waitForLink($test->linkText)
-                    ->clickLink($test->linkText);
+                    ->clickLink($test->linkText)
+                    ->assertRouteIs($test->expectedAfterClick);
             }
         });
     }
