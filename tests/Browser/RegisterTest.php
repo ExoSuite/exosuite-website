@@ -36,8 +36,8 @@ class RegisterTest extends DuskTestCase
                 ->keys('@register_password', $password)
                 ->type('password_confirmation', $password)
                 ->press(trans('website.register'))
-                ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
+                ->assertPathIs($expectedAfterClick)
+                ->logout();
         });
     }
 }
