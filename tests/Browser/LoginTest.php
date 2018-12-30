@@ -6,8 +6,8 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Tests\Browser;
 use Tests\DuskTestCase;
-use Laravel\Dusk\Browser;
 use Webpatser\Uuid\Uuid;
 
 class LoginTest extends DuskTestCase
@@ -26,6 +26,7 @@ class LoginTest extends DuskTestCase
     {
         $this->french();
         $this->browse(function (Browser $browser) {
+
             /* @var User $user */
             $userEmail = $this->faker->safeEmail;
             $userPassword = 'TestCz0';
@@ -37,15 +38,16 @@ class LoginTest extends DuskTestCase
             $userData['password'] = Hash::make($userPassword);
             User::create($userData);
 
-            $target = '/login';
-            $expectedAfterClick = route('profile', [], false);
-
-            $browser->visit($target)
-                ->assertPathIs($target)
+            $browser->visitRoute("login")
+                ->assertRouteIs("login")
+                ->assertGuest()
+                ->waitFor("@login_email")
                 ->keys('@login_email', $userEmail)
                 ->keys('@login_password', $userPassword)
                 ->press(trans('website.login.signin'))
-                ->assertPathIs($expectedAfterClick)
+                ->assertRouteIs("get_profile")
+                ->assertAuthenticated()
+                ->assertAuthenticatedAs($user)
                 ->logout();
         });
     }

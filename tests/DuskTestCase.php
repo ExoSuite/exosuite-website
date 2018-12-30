@@ -8,8 +8,6 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverDimension;
 use Laravel\Dusk\TestCase as BaseTestCase;
-use \Illuminate\Container\Container as Container;
-use \Illuminate\Support\Facades\Facade as Facade;
 
 /**
  * Class DuskTestCase
@@ -18,6 +16,16 @@ use \Illuminate\Support\Facades\Facade as Facade;
 abstract class DuskTestCase extends BaseTestCase
 {
     use CreatesApplication;
+
+    /**
+     * @param $route
+     * @param array $parameters
+     * @return string
+     */
+    protected function route($route, $parameters = [])
+    {
+        return route($route, $parameters, false);
+    }
 
     /**
      * @return void
@@ -43,19 +51,22 @@ abstract class DuskTestCase extends BaseTestCase
         return env('APP_ENV') === 'local';
     }
 
+    /**
+     * @return mixed
+     */
     private static function duskDriver()
     {
         return env('DUSK_DRIVER');
     }
 
+    /**
+     *
+     */
     protected function setUp()
     {
         parent::setUp();
         $this->createApplication();
         API::initClient();
-        foreach (static::$browsers as $browser) {
-            $browser->driver->manage()->deleteAllCookies();
-        }
     }
 
     /**
@@ -118,5 +129,29 @@ abstract class DuskTestCase extends BaseTestCase
         $size = new WebDriverDimension(1440, 900);
         $driver->manage()->window()->setSize($size);
         return $driver;
+    }
+
+    /**
+     * @param Browser $browser
+     * @return Browser
+     * @throws \Facebook\WebDriver\Exception\TimeOutException
+     */
+    protected function logout(Browser $browser): Browser
+    {
+        $home = $this->route("get_home");
+        $protectedRoute = $this->route("get_profile");
+        $login = $this->route("get");
+        $browser->visit($this->route("logout"))->waitForRoute("get_home")->assertPathIs($home);
+        $browser->visit($protectedRoute)->assertGuest()->assertPathIs($login);
+        return $browser;
+    }
+
+    /**
+     * @param RemoteWebDriver $driver
+     * @return \Laravel\Dusk\Browser|Browser
+     */
+    protected function newBrowser($driver): Browser
+    {
+        return new Browser($driver);
     }
 }

@@ -26,10 +26,9 @@ class ButtonRedirectsTest extends DuskTestCase
     protected function setUp()
     {
         parent::setUp();
-        $homePath = route('get_home', [], false);
         $linkText = trans('website.menu.home');
         $this->tests = [
-            new RedirectConfig($homePath, $linkText, $homePath)
+            new RedirectConfig("get_home", $linkText, "get_home")
         ];
     }
 
@@ -44,8 +43,8 @@ class ButtonRedirectsTest extends DuskTestCase
 
             /** @var RedirectConfig $test */
             foreach ($this->tests as $test) {
-                $browser->visit($test->source)
-                    ->assertPathIs($test->source);
+                $browser->visitRoute($test->source)
+                    ->assertRouteIs($test->source);
 
                 if ($test->dropdownLinkText != null) {
                     $browser->waitForLink($test->dropdownLinkText)
@@ -59,7 +58,7 @@ class ButtonRedirectsTest extends DuskTestCase
     }
 
 
-    /*public function testButtonThatRedirectsToHomeFromHome()
+    public function testButtonThatRedirectsToHomeFromHome()
     {
         $this->browse(function (Browser $browser) {
             $target = '/';
@@ -1032,5 +1031,5 @@ class ButtonRedirectsTest extends DuskTestCase
                 ->clickLink($linkText)
                 ->assertPathIs($expectedAfterClick);
         });
-    }*/
+    }
 }
