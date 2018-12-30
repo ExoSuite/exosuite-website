@@ -437,6 +437,7 @@ return [
             'allow' => [
                 'https://fonts.googleapis.com', // Allow stylesheets from Google Fonts
                 'https://use.fontawesome.com',
+                'http://maxcdn.bootstrapcdn.com',
             ],
 
             'hashes' => [
@@ -476,7 +477,7 @@ return [
             //
         ],
 
-        /*'connect-src' => [
+        'connect-src' => [
             'self' => true,
             'allow' => [
                 'https://api.exosuite.fr:6001',
@@ -486,13 +487,14 @@ return [
                 'ws://api.exosuite.fr:6001',
                 'ws://api.dev.exosuite.fr:6001',
             ]
-        ],*/
+        ],
 
         'font-src' => [
             'self' => true,
             'allow' => [
                 'https://fonts.gstatic.com', // Allow fonts from the Google Fonts CDN
                 'https://use.fontawesome.com',
+                'http://maxcdn.bootstrapcdn.com/',
                 'data:',
             ],
         ],
