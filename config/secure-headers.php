@@ -469,7 +469,7 @@ return [
         ],
 
         'default-src' => [
-            //
+            'self' => true,
         ],
 
         'base-uri' => [
