@@ -137,7 +137,6 @@ abstract class DuskTestCase extends BaseTestCase
 
     /**
      * @return DesiredCapabilities
-     * @throws \Facebook\WebDriver\Exception\WebDriverException
      */
     protected function setupCapabilities()
     {
