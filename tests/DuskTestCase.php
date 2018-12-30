@@ -8,6 +8,11 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverDimension;
 use Laravel\Dusk\TestCase as BaseTestCase;
+use Tests\Traits\StartsXvfb;
+use Tests\Traits\StartsSelenium;
+use Facebook\WebDriver\Firefox\FirefoxDriver;
+use Facebook\WebDriver\Firefox\FirefoxProfile;
+use Faker\Provider\UserAgent;
 
 /**
  * Class DuskTestCase
@@ -86,13 +91,12 @@ abstract class DuskTestCase extends BaseTestCase
      * Create the RemoteWebDriver instance.
      *
      * @return \Facebook\WebDriver\Remote\RemoteWebDriver
+     * @throws \Facebook\WebDriver\Exception\WebDriverException
      */
     protected function driver()
     {
 
-
-
-        if (self::isLocal()) {
+        if (self::isLocal() && $this->duskDriver() === 'CHROME') {
             $options = (new ChromeOptions())->addArguments([
                 '--no-sandbox'
             ]);
@@ -122,13 +126,26 @@ abstract class DuskTestCase extends BaseTestCase
         } else {
             $driver = RemoteWebDriver::create(
                 'http://api.dev.exosuite.fr:4444/wd/hub',
-                DesiredCapabilities::firefox()
+                $this->setupCapabilities()
             );
         }
 
         $size = new WebDriverDimension(1440, 900);
         $driver->manage()->window()->setSize($size);
         return $driver;
+    }
+
+    /**
+     * @return DesiredCapabilities
+     * @throws \Facebook\WebDriver\Exception\WebDriverException
+     */
+    protected function setupCapabilities()
+    {
+        $desiredCapabilities = DesiredCapabilities::firefox();
+        $desiredCapabilities->setCapability('acceptInsecureCerts', true);
+        $desiredCapabilities->setCapability('enablePassThrough', false);
+
+        return $desiredCapabilities;
     }
 
     /**

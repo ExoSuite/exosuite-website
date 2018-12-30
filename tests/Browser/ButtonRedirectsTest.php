@@ -99,7 +99,6 @@ class ButtonRedirectsTest extends DuskTestCase
             /** @var RedirectConfig $test */
             foreach ($this->tests as $test) {
                 $browser->visitRoute($test->source)
-                    ->assertVisible('.loader')
                     ->assertRouteIs($test->source);
 
                $browser->waitUntilMissing('.loader');
@@ -107,11 +106,9 @@ class ButtonRedirectsTest extends DuskTestCase
 
 
                 if ($test->dropdownLinkText != null) {
-                    //$browser->waitForLink($test->dropdownLinkText)
-                        $browser->clickLink($test->dropdownLinkText);
+                    $browser->clickLink($test->dropdownLinkText);
                 }
 
-                //$browser->waitForLink($test->linkText)
                 $browser->clickLink($test->linkText)
                     ->assertRouteIs($test->expectedAfterClick);
             }
