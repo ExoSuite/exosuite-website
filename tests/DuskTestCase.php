@@ -140,10 +140,8 @@ abstract class DuskTestCase extends BaseTestCase
      */
     protected function setupCapabilities()
     {
-        $desiredCapabilities = DesiredCapabilities::firefox();
-        $desiredCapabilities->setCapability('acceptInsecureCerts', true);
-        $desiredCapabilities->setCapability('enablePassThrough', false);
-
+        $desiredCapabilities = DesiredCapabilities::firefox()
+            ->setCapability('acceptInsecureCerts', true);
         return $desiredCapabilities;
     }
 
