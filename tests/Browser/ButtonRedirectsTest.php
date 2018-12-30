@@ -40,11 +40,12 @@ class ButtonRedirectsTest extends DuskTestCase
 
             /** @var RedirectConfig $test */
             foreach ($this->tests as $test) {
-                $browser->screenshot("{$test->source}1");
                 $browser->visitRoute($test->source)
+                    ->assertVisible('.loader')
                     ->assertRouteIs($test->source);
 
                 $browser->waitUntilMissing('.loader');
+                $browser->assertMissing('.loader');
 
                 $browser->screenshot("{$test->source}2");
 
