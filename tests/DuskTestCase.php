@@ -8,11 +8,6 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverDimension;
 use Laravel\Dusk\TestCase as BaseTestCase;
-use Tests\Traits\StartsXvfb;
-use Tests\Traits\StartsSelenium;
-use Facebook\WebDriver\Firefox\FirefoxDriver;
-use Facebook\WebDriver\Firefox\FirefoxProfile;
-use Faker\Provider\UserAgent;
 
 /**
  * Class DuskTestCase
