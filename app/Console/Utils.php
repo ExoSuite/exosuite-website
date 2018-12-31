@@ -15,14 +15,14 @@ namespace App\Console;
  */
 class Utils
 {
-    public static function setEnvironmentValue($envKey, $envValue)
+    public static function setEnvironmentValue(string $envKey, string $envValue)
     {
         $path = base_path('.env');
         if (file_exists($path)) {
             file_put_contents($path, str_replace(
                 $envKey . '=' . env($envKey),
                 $envKey . '=' . $envValue,
-                file_get_contents($path)
+                (string)file_get_contents($path)
             ));
         }
     }

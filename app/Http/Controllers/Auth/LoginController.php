@@ -49,7 +49,7 @@ class LoginController extends Controller
      * Attempt to log the user into the application.
      *
      * @param LoginUser $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     protected function attemptLogin(LoginUser $request)
     {
@@ -68,9 +68,8 @@ class LoginController extends Controller
      * Handle a login request to the application.
      *
      * @param LoginUser $request
-     * @return \Illuminate\Http\Response
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws ValidationException
      */
     public function login(LoginUser $request)
     {
@@ -116,7 +115,7 @@ class LoginController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param array $apiData
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse.
+     * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendLoginResponse(Request $request, array $apiData)
     {
@@ -125,7 +124,10 @@ class LoginController extends Controller
         $this->clearLoginAttempts($request);
 
         if ($request->query('redirect_uri')) {
-            return redirect()->to($request->query('redirect_uri'));
+            $redirect_uri = $request->query('redirect_uri');
+            if (!is_array($redirect_uri))
+                return redirect($redirect_uri);
+            return redirect()->back();
         }
 
         return $this->authenticated($request, $this->guard()->user())
