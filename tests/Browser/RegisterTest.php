@@ -4,7 +4,7 @@ namespace Tests\Browser;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\DuskTestCase;
-use Laravel\Dusk\Browser;
+use Tests\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class RegisterTest extends DuskTestCase
@@ -34,6 +34,7 @@ class RegisterTest extends DuskTestCase
                 ->type('password_confirmation', $password)
                 ->press(trans('website.register'))
                 ->assertRouteIs("get_profile")
+                ->waitForRoute("get_profile")
                 ->logout();
         });
     }

@@ -23,11 +23,13 @@ class Browser extends \Laravel\Dusk\Browser
     /**
      * @param null $guard
      * @return $this|\Laravel\Dusk\Browser
+     * @throws \Facebook\WebDriver\Exception\TimeOutException
      */
     public function logout($guard = null)
     {
         parent::logout();
-        $this->visitRoute("get_profile")->assertRouteIs("login")->assertGuest();
+        $this->visitRoute("logout")->waitForRoute("get_home");
+        $this->visitRoute("get_profile")->waitForRoute("login")->assertRouteIs("login")->assertGuest();
         return $this;
     }
 }
