@@ -49,7 +49,7 @@ class LoginController extends Controller
      * Attempt to log the user into the application.
      *
      * @param LoginUser $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     protected function attemptLogin(LoginUser $request)
     {
@@ -68,9 +68,8 @@ class LoginController extends Controller
      * Handle a login request to the application.
      *
      * @param LoginUser $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws ValidationException
      */
     public function login(LoginUser $request)
     {
@@ -79,7 +78,7 @@ class LoginController extends Controller
         // the IP address of the client making these requests into this application.
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
-            return $this->sendLockoutResponse($request);
+            $this->sendLockoutResponse($request);
         }
 
         try {
@@ -94,15 +93,15 @@ class LoginController extends Controller
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
 
-        return $this->sendFailedLoginResponse($request);
+        $this->sendFailedLoginResponse($request);
     }
 
     /**
      * Get the failed login response instance.
      *
      * @param  \Illuminate\Http\Request $request
+     * @throws \Illuminate\Validation\ValidationException
      * @return void
-     *
      */
     protected function sendFailedLoginResponse(Request $request)
     {
@@ -116,7 +115,7 @@ class LoginController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param array $apiData
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendLoginResponse(Request $request, array $apiData)
     {
@@ -125,7 +124,10 @@ class LoginController extends Controller
         $this->clearLoginAttempts($request);
 
         if ($request->query('redirect_uri')) {
-            return redirect()->to($request->query('redirect_uri'));
+            $redirect_uri = $request->query('redirect_uri');
+            if (!is_array($redirect_uri))
+                return redirect($redirect_uri);
+            return redirect()->back();
         }
 
         return $this->authenticated($request, $this->guard()->user())

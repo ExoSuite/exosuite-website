@@ -21,20 +21,20 @@ use App\Contracts\MakeAPIRequest;
 class API implements MakeAPIRequest
 {
     /**
-     * @var Client
+     * @var Client $client
      */
     private $client;
     /**
-     * @var
+     * @var int $client_id
      */
     public static $client_id;
     /**
-     * @var
+     * @var string $client_secret
      */
     public static $client_secret;
 
     /**
-     * @param $promise
+     * @param mixed $promise
      * @return array
      */
     private function wait($promise)

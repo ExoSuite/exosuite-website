@@ -21,15 +21,11 @@ class InternalRequestException extends Exception
 
     /**
      * Request instance
-     *
-     * @var $_request
      */
     private $_request;
 
     /**
      * Response instance
-     *
-     * @var $_response
      */
     private $_response;
 

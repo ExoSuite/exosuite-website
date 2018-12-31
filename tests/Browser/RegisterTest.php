@@ -4,7 +4,7 @@ namespace Tests\Browser;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\DuskTestCase;
-use Laravel\Dusk\Browser;
+use Tests\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class RegisterTest extends DuskTestCase
@@ -22,13 +22,10 @@ class RegisterTest extends DuskTestCase
     {
         $this->french();
         $this->browse(function (Browser $browser) {
-
-            $target = '/login';
-            $expectedAfterClick = route('profile', [], false);
             $password = str_random(6) . 'Cz0';
 
-            $browser->visit($target)
-                ->assertPathIs($target)
+            $browser->visitRoute("login")
+                ->assertRouteIs("login")
                 ->type('first_name', $this->faker->firstName)
                 ->type('last_name', $this->faker->lastName)
                 ->type('nick_name', str_random(5))
@@ -36,8 +33,9 @@ class RegisterTest extends DuskTestCase
                 ->keys('@register_password', $password)
                 ->type('password_confirmation', $password)
                 ->press(trans('website.register'))
-                ->assertPathIs($expectedAfterClick);
-            $this->assertTrue(true);
+                ->assertRouteIs("get_profile")
+                ->waitForRoute("get_profile")
+                ->logout();
         });
     }
 }

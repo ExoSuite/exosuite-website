@@ -49,6 +49,7 @@ Route::post('survey', 'SurveyController@postSurvey');*/
 Route::post('/register', 'Auth\RegisterController@register')->name('registerAPI');
 
 Route::group(["prefix" => "login"], function () {
+    //  don't modify to get_login or laravel will not understand!
     Route::get('/', 'Auth\LoginController@loginView')->name('login');
     Route::post('/', 'Auth\LoginController@login')->name('loginAPI');
     Route::get('/recover', 'Auth\LoginController@recoverView')->name('recover');
@@ -56,15 +57,20 @@ Route::group(["prefix" => "login"], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(["prefix" => "profile"], function () {
-        Route::get('/', 'ProfileController@myProfileView')->name('profile');
+        Route::get('/', 'ProfileController@myProfileView')->name('get_profile');
         Route::get('/edit', 'ProfileController@editMyProfileView');
         Route::post('/edit', 'ProfileController@editMyProfile');
     });
     Route::group(["prefix" => "user"], function () {
         Route::get('/{id}', 'ProfileController@profileView');
     });
-    Route::get('/token', 'UserSessionController@getUserToken');
-    Route::patch('/token', 'UserSessionController@setUserToken');
+
+    Route::prefix("token")->group(function () {
+        Route::get('/', 'UserSessionController@getUserToken');
+        Route::patch('/', 'UserSessionController@setUserToken');
+    });
 });
 
-Route::get('logout', 'Auth\LoginController@logout')->name('get_logout');
+// don't modify to get_logout or laravel will not understand!
+Route::get('logout', 'Auth\LoginController@logout')
+    ->name('logout');

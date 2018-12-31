@@ -30,7 +30,7 @@ class RegisterTest extends TestCase
         }
 
         $response = $this->post(route('registerAPI'), $userData);
-        $response->assertRedirect(route('profile'));
+        $response->assertRedirect(route('get_profile'));
     }
 
     public function testRegisterUserWithoutNickName()
