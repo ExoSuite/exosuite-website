@@ -62,8 +62,6 @@ class Kernel extends HttpKernel
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'client_app' => ClientApp::class,
-        'ApiToken' => ApiTokensMiddleware::class
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class
     ];
 }

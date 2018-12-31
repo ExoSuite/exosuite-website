@@ -8,11 +8,11 @@ use Webpatser\Uuid\Uuid;
 /**
  * Class User
  * @package App\Models
- * @property string nick_name
- * @property Uuid id
- * @property string email
- * @property string first_name
- * @property string last_name
+ * @property string $nick_name
+ * @property Uuid $id
+ * @property string $email
+ * @property string $first_name
+ * @property string $last_name
  */
 class User extends Authenticatable
 {

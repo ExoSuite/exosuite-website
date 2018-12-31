@@ -24,7 +24,6 @@ class InternalRequest implements MakesInternalRequests
     /**
      * The app instance
      *
-     * @var $_app
      */
     private $_app;
 

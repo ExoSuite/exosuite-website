@@ -68,7 +68,7 @@ class LoginController extends Controller
      * Handle a login request to the application.
      *
      * @param LoginUser $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      *
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -79,7 +79,7 @@ class LoginController extends Controller
         // the IP address of the client making these requests into this application.
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
-            return $this->sendLockoutResponse($request);
+            $this->sendLockoutResponse($request);
         }
 
         try {
@@ -94,15 +94,15 @@ class LoginController extends Controller
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
 
-        return $this->sendFailedLoginResponse($request);
+        $this->sendFailedLoginResponse($request);
     }
 
     /**
      * Get the failed login response instance.
      *
      * @param  \Illuminate\Http\Request $request
+     * @throws \Illuminate\Validation\ValidationException
      * @return void
-     *
      */
     protected function sendFailedLoginResponse(Request $request)
     {
@@ -116,7 +116,7 @@ class LoginController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param array $apiData
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse.
      */
     protected function sendLoginResponse(Request $request, array $apiData)
     {
