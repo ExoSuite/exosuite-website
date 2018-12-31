@@ -21,20 +21,20 @@ use App\Contracts\MakeAPIRequest;
 class API implements MakeAPIRequest
 {
     /**
-     * @var Client
+     * @var Client $client
      */
     private $client;
     /**
-     * @var
+     * @var int $client_id
      */
     public static $client_id;
     /**
-     * @var
+     * @var string $client_secret
      */
     public static $client_secret;
 
     /**
-     * @param $promise
+     * @param mixed $promise
      * @return array
      */
     private function wait($promise)
@@ -59,13 +59,8 @@ class API implements MakeAPIRequest
      */
     public static function initClient()
     {
-        if (env('APP_ENV') === 'production' or Config::get('app.env') === 'production') {
-            self::$client_id = (int)config('app.website_client_id_api');
-            self::$client_secret = config('app.website_client_secret');
-        } else {
-            self::$client_id = (int)env('WEBSITE_CLIENT_ID_API');
-            self::$client_secret = env('WEBSITE_CLIENT_SECRET');
-        }
+        self::$client_id = (int)config('app.website_client_id_api') ?? (int)env('WEBSITE_CLIENT_ID_API');
+        self::$client_secret = config('app.website_client_secret') ?? env('WEBSITE_CLIENT_SECRET');
     }
 
     /**

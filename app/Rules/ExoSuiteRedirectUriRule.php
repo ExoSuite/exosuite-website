@@ -34,7 +34,7 @@ class ExoSuiteRedirectUriRule implements Rule
         $domain = Parser::getDomain();
 
         // check if host contain ExoSuite domain
-        return preg_match("/{$domain}/", $host);
+        return preg_match("/{$domain}/", $host) > 0;
     }
 
     /**
