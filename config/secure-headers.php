@@ -380,7 +380,7 @@ return [
      * Note: custom-csp does not support report-only.
      */
 
-    'custom-csp' => '',
+    'custom-csp' => null,
 
     'csp' => [
         'report-only' => false,
