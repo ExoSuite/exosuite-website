@@ -486,6 +486,8 @@ return [
                 'ws://api.exosuite.local:6001',
                 'ws://api.exosuite.fr:6001',
                 'ws://api.dev.exosuite.fr:6001',
+                strtolower(env("API_DOMAIN")) . ":6001",
+
             ]
         ],
 
