@@ -37,7 +37,6 @@ class LoginTest extends DuskTestCase
             $userData['email'] = $userEmail;
             $userData['password'] = Hash::make($userPassword);
             User::create($userData);
-            $browser->storeConsoleLog("console1");
 
             $browser->visitRoute("login")
                 ->assertRouteIs("login")
