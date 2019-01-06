@@ -45,6 +45,7 @@ class LoginTest extends DuskTestCase
                 ->keys('@login_email', $userEmail)
                 ->keys('@login_password', $userPassword)
                 ->press(trans('website.login.signin'))
+                ->storeConsoleLog('console2')
                 ->assertRouteIs("get_profile")
                 ->assertAuthenticated()
                 ->assertAuthenticatedAs($user)
