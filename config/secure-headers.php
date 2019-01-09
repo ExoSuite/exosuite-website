@@ -71,7 +71,7 @@ return [
      *                  'same-origin', 'strict-origin', 'strict-origin-when-cross-origin', 'unsafe-url'
      */
 
-    'referrer-policy' => 'origin-when-cross-origin',
+    'referrer-policy' => 'strict-origin',
 
     /*
      * Clear-Site-Data
@@ -451,6 +451,7 @@ return [
             ],
 
             'schemes' => [
+                env('APP_ENV') === 'local' ? 'http:' : 'https:'
                 // 'https:',
             ],
 
@@ -487,6 +488,8 @@ return [
                 'ws://api.exosuite.fr:6001',
                 'ws://api.dev.exosuite.fr:6001',
                 strtolower(env("API_DOMAIN")) . ":6001",
+                env('APP_URL'),
+                env('SOCIAL_APP_DOMAIN')
             ]
         ],
 
