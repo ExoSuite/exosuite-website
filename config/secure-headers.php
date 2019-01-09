@@ -511,7 +511,8 @@ return [
                 'http://api.exosuite.local/',
                 'https://website.dev.exosuite.fr/',
                 'https://exosuite.fr/',
-                strtolower(env("APP_URL"))
+                strtolower(env("APP_URL")),
+                env('SOCIAL_APP_DOMAIN')
             ]
         ],
 
