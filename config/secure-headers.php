@@ -488,8 +488,8 @@ return [
                 'ws://api.exosuite.fr:6001',
                 'ws://api.dev.exosuite.fr:6001',
                 strtolower(env("API_DOMAIN")) . ":6001",
-                env('APP_URL'),
-                env('SOCIAL_APP_DOMAIN')
+                strtolower(env('APP_URL')),
+                strtolower(env('SOCIAL_APP_DOMAIN'))
             ]
         ],
 
@@ -512,7 +512,7 @@ return [
                 'https://website.dev.exosuite.fr/',
                 'https://exosuite.fr/',
                 strtolower(env("APP_URL")),
-                env('SOCIAL_APP_DOMAIN')
+                strtolower(env('SOCIAL_APP_DOMAIN'))
             ]
         ],
 
