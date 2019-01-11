@@ -27,7 +27,9 @@ mix.styles([
         'resources/css/gradient.css',
         'resources/css/typo2.css',
         'resources/css/language-dropdown.css',
-        'resources/css/login.css'
+        'resources/css/login.css',
+        'resources/css/profile.css',
+        'resources/css/social.css'
     ],
     'public/css/all.css'
 ).sourceMaps().version();

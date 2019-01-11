@@ -60,8 +60,7 @@ Route::domain(\App\Services\Parser::getDomain())->group(function () {
 
 Route::domain(config('social_app.domain'))->group(function () {
     Route::group(['middleware' => 'auth'], function () {
-        Route::get('/', function() {
-        });
+        Route::get('/', 'SocialHomeController@home');
         Route::group(["prefix" => "profile"], function () {
             Route::get('/', 'ProfileController@myProfileView')->name('get_profile');
             Route::get('/edit', 'ProfileController@editMyProfileView');

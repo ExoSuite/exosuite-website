@@ -19,26 +19,23 @@
                         <div id="fixed-collapse-navbar" class="navbar-collapse collapse scrolly">
                             <div class="navbar-left-1">
                                 <ul class="nav navbar-nav navbar-left">
-                                    <li><a href="/">@lang('website.menu.home')</a></li>
-                                    <li class="dropdown">
-                                        <a dusk="project-dropdown" class="dropdown-toggle" data-toggle="dropdown"
-                                           href="/exosuite">@lang('website.menu.project')</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="/exosuite">@lang('website.menu.exosuite')</a></li>
-                                            <li><a href="/exorun">@lang('website.menu.exorun')</a></li>
-                                            <li><a href="/exofun">@lang('website.menu.exofun')</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/social">@lang('website.menu.socialNetwork')</a></li>
-                                    <li><a href="/team">@lang('website.menu.team')</a></li>
+                                        <li>
+                                            <div class="col-lg-6">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="Recherche">
+                                                    <span class="input-group-btn">
+                                                            <button class="btn btn-default" type="button">Go!</button>
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </li>
                                 </ul>
                             </div>
                             <div class="navbar-right-1">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="/pricing">@lang('website.menu.pricing')</a></li>
-                                    <li><a href="/blog">@lang('website.menu.blog')</a></li>
-                                    <li><a href="/login">@lang('website.menu.connect')</a></li>
-                                    <li><a href="/contact">@lang('website.menu.contact')</a></li>
+                                    <li><a href="#">Messagerie</a></li>
+                                    <li><a href="#">Notifications</a></li>
+                                    <li><a href="/profile">Mon profil</a></li>
                                 </ul>
                             </div>
                         </div>

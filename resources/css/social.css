@@ -1,0 +1,19 @@
+.social-body {
+    background: #262626;
+}
+
+.social-header {
+    height: 85px;
+    background-color: #2F42A1;
+}
+
+.social-logo-header {
+    height: 60px;
+    width: 60px;
+}
+
+@media all and (max-width: 764px){
+    .social-desktop-item-menu {
+        display: none;
+    }
+}

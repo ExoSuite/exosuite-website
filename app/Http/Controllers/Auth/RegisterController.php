@@ -24,7 +24,7 @@ class RegisterController extends Controller
             //$this->validate($request, ['g-recaptcha-response' => 'required|captcha']);
             API::post('/auth/register', $data);
             InternalRequest::request(Request::METHOD_POST, route('loginAPI'), $data);
-            return redirect('profile');
+            return redirect()->route('get_profile');
         } catch (ClientException $e) {
             $response = json_decode($e->getResponse()->getBody()->getContents(), true);
             $message = $response['errors'];

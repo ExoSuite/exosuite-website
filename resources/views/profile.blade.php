@@ -5,57 +5,114 @@
       content="Profil"/>
 @endhead
 <body>
-@include('layouts.menu')
 <div id="notif" data-user-id="{{Auth::id()}}"></div>
-<header class="header text-white" style="background-color: #FF8C00;">
-    <div class="container text-center">
+<div class="container emp-profile">
+    <form method="post">
+
         <div class="row">
-            <div class="col-md-8 mx-auto">
-                @if (!isset($id))
-                    <h1>Votre profil utilisateur</h1>
-                    <a class="btn btn-xl btn-round btn-info" href="/profile/edit"
-                       style="margin: 0 auto; display: block; margin-bottom: 2%">Editez votre profil</a>
-                @else
-                    <h1>Le profil utilisateur de {{ $user->first_name }} {{ $user->last_name }}</h1>
-                    <p class="custom-center">{{ $user->nickname }}</p>
-                    <a class="btn btn-xl btn-round btn-info" href="#"
-                       style="margin: 0 auto; display: block; margin-bottom: 2%">Suivre</a>
-                @endif
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="https://cdn.local.epitech.eu/userprofil/profilview/pierre.piazza.jpg" alt=""/>
+                    <div class="file btn btn-lg btn-primary">
+                        Changer de Photo
+                        <input type="file" name="file"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5 >
+                        Pierre PIAZZA
+                    </h5><br/>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Résumé</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Parcours</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="false">Amis</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value=" Editer le Profil "/>
             </div>
         </div>
-    </div>
-</header>
-<main class="main-content">
-    <div class="section" id="section-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <img src="/img/profile_default.png" alt="..."
-                         class="rounded custom-avatar">
-                    <p class="lead">{{ $user->first_name }} {{ $user->last_name }}</p>
-                    <p>{{ $user->nickname }}</p>
-                    <p>{{ $user->city }}</p>
-                    @if (isset($user->birthday))
-                        J'ai {{ date_diff(date_create($user->birthday), date_create(date("Y-m-d")))->format('%Y') }}
-                        ans
-                    @endif
-                    <div class="col-sm-12 without-padding">
-                        <p>Followers</p>
-                        <div>
-                            <a href="#"><img src="/img/profile_default.png" class="image-miniature"/></a>
-                            <a href="#"><img src="/img/profile_default.png" class="image-miniature"/></a>
-                            <a href="#"><img src="/img/profile_default.png" class="image-miniature"/></a>
-                            <a href="#"><img src="/img/profile_default.png" class="image-miniature"/></a>
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nom d'utilisateur</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Symaen</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nom</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Pierre PIAZZA</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>pierre.piazza@exosuite.fr</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nombre de parcours</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>0</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Vos parcours</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="friends-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nombre d'amis</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>0</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Vos amis</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p> </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="text-center col-sm-9">
-                    <img class="rounded-md" src="/img/719292.jpg" alt="Image d'illustration">
-                </div>
             </div>
         </div>
-    </div>
-</main>
-@include('layouts.footer')
+    </form>
+</div>
 </body>
 </html>
