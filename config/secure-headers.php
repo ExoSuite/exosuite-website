@@ -500,6 +500,7 @@ return [
                 'https://use.fontawesome.com',
                 'http://maxcdn.bootstrapcdn.com/',
                 'data:',
+                'https://cdnjs.cloudflare.com/'
             ],
         ],
 
@@ -522,7 +523,8 @@ return [
 
         'frame-src' => [
             'allow' => [
-                'http://www.youtube.com/'
+                'http://www.youtube.com/',
+                'http://player.vimeo.com/'
             ]
         ],
 
@@ -531,7 +533,7 @@ return [
         ],
 
         'media-src' => [
-            //
+            'self' => true
         ],
 
         'object-src' => [
