@@ -27,7 +27,6 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-    'api-domain' => env('API_DOMAIN', 'https://api.exosuite.fr/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -214,8 +213,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-    'website_client_secret' => env('WEBSITE_CLIENT_SECRET'),
-    'website_client_id_api' => env('WEBSITE_CLIENT_ID_API'),
     'debug_blacklist' => [
         '_ENV' => [
             'APP_KEY',
