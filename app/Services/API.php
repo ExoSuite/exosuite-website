@@ -59,8 +59,8 @@ class API implements MakeAPIRequest
      */
     public static function initClient()
     {
-        self::$client_id = (int)config('app.website_client_id_api') ?? (int)env('WEBSITE_CLIENT_ID_API');
-        self::$client_secret = config('app.website_client_secret') ?? env('WEBSITE_CLIENT_SECRET');
+        self::$client_id = (int)config('api.client_id');
+        self::$client_secret = config('api.client_secret');
     }
 
     /**
