@@ -1,6 +1,6 @@
- import Echo from "laravel-echo"
+import Echo from "laravel-echo"
 import {Api} from "./Request/Api";
- import {HttpRequest} from "./Request/HttpRequest";
+import {HttpRequest} from "./Request/HttpRequest";
 
 (<any>window)._ = require('lodash');
 
@@ -45,4 +45,4 @@ Api.Instance.requestWebsite(HttpRequest.GET, 'token').then((response => {
         // @ts-ignore
         auth: {headers: {Authorization: "Bearer " + response.data.access_token}}
     });
-}));
+})).catch(() => null);

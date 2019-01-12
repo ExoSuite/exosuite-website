@@ -521,7 +521,9 @@ return [
         ],
 
         'frame-src' => [
-            //
+            'allow' => [
+                'http://www.youtube.com/'
+            ]
         ],
 
         'manifest-src' => [
