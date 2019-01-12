@@ -27,7 +27,6 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-    'api-domain' => env('API_DOMAIN', 'https://api.exosuite.fr/'),
 
     /*
     |--------------------------------------------------------------------------

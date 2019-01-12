@@ -50,7 +50,7 @@ class API implements MakeAPIRequest
     public function __construct()
     {
         $this->client = new Client([
-            'base_uri' => config('app.api-domain')
+            'base_uri' => config('api.domain')
         ]);
     }
 
