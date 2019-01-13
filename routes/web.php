@@ -45,7 +45,6 @@ Route::domain(Parser::getDomain())->group(function () {
         Route::post('/', 'Auth\LoginController@login')->name('loginAPI')->middleware("init_api_client");
         Route::get('/recover', 'Auth\LoginController@recoverView')->name('recover');
     });
-
 });
 
 Route::domain(config('social_app.domain'))->group(function () {

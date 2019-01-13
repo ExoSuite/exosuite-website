@@ -4,7 +4,6 @@ namespace Tests\Browser;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Tests\Browser;
 use Tests\DuskTestCase;

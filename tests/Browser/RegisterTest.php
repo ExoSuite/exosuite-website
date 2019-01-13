@@ -3,9 +3,8 @@
 namespace Tests\Browser;
 
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\DuskTestCase;
 use Tests\Browser;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\DuskTestCase;
 
 class RegisterTest extends DuskTestCase
 {

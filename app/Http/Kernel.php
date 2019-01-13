@@ -3,9 +3,12 @@
 namespace App\Http;
 
 use App\Http\Middleware\ApiTokensMiddleware;
+use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\ClientApp;
 use App\Http\Middleware\InitApiClient;
 use App\Http\Middleware\Localization;
+use App\Http\Middleware\TrimStrings;
+use App\Http\Middleware\TrustProxies;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -18,11 +21,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \App\Http\Middleware\TrimStrings::class,
+        TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \App\Http\Middleware\TrustProxies::class,
+        TrustProxies::class,
         \Bepsvpt\SecureHeaders\SecureHeadersMiddleware::class,
     ];
 
@@ -67,5 +70,21 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'init_api_client' => InitApiClient::class
+    ];
+
+    /**
+     * The priority-sorted list of middleware.
+     *
+     * This forces non-global middleware to always be in the given order.
+     *
+     * @var array
+     */
+    protected $middlewarePriority = [
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \App\Http\Middleware\Authenticate::class,
+        \Illuminate\Session\Middleware\AuthenticateSession::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        \Illuminate\Auth\Middleware\Authorize::class,
     ];
 }

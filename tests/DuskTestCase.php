@@ -30,7 +30,7 @@ abstract class DuskTestCase extends BaseTestCase
     /**
      * @return void
      */
-    protected function french() : void
+    protected function french(): void
     {
         app()->setLocale('fr');
     }
@@ -110,7 +110,7 @@ abstract class DuskTestCase extends BaseTestCase
                 '--no-sandbox'
             ]);
 
-            $chrome =  DesiredCapabilities::chrome()
+            $chrome = DesiredCapabilities::chrome()
                 ->setCapability(ChromeOptions::CAPABILITY, $options)
                 ->setCapability('acceptInsecureCerts', true);
 

@@ -4,8 +4,8 @@ namespace App\Providers;
 
 use App\Services\API;
 use App\Services\InternalRequest;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\ServiceProvider;
 
 class FacadesServiceProvider extends ServiceProvider
 {

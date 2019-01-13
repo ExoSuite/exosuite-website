@@ -8,11 +8,9 @@
 
 namespace App\Services;
 
+use App\Contracts\MakeAPIRequest;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
-use App\Contracts\MakeAPIRequest;
 
 /**
  * Class API
@@ -39,7 +37,7 @@ class API implements MakeAPIRequest
      */
     private function wait($promise)
     {
-        return (array) $promise->then(function (Response $response) {
+        return (array)$promise->then(function (Response $response) {
             return json_decode($response->getBody()->getContents());
         })->wait();
     }

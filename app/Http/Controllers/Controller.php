@@ -6,8 +6,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Http\Response as ResponseCode;
 
 /**
  * Class Controller
@@ -20,7 +18,8 @@ class Controller extends BaseController
     /**
      * @return string
      */
-    public function alive() {
+    public function alive()
+    {
         return "OK";
     }
 }
