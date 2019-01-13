@@ -78,3 +78,7 @@ Route::domain(config('social_app.domain'))->group(function () {
             ->name('logout');
     });
 });
+
+Route::prefix('monitoring')->group(function () {
+    Route::get('/alive', "Controller@alive");
+});
