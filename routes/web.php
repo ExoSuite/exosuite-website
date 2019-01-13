@@ -74,3 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
 // don't modify to get_logout or laravel will not understand!
 Route::get('logout', 'Auth\LoginController@logout')
     ->name('logout');
+
+Route::prefix('monitoring')->group(function () {
+    Route::get('/alive', "Controller@alive");
+});
