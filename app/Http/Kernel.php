@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\ApiTokensMiddleware;
 use App\Http\Middleware\ClientApp;
+use App\Http\Middleware\InitApiClient;
 use App\Http\Middleware\Localization;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -62,6 +63,7 @@ class Kernel extends HttpKernel
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'init_api_client' => InitApiClient::class
     ];
 }
