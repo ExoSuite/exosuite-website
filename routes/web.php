@@ -37,17 +37,16 @@ Route::domain(Parser::getDomain())->group(function () {
 
     Route::get('social', 'SimpleViewController@social')->name('get_social');
 
+    Route::post('/register', 'Auth\RegisterController@register')->name('registerAPI');
+
+    Route::group(["prefix" => "login"], function () {
+        //  don't modify to get_login or laravel will not understand!
+        Route::get('/', 'Auth\LoginController@loginView')->name('login');
+        Route::post('/', 'Auth\LoginController@login')->name('loginAPI')->middleware("init_api_client");
+        Route::get('/recover', 'Auth\LoginController@recoverView')->name('recover');
+    });
+
 });
-
-Route::post('/register', 'Auth\RegisterController@register')->name('registerAPI');
-
-Route::group(["prefix" => "login"], function () {
-    //  don't modify to get_login or laravel will not understand!
-    Route::get('/', 'Auth\LoginController@loginView')->name('login');
-    Route::post('/', 'Auth\LoginController@login')->name('loginAPI')->middleware("init_api_client");
-    Route::get('/recover', 'Auth\LoginController@recoverView')->name('recover');
-});
-
 
 Route::domain(config('social_app.domain'))->group(function () {
     Route::group(['middleware' => 'auth'], function () {
