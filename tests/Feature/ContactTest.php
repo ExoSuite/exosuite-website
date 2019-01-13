@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App;
 use Tests\TestCase;
 
 class ContactTest extends TestCase

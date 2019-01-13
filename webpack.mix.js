@@ -34,6 +34,16 @@ mix.styles([
     'public/css/all.css'
 ).sourceMaps().version();
 
+mix.styles([
+        'resources/Bootstrap/dist/css/bootstrap-reboot.css',
+        'resources/Bootstrap/dist/css/bootstrap.css',
+        'resources/Bootstrap/dist/css/bootstrap-grid.css',
+        'resources/css/social/fonts.css',
+        'resources/css/social/main.css'
+    ],
+    'public/css/social/app.css'
+).sourceMaps().version();
+
 mix.scripts([
         'resources/js/website/jquery.min.js',
         'resources/js/website/bootstrap.min.js',
@@ -68,8 +78,50 @@ mix.scripts([
     'public/js/all.js'
 ).sourceMaps().version();
 
+mix.scripts([
+        'resources/js/social/jquery-3.2.1.js',
+        'resources/js/social/jquery.appear.js',
+        'resources/js/social/jquery.mousewheel.js',
+        'resources/js/social/perfect-scrollbar.js',
+        'resources/js/social/jquery.matchHeight.js',
+        'resources/js/social/svgxuse.js',
+        'resources/js/social/imagesloaded.pkgd.js',
+        'resources/js/social/Headroom.js',
+        'resources/js/social/velocity.js',
+        'resources/js/social/ScrollMagic.js',
+        'resources/js/social/jquery.waypoints.js',
+        'resources/js/social/jquery.countTo.js',
+        'resources/js/social/popper.min.js',
+        'resources/js/social/material.min.js',
+        'resources/js/social/bootstrap-select.js',
+        'resources/js/social/smooth-scroll.js',
+        'resources/js/social/selectize.js',
+        'resources/js/social/swiper.jquery.js',
+        'resources/js/social/moment.js',
+        'resources/js/social/daterangepicker.js',
+        'resources/js/social/simplecalendar.js',
+        'resources/js/social/fullcalendar.js',
+        'resources/js/social/isotope.pkgd.js',
+        'resources/js/social/ajax-pagination.js',
+        'resources/js/social/Chart.js',
+        'resources/js/social/chartjs-plugin-deferred.js',
+        'resources/js/social/circle-progress.js',
+        'resources/js/social/loader.js',
+        'resources/js/social/run-chart.js',
+        'resources/js/social/jquery.magnific-popup.js',
+        'resources/js/social/jquery.gifplayer.js',
+        'resources/js/social/mediaelement-and-player.js',
+        'resources/js/social/mediaelement-playlist-plugin.min.js',
+        'resources/js/social/sticky-sidebar.js',
+        'resources/js/social/ion.rangeSlider.js',
+        'resources/js/social/base-init.js',
+        'resources/Bootstrap/dist/js/bootstrap.bundle.js',
+    ],
+    'public/js/social/app.js'
+).sourceMaps().version();
+
 mix.react('resources/js/app.tsx', 'public/js').sourceMaps().version()
-//    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/app.scss', 'public/css')
     .webpackConfig({
         module: {
             rules: [

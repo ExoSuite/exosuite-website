@@ -8,7 +8,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Main Font -->
-    <script src="/js/social/webfontloader.min.js"></script>
+    <script src="/social-app/webfontloader.min.js"></script>
     <script>
         WebFont.load({
             google: {
@@ -18,13 +18,7 @@
     </script>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="/Bootstrap/dist/css/bootstrap-reboot.css">
-    <link rel="stylesheet" type="text/css" href="/Bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/Bootstrap/dist/css/bootstrap-grid.css">
-
-    <!-- Main Styles CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/social/main.css">
-    <link rel="stylesheet" type="text/css" href="/css/social/fonts.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/social/app.css" />
 
 
 </head>

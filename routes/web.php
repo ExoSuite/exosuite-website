@@ -1,5 +1,7 @@
 <?php
 
+use App\Services\Parser;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +13,7 @@
 |
 */
 
-Route::domain(\App\Services\Parser::getDomain())->group(function () {
+Route::domain(Parser::getDomain())->group(function () {
     Route::get('/', 'SimpleViewController@home')->name('get_home');
 
     Route::get('/language/{locale}', 'LanguageController@language');
@@ -35,28 +37,15 @@ Route::domain(\App\Services\Parser::getDomain())->group(function () {
 
     Route::get('social', 'SimpleViewController@social')->name('get_social');
 
-    /*Route::get('/departures', function () {
-        return view('departures');
-    });*/
-
-    /*Route::get('survey', 'SurveyController@index');
-    Route::post('survey', 'SurveyController@postSurvey');*/
-
-    /*Route::group(["prefix" => "register"], function () {
-        Route::get('/', "Auth\RegisterController@registerView")->name('register');
-        Route::post('/', 'Auth\RegisterController@register')->name('registerAPI');
-    });*/
-
     Route::post('/register', 'Auth\RegisterController@register')->name('registerAPI');
 
     Route::group(["prefix" => "login"], function () {
         //  don't modify to get_login or laravel will not understand!
         Route::get('/', 'Auth\LoginController@loginView')->name('login');
-        Route::post('/', 'Auth\LoginController@login')->name('loginAPI');
+        Route::post('/', 'Auth\LoginController@login')->name('loginAPI')->middleware("init_api_client");
         Route::get('/recover', 'Auth\LoginController@recoverView')->name('recover');
     });
 });
-
 
 Route::domain(config('social_app.domain'))->group(function () {
     Route::group(['middleware' => 'auth'], function () {

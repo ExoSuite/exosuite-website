@@ -12,7 +12,5 @@ test-reports
 public/css/*
 public/js/*
 mix-manifest.json
-composer.lock
-yarn.lock
 package-lock.json
 

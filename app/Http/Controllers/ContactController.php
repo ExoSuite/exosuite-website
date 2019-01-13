@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App;
 use Mail;
 
 class ContactController extends Controller
@@ -18,7 +17,7 @@ class ContactController extends Controller
     public function contact(Request $request)
     {
         $inputs = $request->all();
-        $toValidate =  ['name' => 'required', 'email' => 'required|email', 'message' => 'required'];
+        $toValidate = ['name' => 'required', 'email' => 'required|email', 'message' => 'required'];
         if (App::environment('production')) {
             $toValidate['g-recaptcha-response'] = 'required|captcha';
         }

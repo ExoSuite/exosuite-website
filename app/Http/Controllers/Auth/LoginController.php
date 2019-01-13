@@ -9,9 +9,8 @@ use App\Http\Requests\LoginUser;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use App\Services\API as APIService;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -131,8 +130,9 @@ class LoginController extends Controller
 
         if ($request->query('redirect_uri')) {
             $redirect_uri = $request->query('redirect_uri');
-            if (!is_array($redirect_uri))
+            if (!is_array($redirect_uri)) {
                 return redirect($redirect_uri);
+            }
             return redirect()->back();
         }
 

@@ -19,13 +19,16 @@ class HomePage extends Page
     /**
      * Assert that the browser is on the page.
      *
-     * @param  Browser  $browser
+     * @param  Browser $browser
      * @return void
+     * @throws \Facebook\WebDriver\Exception\TimeOutException
      */
     public function assert(Browser $browser)
     {
-        $browser->assertGuest();
-        $browser->assertRouteIs("get_home");
+        $browser->assertGuest()
+            ->assertRouteIs("get_home")
+            ->waitUntilMissing('div.loader')
+            ->assertSee('ExoSuite');
     }
 
     /**

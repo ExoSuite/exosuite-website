@@ -2,11 +2,7 @@
 
 namespace Tests\Feature;
 
-use App;
-use App\Http\Middleware\Localization;
-use Illuminate\Support\Facades\Cookie;
 use Tests\TestCase;
-use App\Models\User;
 
 class HomeTest extends TestCase
 {
@@ -92,4 +88,6 @@ class HomeTest extends TestCase
         $response->assertSeeText(trans("website.home.descriptionEpitech"));
         $response->assertSeeText(trans("website.home.quote"));
     }
-};
+}
+
+;

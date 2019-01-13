@@ -18,7 +18,7 @@ class Parser
     /**
      * @return string
      */
-    public static function getDomain() : string
+    public static function getDomain(): string
     {
         $parsed_url = parse_url(env('APP_URL') ?? config('app.url'));
         return $parsed_url['host'];

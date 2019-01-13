@@ -1,6 +1,6 @@
 <?php
 
-use App\Services\Parser;
+use Illuminate\Support\Str;
 
 return [
 
@@ -98,7 +98,7 @@ return [
     |
     */
 
-    'store' => null,
+    'store' => env('SESSION_STORE', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -124,7 +124,10 @@ return [
     |
     */
 
-    'cookie' => env('SESSION_COOKIE', 'exosuite_session'),
+    'cookie' => env(
+        'SESSION_COOKIE',
+        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+    ),
 
     /*
     |--------------------------------------------------------------------------
@@ -150,7 +153,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', Parser::getDomainForSession()),
+    'domain' => env('SESSION_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------

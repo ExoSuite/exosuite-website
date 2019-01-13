@@ -7,5 +7,5 @@
  */
 
 return [
-  'domain' => env('SOCIAL_APP_DOMAIN')
+    'domain' => env('SOCIAL_APP_DOMAIN')
 ];

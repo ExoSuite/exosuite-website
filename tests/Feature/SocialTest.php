@@ -2,11 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Http\Middleware\Localization;
-use Illuminate\Support\Facades\Cookie;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class SocialTest extends TestCase
 {

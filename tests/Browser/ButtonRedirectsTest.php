@@ -101,8 +101,8 @@ class ButtonRedirectsTest extends DuskTestCase
                 $browser->visitRoute($test->source)
                     ->assertRouteIs($test->source);
 
-               $browser->waitUntilMissing('.loader');
-               $browser->assertMissing('.loader');
+                $browser->waitUntilMissing('.loader');
+                $browser->assertMissing('.loader');
 
 
                 if ($test->dropdownLinkText != null) {

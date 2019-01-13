@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use App\Rules\ExoSuiteRedirectUriRule;
-use Illuminate\Foundation\Http\FormRequest;
 
 class LoginUser extends QueryParamRequest
 {
