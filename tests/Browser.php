@@ -28,7 +28,7 @@ class Browser extends \Laravel\Dusk\Browser
     public function logout($guard = null)
     {
         parent::logout();
-        $this->visitRoute("logout")->waitForRoute("get_home");
+        $this->visitRoute("logout")->waitForRoute("login");
         $this->visitRoute("get_profile")->waitForRoute("login")->assertRouteIs("login")->assertGuest();
         return $this;
     }

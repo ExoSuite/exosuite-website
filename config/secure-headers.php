@@ -71,7 +71,7 @@ return [
      *                  'same-origin', 'strict-origin', 'strict-origin-when-cross-origin', 'unsafe-url'
      */
 
-    'referrer-policy' => 'origin-when-cross-origin',
+    'referrer-policy' => 'strict-origin',
 
     /*
      * Clear-Site-Data
@@ -451,6 +451,7 @@ return [
             ],
 
             'schemes' => [
+                env('APP_ENV') === 'local' ? 'http:' : 'https:'
                 // 'https:',
             ],
 
@@ -487,6 +488,8 @@ return [
                 'ws://api.exosuite.fr:6001',
                 'ws://api.dev.exosuite.fr:6001',
                 strtolower(env("API_DOMAIN")) . ":6001",
+                strtolower(env('APP_URL')),
+                strtolower(env('SOCIAL_APP_DOMAIN'))
             ]
         ],
 
@@ -497,6 +500,7 @@ return [
                 'https://use.fontawesome.com',
                 'http://maxcdn.bootstrapcdn.com/',
                 'data:',
+                'https://cdnjs.cloudflare.com/'
             ],
         ],
 
@@ -508,7 +512,8 @@ return [
                 'http://api.exosuite.local/',
                 'https://website.dev.exosuite.fr/',
                 'https://exosuite.fr/',
-                strtolower(env("APP_URL"))
+                strtolower(env("APP_URL")),
+                strtolower(env('SOCIAL_APP_DOMAIN'))
             ]
         ],
 
@@ -517,7 +522,10 @@ return [
         ],
 
         'frame-src' => [
-            //
+            'allow' => [
+                'http://www.youtube.com/',
+                'http://player.vimeo.com/'
+            ]
         ],
 
         'manifest-src' => [
@@ -525,7 +533,7 @@ return [
         ],
 
         'media-src' => [
-            //
+            'self' => true
         ],
 
         'object-src' => [

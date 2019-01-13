@@ -164,4 +164,39 @@ export class Api {
         // return response from api
         return response;
     }
+
+    async requestWebsite(
+        httpMethod: HttpRequest,
+        url: string,
+        data: Object = {},
+        headers: Object = {}
+    ): Promise<ApiResponse<any>|null> {
+        // set additional headers
+        // @ts-ignore
+        this.website.setHeaders(headers);
+
+        let apiCall: ApisauceInstance["delete"] | ApisauceInstance["post"]
+            | ApisauceInstance["put"] | ApisauceInstance["patch"]
+            | ApisauceInstance["get"];
+
+        // choose method to use GET/POST/PUT/PATCH/DELETE
+        if (httpMethod === HttpRequest.DELETE) apiCall = this.website.delete;
+        else if (httpMethod === HttpRequest.POST) apiCall = this.website.post;
+        else if (httpMethod === HttpRequest.PATCH) apiCall = this.website.patch;
+        else if (httpMethod === HttpRequest.GET) apiCall = this.website.get;
+        else if (httpMethod === HttpRequest.PUT) apiCall = this.website.put;
+
+        // launch api request
+        // @ts-ignore
+        const response: ApiResponse<any> = await apiCall(url, data);
+
+        // the typical ways to die when calling an api fails
+        if (!response.ok) {
+            const problem = getGeneralApiProblem(response);
+            throw new Error(problem ? problem.kind : "Request was canceled");
+        }
+
+        // return response from api
+        return response;
+    }
 }

@@ -1,5 +1,6 @@
- import Echo from "laravel-echo"
+import Echo from "laravel-echo"
 import {Api} from "./Request/Api";
+import {HttpRequest} from "./Request/HttpRequest";
 
 (<any>window)._ = require('lodash');
 
@@ -37,11 +38,11 @@ if (token) {
 
 (<any>window).io = require('socket.io-client');
 
-Api.Instance.website.get('token').then((response => {
+Api.Instance.requestWebsite(HttpRequest.GET, 'token').then((response => {
     (<any>window).Echo = new Echo({
         broadcaster: 'socket.io',
         host: process.env.MIX_API_DOMAIN + ':6001',
         // @ts-ignore
         auth: {headers: {Authorization: "Bearer " + response.data.access_token}}
     });
-}));
+})).catch(() => null);

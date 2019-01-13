@@ -5,7 +5,8 @@
                 <div class="col-md-12">
                     <nav class="navbar navbar-default">
                         <div class="navbar-header">
-                            <button dusk="navbar-collapser" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fixed-collapse-navbar" aria-expanded="true">
+                            <button dusk="navbar-collapser" type="button" class="navbar-toggle collapsed"
+                                    data-toggle="collapse" data-target="#fixed-collapse-navbar" aria-expanded="true">
                                 <span class="icon-bar top-bar"></span>
                                 <span class="icon-bar middle-bar"></span>
                                 <span class="icon-bar bottom-bar"></span>
@@ -20,7 +21,8 @@
                                 <ul class="nav navbar-nav navbar-left">
                                     <li><a href="/">@lang('website.menu.home')</a></li>
                                     <li class="dropdown">
-                                        <a dusk="project-dropdown" class="dropdown-toggle" data-toggle="dropdown" href="/exosuite">@lang('website.menu.project')</a>
+                                        <a dusk="project-dropdown" class="dropdown-toggle" data-toggle="dropdown"
+                                           href="/exosuite">@lang('website.menu.project')</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="/exosuite">@lang('website.menu.exosuite')</a></li>
                                             <li><a href="/exorun">@lang('website.menu.exorun')</a></li>
@@ -29,7 +31,7 @@
                                     </li>
                                     <li><a href="/social">@lang('website.menu.socialNetwork')</a></li>
                                     <li><a href="/team">@lang('website.menu.team')</a></li>
-                                    </ul>
+                                </ul>
                             </div>
                             <div class="navbar-right-1">
                                 <ul class="nav navbar-nav navbar-right">

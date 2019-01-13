@@ -148,6 +148,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="swiper-slide">
+                                <div class="team-slide">
+                                    <div class="team-photo equalheight">
+                                        <img alt="image" src="/img/team/mathilde.jpg"/>
+                                    </div>
+                                    <div class="team-text equalheight">
+                                        <h3>Mathilde CHARPIOT</h3>
+                                        <span>@lang('website.team.mathildeJob')</span>
+                                        <p class="top20 bottom20">@lang('website.team.MathildeDescription')</p>
+                                        <ul class="social">
+                                            <li><a href="https://www.linkedin.com/in/mathilde-juliani-charpiot-6830b310a/"><i class="fab fa-linkedin"></i> </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!--<div class="swiper-button-next"></div>
                          <div class="swiper-button-prev"></div>-->

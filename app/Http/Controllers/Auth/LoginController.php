@@ -33,7 +33,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/profile';
+    protected $redirectTo;
 
     /**
      * Create a new controller instance.
@@ -43,6 +43,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->redirectTo = route("get_profile");
     }
 
     /**
@@ -62,6 +63,11 @@ class LoginController extends Controller
         );
 
         return $this->sendLoginResponse($request, $response);
+    }
+
+    protected function loggedOut(Request $request)
+    {
+        return redirect(route('login'));
     }
 
     /**
@@ -132,6 +138,11 @@ class LoginController extends Controller
 
         return $this->authenticated($request, $this->guard()->user())
             ?: redirect()->intended($this->redirectPath());
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        return \Redirect::to($this->redirectTo);
     }
 
     public function loginView()
