@@ -16,7 +16,7 @@ class ProfileController extends Controller
     public function editMyProfileView()
     {
         $user = Auth::user();
-        return view('editprofile')->with(array('user' => $user));
+        return view('social.editprofile')->with(array('user' => $user));
     }
 
     public function profileView($id)

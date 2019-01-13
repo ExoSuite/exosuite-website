@@ -66,7 +66,7 @@
                                         <a href="#" data-toggle="modal" data-target="#update-header-photo">Update Header Photo</a>
                                     </li>
                                     <li>
-                                        <a href="29-YourAccount-AccountSettings.html">Account Settings</a>
+                                        <a href="/profile/edit">Account Settings</a>
                                     </li>
                                 </ul>
                             </div>
