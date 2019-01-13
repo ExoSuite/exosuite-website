@@ -8,7 +8,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Main Font -->
-    <script src="/social/webfontloader.min.js"></script>
+    <script src="/social-app/webfontloader.min.js"></script>
     <script>
         WebFont.load({
             google: {
