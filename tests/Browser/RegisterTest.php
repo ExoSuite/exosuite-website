@@ -5,6 +5,7 @@ namespace Tests\Browser;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\Browser;
 use Tests\DuskTestCase;
+use Tests\Browser\Pages\ProfilePage;
 
 class RegisterTest extends DuskTestCase
 {
@@ -32,10 +33,10 @@ class RegisterTest extends DuskTestCase
                 ->keys('@register_password', $password)
                 ->type('password_confirmation', $password)
                 ->press(trans('website.register'))
-                ->storeConsoleLog("register")
-                ->assertRouteIs("get_profile")
-                ->waitForRoute("get_profile")
-                ->logout();
+                ->storeConsoleLog("register");
+
+            $browser->visit(new ProfilePage());
+            $browser->logout();
         });
     }
 }

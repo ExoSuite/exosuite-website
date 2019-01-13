@@ -4,8 +4,15 @@ namespace Tests\Browser\Pages;
 
 use Laravel\Dusk\Browser;
 
-class HomePage extends Page
+class ProfilePage extends Page
 {
+    private $user;
+
+    public function __construct($user = null)
+    {
+        $this->user = $user;
+    }
+
     /**
      * Get the URL for the page.
      *
@@ -13,7 +20,7 @@ class HomePage extends Page
      */
     public function url()
     {
-        return '/';
+        return route("get_profile");
     }
 
     /**
@@ -25,10 +32,14 @@ class HomePage extends Page
      */
     public function assert(Browser $browser)
     {
-        $browser->assertGuest()
-            ->assertRouteIs("get_home")
-            ->waitUntilMissing('div.loader')
-            ->assertSee('ExoSuite');
+        $browser->assertRouteIs('get_profile')
+            ->waitUntilMissing('#hellopreloader')
+            ->assertVisible("div.profile-section")
+            ->assertAuthenticated();
+
+        if ($this->user)
+            $browser->assertAuthenticatedAs($this->user);
+
     }
 
     /**
