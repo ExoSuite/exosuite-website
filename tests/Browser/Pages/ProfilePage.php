@@ -32,7 +32,8 @@ class ProfilePage extends Page
      */
     public function assert(Browser $browser)
     {
-        $browser->assertRouteIs('get_profile')
+        $browser->waitForRoute('get_profile')
+            ->assertRouteIs('get_profile')
             ->waitUntilMissing('#hellopreloader')
             ->assertVisible("div.profile-section")
             ->assertAuthenticated();
