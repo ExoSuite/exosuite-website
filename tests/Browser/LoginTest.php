@@ -45,7 +45,7 @@ class LoginTest extends DuskTestCase
                 ->keys('@login_email', $userEmail)
                 ->keys('@login_password', $userPassword)
                 ->press(trans('website.login.signin'))
-                ->storeConsoleLog('console2');
+                ->waitForRoute('get_profile');
 
             $browser->visit(new ProfilePage($user));
             $browser->logout();
