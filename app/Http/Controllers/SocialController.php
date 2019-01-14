@@ -11,6 +11,6 @@ class SocialController extends Controller
 
     public function home()
     {
-        return 'newsfeed';
+        return view('social.newsfeed');
     }
 }

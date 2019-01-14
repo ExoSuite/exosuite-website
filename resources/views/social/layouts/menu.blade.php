@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="03-Newsfeed.html">
+                    <a href="{{ route('get_newsfeed') }}">
                         <svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
                     </a>
                 </li>
@@ -71,7 +71,7 @@
     <div class="fixed-sidebar-left sidebar--large" id="sidebar-left-1">
         <a href="/" class="logo">
             <div class="img-wrap">
-                <img src="/img/exosuite-icon.png" alt="Olympus">
+                <img src="/img/logoExoSuite.png" alt="ExoSuite">
             </div>
             <div class="title-block">
                 <h6 class="logo-title">olympus</h6>
@@ -87,7 +87,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="03-Newsfeed.html">
+                    <a href="{{ route('get_newsfeed') }}">
                         <svg class="olymp-newsfeed-icon left-menu-icon" data-toggle="tooltip" data-placement="right"   data-original-title="NEWSFEED"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-newsfeed-icon"></use></svg>
                         <span class="left-menu-title">Newsfeed</span>
                     </a>
@@ -176,7 +176,7 @@
 
     <div class="fixed-sidebar-left sidebar--small" id="sidebar-left-responsive">
         <a href="#" class="logo js-sidebar-open">
-            <img src="/img/exosuite-icon.png" alt="Olympus">
+            <img src="/img/exosuite-icon.png" alt="Exosuite">
         </a>
 
     </div>
@@ -184,10 +184,10 @@
     <div class="fixed-sidebar-left sidebar--large" id="sidebar-left-1-responsive">
         <a href="#" class="logo">
             <div class="img-wrap">
-                <img src="/img/exosuite-icon.png" alt="Olympus">
+                <img src="/img/logoExoSuite.png" alt="Exosuite">
             </div>
             <div class="title-block">
-                <h6 class="logo-title">olympus</h6>
+                <h6 class="logo-title">ExoSuite</h6>
             </div>
         </a>
 

@@ -49,4 +49,9 @@ class ProfileController extends Controller
         }
         return redirect('profile');
     }
+
+    public function friendsView()
+    {
+        return view('social.friends');
+    }
 }

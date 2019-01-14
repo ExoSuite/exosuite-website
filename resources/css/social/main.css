@@ -126,7 +126,7 @@ Description: "HTML-template"
 /*------------- #HEADER --------------*/
 .header {
   height: 70px;
-  background-color: #3f4257;
+  background-color: #16202a;
   padding-right: 70px;
   position: fixed;
   top: 0;
@@ -933,7 +933,7 @@ Description: "HTML-template"
   position: relative;
   min-height: 100vh; }
   .landing-page .content-bg-wrap {
-    background-image: url("../img/landing-users.png");
+    background-image: url("/img/social/landing-users.png");
     background-position: 0 0;
     background-repeat: repeat;
     -webkit-animation: sidedownscroll 30s linear infinite;
@@ -1621,19 +1621,19 @@ Description: "HTML-template"
 
 /*------------- #SECTION --------------*/
 .bg-section1 {
-  background-image: url("../img/bg-section1.png"); }
+  background-image: url("/img/social/bg-section1.png"); }
 
 .bg-section2 {
-  background-image: url("../img/bg-section2.png"); }
+  background-image: url("/img/social/bg-section2.png"); }
 
 .bg-section3 {
-  background-image: url("../img/bg-section3.png"); }
+  background-image: url("/img/social/bg-section3.png"); }
 
 .bg-section4 {
-  background-image: url("../img/bg-section4.png"); }
+  background-image: url("/img/social/bg-section4.png"); }
 
 .bg-section5 {
-  background-image: url("../img/bg-section5.png"); }
+  background-image: url("/img/social/bg-section5.png"); }
 
 section {
   position: relative; }
@@ -1852,7 +1852,7 @@ section {
   background-color: rgba(98, 54, 178, 0.95); }
 
 .stunning-header-bg1 {
-  background-image: url("../img/landing-users.png"); }
+  background-image: url("/img/social/landing-users.png"); }
 
 .breadcrumbs-item {
   display: inline-block;
@@ -4820,31 +4820,31 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
   margin-bottom: -70px; }
 
 .bg-account {
-  background-image: url("../../img/social/top-header3.png"); }
+  background-image: url("/img/social/top-header3.png"); }
 
 .bg-birthday {
-  background-image: url("../img/top-header6.png"); }
+  background-image: url("/img/social/top-header6.png"); }
 
 .bg-badges {
-  background-image: url("../img/top-header4.png"); }
+  background-image: url("/img/social/top-header4.png"); }
 
 .bg-events {
-  background-image: url("../img/top-header5.png"); }
+  background-image: url("/img/social/top-header5.png"); }
 
 .bg-weather {
-  background-image: url("../img/top-header6.png"); }
+  background-image: url("/img/social/top-header6.png"); }
 
 .bg-group {
-  background-image: url("../img/bg-group.png"); }
+  background-image: url("/img/social/bg-group.png"); }
 
 .bg-music {
-  background-image: url("../img/top-header7.png"); }
+  background-image: url("/img/social/top-header7.png"); }
 
 .bg-landing {
-  background-image: url("../img/landing-users.png"); }
+  background-image: url("/img/social/landing-users.png"); }
 
 .bg-users {
-  background-image: url("../img/bg-users.png"); }
+  background-image: url("/img/social/bg-users.png"); }
 
 .main-header-content {
   color: #fff;
@@ -7310,7 +7310,7 @@ ol ol li {
 
 .today-events-thumb {
   position: relative;
-  background-image: url("../img/bg-event-day.jpg");
+  background-image: url("/img/social/bg-event-day.jpg");
   text-align: center;
   padding: 25px;
   color: #fff; }
@@ -7833,7 +7833,7 @@ ol ol li {
   color: #fff; }
 
 .blog-post.format-link .bg-link {
-  background-image: url("../img/post6.jpg"); }
+  background-image: url("/img/social/post6.jpg"); }
 
 .blog-post.format-link .post-thumb {
   border-radius: 5px;
@@ -7908,7 +7908,7 @@ ol ol li {
     opacity: 1; }
   .blog-post.format-quote .post-thumb {
     padding: 60px 50px;
-    background-image: url("../img/quote-bg.png");
+    background-image: url("/img/social/quote-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px; }
@@ -8470,7 +8470,7 @@ ol ol li {
 .testimonial-header-thumb {
   height: 90px;
   overflow: hidden;
-  background-image: url("../img/testimonial-header.png");
+  background-image: url("/img/social/testimonial-header.png");
   background-size: cover; }
 
 .testimonial-item-content {
@@ -8796,7 +8796,7 @@ ol ol li {
   position: relative;
   padding: 50px 40px;
   color: #fff;
-  background-image: url("../img/contact-bg.png");
+  background-image: url("/img/social/contact-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   width: 40%; }
@@ -10617,7 +10617,7 @@ ol ol li {
 
 /*------------- #W-BIRTHDAY-ALERT --------------*/
 .w-birthday-alert {
-  background-image: url("../img/bg-birthdays.jpg");
+  background-image: url("/img/social/bg-birthdays.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 25px; }
@@ -10672,7 +10672,7 @@ ol ol li {
 
 /*------------- #W-ACTION --------------*/
 .w-action {
-  background-image: url("../img/landing-bg.jpg");
+  background-image: url("/img/social/landing-bg.jpg");
   padding: 50px 45px 40px;
   text-align: center;
   color: #fff;
@@ -10714,7 +10714,7 @@ ol ol li {
 
 /*------------- #W-WEATHER --------------*/
 .w-wethear {
-  background-image: url("../img/bg-wethear.jpg");
+  background-image: url("/img/social/bg-wethear.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 25px;
@@ -11134,7 +11134,7 @@ ol ol li {
   padding: 25px;
   color: #fff;
   position: relative;
-  background: url(../img/bg-birthdays.jpg) no-repeat;
+  background: url(/img/social/bg-birthdays.jpg) no-repeat;
   background-size: cover;
   border-radius: 5px; }
   .w-build-fav .more {
@@ -13615,7 +13615,7 @@ img.mfp-img {
   opacity: 0; }
 
 .mejs-controls .mejs-show-playlist button, .mejs-controls .mejs-hide-playlist button, .mejs-controls .mejs-prevtrack button, .mejs-controls .mejs-nexttrack button, .mejs-controls .mejs-shuffle-on button, .mejs-controls .mejs-shuffle-off button {
-  background: transparent url(./../img/controls-playlist.png) no-repeat; }
+  background: transparent url(.//img/social/controls-playlist.png) no-repeat; }
 
 .mejs-controls .mejs-show-playlist button {
   background-position: -16px -16px; }
@@ -13681,7 +13681,7 @@ img.mfp-img {
   border-top: 1px solid white;
   border-bottom: 1px solid black;
   background-color: rgba(50, 50, 50, 0.7);
-  background-image: url(./../img/mep-playlist-icons.png);
+  background-image: url(.//img/social/mep-playlist-icons.png);
   background-position: right 10px top 100px;
   background-repeat: no-repeat; }
 
@@ -13745,7 +13745,7 @@ img.mfp-img {
   position: absolute;
   border: none;
   background-color: transparent;
-  background-image: url(./../img/bigplay.png);
+  background-image: url(./img/social/bigplay.png);
   background-position: right 10px top 0px;
   top: 50%;
   left: 50%;
@@ -13899,10 +13899,10 @@ img.mfp-img {
   width: 100px;
   height: 100px;
   margin: -50px 0 0 -50px;
-  background: url(./../img/bigplay.svg) no-repeat; }
+  background: url(.//img/social/bigplay.svg) no-repeat; }
 
 .no-svg .mejs-overlay-button {
-  background-image: url(./../img/bigplay.png); }
+  background-image: url(.//img/social/bigplay.png); }
 
 .mejs-overlay:hover .mejs-overlay-button {
   background-position: 0 -100px; }
@@ -13915,7 +13915,7 @@ img.mfp-img {
   height: 80px;
   margin: -40px 0 0 -40px;
   background: #333;
-  background: url(./../img/background.png);
+  background: url(.//img/social/background.png);
   background: rgba(0, 0, 0, 0.9);
   background: linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9)); }
 
@@ -13923,7 +13923,7 @@ img.mfp-img {
   display: block;
   width: 80px;
   height: 80px;
-  background: transparent url(./../img/loading.gif) 50% 50% no-repeat; }
+  background: transparent url(.//img/social/loading.gif) 50% 50% no-repeat; }
 
 /* End: LAYERS */
 /* Start: CONTROL BAR */
@@ -13960,10 +13960,10 @@ img.mfp-img {
   height: 27px;
   width: 27px;
   border: 0;
-  background: transparent url(./../img/controls.svg) no-repeat; }
+  background: transparent url(.//img/social/controls.svg) no-repeat; }
 
 .no-svg .mejs-controls .mejs-button button {
-  background-image: url(./../img/controls.png); }
+  background-image: url(.//img/social/controls.png); }
 
 /* :focus for accessibility */
 .mejs-controls .mejs-button button:focus {
@@ -14141,7 +14141,7 @@ img.mfp-img {
   display: none;
   height: 115px;
   width: 25px;
-  background: url(./../img/background.png);
+  background: url(.//img/social/background.png);
   background: rgba(50, 50, 50, 0.7);
   border-radius: 0;
   top: -115px;
@@ -14256,7 +14256,7 @@ img.mfp-img {
   right: -51px;
   width: 85px;
   height: 100px;
-  background: url(./../img/background.png);
+  background: url(.//img/social/background.png);
   background: rgba(50, 50, 50, 0.7);
   border: solid 1px transparent;
   padding: 10px 10px 0 10px;
@@ -14381,7 +14381,7 @@ img.mfp-img {
 
 .mejs-captions-text {
   padding: 3px 5px;
-  background: url(./../img/background.png);
+  background: url(.//img/social/background.png);
   background: rgba(20, 20, 20, 0.5);
   white-space: pre-wrap; }
 
@@ -14461,7 +14461,7 @@ img.mfp-img {
   right: -10px;
   width: 130px;
   height: 100px;
-  background: url(./../img/background.png);
+  background: url(.//img/social/background.png);
   background: rgba(50, 50, 50, 0.7);
   border: solid 1px transparent;
   padding: 10px;
@@ -14504,7 +14504,7 @@ img.mfp-img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(./../img/background.png);
+  background: url(.//img/social/background.png);
   background: rgba(50, 50, 50, 0.7);
   z-index: 1000;
   overflow: hidden; }
@@ -14517,7 +14517,7 @@ img.mfp-img {
   position: absolute;
   right: 0;
   top: 0;
-  background: url(./../img/background.png);
+  background: url(.//img/social/background.png);
   background: rgba(50, 50, 50, 0.7);
   color: #fff;
   padding: 4px;
@@ -14544,7 +14544,7 @@ div.mejs-speed-button {
   left: -10px;
   width: 60px;
   height: 100px;
-  background: url(./../img/background.png);
+  background: url(.//img/social/background.png);
   background: rgba(50, 50, 50, 0.7);
   border: solid 1px transparent;
   padding: 0;
@@ -14596,7 +14596,7 @@ div.mejs-speed-button {
 /* End: Speed */
 /* Start: Jump Forward */
 .mejs-controls .mejs-button.mejs-jump-forward-button {
-  background: transparent url(./../img/jumpforward.png) no-repeat;
+  background: transparent url(.//img/social/jumpforward.png) no-repeat;
   background-position: 3px 3px; }
 
 .mejs-controls .mejs-button.mejs-jump-forward-button button {
@@ -14608,7 +14608,7 @@ div.mejs-speed-button {
 /* End: Jump Forward */
 /* Start: Skip Back */
 .mejs-controls .mejs-button.mejs-skip-back-button {
-  background: transparent url(./../img/skipback.png) no-repeat;
+  background: transparent url(.//img/social/skipback.png) no-repeat;
   background-position: 3px 3px; }
 
 .mejs-controls .mejs-button.mejs-skip-back-button button {
@@ -14638,34 +14638,34 @@ div.mejs-speed-button {
   outline: none; }
 
 .mejs-controls .mejs-prevtrack button {
-  background: transparent url("../../svg-icons/prev-song.svg") no-repeat; }
+  background: transparent url("/svg-icons/prev-song.svg") no-repeat; }
 
 .mejs-controls .mejs-nexttrack button {
-  background: transparent url("../../svg-icons/next-song.svg") no-repeat; }
+  background: transparent url("/svg-icons/next-song.svg") no-repeat; }
 
 .mejs-controls .mejs-play button {
-  background: transparent url("../../svg-icons/play-icon.svg") no-repeat; }
+  background: transparent url("/svg-icons/play-icon.svg") no-repeat; }
 
 .mejs-controls .mejs-pause button {
-  background: transparent url("../../svg-icons/pause-icon.svg") no-repeat; }
+  background: transparent url("/svg-icons/pause-icon.svg") no-repeat; }
 
 .mejs-controls .mejs-loop-button.mejs-loop-off button {
-  background: transparent url("../../svg-icons/repeat.svg") no-repeat; }
+  background: transparent url("/svg-icons/repeat.svg") no-repeat; }
 
 .mejs-controls .mejs-loop-button.mejs-loop-on button {
-  background: transparent url("../../svg-icons/repeat-off.svg") no-repeat; }
+  background: transparent url("/svg-icons/repeat-off.svg") no-repeat; }
 
 .mejs-controls .mejs-shuffle-button.mejs-shuffle-off button {
-  background: transparent url("../../svg-icons/shuffle.svg") no-repeat; }
+  background: transparent url("/svg-icons/shuffle.svg") no-repeat; }
 
 .mejs-controls .mejs-shuffle-button.mejs-shuffle-on button {
-  background: transparent url("../../svg-icons/shuffle-on.svg") no-repeat; }
+  background: transparent url("/svg-icons/shuffle-on.svg") no-repeat; }
 
 .mejs-controls .mejs-mute button {
-  background: transparent url("../../svg-icons/sound.svg") no-repeat; }
+  background: transparent url("/svg-icons/sound.svg") no-repeat; }
 
 .mejs-controls .mejs-unmute button {
-  background: transparent url("../../svg-icons/no-sound.svg") no-repeat; }
+  background: transparent url("/svg-icons/no-sound.svg") no-repeat; }
 
 /*================= Responsive Mode ============*/
 @media (max-width: 768px) {
@@ -15487,7 +15487,7 @@ input[type=checkbox] {
 .irs-bar,
 .irs-bar-edge,
 .irs-slider {
-  background: url(../img/sprite-skin-nice.png) repeat-x; }
+  background: url(/img/social/sprite-skin-nice.png) repeat-x; }
 
 .irs {
   height: 40px; }

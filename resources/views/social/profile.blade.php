@@ -2300,7 +2300,7 @@
 </div>
 
 <a class="back-to-top" href="#">
-    <img src="svg-icons/back-to-top.svg" alt="arrow" class="back-icon">
+    <img src="/svg-icons/back-to-top.svg" alt="arrow" class="back-icon">
 </a>
 
 <div class="ui-block popup-chat popup-chat-responsive" tabindex="-1" role="dialog" aria-labelledby="update-header-photo" aria-hidden="true">
