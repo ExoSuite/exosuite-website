@@ -11,13 +11,13 @@
                             <div class="col col-lg-5 col-md-5 col-sm-12 col-12">
                                 <ul class="profile-menu">
                                     <li>
-                                        <a href="02-ProfilePage.html" class="active">Timeline</a>
+                                        <a href="/profile" class="active">Timeline</a>
                                     </li>
                                     <li>
                                         <a href="05-ProfilePage-About.html">About</a>
                                     </li>
                                     <li>
-                                        <a href="06-ProfilePage.html">Friends</a>
+                                        <a href="/profile/friends">Friends</a>
                                     </li>
                                 </ul>
                             </div>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="top-header-author">
-                        <a href="02-ProfilePage.html" class="author-thumb">
+                        <a href="/profile" class="author-thumb">
                             <img src="/img/social/author-main1.jpg" alt="author">
                         </a>
                         <div class="author-content">
