@@ -33,7 +33,8 @@ class RegisterTest extends DuskTestCase
                 ->keys('@register_password', $password)
                 ->type('password_confirmation', $password)
                 ->press(trans('website.register'))
-                ->waitForRoute('get_profile');
+                ->storeConsoleLog("register1")
+                ->waitForRoute('get_profile')->storeConsoleLog("register2");
 
             $browser->visit(new ProfilePage());
             $browser->logout();

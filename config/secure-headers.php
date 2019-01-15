@@ -435,9 +435,11 @@ return [
 
         'style-src' => [
             'allow' => [
+                'http://fonts.googleapis.com', // Allow stylesheets from Google Fonts
                 'https://fonts.googleapis.com', // Allow stylesheets from Google Fonts
                 'https://use.fontawesome.com',
                 'http://maxcdn.bootstrapcdn.com',
+                'https://maxcdn.bootstrapcdn.com',
             ],
 
             'hashes' => [
