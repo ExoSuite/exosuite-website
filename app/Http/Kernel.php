@@ -28,6 +28,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         TrustProxies::class,
         \Bepsvpt\SecureHeaders\SecureHeadersMiddleware::class,
+        \Barryvdh\Cors\HandleCors::class,
     ];
 
     /**

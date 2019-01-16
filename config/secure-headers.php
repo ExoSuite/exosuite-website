@@ -400,7 +400,7 @@ return [
 
         'script-src' => [
             'allow' => [
-                // 'url',
+                'data:'
             ],
 
             'hashes' => [
@@ -469,6 +469,7 @@ return [
         'img-src' => [
             'allow' => [
                 '*',
+                'data:'
             ]
         ],
 

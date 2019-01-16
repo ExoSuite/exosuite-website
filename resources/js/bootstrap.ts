@@ -41,7 +41,7 @@ if (token) {
 Api.Instance.requestWebsite(HttpRequest.GET, 'token').then((response => {
     (<any>window).Echo = new Echo({
         broadcaster: 'socket.io',
-        host: process.env.MIX_API_DOMAIN + ':6001',
+        host: process.env.MIX_IO_DOMAIN,
         // @ts-ignore
         auth: {headers: {Authorization: "Bearer " + response.data.access_token}}
     });
