@@ -16,6 +16,7 @@ class HomeBrowserTest extends DuskTestCase
      */
     public function testHome()
     {
+        $this->french();
         $this->browse(function (Browser $browser) {
             $browser->visit(new HomePage());
         });
