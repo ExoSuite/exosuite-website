@@ -26,9 +26,9 @@ else
 let website : string;
 
 if (process.env.MIX_DOMAIN === 'exosuite.local')
-    website = `http://${process.env.MIX_DOMAIN}/`;
+    website = `http://${process.env.MIX_APP_DOMAIN}/`;
 else
-    website = `https://${process.env.MIX_DOMAIN}/`;
+    website = `https://${process.env.MIX_APP_DOMAIN}/`;
 
 /**
  * The default configuration for the app.

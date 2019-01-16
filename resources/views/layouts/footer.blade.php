@@ -23,4 +23,3 @@
     </div>
 </footer>
 <script src="{{ mix('/js/all.js') }}"></script>
-<script src="/js/app.js"></script>
