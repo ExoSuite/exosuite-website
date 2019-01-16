@@ -13,7 +13,7 @@ return [
     */
    
     'supportsCredentials' => false,
-    'allowedOrigins' => ['exosuite.local', '*.exosuite.local', '*.exosuite.fr'],
+    'allowedOrigins' => ['exosuite.local', '*.exosuite.local', '*.exosuite.fr', 'exosuite.fr'],
     'allowedOriginsPatterns' => [],
     'allowedHeaders' => ['*'],
     'allowedMethods' => ['*'],
