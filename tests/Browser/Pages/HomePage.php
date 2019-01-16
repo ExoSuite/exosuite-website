@@ -28,7 +28,8 @@ class HomePage extends Page
         $browser->assertGuest()
             ->assertRouteIs("get_home")
             ->waitUntilMissing('div.loader')
-            ->assertSee('ExoSuite');
+            ->assertSee('ExoSuite')
+            ->assertSee(trans('website.home.subtitle'));
     }
 
     /**

@@ -186,6 +186,7 @@ export class Api {
         else if (httpMethod === HttpRequest.GET) apiCall = this.website.get;
         else if (httpMethod === HttpRequest.PUT) apiCall = this.website.put;
 
+
         // launch api request
         // @ts-ignore
         const response: ApiResponse<any> = await apiCall(url, data);

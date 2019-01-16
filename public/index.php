@@ -7,6 +7,8 @@
  * @author   Taylor Otwell <taylor@laravel.com>
  */
 
+header('X-Powered-By: 42');
+
 define('LARAVEL_START', microtime(true));
 
 /*
