@@ -82,7 +82,7 @@ return [
     'team.title' => 'Découvrez qui nous sommes',
     'team.inno' => 'Les innovateurs',
     'team.teamTitle' => 'L\'équipe ExoSuite',
-    'team.teamDescription' => 'Nous sommes un groupe de sept étudiants de quatrième année à EPITECH, passionnés par l\'aspect créatif et technique du développement. ExoSuite est notre projet de fin d\'études qui respecte notre vocation : Concevoir un coach sportif innovant et utilisant les dernières technologies.',
+    'team.teamDescription' => 'Nous sommes un groupe de huit étudiants de quatrième année à EPITECH, passionnés par l\'aspect créatif et technique du développement. ExoSuite est notre projet de fin d\'études qui respecte notre vocation : Concevoir un coach sportif innovant et utilisant les dernières technologies.',
     'team.ericJob' => 'Chef d\'équipe',
     'team.ericDescription' => 'Passionné par le développement informatique et grand rêveur.',
     'team.dupilJob' => 'Développeur API',
