@@ -484,12 +484,8 @@ return [
         'connect-src' => [
             'self' => true,
             'allow' => [
-                'https://api.exosuite.fr:6001',
-                'http://api.exosuite.local:6001',
-                'https://api.dev.exosuite.fr:6001',
-                'ws://api.exosuite.local:6001',
-                'ws://api.exosuite.fr:6001',
-                'ws://api.dev.exosuite.fr:6001',
+                'https://io.dev.exosuite.fr',
+                'https://io.exosuite.fr',
                 strtolower(env("API_DOMAIN")) . ":6001",
                 strtolower(env('APP_URL')),
                 strtolower(env('SOCIAL_APP_DOMAIN'))
