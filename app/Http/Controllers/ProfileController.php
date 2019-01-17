@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Facades\API;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -19,7 +20,7 @@ class ProfileController extends Controller
         $access_token = session()->get('access_token');
         $response = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $access_token]);
         if ($response['profile']->birthday != null)
-            $response['profile']->birthday = \DateTime::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
+            $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
         return view('social.editprofile')->with(array('profile' => $response));
     }
 
@@ -33,7 +34,7 @@ class ProfileController extends Controller
     {
         $access_token = session()->get('access_token');
         $inputs = $request->all();
-        $inputs['birthday'] = \DateTime::createFromFormat('d/m/Y', $inputs['datetimepicker'])->format('Y-m-d');
+        $inputs['birthday'] = Carbon::createFromFormat('d/m/Y', $inputs['datetimepicker'])->format('Y-m-d');
         unset($inputs['datetimepicker']);
         if ($inputs['description'] == null)
             unset($inputs['description']);

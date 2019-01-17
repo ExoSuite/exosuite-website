@@ -182,6 +182,11 @@
                                            value="{{ $profile['profile']->city }}">
                                 </div>
 
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Your Nickname</label>
+                                    <input class="form-control" placeholder="" type="text" name="nick_name"
+                                           value="{{ $profile['nick_name']   }}">
+                                </div>
                             </div>
 
                             <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
