@@ -36,9 +36,9 @@ class ProfileController extends Controller
         $inputs = $request->all();
         $inputs['birthday'] = Carbon::createFromFormat('d/m/Y', $inputs['datetimepicker'])->format('Y-m-d');
         unset($inputs['datetimepicker']);
-        if ($inputs['description'] == null)
-            unset($inputs['description']);
+        array_filter($inputs);
         API::patch('/user/me/profile', $inputs, ['Authorization' => 'Bearer ' . $access_token]);
+        API::patch('/user/me', $inputs, ['Authorization' => 'Bearer ' . $access_token]);
         return redirect('profile/edit');
     }
 
