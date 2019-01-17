@@ -89,7 +89,7 @@ class LoginController extends Controller
         try {
             return $this->attemptLogin($request);
         } catch (ClientException $exception) {
-            dd($exception->getMessage());
+            // dd($exception->getMessage());
             // TODO: define behavior to print the error in $this->sendFailedLoginResponse($request);
         }
 
