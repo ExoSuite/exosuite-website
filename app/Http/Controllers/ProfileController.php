@@ -34,7 +34,6 @@ class ProfileController extends Controller
     {
         $access_token = session()->get('access_token');
         $inputs = $request->all();
-        $inputs['mdr'] = null;
         array_filter($inputs);
         if ($inputs['datetimepicker'] != null) {
             $inputs['birthday'] = Carbon::createFromFormat('d/m/Y', $inputs['datetimepicker'])->format('Y-m-d');
