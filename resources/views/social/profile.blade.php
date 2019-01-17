@@ -854,7 +854,7 @@
                         <li>
                             <span class="title">About Me:</span>
                             <span class="text">
-                                @if ($profile['profile']->description == null)
+                                @if ($profile['profile'] || $profile['profile']->description == null)
                                     Aucune description renseignée.
                                 @else
                                     {{ $profile['profile']->description }}
