@@ -484,9 +484,10 @@ return [
         'connect-src' => [
             'self' => true,
             'allow' => [
-                'https://io.dev.exosuite.fr',
-                'https://io.exosuite.fr',
-                strtolower(env("API_DOMAIN")) . ":6001",
+                'wss://io.exosuite.fr',
+                'wss://io.dev.exosuite.fr',
+                'ws://' . strtolower(env('MIX_IO_DOMAIN')),
+                strtolower(env('MIX_IO_DOMAIN')),
                 strtolower(env('APP_URL')),
                 strtolower(env('SOCIAL_APP_DOMAIN'))
             ]

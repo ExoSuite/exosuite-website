@@ -201,9 +201,9 @@
                     </div>
                     <a href="/" class="author-name fn">
                         <div class="author-title">
-                            James Spiegel <svg class="olymp-dropdown-arrow-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
+                            {{ $profile['first_name'] . ' ' . $profile['last_name'] }} <svg class="olymp-dropdown-arrow-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
                         </div>
-                        <span class="author-subtitle">SPACE COWBOY</span>
+                        <span class="author-subtitle">{{ $profile['nick_name'] }}</span>
                     </a>
                 </div>
             </div>
@@ -761,7 +761,7 @@
                         </div>
 
                         <form class="form-group with-button custom-status">
-                            <input class="form-control" placeholder="" type="text" value="Space Cowboy">
+                            <input class="form-control" placeholder="" type="text" value="{{ $profile['nick_name'] }}">
 
                             <button class="bg-purple">
                                 <svg class="olymp-check-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-check-icon"></use></svg>
@@ -800,9 +800,9 @@
             </div>
             <a href="/profile" class="author-name fn">
                 <div class="author-title">
-                    James Spiegel <svg class="olymp-dropdown-arrow-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
+                    {{ $profile['first_name'] . ' ' . $profile['last_name'] }} <svg class="olymp-dropdown-arrow-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
                 </div>
-                <span class="author-subtitle">SPACE COWBOY</span>
+                <span class="author-subtitle">{{ $profile['nick_name'] }}</span>
             </a>
         </div>
 

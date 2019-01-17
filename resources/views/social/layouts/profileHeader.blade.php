@@ -31,7 +31,9 @@
                                     </li>
                                     <li>
                                         <div class="more">
-                                            <svg class="olymp-three-dots-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
+                                            <svg class="olymp-three-dots-icon">
+                                                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                                            </svg>
                                             <ul class="more-dropdown more-with-triangle">
                                                 <li>
                                                     <a href="#">Report Profile</a>
@@ -48,22 +50,30 @@
 
                         <div class="control-block-button">
                             <a href="35-YourAccount-FriendsRequests.html" class="btn btn-control bg-blue">
-                                <svg class="olymp-happy-face-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
+                                <svg class="olymp-happy-face-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use>
+                                </svg>
                             </a>
 
                             <a href="#" class="btn btn-control bg-purple">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use></svg>
+                                <svg class="olymp-chat---messages-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use>
+                                </svg>
                             </a>
 
                             <div class="btn btn-control bg-primary more">
-                                <svg class="olymp-settings-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-settings-icon"></use></svg>
+                                <svg class="olymp-settings-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-settings-icon"></use>
+                                </svg>
 
                                 <ul class="more-dropdown more-with-triangle triangle-bottom-right">
                                     <li>
-                                        <a href="#" data-toggle="modal" data-target="#update-header-photo">Update Profile Photo</a>
+                                        <a href="#" data-toggle="modal" data-target="#update-header-photo">Update
+                                            Profile Photo</a>
                                     </li>
                                     <li>
-                                        <a href="#" data-toggle="modal" data-target="#update-header-photo">Update Header Photo</a>
+                                        <a href="#" data-toggle="modal" data-target="#update-header-photo">Update Header
+                                            Photo</a>
                                     </li>
                                     <li>
                                         <a href="/profile/edit">Account Settings</a>
@@ -77,8 +87,13 @@
                             <img src="/img/social/author-main1.jpg" alt="author">
                         </a>
                         <div class="author-content">
-                            <a href="/profile" class="h4 author-name">James Spiegel</a>
-                            <div class="country">San Francisco, CA</div>
+                            <a href="/profile"
+                               class="h4 author-name">{{ $profile['first_name'] . ' ' . $profile['last_name'] }}</a>
+                            <div class="country">
+                                @if ($profile['profile'])
+                                    {{ $profile['profile']->city }}
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
