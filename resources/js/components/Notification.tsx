@@ -36,7 +36,7 @@ export default class Notification extends React.Component {
         // @ts-ignore
         window.Echo.private('users.' + this.props.userId)
             .notification((notification) => {
-                toast('🦄 ' + notification.data, {
+                toast('🦄 ' + notification.data.message, {
                     position: "bottom-left",
                     autoClose: 5000,
                     hideProgressBar: false,
