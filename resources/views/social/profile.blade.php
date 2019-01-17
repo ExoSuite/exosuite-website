@@ -55,7 +55,8 @@
                             <img src="/img/social/author-page.jpg" alt="author">
 
                             <div class="author-date">
-                                <a class="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a>
+                                <a class="h6 post__author-name fn"
+                                   href="/profile">{{ $profile['first_name'] . ' ' . $profile['last_name'] }}</a>
                                 <div class="post__date">
                                     <time class="published" datetime="2017-03-24T18:18">
                                         19 hours ago
@@ -182,7 +183,7 @@
                         </div>
 
                     </article>
-             </div>
+                </div>
                 <div class="ui-block">
 
                     <!-- Post -->
@@ -193,7 +194,9 @@
                             <img src="/img/social/author-page.jpg" alt="author">
 
                             <div class="author-date">
-                                <a class="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a> shared a
+                                <a class="h6 post__author-name fn"
+                                   href="02-ProfilePage.html">{{ $profile['first_name'] . ' ' . $profile['last_name'] }}</a>
+                                shared a
                                 <a href="#">link</a>
                                 <div class="post__date">
                                     <time class="published" datetime="2017-03-24T18:18">
@@ -340,7 +343,8 @@
                             <img src="/img/social/author-page.jpg" alt="author">
 
                             <div class="author-date">
-                                <a class="h6 post__author-name fn" href="/">James Spiegel</a>
+                                <a class="h6 post__author-name fn"
+                                   href="/">{{ $profile['first_name'] . ' ' . $profile['last_name'] }}</a>
                                 <div class="post__date">
                                     <time class="published" datetime="2017-03-24T18:18">
                                         2 hours ago
@@ -677,7 +681,9 @@
                             <img src="/img/social/author-page.jpg" alt="author">
 
                             <div class="author-date">
-                                <a class="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a> shared
+                                <a class="h6 post__author-name fn"
+                                   href="02-ProfilePage.html">{{ $profile['first_name'] . ' ' . $profile['last_name'] }}</a>
+                                shared
                                 <a href="#">Diana Jameson</a>’s <a href="#">photo</a>
                                 <div class="post__date">
                                     <time class="published" datetime="2017-03-24T18:18">
@@ -847,15 +853,13 @@
                     <ul class="widget w-personal-info item-block">
                         <li>
                             <span class="title">About Me:</span>
-                            <span class="text">Hi, I’m James, I’m 36 and I work as a Digital Designer for the  “Daydreams” Agency in Pier 56.</span>
-                        </li>
-                        <li>
-                            <span class="title">Favourite TV Shows:</span>
-                            <span class="text">Breaking Good, RedDevil, People of Interest, The Running Dead, Found,  American Guy.</span>
-                        </li>
-                        <li>
-                            <span class="title">Favourite Music Bands / Artists:</span>
-                            <span class="text">Iron Maid, DC/AC, Megablow, The Ill, Kung Fighters, System of a Revenge.</span>
+                            <span class="text">
+                                @if ($profile['profile']->description == null)
+                                    Aucune description renseignée.
+                                @else
+                                    {{ $profile['profile']->description }}
+                                @endif
+                            </span>
                         </li>
                     </ul>
 
@@ -2303,15 +2307,20 @@
     <img src="/svg-icons/back-to-top.svg" alt="arrow" class="back-icon">
 </a>
 
-<div class="ui-block popup-chat popup-chat-responsive" tabindex="-1" role="dialog" aria-labelledby="update-header-photo" aria-hidden="true">
+<div class="ui-block popup-chat popup-chat-responsive" tabindex="-1" role="dialog" aria-labelledby="update-header-photo"
+     aria-hidden="true">
 
     <div class="modal-content">
         <div class="modal-header">
             <span class="icon-status online"></span>
-            <h6 class="title" >Chat</h6>
+            <h6 class="title">Chat</h6>
             <div class="more">
-                <svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
-                <svg class="olymp-little-delete js-chat-open"><use xlink:href="svg-icons/sprites/icons.svg#olymp-little-delete"></use></svg>
+                <svg class="olymp-three-dots-icon">
+                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                </svg>
+                <svg class="olymp-little-delete js-chat-open">
+                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-little-delete"></use>
+                </svg>
             </div>
         </div>
         <div class="modal-body">
@@ -2323,7 +2332,8 @@
                         </div>
                         <div class="notification-event">
                             <span class="chat-message-item">Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks</span>
-                            <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
+                            <span class="notification-date"><time class="entry-date updated"
+                                                                  datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
                         </div>
                     </li>
 
@@ -2334,7 +2344,8 @@
                         <div class="notification-event">
                             <span class="chat-message-item">Don’t worry Mathilda!</span>
                             <span class="chat-message-item">I already bought everything</span>
-                            <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:29pm</time></span>
+                            <span class="notification-date"><time class="entry-date updated"
+                                                                  datetime="2004-07-24T18:18">Yesterday at 8:29pm</time></span>
                         </div>
                     </li>
 
@@ -2344,7 +2355,8 @@
                         </div>
                         <div class="notification-event">
                             <span class="chat-message-item">Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks</span>
-                            <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
+                            <span class="notification-date"><time class="entry-date updated"
+                                                                  datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
                         </div>
                     </li>
                 </ul>
@@ -2357,11 +2369,15 @@
                     <textarea class="form-control" placeholder=""></textarea>
                     <div class="add-options-message">
                         <a href="#" class="options-message">
-                            <svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
+                            <svg class="olymp-computer-icon">
+                                <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                            </svg>
                         </a>
                         <div class="options-message smile-block">
 
-                            <svg class="olymp-happy-sticker-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-happy-sticker-icon"></use></svg>
+                            <svg class="olymp-happy-sticker-icon">
+                                <use xlink:href="svg-icons/sprites/icons.svg#olymp-happy-sticker-icon"></use>
+                            </svg>
 
                             <ul class="more-dropdown more-with-triangle triangle-bottom-right">
                                 <li>

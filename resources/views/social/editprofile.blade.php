@@ -50,9 +50,12 @@
                     <div class="card">
                         <div class="card-header" role="tab" id="headingOne-1">
                             <h6 class="mb-0">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne-1" aria-expanded="true" aria-controls="collapseOne">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne-1"
+                                   aria-expanded="true" aria-controls="collapseOne">
                                     Profile Settings
-                                    <svg class="olymp-dropdown-arrow-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
+                                    <svg class="olymp-dropdown-arrow-icon">
+                                        <use xlink:href="/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use>
+                                    </svg>
                                 </a>
                             </h6>
                         </div>
@@ -117,7 +120,8 @@
                 <div class="main-header-content">
                     <h1>Your Account Dashboard</h1>
                     <p>Welcome to your account dashboard! Here you’ll find everything you need to change your profile
-                        information, settings, read notifications and requests, view your latest messages, change your pasword and much
+                        information, settings, read notifications and requests, view your latest messages, change your
+                        pasword and much
                         more! Also you can create or manage your own favourite page, have fun!</p>
                 </div>
             </div>
@@ -138,25 +142,29 @@
 
                     <!-- Personal Information Form  -->
 
-                    <form>
+                    <form method="post" action="/profile/edit">
+                        @csrf
                         <div class="row">
 
                             <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">First Name</label>
-                                    <input class="form-control" placeholder="" type="text" value="James">
+                                    <input class="form-control" placeholder="" type="text" name="first_name"
+                                           value="{{ $profile['first_name'] }}">
                                 </div>
 
                                 <div class="form-group label-floating">
                                     <label class="control-label">Your Email</label>
-                                    <input class="form-control" placeholder="" type="email" value="jspiegel@yourmail.com">
+                                    <input class="form-control" placeholder="" type="email"
+                                           value="{{ $profile['email'] }}" disabled>
                                 </div>
 
                                 <div class="form-group date-time-picker label-floating">
                                     <label class="control-label">Your Birthday</label>
-                                    <input name="datetimepicker" value="10/24/1984" />
+                                    <input name="datetimepicker" value="{{ $profile['profile']->birthday }}"/>
                                     <span class="input-group-addon">
-															<svg class="olymp-month-calendar-icon icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-month-calendar-icon"></use></svg>
+															<svg class="olymp-month-calendar-icon icon"><use
+                                                                        xlink:href="/svg-icons/sprites/icons.svg#olymp-month-calendar-icon"></use></svg>
 														</span>
                                 </div>
                             </div>
@@ -164,52 +172,28 @@
                             <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Last Name</label>
-                                    <input class="form-control" placeholder="" type="text" value="Spiegel">
+                                    <input class="form-control" placeholder="" type="text" name="last_name"
+                                           value="{{ $profile['last_name'] }}">
                                 </div>
 
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Your Website</label>
-                                    <input class="form-control" placeholder="" type="email" value="daydreamzagency.com">
-                                </div>
-
-
-                                <div class="form-group label-floating is-empty">
-                                    <label class="control-label">Your Phone Number</label>
-                                    <input class="form-control" placeholder="" type="text">
-                                </div>
-                            </div>
-
-                            <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                                <div class="form-group label-floating is-select">
-                                    <label class="control-label">Your Country</label>
-                                    <select class="selectpicker form-control">
-                                        <option value="US">United States</option>
-                                        <option value="AU">Australia</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                                <div class="form-group label-floating is-select">
-                                    <label class="control-label">Your State / Province</label>
-                                    <select class="selectpicker form-control">
-                                        <option value="CA">California</option>
-                                        <option value="TE">Texas</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
-                                <div class="form-group label-floating is-select">
                                     <label class="control-label">Your City</label>
-                                    <select class="selectpicker form-control">
-                                        <option value="SF">San Francisco</option>
-                                        <option value="NY">New York</option>
-                                    </select>
+                                    <input class="form-control" placeholder="" type="text" name="city"
+                                           value="{{ $profile['profile']->city }}">
+                                </div>
+
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Your Nickname</label>
+                                    <input class="form-control" placeholder="" type="text" name="nick_name"
+                                           value="{{ $profile['nick_name']   }}">
                                 </div>
                             </div>
+
                             <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Write a little description about you</label>
-                                    <textarea class="form-control" placeholder="">Hi, I’m James, I’m 36 and I work as a Digital Designer for the  “Daydreams” Agency in Pier 56</textarea>
+                                    <textarea class="form-control"
+                                              placeholder="" name="description">{{ $profile['profile']->description }}</textarea>
                                 </div>
 
                                 <div class="form-group label-floating is-select">
@@ -218,35 +202,6 @@
                                         <option value="MA">Male</option>
                                         <option value="FE">Female</option>
                                     </select>
-                                </div>
-
-                                <div class="form-group label-floating is-empty">
-                                    <label class="control-label">Religious Belifs</label>
-                                    <input class="form-control" placeholder="" type="text">
-                                </div>
-                            </div>
-                            <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="form-group label-floating is-empty">
-                                    <label class="control-label">Your Birthplace</label>
-                                    <input class="form-control" placeholder="" type="text">
-                                </div>
-
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Your Occupation</label>
-                                    <input class="form-control" placeholder="" type="text" value="UI/UX Designer">
-                                </div>
-
-                                <div class="form-group label-floating is-select">
-                                    <label class="control-label">Status</label>
-                                    <select class="selectpicker form-control">
-                                        <option value="MA">Married</option>
-                                        <option value="FE">Not Married</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Political Incline</label>
-                                    <input class="form-control" placeholder="" type="text" value="Democrat">
                                 </div>
                             </div>
                             <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -295,7 +250,6 @@
             <div class="ui-block">
 
 
-
                 <!-- Your Profile  -->
 
                 <div class="your-profile">
@@ -307,9 +261,12 @@
                         <div class="card">
                             <div class="card-header" role="tab" id="headingOne">
                                 <h6 class="mb-0">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                       aria-expanded="true" aria-controls="collapseOne">
                                         Profile Settings
-                                        <svg class="olymp-dropdown-arrow-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
+                                        <svg class="olymp-dropdown-arrow-icon">
+                                            <use xlink:href="/svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use>
+                                        </svg>
                                     </a>
                                 </h6>
                             </div>
@@ -329,7 +286,8 @@
                                         <a href="31-YourAccount-HobbiesAndInterests.html">Hobbies and Interests</a>
                                     </li>
                                     <li>
-                                        <a href="32-YourAccount-EducationAndEmployement.html">Education and Employement</a>
+                                        <a href="32-YourAccount-EducationAndEmployement.html">Education and
+                                            Employement</a>
                                     </li>
                                 </ul>
                             </div>

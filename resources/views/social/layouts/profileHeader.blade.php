@@ -77,8 +77,8 @@
                             <img src="/img/social/author-main1.jpg" alt="author">
                         </a>
                         <div class="author-content">
-                            <a href="/profile" class="h4 author-name">James Spiegel</a>
-                            <div class="country">San Francisco, CA</div>
+                            <a href="/profile" class="h4 author-name">{{ $profile['first_name'] . ' ' . $profile['last_name'] }}</a>
+                            <div class="country">{{ $profile['profile']->city }}</div>
                         </div>
                     </div>
                 </div>

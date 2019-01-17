@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Facades\API;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -15,8 +17,11 @@ class ProfileController extends Controller
 
     public function editMyProfileView()
     {
-        $user = Auth::user();
-        return view('social.editprofile')->with(array('user' => $user));
+        $access_token = session()->get('access_token');
+        $response = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $access_token]);
+        if ($response['profile']->birthday != null)
+            $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
+        return view('social.editprofile')->with(array('profile' => $response));
     }
 
     public function profileView($id)
@@ -27,27 +32,14 @@ class ProfileController extends Controller
 
     public function editMyProfile(Request $request)
     {
-        $user = Auth::user();
+        $access_token = session()->get('access_token');
         $inputs = $request->all();
-        if (isset($inputs['firstname'])) {
-            $user->update(['first_name' => $inputs['firstname']]);
-        }
-        if (isset($inputs['lastname'])) {
-            $user->update(['last_name' => $inputs['lastname']]);
-        }
-        if (isset($inputs['city'])) {
-            $user->update(['city' => $inputs['city']]);
-        }
-        if (isset($inputs['birthday'])) {
-            $user->update(['birthday' => $inputs['birthday']]);
-        }
-        if (isset($inputs['about'])) {
-            $user->update(['about' => $inputs['about']]);
-        }
-        if (isset($inputs['nickname'])) {
-            $user->update(['nickname' => $inputs['nickname']]);
-        }
-        return redirect('profile');
+        $inputs['birthday'] = Carbon::createFromFormat('d/m/Y', $inputs['datetimepicker'])->format('Y-m-d');
+        unset($inputs['datetimepicker']);
+        if ($inputs['description'] == null)
+            unset($inputs['description']);
+        API::patch('/user/me/profile', $inputs, ['Authorization' => 'Bearer ' . $access_token]);
+        return redirect('profile/edit');
     }
 
     public function friendsView()
