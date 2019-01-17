@@ -185,7 +185,7 @@
                                 <div class="form-group label-floating">
                                     <label class="control-label">Your Nickname</label>
                                     <input class="form-control" placeholder="" type="text" name="nick_name"
-                                           value="{{ $profile['nick_name']   }}">
+                                           value="{{ $profile['nick_name'] }}">
                                 </div>
                             </div>
 
