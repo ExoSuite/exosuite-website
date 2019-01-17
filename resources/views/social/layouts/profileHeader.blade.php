@@ -90,7 +90,7 @@
                             <a href="/profile"
                                class="h4 author-name">{{ $profile['first_name'] . ' ' . $profile['last_name'] }}</a>
                             <div class="country">
-                                @if ($profile['profile']->city != null)
+                                @if ($profile['profile']->city)
                                     {{ $profile['profile']->city }}
                                 @endif
                             </div>
