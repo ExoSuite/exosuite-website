@@ -38,6 +38,7 @@ class ProfileController extends Controller
         unset($inputs['datetimepicker']);
         array_filter($inputs);
         API::patch('/user/me/profile', $inputs, ['Authorization' => 'Bearer ' . $access_token]);
+        API::patch('/user/me', $inputs, ['Authorization' => 'Bearer ' . $access_token]);
         return redirect('profile/edit');
     }
 
