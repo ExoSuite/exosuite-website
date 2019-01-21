@@ -118,12 +118,12 @@ abstract class DuskTestCase extends BaseTestCase
                 ->setCapability('acceptInsecureCerts', true);
 
             $driver = RemoteWebDriver::create(
-                'http://api.dev.exosuite.fr:4444/wd/hub',
+                'http://zalenium:4444/wd/hub',
                 $chrome
             );
         } else {
             $driver = RemoteWebDriver::create(
-                'http://api.dev.exosuite.fr:4444/wd/hub',
+                'http://zalenium:4444/wd/hub',
                 $this->setupCapabilities()
             );
         }
