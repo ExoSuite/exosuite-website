@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Facades\API;
 use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
-    public function myProfileView()
-    {
-        $user = Auth::user();
-        return view('profile')->with(array('user' => $user));
-    }
+    private const userFields = array(
+        "first_name", "last_name", "nick_name"
+    );
+
+    private const profileFields = array(
+      "city", "birthday", "description"
+    );
 
     public function editMyProfileView()
     {
@@ -24,23 +25,23 @@ class ProfileController extends Controller
         return view('social.editprofile')->with(array('profile' => $response));
     }
 
-    public function profileView($id)
-    {
-        $user = Auth::user();
-        return view('profile')->with(array('user' => $user, 'id' => $id));
-    }
-
     public function editMyProfile(Request $request)
     {
         $access_token = session()->get('access_token');
         $inputs = $request->all();
-        array_filter($inputs);
         if ($inputs['datetimepicker'] != null) {
             $inputs['birthday'] = Carbon::createFromFormat('d/m/Y', $inputs['datetimepicker'])->format('Y-m-d');
             unset($inputs['datetimepicker']);
         }
-        API::patch('/user/me/profile', $inputs, ['Authorization' => 'Bearer ' . $access_token]);
-        API::patch('/user/me', $inputs, ['Authorization' => 'Bearer ' . $access_token]);
+        $collection = collect($inputs)->filter();
+        $userFields = $collection->only(self::userFields);
+        $userProfile = $collection->only(self::profileFields);
+
+        if ($userFields->isNotEmpty()) {
+            API::patch('/user/me/profile', $userProfile->all(), ['Authorization' => 'Bearer ' . $access_token]);
+        }
+        if ($userProfile->isNotEmpty())
+            API::patch('/user/me', $userFields->all(), ['Authorization' => 'Bearer ' . $access_token]);
         return redirect('profile/edit');
     }
 

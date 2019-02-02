@@ -11,6 +11,7 @@ namespace App\Services;
 use App\Contracts\MakeAPIRequest;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Collection;
 
 /**
  * Class API
@@ -87,12 +88,13 @@ class API implements MakeAPIRequest
 
     /**
      * @param string $uri
-     * @param array $data
+     * @param array|Collection $data
      * @param array $headers
      * @return array
      */
-    public function patch(string $uri, array $data, array $headers = [])
+    public function patch(string $uri, $data, array $headers = [])
     {
+        if ($data instanceof Collection) $data = $data->all();
         $promise = $this->client->patchAsync($uri, ['json' => $data, 'headers' => $headers]);
         return $this->wait($promise);
     }

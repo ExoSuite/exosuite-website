@@ -13,6 +13,7 @@ use App\Services\API as APIService;
 use Illuminate\Support\Facades\Facade;
 use PeterPetrus\Auth\PassportToken;
 use RuntimeException;
+use Illuminate\Support\Collection;
 
 /**
  * Class API
@@ -20,7 +21,7 @@ use RuntimeException;
  * @method array post(string $uri, array $data, array $headers = [])
  * @method array get(string $uri, array $data = [], array $headers = [])
  * @method array put(string $uri, array $data, array $headers = [])
- * @method array patch(string $uri, array $data, array $headers = [])
+ * @method array patch(string $uri, array|Collection $data, array $headers = [])
  * @method array delete(string $uri, array $data = [], array $headers = [])
  */
 class API extends Facade

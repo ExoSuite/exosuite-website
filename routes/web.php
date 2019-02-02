@@ -54,7 +54,7 @@ Route::domain(config('social_app.domain'))->group(function () {
             Route::get('/', 'SocialController@profile')->name('get_profile');
             Route::get('/edit', 'ProfileController@editMyProfileView');
             Route::post('/edit', 'ProfileController@editMyProfile');
-            Route::get('friends', 'ProfileController@friendsView');
+            //Route::get('friends', 'ProfileController@friendsView');
         });
         Route::group(["prefix" => "user"], function () {
             Route::get('/{id}', 'ProfileController@profileView');
