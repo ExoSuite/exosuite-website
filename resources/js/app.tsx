@@ -13,3 +13,4 @@ require('./bootstrap');
  */
 require('./components/Notification');
 
+require('./components/PopupChatRoot');

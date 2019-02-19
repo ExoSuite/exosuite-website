@@ -489,7 +489,8 @@ return [
                 'ws://' . strtolower(env('MIX_IO_DOMAIN')),
                 strtolower(env('MIX_IO_DOMAIN')),
                 strtolower(env('APP_URL')),
-                strtolower(env('SOCIAL_APP_DOMAIN'))
+                strtolower(env('SOCIAL_APP_DOMAIN')),
+                strtolower(env('API_DOMAIN'))
             ]
         ],
 
