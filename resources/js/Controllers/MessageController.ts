@@ -18,7 +18,7 @@ export default class MessageController {
     async callAPIForSetMessages() {
         // @ts-ignore
         return await Api.Instance.request(HttpRequest.GET, 'group/' + this.id.concat('/message')).then((response: messagesResponse) => {
-            this.messages = response.data.reverse();
+            this.messages = response.data;
         }).catch((e) => console.log(e));
     }
 
@@ -28,14 +28,12 @@ export default class MessageController {
     }
 
     setNewMessageInListMessage(body: Object) {
-        this.callAPIForSendMessage(body).then((response) => {
-            this.pushNewMessage(response.data)
-        }).catch(e => console.log(e));
+        this.callAPIForSendMessage(body).catch(e => console.log(e));
     }
 
     @action
     pushNewMessage(newMessage) {
-        this.messages.unshift(newMessage);
+        this.messages.push(newMessage);
     }
 
     get Messages(): [] {

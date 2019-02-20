@@ -7510,14 +7510,6 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
     left: -9999px
 }
 
-#popupChatComponent > div > div > ul {
-    transform: rotate(180deg);
-}
-
-#popupChatComponent > div > div > ul > li {
-    transform: rotate(-180deg);
-}
-
 .popup-chat .add-options-message {
     position: absolute;
     right: 20px;

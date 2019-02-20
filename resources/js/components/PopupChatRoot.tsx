@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import SendMessageForm from './SendMessageForm';
 import ListMessage from './ListMessage';
 import MessageController from "../Controllers/MessageController";
+import {__delay__} from "../lib/lib";
 
 export default class PopupChatRoot extends React.Component {
     private readonly groupId: string;
@@ -22,10 +23,21 @@ export default class PopupChatRoot extends React.Component {
         this.messagesController.setNewMessageInListMessage(msg);
     }
 
+    async componentWillMount() {
+        // @ts-ignore
+        while (!window.Echo) {
+            await __delay__(100);
+        }
+        // @ts-ignore
+        window.Echo.join(`group.${this.groupId}`).listen('.NewMessage', e => {
+            this.messagesController.pushNewMessage(e);
+        });
+    }
+
     render() {
         return (
             <div className="modal-body">
-                <div className="mCustomScrollbar" id="list-message">
+                <div className="mCustomScrollbar">
                     <ListMessage messages={this.messagesController} userId={this.userId}/>
                 </div>
                 <SendMessageForm messages={this.messagesController} userId={this.userId}/>

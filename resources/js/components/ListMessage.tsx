@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {findDOMNode} from 'react-dom';
 import {observer} from "mobx-react";
-import MessageController from "../Controllers/MessageController";
 
 interface messages {
     id: string,
@@ -13,7 +12,6 @@ interface messages {
 @observer
 export default class ListMessage extends React.Component {
     private readonly userId: string;
-    private messagesEnd: any;
 
     constructor(props) {
         super(props);
@@ -29,7 +27,7 @@ export default class ListMessage extends React.Component {
         // @ts-ignore
         const messages = this.props.messages.Messages;
         return (
-            <ul className="notification-list chat-message chat-message-field" ref={(el) => { this.messagesEnd = el; }}>
+            <ul className="notification-list chat-message chat-message-field">
                 {
                     messages && messages.map((item: messages) => {
                         return (
