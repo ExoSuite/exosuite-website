@@ -45,8 +45,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="24-CommunityBadges.html">
-                        <svg class="olymp-badge-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="Community Badges"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-badge-icon"></use></svg>
+                    <a href="/achievments">
+                        <svg class="olymp-badge-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="Achievments"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-badge-icon"></use></svg>
                     </a>
                 </li>
                 <li>
@@ -123,9 +123,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="24-CommunityBadges.html">
-                        <svg class="olymp-badge-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="Community Badges"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-badge-icon"></use></svg>
-                        <span class="left-menu-title">Community Badges</span>
+                    <a href="/achievments">
+                        <svg class="olymp-badge-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="Achievements"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-badge-icon"></use></svg>
+                        <span class="left-menu-title">Achievements</span>
                     </a>
                 </li>
                 <li>
@@ -256,9 +256,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Mobile-33-YourAccount-Notifications.html">
-                        <svg class="olymp-badge-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="Community Badges"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-badge-icon"></use></svg>
-                        <span class="left-menu-title">Community Badges</span>
+                    <a href="/achievments">
+                        <svg class="olymp-badge-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="Achievments"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-badge-icon"></use></svg>
+                        <span class="left-menu-title">Achievments</span>
                     </a>
                 </li>
                 <li>

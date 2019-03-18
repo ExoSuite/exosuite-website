@@ -54,6 +54,7 @@ Route::domain(config('social_app.domain'))->group(function () {
             Route::get('/', 'SocialController@profile')->name('get_profile');
             Route::get('/edit', 'ProfileController@editMyProfileView');
             Route::post('/edit', 'ProfileController@editMyProfile');
+            Route::post('/avatar', 'ProfileController@uploadAvatar')->name('post_avatar');
             //Route::get('friends', 'ProfileController@friendsView');
         });
         Route::group(["prefix" => "user"], function () {
@@ -64,10 +65,19 @@ Route::domain(config('social_app.domain'))->group(function () {
             Route::get('/', 'UserSessionController@getUserToken');
             Route::patch('/', 'UserSessionController@setUserToken');
         });
-        Route::get('logout', 'Auth\LoginController@logout')
-            ->name('logout');
+        Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+        Route::prefix('achievments')->group(function () {
+            Route::get('/', 'SocialController@achievmentsHome');
+        });
     });
 });
+
+Route::domain(config('admin.domain'))->group(function () {
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/', 'Admin\AdminController@home')->name("get_admin");
+    });
+});
+
 
 Route::prefix('monitoring')->group(function () {
     Route::get('/alive', "Controller@alive");

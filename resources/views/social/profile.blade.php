@@ -86,10 +86,7 @@
 
                         </div>
 
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque.
+                        <p>Coucou je suis un exemple
                         </p>
 
                         <div class="post-additional-info inline-items">
@@ -1780,14 +1777,18 @@
             </div>
 
             <div class="modal-body">
-                <a href="#" class="upload-photo-item">
-                    <svg class="olymp-computer-icon">
-                        <use xlink:href="/svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
-                    </svg>
+                <form method="post" action="/profile/avatar" class="form-upload-picture" id="upload-picture-form" enctype="multipart/form-data">
+                    @csrf
+                    <div class="upload-photo-item" id="div-upload-avatar">
+                        <input type="file" name="picture" id="input-upload-avatar" class="invisible"/>
+                        <svg class="olymp-computer-icon">
+                            <use xlink:href="/svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                        </svg>
 
-                    <h6>Upload Photo</h6>
-                    <span>Browse your computer.</span>
-                </a>
+                        <h6>Upload Photo</h6>
+                        <span>Browse your computer.</span>
+                    </div>
+                </form>
 
                 <a href="#" class="upload-photo-item" data-toggle="modal" data-target="#choose-from-my-photo">
 

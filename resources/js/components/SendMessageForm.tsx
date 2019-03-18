@@ -2,10 +2,10 @@ import * as React from 'react';
 import {observer} from "mobx-react";
 
 @observer
-export default class SendMessageForm extends React.Component {
+export default class SendMessageForm extends React.Component<any, any> {
     private readonly userId: string;
     private messageInput: string;
-    private form: HTMLFormElement | undefined;
+    private form: HTMLFormElement | undefined | null;
     private jsonForSendMessage = {
         contents: ""
     };

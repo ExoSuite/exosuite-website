@@ -116,6 +116,7 @@ mix.scripts([
         'resources/js/social/ion.rangeSlider.js',
         'resources/js/social/base-init.js',
         'resources/Bootstrap/dist/js/bootstrap.bundle.js',
+        'resources/js/social/upload-avatar.js'
     ],
     'public/js/social/app.js'
 ).sourceMaps().version();

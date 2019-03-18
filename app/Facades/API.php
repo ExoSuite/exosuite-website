@@ -19,6 +19,7 @@ use Illuminate\Support\Collection;
  * Class API
  * @package App\Facades
  * @method array post(string $uri, array $data, array $headers = [])
+ * @method array postPicture(string $uri, $data, array $headers = [])
  * @method array get(string $uri, array $data = [], array $headers = [])
  * @method array put(string $uri, array $data, array $headers = [])
  * @method array patch(string $uri, array|Collection $data, array $headers = [])

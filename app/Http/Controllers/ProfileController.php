@@ -5,16 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Facades\API;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    private const userFields = array(
-        "first_name", "last_name", "nick_name"
-    );
+    private const userFields = array("first_name", "last_name", "nick_name");
 
-    private const profileFields = array(
-      "city", "birthday", "description"
-    );
+    private const profileFields = array("city", "birthday", "description");
 
     public function editMyProfileView()
     {
@@ -48,5 +45,13 @@ class ProfileController extends Controller
     public function friendsView()
     {
         return view('social.friends');
+    }
+
+    public function uploadAvatar(Request $request)
+    {
+        $access_token = session()->get('access_token');
+        $user = Auth::user()->id;
+        API::postPicture('/user/' . $user . '/picture/avatar', $request->file('picture'), ['Authorization' => 'Bearer ' . $access_token, 'Content-Type' => 'multipart/form-data']);
+        return redirect('/profile');
     }
 }

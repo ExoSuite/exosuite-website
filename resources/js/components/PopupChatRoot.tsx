@@ -4,19 +4,27 @@ import SendMessageForm from './SendMessageForm';
 import ListMessage from './ListMessage';
 import MessageController from "../Controllers/MessageController";
 import {__delay__} from "../lib/lib";
+import {observable, runInAction} from "mobx";
+import {observer} from "mobx-react";
 
-export default class PopupChatRoot extends React.Component {
-    private readonly groupId: string;
+@observer
+export default class PopupChatRoot extends React.Component<any, any> {
+
+    @observable
+    private groupId: string;
     private readonly userId: string;
-    private messagesController: MessageController;
+    private readonly messagesController: MessageController;
 
     constructor(props) {
         super(props);
-        // @ts-ignore
         this.groupId = this.props.group;
-        // @ts-ignore
         this.userId = this.props.userId;
         this.messagesController = new MessageController(this.groupId);
+        // @ts-ignore
+        window.updateGroupId = (groupId) => runInAction(() => {
+            this.groupId = groupId;
+            this.messagesController.setId(groupId);
+        })
     }
 
     sendMessage(msg) {
@@ -36,7 +44,7 @@ export default class PopupChatRoot extends React.Component {
 
     render() {
         return (
-            <div className="modal-body">
+            <div className="modal-body" key={this.groupId}>
                 <div className="mCustomScrollbar">
                     <ListMessage messages={this.messagesController} userId={this.userId}/>
                 </div>
@@ -46,8 +54,8 @@ export default class PopupChatRoot extends React.Component {
     }
 }
 
-if (document.getElementById('popupChatComponent')) {
+/*if (document.getElementById('popupChatComponent')) {
     let el = document.getElementById('popupChatComponent');
     const props = Object.assign({}, el!.dataset);
     render(<PopupChatRoot {...props}/>, el);
-}
+}*/

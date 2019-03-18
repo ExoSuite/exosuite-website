@@ -10,7 +10,7 @@ interface messages {
 }
 
 @observer
-export default class ListMessage extends React.Component {
+export default class ListMessage extends React.Component<any, any> {
     private readonly userId: string;
 
     constructor(props) {
@@ -19,17 +19,15 @@ export default class ListMessage extends React.Component {
     }
 
     async componentWillMount() {
-        // @ts-ignore
         await this.props.messages.callAPIForSetMessages();
     }
 
     render() {
-        // @ts-ignore
         const messages = this.props.messages.Messages;
         return (
             <ul className="notification-list chat-message chat-message-field">
                 {
-                    messages && messages.map((item: messages) => {
+                    messages.data && messages.map((item: messages) => {
                         return (
                             <li key={item.id}>
                                 <div

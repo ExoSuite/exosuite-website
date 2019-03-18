@@ -12,6 +12,7 @@ use App\Contracts\MakeAPIRequest;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 /**
  * Class API
@@ -48,9 +49,7 @@ class API implements MakeAPIRequest
      */
     public function __construct()
     {
-        $this->client = new Client([
-            'base_uri' => config('api.domain')
-        ]);
+        $this->client = new Client(['base_uri' => config('api.domain')]);
     }
 
     /**
@@ -76,6 +75,27 @@ class API implements MakeAPIRequest
 
     /**
      * @param string $uri
+     * @param $data
+     * @param array $headers
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function postPicture(string $uri, $data, array $headers = [])
+    {
+        $picture = fopen($data, 'r');
+        $response = $this->client->post($uri, [
+                'multipart' => [
+                    [
+                        'name' => 'picture',
+                        'contents' => $picture,
+                    ]
+                ],
+                'headers' => $headers
+            ]);
+        return $response;
+    }
+
+    /**
+     * @param string $uri
      * @param array $data
      * @param array $headers
      * @return array
@@ -94,7 +114,8 @@ class API implements MakeAPIRequest
      */
     public function patch(string $uri, $data, array $headers = [])
     {
-        if ($data instanceof Collection) $data = $data->all();
+        if ($data instanceof Collection)
+            $data = $data->all();
         $promise = $this->client->patchAsync($uri, ['json' => $data, 'headers' => $headers]);
         return $this->wait($promise);
     }

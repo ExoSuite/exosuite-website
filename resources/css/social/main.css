@@ -7510,6 +7510,14 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
     left: -9999px
 }
 
+.form-upload-picture {
+    display: inline;
+}
+
+#div-upload-avatar {
+    cursor: pointer;
+}
+
 .popup-chat .add-options-message {
     position: absolute;
     right: 20px;
