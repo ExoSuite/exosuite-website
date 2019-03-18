@@ -9,6 +9,7 @@ parameters:
         - '#Illuminate\\Database\\Query\\Builder::dynamicWhere()#'
         - "#Offset 'host' does not exist on array()#"
         - '#parameters()#'
+        - '#postPicture() expects Illuminate\Http\UploadedFile, array<Illuminate\Http\UploadedFile>|Illuminate\Http\UploadedFile|null given.#'
     paths:
         - %rootDir%/../../../app
         - %rootDir%/../../../routes

@@ -73,6 +73,7 @@ class API implements MakeAPIRequest
         return $this->wait($promise);
     }
 
+
     /**
      * @param string $uri
      * @param UploadedFile $data
