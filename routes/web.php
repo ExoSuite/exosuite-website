@@ -73,7 +73,7 @@ Route::domain(config('social_app.domain'))->group(function () {
 });
 
 Route::domain(config('admin.domain'))->group(function () {
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'admin'], function () {
         Route::get('/', 'Admin\AdminController@home')->name("get_admin");
     });
 });

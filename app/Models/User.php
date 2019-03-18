@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Webpatser\Uuid\Uuid;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Pivots\RoleUser;
 
 /**
  * Class User
@@ -44,6 +46,22 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = ['password', 'email_verified_at'];
+
+    /**
+     * Checks if the user belongs to role.
+     *
+     * @param string $roleSlug
+     * @return bool
+     */
+    public function inRole(string $roleSlug): bool
+    {
+        return $this->roles()->whereSlug(strtolower($roleSlug))->exists();
+    }
+
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class)->using(RoleUser::class);
+    }
 
     protected $connection = 'pgsql_api';
 }
