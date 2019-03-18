@@ -11,8 +11,8 @@ namespace App\Services;
 use App\Contracts\MakeAPIRequest;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 
 /**
  * Class API
@@ -75,12 +75,13 @@ class API implements MakeAPIRequest
 
     /**
      * @param string $uri
-     * @param $data
+     * @param UploadedFile $data
      * @param array $headers
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function postPicture(string $uri, $data, array $headers = [])
+    public function postPicture(string $uri, UploadedFile $data, array $headers = [])
     {
+        dd($data);
         $picture = fopen($data, 'r');
         $response = $this->client->post($uri, [
                 'multipart' => [
