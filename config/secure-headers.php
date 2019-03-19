@@ -485,11 +485,12 @@ return [
             'self' => true,
             'allow' => [
                 'wss://io.exosuite.fr',
-                'wss://io.dev.exosuite.fr',
+                'wss://io.teamexosuite.cloud',
                 'ws://' . strtolower(env('MIX_IO_DOMAIN')),
                 strtolower(env('MIX_IO_DOMAIN')),
                 strtolower(env('APP_URL')),
-                strtolower(env('SOCIAL_APP_DOMAIN'))
+                strtolower(env('SOCIAL_APP_DOMAIN')),
+                strtolower(env('API_DOMAIN'))
             ]
         ],
 
@@ -507,10 +508,10 @@ return [
         'form-action' => [
             'allow' => [
                 'https://api.exosuite.fr/',
-                'https://api.dev.exosuite.fr',
+                'https://api.teamexosuite.cloud',
                 'http://exosuite.local/',
                 'http://api.exosuite.local/',
-                'https://website.dev.exosuite.fr/',
+                'https://teamexosuite.cloud/',
                 'https://exosuite.fr/',
                 strtolower(env("APP_URL")),
                 strtolower(env('SOCIAL_APP_DOMAIN'))

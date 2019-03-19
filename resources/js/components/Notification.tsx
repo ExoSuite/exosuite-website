@@ -8,11 +8,11 @@ import {__delay__} from "../lib/lib";
 // import 'react-toastify/dist/ReactToastify.min.css';
 
 export default class Notification extends React.Component {
+    // @ts-ignore
     render(props) {
         return (
             <div>
                 <ToastContainer
-                    // @ts-ignore
                     position="bottom-left"
                     autoClose={5000}
                     hideProgressBar={false}
@@ -51,5 +51,6 @@ export default class Notification extends React.Component {
 if (document.getElementById('notif')) {
     let el = document.getElementById('notif');
     const props = Object.assign({}, el!.dataset);
+    // @ts-ignore
     render(<Notification {...props}/>, el);
 }

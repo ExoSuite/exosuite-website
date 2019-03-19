@@ -11,6 +11,8 @@ namespace App\Services;
 use App\Contracts\MakeAPIRequest;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Collection;
 
 /**
  * Class API
@@ -47,9 +49,7 @@ class API implements MakeAPIRequest
      */
     public function __construct()
     {
-        $this->client = new Client([
-            'base_uri' => config('api.domain')
-        ]);
+        $this->client = new Client(['base_uri' => config('api.domain')]);
     }
 
     /**
@@ -73,6 +73,29 @@ class API implements MakeAPIRequest
         return $this->wait($promise);
     }
 
+
+    /**
+     * @param string $uri
+     * @param UploadedFile $data
+     * @param array $headers
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function postPicture(string $uri, UploadedFile $data, array $headers = [])
+    {
+        dd($data);
+        $picture = fopen($data, 'r');
+        $response = $this->client->post($uri, [
+                'multipart' => [
+                    [
+                        'name' => 'picture',
+                        'contents' => $picture,
+                    ]
+                ],
+                'headers' => $headers
+            ]);
+        return $response;
+    }
+
     /**
      * @param string $uri
      * @param array $data
@@ -87,12 +110,14 @@ class API implements MakeAPIRequest
 
     /**
      * @param string $uri
-     * @param array $data
+     * @param array|Collection $data
      * @param array $headers
      * @return array
      */
-    public function patch(string $uri, array $data, array $headers = [])
+    public function patch(string $uri, $data, array $headers = [])
     {
+        if ($data instanceof Collection)
+            $data = $data->all();
         $promise = $this->client->patchAsync($uri, ['json' => $data, 'headers' => $headers]);
         return $this->wait($promise);
     }

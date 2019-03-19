@@ -1,11 +1,11 @@
-import { ApisauceInstance, create, ApiResponse } from "apisauce";
+import {ApisauceInstance, create, ApiResponse} from "apisauce";
 import * as https from "https";
-import jwtDecode from "jwt-decode";
-import { getGeneralApiProblem } from "./api-problem";
-import { config, DEFAULT_API_CONFIG } from "./config";
-import { HttpRequest } from "./HttpRequest";
-import { IClient, IGrantRequest, ITokenResponse } from "./ApiTypes";
-import { global } from './global';
+import * as jwt_decode from 'jwt-decode';
+import {getGeneralApiProblem} from "./api-problem";
+import {config, DEFAULT_API_CONFIG} from "./config";
+import {HttpRequest} from "./HttpRequest";
+import {IClient, IGrantRequest, ITokenResponse} from "./ApiTypes";
+import {global} from './global';
 
 
 /**
@@ -24,7 +24,7 @@ export class Api {
      */
     config: config;
 
-    private static _Instance: Api|null = null;
+    private static _Instance: Api | null = null;
 
 
     private readonly client: IClient;
@@ -62,7 +62,7 @@ export class Api {
             headers: {
                 Accept: "application/json"
             },
-            httpsAgent: new https.Agent({ keepAlive: true }), // see HTTP keep alive
+            httpsAgent: new https.Agent({keepAlive: true}), // see HTTP keep alive
             adapter: require("axios/lib/adapters/http") // define real http adapter
         });
 
@@ -72,7 +72,7 @@ export class Api {
             headers: {
                 Accept: "application/json"
             },
-            httpsAgent: new https.Agent({ keepAlive: true }), // see HTTP keep alive
+            httpsAgent: new https.Agent({keepAlive: true}), // see HTTP keep alive
             adapter: require("axios/lib/adapters/http") // define real http adapter
         });
     }
@@ -90,12 +90,18 @@ export class Api {
     }
 
     async checkToken(): Promise<ITokenResponse | boolean> {
+        if (!global.token) {
+            await Api.Instance.requestWebsite(HttpRequest.GET, 'token').then(
+                // @ts-ignore
+                response => global.token = response.data
+            ).catch(e => console.log(e));
+        }
         // get tokens from secure storage
         const credentials: ITokenResponse | boolean = global.token;
         // check if credentials match with type ITokenResponse
         if (Api.isITokenResponse(credentials)) {
             // decode token
-            const decoded = jwtDecode(credentials.access_token);
+            const decoded = jwt_decode(credentials.access_token);
             // check if token is expired
             if (decoded.expires_in <= 0) {
                 // assign refresh token to grantRequest
@@ -170,7 +176,7 @@ export class Api {
         url: string,
         data: Object = {},
         headers: Object = {}
-    ): Promise<ApiResponse<any>|null> {
+    ): Promise<ApiResponse<any> | null> {
         // set additional headers
         // @ts-ignore
         this.website.setHeaders(headers);
@@ -198,6 +204,7 @@ export class Api {
         }
 
         // return response from api
+        global.token = response.data;
         return response;
     }
 }

@@ -12,6 +12,7 @@
     "ext-json": "*",
     "albertcht/invisible-recaptcha": "^1.8",
     "barryvdh/laravel-cors": "^0.11.2",
+    "bensampo/laravel-enum": "^1.17",
     "bepsvpt/secure-headers": "^5.3",
     "doctrine/dbal": "^2.6",
     "fideloper/proxy": "^4.0",
