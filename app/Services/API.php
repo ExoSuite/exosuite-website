@@ -88,7 +88,7 @@ class API implements MakeAPIRequest
     {
         $file = new File($data->getPathname());
         $tmp_picture_path = Storage::putFile("temp_dir", $file);
-        $tmp_picture = Storage::readStream($tmp_picture_path);
+        $tmp_picture = Storage::readStream(strval($tmp_picture_path));
         $response = $this->client->post(
             $uri,
             [
@@ -102,7 +102,7 @@ class API implements MakeAPIRequest
                 'headers' => $headers
             ]
         );
-        Storage::delete($tmp_picture_path);
+        Storage::delete(strval($tmp_picture_path));
         return $response;
     }
 
