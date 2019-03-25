@@ -691,7 +691,7 @@
 
         <div class="author-page author vcard inline-items more">
             <div class="author-thumb">
-                <img alt="author" src="/img/social/author-page.jpg" class="avatar">
+                <img alt="author" src="{{ config("api.domain") }}user/{{$userId}}/picture/avatar?token={{ $pictureToken }}" class="avatar menu-avatar">
                 <span class="icon-status online"></span>
                 <div class="more-dropdown more-with-triangle">
                     <div class="mCustomScrollbar" data-mcs-theme="dark">

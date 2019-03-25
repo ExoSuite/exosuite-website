@@ -17,8 +17,9 @@ class ProfileController extends Controller
     {
         $access_token = session()->get('access_token');
         $response = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $access_token]);
-        if ($response['profile']->birthday != null)
+        if ($response['profile']->birthday != null) {
             $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
+        }
         return view('social.editprofile')->with(array('profile' => $response));
     }
 
@@ -37,8 +38,9 @@ class ProfileController extends Controller
         if ($userFields->isNotEmpty()) {
             API::patch('/user/me/profile', $userProfile->all(), ['Authorization' => 'Bearer ' . $access_token]);
         }
-        if ($userProfile->isNotEmpty())
+        if ($userProfile->isNotEmpty()) {
             API::patch('/user/me', $userFields->all(), ['Authorization' => 'Bearer ' . $access_token]);
+        }
         return redirect('profile/edit');
     }
 
@@ -51,7 +53,7 @@ class ProfileController extends Controller
     {
         $access_token = session()->get('access_token');
         $user = Auth::user()->id;
-        API::postPicture('/user/' . $user . '/picture/avatar', $request->file('picture'), ['Authorization' => 'Bearer ' . $access_token, 'Content-Type' => 'multipart/form-data']);
+        API::postPicture('/user/' . $user . '/picture/avatar', $request->file('picture'), ['Authorization' => 'Bearer ' . $access_token]);
         return redirect('/profile');
     }
 }

@@ -21,8 +21,9 @@ class CheckAdmin
 
         /** @var \App\Models\User $user */
         $user = Auth::user();
-        if (!$user->inRole(Roles::ADMINISTRATOR))
+        if (!$user->inRole(Roles::ADMINISTRATOR)) {
             abort(Response::HTTP_FORBIDDEN, 'Unauthorized action.');
+        }
         return $next($request);
     }
 }

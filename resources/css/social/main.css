@@ -21321,3 +21321,7 @@ input[type=checkbox] {
 .irs-grid-text {
     color: #99a4ac;
 }
+
+.menu-avatar {
+    height: 38px;
+}

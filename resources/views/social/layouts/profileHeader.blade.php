@@ -84,7 +84,7 @@
                     </div>
                     <div class="top-header-author">
                         <a href="/profile" class="author-thumb">
-                            <img src="/img/social/author-main1.jpg" alt="author">
+                            <img src="{{ config("api.domain") }}user/{{$userId}}/picture/avatar?token={{ $pictureToken }}" alt="author">
                         </a>
                         <div class="author-content">
                             <a href="/profile"
