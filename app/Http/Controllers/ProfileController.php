@@ -17,10 +17,13 @@ class ProfileController extends Controller
     {
         $access_token = session()->get('access_token');
         $response = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $access_token]);
+        $userId = Auth::id();
+        $pictureToken = API::post("/user/me/profile/picture/token", [], ['Authorization' => "Bearer $access_token"])['access_token'];
+        $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $access_token]);
         if ($response['profile']->birthday != null) {
             $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
         }
-        return view('social.editprofile')->with(array('profile' => $response));
+        return view('social.editprofile')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data']));
     }
 
     public function editMyProfile(Request $request)

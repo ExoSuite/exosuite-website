@@ -490,7 +490,8 @@ return [
                 strtolower(env('MIX_IO_DOMAIN')),
                 strtolower(env('APP_URL')),
                 strtolower(env('SOCIAL_APP_DOMAIN')),
-                strtolower(env('API_DOMAIN'))
+                strtolower(env('API_DOMAIN')),
+                strtolower(env('ADMIN_DOMAIN'))
             ]
         ],
 
@@ -514,7 +515,8 @@ return [
                 'https://teamexosuite.cloud/',
                 'https://exosuite.fr/',
                 strtolower(env("APP_URL")),
-                strtolower(env('SOCIAL_APP_DOMAIN'))
+                strtolower(env('SOCIAL_APP_DOMAIN')),
+                strtolower(env('ADMIN_DOMAIN'))
             ]
         ],
 
