@@ -400,7 +400,10 @@ return [
 
         'script-src' => [
             'allow' => [
-                'data:'
+                'data:',
+                'https://apis.google.com',
+                'https://www.googletagmanager.com',
+                'https://www.google-analytics.com'
             ],
 
             'hashes' => [
@@ -527,7 +530,8 @@ return [
         'frame-src' => [
             'allow' => [
                 'http://www.youtube.com/',
-                'http://player.vimeo.com/'
+                'http://player.vimeo.com/',
+                'https://content.googleapis.com/'
             ]
         ],
 

@@ -7569,7 +7569,7 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
 }
 
 .popup-chat-responsive .mCustomScrollbar {
-    overflow: hidden;
+    overflow-y: scroll !important;
     max-height: 150px;
 }
 

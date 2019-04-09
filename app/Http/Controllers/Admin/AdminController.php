@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\CreateUser;
+use App\Models\Commentary;
+use App\Models\Group;
+use App\Models\Like;
+use App\Models\Message;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Facades\API;
@@ -14,9 +18,17 @@ class AdminController extends Controller
     {
         $accessToken = session()->get('access_token');
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
-        $users = User::orderBy('created_at', "desc")->take(8)->get();
-        $pictureToken = API::post("/user/me/profile/picture/token", [], ['Authorization' => "Bearer $accessToken"])['access_token'];
-        return view('admin.admin')->with(array("profile" => $profile, "users" => $users, "pictureToken" => $pictureToken));
+        $allUser = User::all();
+        $users = $allUser->sortByDesc('created_at')->take(8);
+        $totalUsers = $allUser->count();
+        $pictureToken = session()->get('view-picture')['accessToken'];
+        $likes = Like::all()->count();
+        $commentary = Commentary::all()->count();
+        $messages = Message::all()->count();
+        $groups = Group::all()->count();
+        return view('admin.admin')->with(array("profile" => $profile, "users" => $users,
+            "pictureToken" => $pictureToken, "totalUsers" => $totalUsers, "likes" => $likes,
+            "commentary" => $commentary, "messages" => $messages, 'groups' => $groups));
     }
 
     public function allUserView()
@@ -24,7 +36,7 @@ class AdminController extends Controller
         $accessToken = session()->get('access_token');
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $users = User::all();
-        $pictureToken = API::post("/user/me/profile/picture/token", [], ['Authorization' => "Bearer $accessToken"])['access_token'];
+        $pictureToken = session()->get('view-picture')['accessToken'];
         return view('admin.listUser')->with(array("profile" => $profile, "users" => $users, "pictureToken" => $pictureToken));
     }
 
@@ -42,7 +54,7 @@ class AdminController extends Controller
         $friends = [];
         $followers = [];
         $posts = [];
-        $pictureToken = API::post("/user/me/profile/picture/token", [], ['Authorization' => "Bearer $access_token"])['access_token'];
+        $pictureToken = session()->get('view-picture')['accessToken'];
         try {
             $userProfile = API::get("/user/$userId/profile", [], ['Authorization' => 'Bearer ' . $access_token]);
             $followers = API::get("/user/$userId/follows/followers", [], ['Authorization' => "Bearer $access_token"]);
@@ -51,7 +63,6 @@ class AdminController extends Controller
         } catch (Exception $ex) {
             abort(404, 'User not found');
         }
-        return view('admin.userProfile', array("profile" => $profile, "userProfile" => $userProfile,
-            'pictureToken' => $pictureToken, 'followers' => $followers, 'friends' => $friends, 'posts' => $posts));
+        return view('admin.userProfile', array("profile" => $profile, "userProfile" => $userProfile, 'pictureToken' => $pictureToken, 'followers' => $followers, 'friends' => $friends, 'posts' => $posts));
     }
 }

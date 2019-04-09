@@ -64,6 +64,7 @@ Route::domain(config('social_app.domain'))->group(function () {
         Route::prefix("token")->group(function () {
             Route::get('/', 'UserSessionController@getUserToken');
             Route::patch('/', 'UserSessionController@setUserToken');
+            Route::get('/chat', 'UserSessionController@getChatToken');
         });
         Route::get('logout', 'Auth\LoginController@logout')->name('logout');
         Route::prefix('achievments')->group(function () {

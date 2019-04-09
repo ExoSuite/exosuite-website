@@ -1,3 +1,5 @@
+
+
 $(function () {
 
   'use strict';
@@ -112,24 +114,6 @@ $(function () {
       color    : '#f39c12',
       highlight: '#f39c12',
       label    : 'FireFox'
-    },
-    {
-      value    : 600,
-      color    : '#00c0ef',
-      highlight: '#00c0ef',
-      label    : 'Safari'
-    },
-    {
-      value    : 300,
-      color    : '#3c8dbc',
-      highlight: '#3c8dbc',
-      label    : 'Opera'
-    },
-    {
-      value    : 100,
-      color    : '#d2d6de',
-      highlight: '#d2d6de',
-      label    : 'Navigator'
     }
   ];
   var pieOptions     = {

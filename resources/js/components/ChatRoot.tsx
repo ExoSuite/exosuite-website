@@ -1,15 +1,14 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import SendMessageForm from './SendMessageForm';
-import ListMessage from './ListMessage';
+import {ListMessage} from './ListMessage';
 import MessageController from "../Controllers/MessageController";
 import {__delay__} from "../lib/lib";
 import {observable, runInAction} from "mobx";
 import {observer} from "mobx-react";
+import {SendMessage} from "./SendMessage";
 
 @observer
-export default class PopupChatRoot extends React.Component<any, any> {
-
+class ChatRoot extends React.Component<any, any> {
     @observable
     private groupId: string;
     private readonly userId: string;
@@ -27,10 +26,6 @@ export default class PopupChatRoot extends React.Component<any, any> {
         })
     }
 
-    sendMessage(msg) {
-        this.messagesController.setNewMessageInListMessage(msg);
-    }
-
     async componentWillMount() {
         // @ts-ignore
         while (!window.Echo) {
@@ -45,17 +40,18 @@ export default class PopupChatRoot extends React.Component<any, any> {
     render() {
         return (
             <div className="modal-body" key={this.groupId}>
-                <div className="mCustomScrollbar">
+                <div className="mCustomScrollbar ps ps--theme_default ps--active-y"
+                     data-ps-id="2171723f-82c0-a55c-dc0e-5633ede2f0a5" id="chatComponent">
                     <ListMessage messages={this.messagesController} userId={this.userId}/>
                 </div>
-                <SendMessageForm messages={this.messagesController} userId={this.userId}/>
+                <SendMessage messages={this.messagesController} userId={this.userId}/>
             </div>
-        );
+        )
     }
 }
 
-/*if (document.getElementById('popupChatComponent')) {
-    let el = document.getElementById('popupChatComponent');
+if (document.getElementById('chatRoot')) {
+    let el = document.getElementById('chatRoot');
     const props = Object.assign({}, el!.dataset);
-    render(<PopupChatRoot {...props}/>, el);
-}*/
+    render(<ChatRoot {...props}/>, el);
+}

@@ -1,4 +1,4 @@
-import {action, observable, runInAction} from "mobx";
+import {action, observable} from "mobx";
 import {Api} from "../Request/Api";
 import {HttpRequest} from "../Request/HttpRequest";
 
@@ -17,7 +17,7 @@ export default class MessageController {
     async callAPIForSetMessages() {
         if (this.id)
         // @ts-ignore
-            return await Api.Instance.request(HttpRequest.GET, 'group/' + this.id.concat('/message')).then((response: any) => {
+            return await Api.Instance.requestForChat(HttpRequest.GET, 'group/' + this.id.concat('/message')).then((response: any) => {
                 this.messages = response.data.data;
             }).catch((e) => console.log(e));
     }
@@ -28,7 +28,9 @@ export default class MessageController {
     }
 
     setNewMessageInListMessage(body: Object) {
-        this.callAPIForSendMessage(body).catch(e => console.log(e));
+        this.callAPIForSendMessage(body).then((response : any) => {
+            this.pushNewMessage(response.data)
+        }).catch(e => console.log(e));
     }
 
     @action

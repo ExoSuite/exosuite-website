@@ -11,17 +11,18 @@ class SocialController extends Controller
     {
         $accessToken = session()->get('access_token');
         $userId = Auth::id();
-        $pictureToken = API::post("/user/me/profile/picture/token", [], ['Authorization' => "Bearer $accessToken"])['access_token'];
+        $pictureToken = session()->get('view-picture')['accessToken'];
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return view('social.profile')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId));
+        $posts = API::get("/user/$userId/dashboard/posts", [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        return view('social.profile')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => array_reverse($posts)));
     }
 
     public function home()
     {
         $accessToken = session()->get('access_token');
         $userId = Auth::id();
-        $pictureToken = API::post("/user/me/profile/picture/token", [], ['Authorization' => "Bearer $accessToken"])['access_token'];
+        $pictureToken = session()->get('view-picture')['accessToken'];
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         return view('social.newsfeed')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId));
@@ -31,7 +32,7 @@ class SocialController extends Controller
     {
         $accessToken = session()->get('access_token');
         $userId = Auth::id();
-        $pictureToken = API::post("/user/me/profile/picture/token", [], ['Authorization' => "Bearer $accessToken"])['access_token'];
+        $pictureToken = session()->get('view-picture')['accessToken'];
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         return view('social.achievments')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId));

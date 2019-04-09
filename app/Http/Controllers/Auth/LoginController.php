@@ -56,10 +56,7 @@ class LoginController extends Controller
         $data = $request->only(['email', 'password']);
         $data = array_merge($data, API::getWebsiteCredentials());
         $response = API::post('/auth/login', $data);
-        $this->guard()->attempt(
-            $this->credentials($request),
-            $request->filled('remember')
-        );
+        $this->guard()->attempt($this->credentials($request), $request->filled('remember'));
 
         return $this->sendLoginResponse($request, $response);
     }
@@ -104,21 +101,19 @@ class LoginController extends Controller
     /**
      * Get the failed login response instance.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @throws \Illuminate\Validation\ValidationException
+     * @param \Illuminate\Http\Request $request
      * @return void
+     * @throws \Illuminate\Validation\ValidationException
      */
     protected function sendFailedLoginResponse(Request $request)
     {
-        throw ValidationException::withMessages([
-            $this->username() => [trans('auth.failed')],
-        ]);
+        throw ValidationException::withMessages([$this->username() => [trans('auth.failed')],]);
     }
 
     /**
      * Send the response after the user was authenticated.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @param array $apiData
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -126,6 +121,18 @@ class LoginController extends Controller
     {
         $request->session()->regenerate();
         session($apiData);
+        $response = API::get('/oauth/scopes', [], ['Authorization' => "Bearer " . $apiData['access_token']]);
+        $bodyForRequestAccessToken = ['name' => 'collection-tokens', 'scopes' => array()];
+        foreach ($response as $item) {
+            $bodyForRequestAccessToken['scopes'] = array($item->id);
+            session([$item->id =>
+                API::post('/oauth/personal-access-tokens', $bodyForRequestAccessToken,
+                    ['Authorization' => "Bearer " . $apiData['access_token']])]);
+        }
+        $bodyForRequestAccessToken['scopes'] = array('message', 'group');
+        session(['token-mix-message-group' =>
+            API::post('/oauth/personal-access-tokens', $bodyForRequestAccessToken,
+                ['Authorization' => "Bearer " . $apiData['access_token']])]);
         $this->clearLoginAttempts($request);
 
         if ($request->query('redirect_uri')) {
@@ -135,9 +142,7 @@ class LoginController extends Controller
             }
             return redirect()->back();
         }
-
-        return $this->authenticated($request, $this->guard()->user())
-            ?: redirect()->intended($this->redirectPath());
+        return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath());
     }
 
     protected function authenticated(Request $request, $user)
