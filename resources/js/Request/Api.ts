@@ -176,11 +176,10 @@ export class Api {
         headers: Object = {},
         requireAuth: boolean = true
     ): Promise<ApiResponse<any>> {
-
         if (requireAuth) {
             const token: ITokenResponse | boolean = await this.checkToken();
             if (Api.isITokenResponse(token) && token.access_token) {
-                headers["Authorization"] = "Bearer " + global.token;
+                headers["Authorization"] = "Bearer " + token.access_token;
             } else {
                 throw new Error("Required API authentication but access_token was undefined!");
             }

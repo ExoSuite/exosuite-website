@@ -130,7 +130,7 @@
                                     @foreach($users as $user)
                                         <tr>
                                             <td>
-                                                <img src="{{ config("api.domain") }}user/{{$user->id}}/picture/avatar?token={{ $pictureToken }}"
+                                                <img src="{{ config("api.domain") }}user/{{$user->id}}/profile/picture/avatar?token={{ $pictureToken }}"
                                                      alt="Avatar" class="img-lg avatar-admin">
                                                 <a href={{ "/users/$user->id" }}
                                                    class="user-link">{{ "$user->first_name $user->last_name" }}</a>

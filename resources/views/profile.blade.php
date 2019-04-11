@@ -5,7 +5,6 @@
       content="Profil"/>
 @endhead
 <body>
-<div id="notif" data-user-id="{{Auth::id()}}"></div>
 <div class="container emp-profile">
     <form method="post">
 

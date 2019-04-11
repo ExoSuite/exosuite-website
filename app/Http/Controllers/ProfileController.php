@@ -55,8 +55,7 @@ class ProfileController extends Controller
     public function uploadAvatar(Request $request)
     {
         $access_token = session()->get('access_token');
-        $user = Auth::user()->id;
-        API::postPicture('/user/' . $user . '/picture/avatar', $request->file('picture'), ['Authorization' => 'Bearer ' . $access_token]);
+        API::postPicture("/user/me/profile/picture/avatar", $request->file('picture'), ['Authorization' => "Bearer $access_token"]);
         return redirect('/profile');
     }
 }

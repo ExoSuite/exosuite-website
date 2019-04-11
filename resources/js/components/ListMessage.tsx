@@ -19,6 +19,12 @@ export class ListMessage extends React.Component<any, any> {
 
     async componentWillMount() {
         await this.props.messages.callAPIForSetMessages();
+        if (this.props.groupId !== "") {
+            // @ts-ignore
+            window.Echo.join(`group.${this.props.groupId}`).listen('.NewMessage', e => {
+                this.props.messages.pushNewMessage(e);
+            });
+        }
     }
 
     render() {

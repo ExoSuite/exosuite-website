@@ -60,7 +60,7 @@
                     <div class="box box-primary">
                         <div class="box-body box-profile">
                             <img class="profile-user-img img-responsive img-circle"
-                                 src="{{ config("api.domain") }}user/{{$userProfile["id"]}}/picture/avatar?token={{ $pictureToken }}"
+                                 src="{{ config("api.domain") }}user/{{$userProfile['id']}}/profile/picture/avatar?token={{ $pictureToken }}"
                                  alt="User profile picture">
 
                             <h3 class="profile-username text-center">{{ $userProfile["first_name"] . " " . $userProfile["last_name"] }}</h3>

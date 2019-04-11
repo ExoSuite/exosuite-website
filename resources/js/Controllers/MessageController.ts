@@ -24,13 +24,11 @@ export default class MessageController {
 
     async callAPIForSendMessage(body: Object) {
         // @ts-ignore
-        return await Api.Instance.request(HttpRequest.POST, 'group/' + this.id.concat('/message'), body);
+        return await Api.Instance.requestForChat(HttpRequest.POST, 'group/' + this.id.concat('/message'), body);
     }
 
     setNewMessageInListMessage(body: Object) {
-        this.callAPIForSendMessage(body).then((response : any) => {
-            this.pushNewMessage(response.data)
-        }).catch(e => console.log(e));
+        this.callAPIForSendMessage(body).catch(e => console.log(e));
     }
 
     @action

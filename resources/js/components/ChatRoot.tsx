@@ -6,6 +6,8 @@ import {__delay__} from "../lib/lib";
 import {observable, runInAction} from "mobx";
 import {observer} from "mobx-react";
 import {SendMessage} from "./SendMessage";
+import {Api} from "../Request/Api";
+import {HttpRequest} from "../Request/HttpRequest";
 
 @observer
 class ChatRoot extends React.Component<any, any> {
@@ -13,6 +15,7 @@ class ChatRoot extends React.Component<any, any> {
     private groupId: string;
     private readonly userId: string;
     private readonly messagesController: MessageController;
+    private groups;
 
     constructor(props) {
         super(props);
@@ -31,10 +34,9 @@ class ChatRoot extends React.Component<any, any> {
         while (!window.Echo) {
             await __delay__(100);
         }
-        // @ts-ignore
-        window.Echo.join(`group.${this.groupId}`).listen('.NewMessage', e => {
-            this.messagesController.pushNewMessage(e);
-        });
+        /*await Api.Instance.request(HttpRequest.GET, 'user/me/groups').then((response: any) => {
+           this.groups = response.data.data;
+        });*/
     }
 
     render() {
@@ -42,7 +44,7 @@ class ChatRoot extends React.Component<any, any> {
             <div className="modal-body" key={this.groupId}>
                 <div className="mCustomScrollbar ps ps--theme_default ps--active-y"
                      data-ps-id="2171723f-82c0-a55c-dc0e-5633ede2f0a5" id="chatComponent">
-                    <ListMessage messages={this.messagesController} userId={this.userId}/>
+                    <ListMessage messages={this.messagesController} userId={this.userId} groupId={this.groupId}/>
                 </div>
                 <SendMessage messages={this.messagesController} userId={this.userId}/>
             </div>

@@ -52,7 +52,7 @@
                         <article class="hentry post">
 
                             <div class="post__author author vcard inline-items">
-                                <img src="{{ config("api.domain") }}user/{{$userId}}/picture/avatar?token={{ $pictureToken }}"
+                                <img src="{{ config("api.domain") }}user/{{$post->author_id}}/profile/picture/avatar?token={{ $pictureToken }}"
                                      alt="author">
 
                                 <div class="author-date">

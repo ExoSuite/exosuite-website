@@ -7573,6 +7573,10 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
     max-height: 150px;
 }
 
+.profilePicture {
+    height: 120px
+}
+
 .popup-chat-responsive.open-chat {
     bottom: auto;
     top: 0;

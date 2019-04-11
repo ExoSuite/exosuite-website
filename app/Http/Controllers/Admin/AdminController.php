@@ -18,17 +18,14 @@ class AdminController extends Controller
     {
         $accessToken = session()->get('access_token');
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
-        $allUser = User::all();
-        $users = $allUser->sortByDesc('created_at')->take(8);
-        $totalUsers = $allUser->count();
+        $users = User::orderBy('created_at', 'desc')->take(8)->get();
+        $totalUsers = User::count();
         $pictureToken = session()->get('view-picture')['accessToken'];
-        $likes = Like::all()->count();
-        $commentary = Commentary::all()->count();
-        $messages = Message::all()->count();
-        $groups = Group::all()->count();
-        return view('admin.admin')->with(array("profile" => $profile, "users" => $users,
-            "pictureToken" => $pictureToken, "totalUsers" => $totalUsers, "likes" => $likes,
-            "commentary" => $commentary, "messages" => $messages, 'groups' => $groups));
+        $likes = Like::count();
+        $commentary = Commentary::count();
+        $messages = Message::count();
+        $groups = Group::count();
+        return view('admin.admin')->with(array("profile" => $profile, "users" => $users, "pictureToken" => $pictureToken, "totalUsers" => $totalUsers, "likes" => $likes, "commentary" => $commentary, "messages" => $messages, 'groups' => $groups));
     }
 
     public function allUserView()
@@ -50,19 +47,11 @@ class AdminController extends Controller
     {
         $access_token = session()->get('access_token');
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $access_token]);
-        $userProfile = [];
-        $friends = [];
-        $followers = [];
-        $posts = [];
         $pictureToken = session()->get('view-picture')['accessToken'];
-        try {
-            $userProfile = API::get("/user/$userId/profile", [], ['Authorization' => 'Bearer ' . $access_token]);
-            $followers = API::get("/user/$userId/follows/followers", [], ['Authorization' => "Bearer $access_token"]);
-            $friends = API::get("/user/$userId/friendship", [], ['Authorization' => "Bearer $access_token"]);
-            $posts = API::get("/user/$userId/dashboard/posts", [], ['Authorization' => 'Bearer ' . $access_token])['data'];
-        } catch (Exception $ex) {
-            abort(404, 'User not found');
-        }
+        $userProfile = API::get("/user/$userId/profile", [], ['Authorization' => 'Bearer ' . $access_token]);
+        $followers = API::get("/user/$userId/follows/followers", [], ['Authorization' => "Bearer $access_token"]);
+        $friends = API::get("/user/$userId/friendship", [], ['Authorization' => "Bearer $access_token"]);
+        $posts = API::get("/user/$userId/dashboard/posts", [], ['Authorization' => 'Bearer ' . $access_token])['data'];
         return view('admin.userProfile', array("profile" => $profile, "userProfile" => $userProfile, 'pictureToken' => $pictureToken, 'followers' => $followers, 'friends' => $friends, 'posts' => $posts));
     }
 }

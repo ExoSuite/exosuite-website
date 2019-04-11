@@ -341,7 +341,7 @@
                                     <ul class="users-list clearfix">
                                         @foreach($users as $user)
                                             <li>
-                                                <img src="{{ config("api.domain") }}user/{{$user["id"]}}/picture/avatar?token={{ $pictureToken }}"
+                                                <img src="{{ config("api.domain") }}user/{{$user->id}}/profile/picture/avatar?token={{ $pictureToken }}"
                                                      alt="User Image">
                                                 <a class="users-list-name"
                                                    href={{ "/users/$user->id" }}>{{ $user->first_name . " " . $user->last_name }}</a>
