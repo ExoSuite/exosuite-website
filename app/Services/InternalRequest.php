@@ -58,8 +58,7 @@ class InternalRequest implements MakesInternalRequests
         array $data = [],
         array $headers = [],
         int $statusCode = Response::HTTP_OK
-    )
-    {
+    ) {
         $base_headers = [
             'Accept' => 'application/json',
             'Content-Type' => 'application/json'

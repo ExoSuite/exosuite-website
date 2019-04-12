@@ -90,7 +90,7 @@ export class Api {
     }
 
     async checkToken(): Promise<ITokenResponse | boolean> {
-        if (!global.token) {
+        if (!global.token || !global.chatToken) {
             await Api.Instance.requestWebsite(HttpRequest.GET, 'token').then(
                 // @ts-ignore
                 response => global.token = response.data
@@ -125,7 +125,7 @@ export class Api {
         }
     }
 
-    async request(
+    async requestForChat(
         httpMethod: HttpRequest,
         url: string,
         data: Object = {},
@@ -133,6 +133,49 @@ export class Api {
         requireAuth: boolean = true
     ): Promise<ApiResponse<any>> {
 
+        if (requireAuth) {
+            await Api.Instance.requestWebsite(HttpRequest.GET, 'token/chat').then(
+                // @ts-ignore
+                response => global.chatToken = response.data.accessToken
+            ).catch(e => console.log(e));
+            headers["Authorization"] = "Bearer " + global.chatToken;
+        }
+
+        // set additional headers
+        // @ts-ignore
+        this.apisauce.setHeaders(headers);
+
+        let apiCall: ApisauceInstance["delete"] | ApisauceInstance["post"]
+            | ApisauceInstance["put"] | ApisauceInstance["patch"]
+            | ApisauceInstance["get"];
+
+        // choose method to use GET/POST/PUT/PATCH/DELETE
+        if (httpMethod === HttpRequest.DELETE) apiCall = this.apisauce.delete;
+        else if (httpMethod === HttpRequest.POST) apiCall = this.apisauce.post;
+        else if (httpMethod === HttpRequest.PATCH) apiCall = this.apisauce.patch;
+        else if (httpMethod === HttpRequest.GET) apiCall = this.apisauce.get;
+        else if (httpMethod === HttpRequest.PUT) apiCall = this.apisauce.put;
+
+        // launch api request
+        // @ts-ignore
+        const response: ApiResponse<any> = await apiCall(url, data);
+
+        // the typical ways to die when calling an api fails
+        if (!response.ok) {
+            const problem = getGeneralApiProblem(response);
+            throw new Error(problem ? problem.kind : "Request was canceled");
+        }
+        // return response from api
+        return response;
+    }
+
+    async request(
+        httpMethod: HttpRequest,
+        url: string,
+        data: Object = {},
+        headers: Object = {},
+        requireAuth: boolean = true
+    ): Promise<ApiResponse<any>> {
         if (requireAuth) {
             const token: ITokenResponse | boolean = await this.checkToken();
             if (Api.isITokenResponse(token) && token.access_token) {
@@ -166,7 +209,6 @@ export class Api {
             const problem = getGeneralApiProblem(response);
             throw new Error(problem ? problem.kind : "Request was canceled");
         }
-
         // return response from api
         return response;
     }

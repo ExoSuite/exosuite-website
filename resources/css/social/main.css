@@ -7569,8 +7569,12 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
 }
 
 .popup-chat-responsive .mCustomScrollbar {
-    overflow: hidden;
+    overflow-y: scroll !important;
     max-height: 150px;
+}
+
+.profilePicture {
+    height: 120px
 }
 
 .popup-chat-responsive.open-chat {
@@ -21320,4 +21324,8 @@ input[type=checkbox] {
 
 .irs-grid-text {
     color: #99a4ac;
+}
+
+.menu-avatar {
+    height: 38px;
 }

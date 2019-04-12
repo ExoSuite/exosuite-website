@@ -64,6 +64,7 @@ Route::domain(config('social_app.domain'))->group(function () {
         Route::prefix("token")->group(function () {
             Route::get('/', 'UserSessionController@getUserToken');
             Route::patch('/', 'UserSessionController@setUserToken');
+            Route::get('/chat', 'UserSessionController@getChatToken');
         });
         Route::get('logout', 'Auth\LoginController@logout')->name('logout');
         Route::prefix('achievments')->group(function () {
@@ -75,6 +76,13 @@ Route::domain(config('social_app.domain'))->group(function () {
 Route::domain(config('admin.domain'))->group(function () {
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/', 'Admin\AdminController@home')->name("get_admin");
+        Route::prefix('users')->group(function () {
+            Route::get('/', 'Admin\AdminController@allUserView')->name("get_users");
+            Route::post('/', 'Admin\AdminController@createUser')->name("post_users");
+            Route::prefix('{user}')->group(function () {
+                Route::get('/', 'Admin\AdminController@userProfile')->name('get_userprofile');
+            });
+        });
     });
 });
 

@@ -400,7 +400,10 @@ return [
 
         'script-src' => [
             'allow' => [
-                'data:'
+                'data:',
+                'https://apis.google.com',
+                'https://www.googletagmanager.com',
+                'https://www.google-analytics.com'
             ],
 
             'hashes' => [
@@ -490,7 +493,8 @@ return [
                 strtolower(env('MIX_IO_DOMAIN')),
                 strtolower(env('APP_URL')),
                 strtolower(env('SOCIAL_APP_DOMAIN')),
-                strtolower(env('API_DOMAIN'))
+                strtolower(env('API_DOMAIN')),
+                strtolower(env('ADMIN_DOMAIN'))
             ]
         ],
 
@@ -514,7 +518,8 @@ return [
                 'https://teamexosuite.cloud/',
                 'https://exosuite.fr/',
                 strtolower(env("APP_URL")),
-                strtolower(env('SOCIAL_APP_DOMAIN'))
+                strtolower(env('SOCIAL_APP_DOMAIN')),
+                strtolower(env('ADMIN_DOMAIN'))
             ]
         ],
 
@@ -525,7 +530,8 @@ return [
         'frame-src' => [
             'allow' => [
                 'http://www.youtube.com/',
-                'http://player.vimeo.com/'
+                'http://player.vimeo.com/',
+                'https://content.googleapis.com/'
             ]
         ],
 

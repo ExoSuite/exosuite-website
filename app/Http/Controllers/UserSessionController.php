@@ -23,4 +23,9 @@ class UserSessionController extends Controller
     {
         session($request->validated());
     }
+
+    public function getChatToken()
+    {
+        return session()->get('token-mix-message-group');
+    }
 }

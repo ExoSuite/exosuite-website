@@ -38,11 +38,10 @@ if (token) {
 
 (<any>window).io = require('socket.io-client');
 
-Api.Instance.requestWebsite(HttpRequest.GET, 'token').then((response => {
-    (<any>window).Echo = new Echo({
-        broadcaster: 'socket.io',
-        host: process.env.MIX_IO_DOMAIN,
-        // @ts-ignore
-        auth: {headers: {Authorization: "Bearer " + response.data.access_token}}
-    });
-})).catch(() => null);
+// @ts-ignore
+(<any>window).Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: process.env.MIX_IO_DOMAIN,
+    // @ts-ignore
+    auth: {headers: {Authorization: "Bearer " + document.getElementById('io-token').getAttribute('content')}}
+});

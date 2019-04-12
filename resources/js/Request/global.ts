@@ -1,3 +1,4 @@
 export class global {
-  static token;
+    static token;
+    static chatToken;
 }

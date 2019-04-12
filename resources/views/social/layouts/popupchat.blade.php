@@ -14,6 +14,6 @@
                 </svg>
             </div>
         </div>
-        <div id="popupChatComponent" data-group="864f4da0-296c-11e9-8232-657f3a7e96d9" data-user-id="{{Auth::id()}}"></div>
+        <div id="chatRoot" data-group="" data-user-id="{{Auth::id()}}"></div>
     </div>
 </div>

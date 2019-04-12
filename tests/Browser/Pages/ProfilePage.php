@@ -38,9 +38,9 @@ class ProfilePage extends Page
             ->assertVisible("div.profile-section")
             ->assertAuthenticated();
 
-        if ($this->user)
+        if ($this->user) {
             $browser->assertAuthenticatedAs($this->user);
-
+        }
     }
 
     /**
