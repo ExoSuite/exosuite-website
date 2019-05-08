@@ -403,7 +403,9 @@ return [
                 'data:',
                 'https://apis.google.com',
                 'https://www.googletagmanager.com',
-                'https://www.google-analytics.com'
+                'https://www.google-analytics.com',
+                'https://www.google.com/recaptcha/api.js',
+                'https://www.gstatic.com/recaptcha/api2/v1555968629716/recaptcha__fr.js'
             ],
 
             'hashes' => [
@@ -531,7 +533,8 @@ return [
             'allow' => [
                 'http://www.youtube.com/',
                 'http://player.vimeo.com/',
-                'https://content.googleapis.com/'
+                'https://content.googleapis.com/',
+                'https://www.google.com/'
             ]
         ],
 
