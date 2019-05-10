@@ -117,7 +117,7 @@ class API implements MakeAPIRequest
      */
     public function delete(string $uri, array $data = [], array $headers = [])
     {
-        $promise = $this->client->putAsync($uri, ['query' => $data, 'headers' => $headers]);
+        $promise = $this->client->deleteAsync($uri, ['query' => $data, 'headers' => $headers]);
         return $this->wait($promise);
     }
 }

@@ -49,7 +49,11 @@ Route::domain(Parser::getDomain())->group(function () {
 
 Route::domain(config('social_app.domain'))->group(function () {
     Route::group(['middleware' => 'auth'], function () {
+        Route::post('/addpost', 'ProfileController@addpostView');
+        Route::post('/editpost', 'ProfileController@updatepostView');
+        Route::post('/getAllPost', 'ProfileController@getpostfromdashboard');
         Route::get('/', 'SocialController@home')->name('get_newsfeed');
+        Route::get('/deletepost/{id}', 'ProfileController@deletepostView');
         Route::group(["prefix" => "profile"], function () {
             Route::get('/', 'SocialController@profile')->name('get_profile');
             Route::get('/edit', 'ProfileController@editMyProfileView');
