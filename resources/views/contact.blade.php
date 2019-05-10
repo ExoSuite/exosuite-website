@@ -2,6 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 @head()
 <meta name="description" content="Vous avez une idée, une suggestion ? Vous pouvez nous envoyer un message depuis cette page web."/>
+{!! NoCaptcha::renderJs() !!}
 @endhead
 <body>
 @include('layouts.menu')
@@ -63,12 +64,10 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 text-center">
+                                {!! NoCaptcha::display() !!}
                                 <button type="submit" class="button defaulthole">@lang('website.contact.send')</button>
                             </div>
                         </div>
-                        @if (\App::environment("production"))
-                            @captcha
-                        @endif
                     </form>
                 </div>
             </div>

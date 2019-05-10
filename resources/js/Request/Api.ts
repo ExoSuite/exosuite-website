@@ -1,11 +1,11 @@
-import { ApisauceInstance, create, ApiResponse } from "apisauce";
+import {ApisauceInstance, create, ApiResponse} from "apisauce";
 import * as https from "https";
-import jwtDecode from "jwt-decode";
-import { getGeneralApiProblem } from "./api-problem";
-import { config, DEFAULT_API_CONFIG } from "./config";
-import { HttpRequest } from "./HttpRequest";
-import { IClient, IGrantRequest, ITokenResponse } from "./ApiTypes";
-import { global } from './global';
+import * as jwt_decode from 'jwt-decode';
+import {getGeneralApiProblem} from "./api-problem";
+import {config, DEFAULT_API_CONFIG} from "./config";
+import {HttpRequest} from "./HttpRequest";
+import {IClient, IGrantRequest, ITokenResponse} from "./ApiTypes";
+import {global} from './global';
 
 
 /**
@@ -24,7 +24,7 @@ export class Api {
      */
     config: config;
 
-    private static _Instance: Api|null = null;
+    private static _Instance: Api | null = null;
 
 
     private readonly client: IClient;
@@ -62,7 +62,7 @@ export class Api {
             headers: {
                 Accept: "application/json"
             },
-            httpsAgent: new https.Agent({ keepAlive: true }), // see HTTP keep alive
+            httpsAgent: new https.Agent({keepAlive: true}), // see HTTP keep alive
             adapter: require("axios/lib/adapters/http") // define real http adapter
         });
 
@@ -72,7 +72,7 @@ export class Api {
             headers: {
                 Accept: "application/json"
             },
-            httpsAgent: new https.Agent({ keepAlive: true }), // see HTTP keep alive
+            httpsAgent: new https.Agent({keepAlive: true}), // see HTTP keep alive
             adapter: require("axios/lib/adapters/http") // define real http adapter
         });
     }
@@ -90,12 +90,18 @@ export class Api {
     }
 
     async checkToken(): Promise<ITokenResponse | boolean> {
+        if (!global.token || !global.chatToken) {
+            await Api.Instance.requestWebsite(HttpRequest.GET, 'token').then(
+                // @ts-ignore
+                response => global.token = response.data
+            ).catch(e => console.log(e));
+        }
         // get tokens from secure storage
         const credentials: ITokenResponse | boolean = global.token;
         // check if credentials match with type ITokenResponse
         if (Api.isITokenResponse(credentials)) {
             // decode token
-            const decoded = jwtDecode(credentials.access_token);
+            const decoded = jwt_decode(credentials.access_token);
             // check if token is expired
             if (decoded.expires_in <= 0) {
                 // assign refresh token to grantRequest
@@ -119,7 +125,7 @@ export class Api {
         }
     }
 
-    async request(
+    async requestForChat(
         httpMethod: HttpRequest,
         url: string,
         data: Object = {},
@@ -127,6 +133,49 @@ export class Api {
         requireAuth: boolean = true
     ): Promise<ApiResponse<any>> {
 
+        if (requireAuth) {
+            await Api.Instance.requestWebsite(HttpRequest.GET, 'token/chat').then(
+                // @ts-ignore
+                response => global.chatToken = response.data.accessToken
+            ).catch(e => console.log(e));
+            headers["Authorization"] = "Bearer " + global.chatToken;
+        }
+
+        // set additional headers
+        // @ts-ignore
+        this.apisauce.setHeaders(headers);
+
+        let apiCall: ApisauceInstance["delete"] | ApisauceInstance["post"]
+            | ApisauceInstance["put"] | ApisauceInstance["patch"]
+            | ApisauceInstance["get"];
+
+        // choose method to use GET/POST/PUT/PATCH/DELETE
+        if (httpMethod === HttpRequest.DELETE) apiCall = this.apisauce.delete;
+        else if (httpMethod === HttpRequest.POST) apiCall = this.apisauce.post;
+        else if (httpMethod === HttpRequest.PATCH) apiCall = this.apisauce.patch;
+        else if (httpMethod === HttpRequest.GET) apiCall = this.apisauce.get;
+        else if (httpMethod === HttpRequest.PUT) apiCall = this.apisauce.put;
+
+        // launch api request
+        // @ts-ignore
+        const response: ApiResponse<any> = await apiCall(url, data);
+
+        // the typical ways to die when calling an api fails
+        if (!response.ok) {
+            const problem = getGeneralApiProblem(response);
+            throw new Error(problem ? problem.kind : "Request was canceled");
+        }
+        // return response from api
+        return response;
+    }
+
+    async request(
+        httpMethod: HttpRequest,
+        url: string,
+        data: Object = {},
+        headers: Object = {},
+        requireAuth: boolean = true
+    ): Promise<ApiResponse<any>> {
         if (requireAuth) {
             const token: ITokenResponse | boolean = await this.checkToken();
             if (Api.isITokenResponse(token) && token.access_token) {
@@ -160,7 +209,6 @@ export class Api {
             const problem = getGeneralApiProblem(response);
             throw new Error(problem ? problem.kind : "Request was canceled");
         }
-
         // return response from api
         return response;
     }
@@ -170,7 +218,7 @@ export class Api {
         url: string,
         data: Object = {},
         headers: Object = {}
-    ): Promise<ApiResponse<any>|null> {
+    ): Promise<ApiResponse<any> | null> {
         // set additional headers
         // @ts-ignore
         this.website.setHeaders(headers);
@@ -198,6 +246,7 @@ export class Api {
         }
 
         // return response from api
+        global.token = response.data;
         return response;
     }
 }

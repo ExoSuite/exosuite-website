@@ -9,6 +9,8 @@
 namespace App\Contracts;
 
 
+use Illuminate\Support\Collection;
+
 /**
  * Interface MakeAPIRequest
  * @package App\Contracts
@@ -39,11 +41,11 @@ interface MakeAPIRequest
 
     /**
      * @param string $uri
-     * @param array $data
+     * @param array|Collection $data
      * @param array $headers
      * @return array
      */
-    public function patch(string $uri, array $data, array $headers = []);
+    public function patch(string $uri, $data, array $headers = []);
 
     /**
      * @param string $uri

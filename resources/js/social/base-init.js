@@ -343,6 +343,20 @@ var CRUMINA = {};
 			.addTo(controller);
 	};
 
+	CRUMINA.perfectScrollbarInit = function () {
+		var $chatContainer = $('.popup-chat-responsive .mCustomScrollbar');
+		var $containers = $('.mCustomScrollbar');
+
+		$containers.perfectScrollbar({wheelPropagation:false});
+
+		if(!$chatContainer.length){
+			return;
+		}
+
+		$chatContainer.scrollTop( $chatContainer.prop( "scrollHeight" ) );
+		$chatContainer.perfectScrollbar('update');
+	};
+
 
 	/* -----------------------------
 	 * On DOM ready functions
@@ -352,6 +366,7 @@ var CRUMINA = {};
 
 		CRUMINA.preloader();
 
+		CRUMINA.perfectScrollbarInit();
 
 		// Row background animation
 		if ($('.call-to-action-animation').length) {
@@ -385,7 +400,6 @@ var CRUMINA = {};
             });
         }
 
-        $('.mCustomScrollbar').perfectScrollbar({wheelPropagation:false});
 
 	});
 })(jQuery);
@@ -511,12 +525,12 @@ $(document).ready(function () {
 			labelField: 'name',
 			searchField: ['name'],
 			options: [
-				{image: '/img/social/avatar30-sm.jpg', name: 'Marie Claire Stevens', message:'12 Friends in Common', icon:'olymp-happy-face-icon'},
-				{image: '/img/social/avatar54-sm.jpg', name: 'Marie Davidson', message:'4 Friends in Common', icon:'olymp-happy-face-icon'},
-				{image: '/img/social/avatar49-sm.jpg', name: 'Marina Polson', message:'Mutual Friend: Mathilda Brinker', icon:'olymp-happy-face-icon'},
-				{image: '/img/social/avatar36-sm.jpg', name: 'Ann Marie Gibson', message:'New York, NY', icon:'olymp-happy-face-icon'},
-				{image: '/img/social/avatar22-sm.jpg', name: 'Dave Marinara', message:'8 Friends in Common', icon:'olymp-happy-face-icon'},
-				{image: '/img/social/avatar41-sm.jpg', name: 'The Marina Bar', message:'Restaurant / Bar', icon:'olymp-star-icon'}
+				{image: 'img/avatar30-sm.jpg', name: 'Marie Claire Stevens', message:'12 Friends in Common', icon:'olymp-happy-face-icon'},
+				{image: 'img/avatar54-sm.jpg', name: 'Marie Davidson', message:'4 Friends in Common', icon:'olymp-happy-face-icon'},
+				{image: 'img/avatar49-sm.jpg', name: 'Marina Polson', message:'Mutual Friend: Mathilda Brinker', icon:'olymp-happy-face-icon'},
+				{image: 'img/avatar36-sm.jpg', name: 'Ann Marie Gibson', message:'New York, NY', icon:'olymp-happy-face-icon'},
+				{image: 'img/avatar22-sm.jpg', name: 'Dave Marinara', message:'8 Friends in Common', icon:'olymp-happy-face-icon'},
+				{image: 'img/avatar41-sm.jpg', name: 'The Marina Bar', message:'Restaurant / Bar', icon:'olymp-star-icon'}
 			],
 			render: {
 				option: function(item, escape) {

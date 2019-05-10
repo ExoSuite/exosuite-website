@@ -11,6 +11,12 @@ namespace App\Services;
 use App\Contracts\MakeAPIRequest;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Http\File;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class API
@@ -47,9 +53,7 @@ class API implements MakeAPIRequest
      */
     public function __construct()
     {
-        $this->client = new Client([
-            'base_uri' => config('api.domain')
-        ]);
+        $this->client = new Client(['base_uri' => config('api.domain')]);
     }
 
     /**
@@ -73,6 +77,35 @@ class API implements MakeAPIRequest
         return $this->wait($promise);
     }
 
+
+    /**
+     * @param string $uri
+     * @param UploadedFile $data
+     * @param array $headers
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function postPicture(string $uri, UploadedFile $data, array $headers = [])
+    {
+        $file = new File($data->getPathname());
+        $tmp_picture_path = Storage::putFile("temp_dir", $file);
+        $tmp_picture = Storage::readStream(strval($tmp_picture_path));
+        $response = $this->client->post(
+            $uri,
+            [
+                'multipart' => [
+                    [
+                        'name' => 'picture',
+                        'contents' => $tmp_picture,
+                        'filename' => "avatar." . $data->getClientOriginalExtension()
+                    ]
+                ],
+                'headers' => $headers
+            ]
+        );
+        Storage::delete(strval($tmp_picture_path));
+        return $response;
+    }
+
     /**
      * @param string $uri
      * @param array $data
@@ -87,12 +120,15 @@ class API implements MakeAPIRequest
 
     /**
      * @param string $uri
-     * @param array $data
+     * @param array|Collection $data
      * @param array $headers
      * @return array
      */
-    public function patch(string $uri, array $data, array $headers = [])
+    public function patch(string $uri, $data, array $headers = [])
     {
+        if ($data instanceof Collection) {
+            $data = $data->all();
+        }
         $promise = $this->client->patchAsync($uri, ['json' => $data, 'headers' => $headers]);
         return $this->wait($promise);
     }
