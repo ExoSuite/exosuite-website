@@ -79,13 +79,14 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane active" id="home-1" role="tabpanel" aria-expanded="true">
-                            <form>
+                            <form action="/addpost" method="POST">
+                                @csrf()
                                 <div class="author-thumb">
                                     <img src="/img/social/author-page.jpg" alt="author">
                                 </div>
                                 <div class="form-group with-icon label-floating is-empty">
                                     <label class="control-label">Share what you are thinking here...</label>
-                                    <textarea class="form-control" placeholder=""></textarea>
+                                    <textarea class="form-control" placeholder="" name="postText"></textarea>
                                 </div>
                                 <div class="add-options-message">
                                     <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD PHOTOS">

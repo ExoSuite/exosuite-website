@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Facades\API;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -24,6 +24,12 @@ class ProfileController extends Controller
             $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
         }
         return view('social.editprofile')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data']));
+    }
+
+    public function profileView($id)
+    {
+        $user = Auth::user();
+        return view('profile')->with(array('user' => $user, 'id' => $id));
     }
 
     public function editMyProfile(Request $request)
@@ -58,4 +64,44 @@ class ProfileController extends Controller
         API::postPicture("/user/me/profile/picture/avatar", $request->file('picture'), ['Authorization' => "Bearer $access_token"]);
         return redirect('/profile');
     }
+
+
+    public function addpostView(Request $request){
+        $access_token = session()->get('access_token');
+        $user_id = Auth::id();
+        $postContent = $request["postText"];
+        $response = API::Post("/user/$user_id/dashboard/posts", [
+            "content" => $postContent
+        ], ['Authorization' => 'Bearer ' . $access_token]);
+        return redirect(route('get_newsfeed'));
+    }
+
+    public function updatepostView(Request $request){
+        $access_token = session()->get('access_token');
+        $user_id = Auth::id();
+        $pcontent = $request["editText"];
+        $postId = $request['postId'];
+        $response = API::patch("user/$user_id/dashboard/posts/$postId", ['content' => $pcontent], ['Authorization' => 'Bearer ' . $access_token]);
+        return redirect(route('get_profile'));
+
+    }
+
+    public function deletepostView(Request $request){
+        $access_token = session()->get('access_token');
+        $user_id = Auth::id();
+        $postId = $request['id'];
+        $response = API::delete("/user/$user_id/dashboard/posts/$postId",  [], ['Authorization' => 'Bearer ' . $access_token]);
+        return redirect(route('get_profile'));
+    }
+
+       public function getpostfromdashboard(Request $request){
+          $access_token = session()->get('access_token');
+          $user_id = Auth::id();
+          $posts = API::get("user/$user_id/dashboard/posts", [], ['Authorization' => 'Bearer ' . $access_token]);
+          $all_posts = $posts['data'];
+          dd($all_posts);
+        //return ($all_posts);
+           return redirect(route('get_newsfeed'));
+      }
+
 }
