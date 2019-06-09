@@ -3,7 +3,7 @@
 
         <a href="/" class="logo">
             <div class="img-wrap">
-                <img src="/img/exosuite-icon.png" alt="Olympus">
+                <img src="/img/exosuite-icon.png" alt="ExoSuite">
             </div>
         </a>
 
