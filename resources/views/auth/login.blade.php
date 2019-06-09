@@ -47,41 +47,6 @@
 
 <body class="landing-page">
 
-
-<!-- Preloader -->
-
-<div id="hellopreloader">
-    <div class="preloader">
-        <svg width="45" height="45" stroke="#fff">
-            <g fill="none" fill-rule="evenodd" stroke-width="2" transform="translate(1 1)">
-                <circle cx="22" cy="22" r="6" stroke="none">
-                    <animate attributeName="r" begin="1.5s" calcMode="linear" dur="3s" repeatCount="indefinite"
-                             values="6;22"/>
-                    <animate attributeName="stroke-opacity" begin="1.5s" calcMode="linear" dur="3s"
-                             repeatCount="indefinite" values="1;0"/>
-                    <animate attributeName="stroke-width" begin="1.5s" calcMode="linear" dur="3s"
-                             repeatCount="indefinite" values="2;0"/>
-                </circle>
-                <circle cx="22" cy="22" r="6" stroke="none">
-                    <animate attributeName="r" begin="3s" calcMode="linear" dur="3s" repeatCount="indefinite"
-                             values="6;22"/>
-                    <animate attributeName="stroke-opacity" begin="3s" calcMode="linear" dur="3s"
-                             repeatCount="indefinite" values="1;0"/>
-                    <animate attributeName="stroke-width" begin="3s" calcMode="linear" dur="3s" repeatCount="indefinite"
-                             values="2;0"/>
-                </circle>
-                <circle cx="22" cy="22" r="8">
-                    <animate attributeName="r" begin="0s" calcMode="linear" dur="1.5s" repeatCount="indefinite"
-                             values="6;1;2;3;4;5;6"/>
-                </circle>
-            </g>
-        </svg>
-
-        <div class="text">Loading ...</div>
-    </div>
-</div>
-
-<!-- ... end Preloader -->
 <div class="content-bg-wrap"></div>
 
 
@@ -121,7 +86,7 @@
                             <span>{{ $errors->first() }}</span>
                         </div>
                     </div>
-                @endif
+            @endif
             <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
@@ -132,7 +97,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+                        <a id="login-button" class="nav-link" data-toggle="tab" href="#profile" role="tab">
                             <svg class="olymp-register-icon">
                                 <use xlink:href="svg-icons/sprites/icons.svg#olymp-register-icon"></use>
                             </svg>
@@ -162,7 +127,8 @@
                                 <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">@lang('website.register.email')</label>
-                                        <input class="form-control" placeholder="" type="email" name="email">
+                                        <input dusk="register_email" class="form-control" placeholder="" type="email"
+                                               name="email">
                                     </div>
                                     <div class="form-group label-floating">
                                         <label class="control-label">@lang('website.register.nickName')</label>
@@ -170,7 +136,8 @@
                                     </div>
                                     <div class="form-group label-floating">
                                         <label class="control-label">@lang('website.register.password')</label>
-                                        <input class="form-control" placeholder="" type="password" name="password">
+                                        <input dusk="register_password" class="form-control" placeholder=""
+                                               type="password" name="password">
                                     </div>
                                     <div class="form-group label-floating">
                                         <label class="control-label">@lang('website.register.passwordConfirm')</label>
@@ -178,8 +145,8 @@
                                                name="password_confirmation">
                                     </div>
 
-                                    <input type="submit"
-                                           class="btn btn-purple btn-lg full-width"@lang('website.register') />
+                                    <button type="submit"
+                                            class="btn btn-purple btn-lg full-width">@lang('website.register')</button>
                                 </div>
                             </div>
                         </form>
@@ -193,11 +160,13 @@
                                 <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group label-floating">
                                         <label class="control-label">@lang('website.login.mail')</label>
-                                        <input class="form-control" placeholder="" type="email" name="email">
+                                        <input dusk="login_email" class="form-control" placeholder="" type="email"
+                                               name="email">
                                     </div>
                                     <div class="form-group label-floating">
                                         <label class="control-label">@lang('website.login.password')</label>
-                                        <input class="form-control" placeholder="" type="password" name="password">
+                                        <input dusk="login_password" class="form-control" placeholder="" type="password"
+                                               name="password">
                                     </div>
 
                                     <div class="remember">
@@ -205,8 +174,8 @@
                                            data-target="#restore-password">@lang('website.login.forgotPassword')</a>
                                     </div>
 
-                                    <input type="submit"
-                                           class="btn btn-lg btn-primary full-width"@lang('website.login.signin') />
+                                    <button type="submit"
+                                            class="btn btn-lg btn-primary full-width">@lang('website.login.signin')</button>
 
                                     <div class="or"></div>
 
