@@ -37,7 +37,7 @@ Route::domain(Parser::getDomain())->group(function () {
 
     Route::get('social', 'SimpleViewController@social')->name('get_social');
 
-    Route::post('/register', 'Auth\RegisterController@register')->name('registerAPI');
+    Route::post('register', 'Auth\RegisterController@register')->name('registerAPI');
 
     Route::group(["prefix" => "login"], function () {
         //  don't modify to get_login or laravel will not understand!

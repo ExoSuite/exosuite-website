@@ -41,6 +41,7 @@ class LoginTest extends DuskTestCase
             $browser->visitRoute("login")
                 ->assertRouteIs("login")
                 ->assertGuest()
+                ->click('#login-button')
                 ->waitFor("@login_email")
                 ->keys('@login_email', $userEmail)
                 ->keys('@login_password', $userPassword)
