@@ -42,7 +42,7 @@
 
             <!-- Friend Item -->
 
-            <div class="friend-item friend-groups create-group" data-mh="friend-groups-item">
+            <div class="friend-item friend-groups create-group" data-mh="friend-groups-item" style="height: 312px;">
 
                 <a href="#" class="  full-block" data-toggle="modal" data-target="#create-friend-group-1"></a>
                 <div class="content">
