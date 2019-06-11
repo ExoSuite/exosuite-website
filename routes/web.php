@@ -49,6 +49,8 @@ Route::domain(Parser::getDomain())->group(function () {
 
 Route::domain(config('social_app.domain'))->group(function () {
     Route::group(['middleware' => 'auth'], function () {
+        Route::get('/groups', 'SocialController@groupView')->name('get_group_view');
+        Route::post('/groups', 'SocialController@createGroup')->name('post_group');
         Route::post('/addpost', 'ProfileController@addpostView');
         Route::post('/editpost', 'ProfileController@updatepostView');
         Route::post('/getAllPost', 'ProfileController@getpostfromdashboard');
