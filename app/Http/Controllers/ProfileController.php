@@ -104,4 +104,17 @@ class ProfileController extends Controller
            return redirect(route('get_newsfeed'));
       }
 
+      public function editWidgetsView(){
+          $access_token = session()->get('access_token');
+          $response = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $access_token]);
+          $userId = Auth::id();
+          $pictureToken = session()->get('view-picture')['accessToken'];
+          $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $access_token]);
+          if ($response['profile']->birthday != null) {
+              $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
+          }
+          return view('social.widgets')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data']));
+
+      }
+
 }

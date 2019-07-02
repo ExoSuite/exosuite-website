@@ -405,7 +405,8 @@ return [
                 'https://www.googletagmanager.com',
                 'https://www.google-analytics.com',
                 'https://www.google.com/recaptcha/api.js',
-                'https://www.gstatic.com/recaptcha/api2/v1555968629716/recaptcha__fr.js'
+                'https://www.gstatic.com/recaptcha/api2/v1555968629716/recaptcha__fr.js',
+                'https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js'
             ],
 
             'hashes' => [

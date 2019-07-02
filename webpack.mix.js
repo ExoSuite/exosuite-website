@@ -39,6 +39,8 @@ mix.styles([
         'resources/Bootstrap/dist/css/bootstrap.css',
         'resources/Bootstrap/dist/css/bootstrap-grid.css',
         'resources/css/social/fonts.css',
+        'resources/css/social/jquery.gridster.css',
+        'resources/css/social/jquery.gridster.min.css',
         'resources/css/social/main.css'
     ],
     'public/css/social/app.css'
@@ -116,7 +118,9 @@ mix.scripts([
         'resources/js/social/ion.rangeSlider.js',
         'resources/js/social/base-init.js',
         'resources/Bootstrap/dist/js/bootstrap.bundle.js',
-        'resources/js/social/upload-avatar.js'
+        'resources/js/social/upload-avatar.js',
+        'resources/js/social/jquery.gridster.js',
+        'resources/js/social/jquery.gridster.min.js'
     ],
     'public/js/social/app.js'
 ).sourceMaps().version();
