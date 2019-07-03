@@ -50,10 +50,15 @@ Route::domain(Parser::getDomain())->group(function () {
 Route::domain(config('social_app.domain'))->group(function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::post('/addpost', 'ProfileController@addpostView');
+        Route::post('/addpost2', 'ProfileController@addpostViewProfile');
         Route::post('/editpost', 'ProfileController@updatepostView');
         Route::post('/getAllPost', 'ProfileController@getpostfromdashboard');
         Route::get('/', 'SocialController@home')->name('get_newsfeed');
         Route::get('/deletepost/{id}', 'ProfileController@deletepostView');
+        route::post('/createCommentary', 'ProfileController@createCommentary');
+        route::get('/deleteComm/{commentId}/{postId}', 'ProfileController@deleteCommentary');
+        route::post('/updateCommentary', 'ProfileController@updateCommentary');
+        Route::get('/like/{postId}', 'SocialController@likePost');
         Route::group(["prefix" => "profile"], function () {
             Route::get('/', 'SocialController@profile')->name('get_profile');
             Route::get('/edit', 'ProfileController@editMyProfileView');

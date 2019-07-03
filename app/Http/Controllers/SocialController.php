@@ -18,6 +18,13 @@ class SocialController extends Controller
         return view('social.profile')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => array_reverse($posts)));
     }
 
+    public function likePost($postId)
+    {
+        $accessToken = session()->get('access_token');
+        $userId = Auth::id();
+        API::post("/user/$userId/dashboard/posts/$postId/likes", [], ['Authorization' => 'Bearer ' . $accessToken]);
+    }
+
     public function home()
     {
         $accessToken = session()->get('access_token');
@@ -25,7 +32,8 @@ class SocialController extends Controller
         $pictureToken = session()->get('view-picture')['accessToken'];
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return view('social.newsfeed')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId));
+        $posts = API::get("/user/$userId/dashboard/posts", [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        return view('social.newsfeed')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => array_reverse($posts)));
     }
 
     public function achievmentsHome()
