@@ -66,17 +66,17 @@ class ProfileController extends Controller
     }
 
 
-    public function addpostView(Request $request){
+    public function addpostView(Request $request)
+    {
         $access_token = session()->get('access_token');
         $user_id = Auth::id();
         $postContent = $request["postText"];
-        $response = API::Post("/user/$user_id/dashboard/posts", [
-            "content" => $postContent
-        ], ['Authorization' => 'Bearer ' . $access_token]);
+        $response = API::Post("/user/$user_id/dashboard/posts", ["content" => $postContent], ['Authorization' => 'Bearer ' . $access_token]);
         return redirect(route('get_newsfeed'));
     }
 
-    public function updatepostView(Request $request){
+    public function updatepostView(Request $request)
+    {
         $access_token = session()->get('access_token');
         $user_id = Auth::id();
         $pcontent = $request["editText"];
@@ -86,22 +86,34 @@ class ProfileController extends Controller
 
     }
 
-    public function deletepostView(Request $request){
+    public function deletepostView(Request $request)
+    {
         $access_token = session()->get('access_token');
         $user_id = Auth::id();
         $postId = $request['id'];
-        $response = API::delete("/user/$user_id/dashboard/posts/$postId",  [], ['Authorization' => 'Bearer ' . $access_token]);
+        $response = API::delete("/user/$user_id/dashboard/posts/$postId", [], ['Authorization' => 'Bearer ' . $access_token]);
         return redirect(route('get_profile'));
     }
 
-       public function getpostfromdashboard(Request $request){
-          $access_token = session()->get('access_token');
-          $user_id = Auth::id();
-          $posts = API::get("user/$user_id/dashboard/posts", [], ['Authorization' => 'Bearer ' . $access_token]);
-          $all_posts = $posts['data'];
-          dd($all_posts);
+    public function getpostfromdashboard(Request $request)
+    {
+        $access_token = session()->get('access_token');
+        $user_id = Auth::id();
+        $posts = API::get("user/$user_id/dashboard/posts", [], ['Authorization' => 'Bearer ' . $access_token]);
+        $all_posts = $posts['data'];
+        dd($all_posts);
         //return ($all_posts);
-           return redirect(route('get_newsfeed'));
-      }
+        return redirect(route('get_newsfeed'));
+    }
 
+    public function getRuns()
+    {
+        $accessToken = session()->get('access_token');
+        $userId = Auth::id();
+        $pictureToken = session()->get('view-picture')['accessToken'];
+        $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $runs = API::get('/user/me/run', [], ['Authorization' => 'Bearer ' . $accessToken]);
+        return view('social.runs')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'runs' => $runs['data']));
+    }
 }
