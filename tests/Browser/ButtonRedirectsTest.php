@@ -23,7 +23,7 @@ class ButtonRedirectsTest extends DuskTestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->tests = [
