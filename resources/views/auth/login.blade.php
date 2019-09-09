@@ -92,14 +92,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
                             <svg class="olymp-login-icon">
-                                <use xlink:href="svg-icons/sprites/icons.svg#olymp-login-icon"></use>
+                                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-login-icon"></use>
                             </svg>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a id="login-button" class="nav-link" data-toggle="tab" href="#profile" role="tab">
                             <svg class="olymp-register-icon">
-                                <use xlink:href="svg-icons/sprites/icons.svg#olymp-register-icon"></use>
+                                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-register-icon"></use>
                             </svg>
                         </a>
                     </li>
@@ -204,7 +204,7 @@
         <div class="modal-content">
             <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
                 <svg class="olymp-close-icon">
-                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-close-icon"></use>
+                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-close-icon"></use>
                 </svg>
             </a>
 
@@ -250,7 +250,7 @@
         <div class="modal-content">
             <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
                 <svg class="olymp-close-icon">
-                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-close-icon"></use>
+                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-close-icon"></use>
                 </svg>
             </a>
             <div class="modal-body">

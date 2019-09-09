@@ -40,13 +40,26 @@
 
 <div class="container">
     <div class="row">
-
         <div class="col col-12">
             <div class="ui-block">
                 <div class="ui-block-title">
                     <h6 class="title">Mes runs</h6>
                 </div>
-                <div class="ui-block-content">
+                <div class="row wrapper-maps">
+                    <div class="col-md-2">
+                        <ul class="nav flex-column" id="runs">
+                            @foreach($runs as $run)
+                            <li class="nav-item">
+                                <a class="nav-link runs" href="javascript:void(0)" runId="{{ $run->id }}">{{ $run->name }}</a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="col-md-10">
+                        <div id="maps"></div>
+                    </div>
+                </div>
+                {{--<div class="ui-block-content">
                     <div class="accordion" id="accordionExample">
                         @foreach($runs as $run)
                             <div class="card">
@@ -61,6 +74,7 @@
                                 </div>
                                 <div id="{{$run->id}}" class="collapse" aria-labelledby="headingTwo"
                                      data-parent="#accordionExample">
+                                    <div id="kappa"></div>
                                     <div class="card-body">
                                         {{$run->description}}
                                     </div>
@@ -68,7 +82,7 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>
@@ -611,10 +625,10 @@
     </div>
 
     <audio id="mediaplayer" data-showplaylist="true">
-        <source src="mp3/Twice.mp3" title="Track 1" data-poster="track1.png" type="audio/mpeg">
-        <source src="mp3/Twice.mp3" title="Track 2" data-poster="track2.png" type="audio/mpeg">
-        <source src="mp3/Twice.mp3" title="Track 3" data-poster="track3.png" type="audio/mpeg">
-        <source src="mp3/Twice.mp3" title="Track 4" data-poster="track4.png" type="audio/mpeg">
+        <source src="/mp3/Twice.mp3" title="Track 1" data-poster="track1.png" type="audio/mpeg">
+        <source src="/mp3/Twice.mp3" title="Track 2" data-poster="track2.png" type="audio/mpeg">
+        <source src="/mp3/Twice.mp3" title="Track 3" data-poster="track3.png" type="audio/mpeg">
+        <source src="/mp3/Twice.mp3" title="Track 4" data-poster="track4.png" type="audio/mpeg">
     </audio>
 
 </div>

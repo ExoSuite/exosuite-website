@@ -608,7 +608,7 @@
                         <li>
                             <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video play-video--small">
                                 <svg class="olymp-play-icon">
-                                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-play-icon"></use>
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-play-icon"></use>
                                 </svg>
                             </a>
                             <img src="/img/social/video7.jpg" alt="video">
@@ -846,7 +846,7 @@
                               data-original-title="ADD TO YOUR FAVS">
 							<a href="#">
 								<svg class="olymp-star-icon"><use
-                                            xlink:href="svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
+                                            xlink:href="/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
 							</a>
 						</span>
 
@@ -864,7 +864,7 @@
                               data-original-title="ADD TO YOUR FAVS">
 							<a href="#">
 								<svg class="olymp-star-icon"><use
-                                            xlink:href="svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
+                                            xlink:href="/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
 							</a>
 						</span>
 
@@ -882,7 +882,7 @@
                               data-original-title="ADD TO YOUR FAVS">
 							<a href="#">
 								<svg class="olymp-star-icon"><use
-                                            xlink:href="svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
+                                            xlink:href="/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
 							</a>
 						</span>
                     </li>
@@ -899,7 +899,7 @@
                               data-original-title="ADD TO YOUR FAVS">
 							<a href="#">
 								<svg class="olymp-star-icon"><use
-                                            xlink:href="svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
+                                            xlink:href="/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
 							</a>
 						</span>
 
@@ -917,7 +917,7 @@
                               data-original-title="ADD TO YOUR FAVS">
 							<a href="#">
 								<svg class="olymp-star-icon"><use
-                                            xlink:href="svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
+                                            xlink:href="/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
 							</a>
 						</span>
                     </li>
@@ -934,7 +934,7 @@
                               data-original-title="ADD TO YOUR FAVS">
 							<a href="#">
 								<svg class="olymp-star-icon"><use
-                                            xlink:href="svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
+                                            xlink:href="/svg-icons/sprites/icons.svg#olymp-star-icon"></use></svg>
 							</a>
 						</span>
                     </li>
@@ -1681,10 +1681,10 @@
     </div>
 
     <audio id="mediaplayer" data-showplaylist="true">
-        <source src="mp3/Twice.mp3" title="Track 1" data-poster="track1.png" type="audio/mpeg">
-        <source src="mp3/Twice.mp3" title="Track 2" data-poster="track2.png" type="audio/mpeg">
-        <source src="mp3/Twice.mp3" title="Track 3" data-poster="track3.png" type="audio/mpeg">
-        <source src="mp3/Twice.mp3" title="Track 4" data-poster="track4.png" type="audio/mpeg">
+        <source src="/mp3/Twice.mp3" title="Track 1" data-poster="track1.png" type="audio/mpeg">
+        <source src="/mp3/Twice.mp3" title="Track 2" data-poster="track2.png" type="audio/mpeg">
+        <source src="/mp3/Twice.mp3" title="Track 3" data-poster="track3.png" type="audio/mpeg">
+        <source src="/mp3/Twice.mp3" title="Track 4" data-poster="track4.png" type="audio/mpeg">
     </audio>
 
 </div>
