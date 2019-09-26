@@ -46,7 +46,8 @@ class SocialController extends Controller
         $pictureToken = session()->get('view-picture')['accessToken'];
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return view('social.createGroup')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId));
+        $result = API::get("/user/search", ['text' => '*'], ['Authorization' => 'Bearer ' . $accessToken]);
+        return view('social.createGroup')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'resultSearch' => $result));
     }
 
     public function createGroup(Request $request)
@@ -55,11 +56,20 @@ class SocialController extends Controller
         $userId = Auth::id();
         $pictureToken = session()->get('view-picture')['accessToken'];
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
-        $toFind = $request['toFind'];
-        $result = API::get("/user/search", ['text' => $toFind], ['Authorization' => 'Bearer ' . $accessToken]);
+        $toFind = $request['select'];
         $groupToken = session()->get('group')['accessToken'];
-        API::post('/group', ['users' => [$result['data']['0']->id]], ['Authorization' => 'Bearer ' . $groupToken]);
+        API::post('/group', ['users' => $toFind], ['Authorization' => 'Bearer ' . $groupToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         return view('social.createGroup')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId));
+    }
+
+    public function search(Request $request)
+    {
+        $accessToken = session()->get('access_token');
+        $toFind = $request['toFind'];
+        if ($toFind != "")
+            $toFind = "*";
+        $result = API::get("/user/search", ['text' => $toFind], ['Authorization' => 'Bearer ' . $accessToken]);
+        return $result;
     }
 }

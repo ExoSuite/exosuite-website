@@ -27,6 +27,10 @@
         });
     </script>
 
+    <script>
+        window.apiDomain = "{{ env('API_DOMAIN') }}"
+    </script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/css/social/app.css" />
     

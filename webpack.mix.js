@@ -118,7 +118,8 @@ mix.scripts([
         'resources/js/social/base-init.js',
         'resources/Bootstrap/dist/js/bootstrap.bundle.js',
         'resources/js/social/upload-avatar.js',
-        'resources/js/social/mapbox.js'
+        'resources/js/social/mapbox.js',
+        'resources/js/social/search.js'
     ],
     'public/js/social/app.js'
 ).sourceMaps().version();
