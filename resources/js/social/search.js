@@ -15,12 +15,9 @@ async function search(string) {
         .then(res => accessToken = res);
     if (string === "")
         string = "*";
-    console.log('access_token : ' + accessToken);
-    console.log('apiDomain : ' + window.apiDomain);
     return await fetch(`${window.apiDomain}user/search?text=${string}`, initCallAPI(accessToken, 'GET'))
         .then(response => response.json())
         .then(data => {
-            console.log("Data : " + data);
             return data;
         });
 }
@@ -40,9 +37,7 @@ waitForElement('searchInput', () => {
     textInput.onkeyup = () => {
         clearTimeout(timeout);
         timeout = setTimeout(async () => {
-            console.log('Input : ' + textInput.value);
             await search(textInput.value).then(r => resultSearch = r);
-            console.log('resultSearch : ' + resultSearch);
             displayResult(resultSearch);
         }, 500);
     };

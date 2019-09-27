@@ -28,7 +28,7 @@
     </script>
 
     <script>
-        window.apiDomain = "{{ env('API_DOMAIN') }}"
+        window.apiDomain = "{{ config('api.domain') }}"
     </script>
 
     <!-- Bootstrap CSS -->
