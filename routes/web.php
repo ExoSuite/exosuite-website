@@ -61,6 +61,7 @@ Route::domain(config('social_app.domain'))->group(function () {
             Route::get('/edit', 'ProfileController@editMyProfileView');
             Route::post('/edit', 'ProfileController@editMyProfile');
             Route::post('/avatar', 'ProfileController@uploadAvatar')->name('post_avatar');
+            Route::get('/runs', 'ProfileController@getRuns')->name('get_runs');
             //Route::get('friends', 'ProfileController@friendsView');
         });
         Route::group(["prefix" => "user"], function () {

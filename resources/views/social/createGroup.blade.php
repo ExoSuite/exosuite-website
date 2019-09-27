@@ -44,11 +44,11 @@
 
             <div class="friend-item friend-groups create-group" data-mh="friend-groups-item" style="height: 312px;">
 
-                <a href="#" class="  full-block" data-toggle="modal" data-target="#create-friend-group-1"></a>
+                <a href="#" class="  full-block" data-toggle="modal" data-target="#create-friend-group-add-friends"></a>
                 <div class="content">
 
                     <a href="#" class="  btn btn-control bg-blue" data-toggle="modal"
-                       data-target="#create-friend-group-1">
+                       data-target="#create-friend-group-add-friends">
                         <svg class="olymp-plus-icon">
                             <use xlink:href="/svg-icons/sprites/icons.svg#olymp-plus-icon"></use>
                         </svg>
@@ -170,59 +170,17 @@
             </a>
 
             <div class="modal-header">
-                <h6 class="title">Add Friends to “Freelance Clients” Group</h6>
+                <h6 class="title">Ajouter des membres</h6>
             </div>
 
             <div class="modal-body">
-                <form class="form-group label-floating is-select">
-
-                    <select class="selectpicker form-control style-2 show-tick" multiple data-max-options="2"
-                            data-live-search="true">
-                        <option title="Green Goo Rock" data-content='<div class="inline-items">
-										<div class="author-thumb">
-											<img src="/img/avatar52-sm.jpg" alt="author">
-										</div>
-											<div class="h6 author-title">Green Goo Rock</div>
-
-										</div>'>Green Goo Rock
-                        </option>
-
-                        <option title="Mathilda Brinker" data-content='<div class="inline-items">
-											<div class="author-thumb">
-												<img src="/img/avatar74-sm.jpg" alt="author">
-											</div>
-											<div class="h6 author-title">Mathilda Brinker</div>
-										</div>'>Mathilda Brinker
-                        </option>
-
-                        <option title="Marina Valentine" data-content='<div class="inline-items">
-											<div class="author-thumb">
-												<img src="/img/avatar48-sm.jpg" alt="author">
-											</div>
-											<div class="h6 author-title">Marina Valentine</div>
-										</div>'>Marina Valentine
-                        </option>
-
-                        <option title="Dave Marinara" data-content='<div class="inline-items">
-											<div class="author-thumb">
-												<img src="/img/avatar75-sm.jpg" alt="author">
-											</div>
-											<div class="h6 author-title">Dave Marinara</div>
-										</div>'>Dave Marinara
-                        </option>
-
-                        <option title="Rachel Howlett" data-content='<div class="inline-items">
-											<div class="author-thumb">
-												<img src="/img/avatar76-sm.jpg" alt="author">
-											</div>
-											<div class="h6 author-title">Rachel Howlett</div>
-										</div>'>Rachel Howlett
-                        </option>
-
+                <form class="form-group label-floating is-select" method="POST" action="/groups">
+                    @csrf()
+                    <select class="selectpicker form-control style-2 show-tick" multiple
+                            data-live-search="true" name="select[]" id="selectPeople">
                     </select>
+                    <button type="submit" class="btn btn-blue btn-lg full-width">Save Changes</button>
                 </form>
-
-                <a href="#" class="btn btn-blue btn-lg full-width">Save Changes</a>
             </div>
         </div>
     </div>

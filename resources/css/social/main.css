@@ -16269,7 +16269,7 @@ select.selectpicker {
 }
 
 .bootstrap-select.btn-group .dropdown-menu li.selected a {
-    color: #fff;
+    color: #000000;
 }
 
 .bootstrap-select.btn-group .dropdown-menu li a.opt {
