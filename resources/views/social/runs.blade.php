@@ -47,42 +47,48 @@
                 </div>
                 <div class="row wrapper-maps">
                     <div class="col-md-2">
-                        <ul class="nav flex-column" id="runs">
-                            @foreach($runs as $run)
-                            <li class="nav-item">
-                                <a class="nav-link runs" href="javascript:void(0)" runId="{{ $run->id }}">{{ $run->name }}</a>
-                            </li>
+                        <div class="accordion" id="runs">
+                            @foreach($runs as $key => $run)
+                                <div class="card">
+                                    <div class="card-header" id="{{"heading" . $run->id}}">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link runs" runId="{{ $run->id }}" type="button"
+                                                    data-toggle="collapse" data-target="{{ "#" . $run->id }}"
+                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                {{ $run->name }}
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="{{ $run->id }}" class="collapse" aria-labelledby="{{"heading" . $run->id}}"
+                                         data-parent="#runs">
+                                        <div class="card-body">
+                                            <p>Description : {{ $run->description }}</p>
+                                            @foreach($userRuns[$key] as $userRun)
+                                                @if($run->creator_id === $userRun->user_id)
+                                                    <p>Temps total : {{ gmdate("H:i:s", $userRun->final_time) }}</p>
+                                                    @foreach($userRun->times as $keyCheckpoint => $time)
+                                                        @if($keyCheckpoint != 0)
+                                                            @if ($keyCheckpoint == count($userRun->times) - 1)
+                                                                <p>Arrivée :
+                                                                {{ gmdate("H:i:s", $time->current_time - $userRun->times[0]->current_time)}}</p>
+                                                            @else
+                                                                <p>Checkpoint {{ $keyCheckpoint }} :
+                                                                    {{ gmdate("H:i:s", $time->current_time - $userRun->times[0]->current_time)}}</p>
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
-                        </ul>
+                        </div>
                     </div>
                     <div class="col-md-10">
                         <div id="maps"></div>
                     </div>
                 </div>
-                {{--<div class="ui-block-content">
-                    <div class="accordion" id="accordionExample">
-                        @foreach($runs as $run)
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-grey btn-lg" type="button" data-toggle="collapse"
-                                                data-target="{{"#" . $run->id}}" aria-expanded="false"
-                                                aria-controls="{{$run->id}}">
-                                            {{$run->name}}
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="{{$run->id}}" class="collapse" aria-labelledby="headingTwo"
-                                     data-parent="#accordionExample">
-                                    <div id="kappa"></div>
-                                    <div class="card-body">
-                                        {{$run->description}}
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>--}}
             </div>
         </div>
     </div>
