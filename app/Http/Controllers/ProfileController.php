@@ -114,6 +114,15 @@ class ProfileController extends Controller
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $runs = API::get('/user/me/run', [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return view('social.runs')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'runs' => $runs['data']));
+        $userRuns = array();
+        foreach ($runs['data'] as $run)
+            array_push($userRuns, API::get("/user/me/run/$run->id/user_run", [], ['Authorization' => 'Bearer ' . $accessToken])['data']);
+        return view('social.runs')->with(array(
+            'profile' => $profile,
+            'groups' => $groups['data'],
+            'pictureToken' => $pictureToken,
+            'userId' => $userId,
+            'runs' => $runs['data'],
+            'userRuns' => $userRuns));
     }
 }
