@@ -7,10 +7,12 @@ use App\Facades\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginUser;
 use GuzzleHttp\Exception\ClientException;
+use http\Client\Curl\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Validation\ValidationException;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -158,5 +160,30 @@ class LoginController extends Controller
     public function recoverView()
     {
         return view('auth.passwords.email');
+    }
+
+    public function redirectToFacebookProvider()
+    {
+        return Socialite::driver('facebook')->scopes([
+            "publish_actions, manage_pages", "publish_pages"])->redirect();
+    }
+    /**
+     * @return void
+     */
+    public function handleProviderFacebookCallback()
+    {
+        $auth_user = Socialite::driver('facebook')->user();
+
+        $user = User::updateOrCreate(
+            [
+                'email' => $auth_user->email
+            ],
+            [
+                'token' => $auth_user->token,
+                'name' => $auth_user->name
+            ]
+        );
+        Auth::login($user, true);
+        return redirect()->to('/');
     }
 }

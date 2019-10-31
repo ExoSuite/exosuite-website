@@ -35,4 +35,16 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT'),
+        'default_graph_version' => 'v2.12',
+    ],
+
+    'twitter' => [
+        'client_id' => 'xdi8Y359o6gxjpOWLDBCtZeUT',
+        'client_secret' => 'LQzjtk1ji7htA0ed8kwqblx3lLQGVJDbvQDjC6Wkk9YsOimYgF',
+        'redirect' => 'http://api.exosuite.local/profile/callback'
+    ]
 ];

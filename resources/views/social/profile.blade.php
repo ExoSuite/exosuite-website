@@ -212,7 +212,58 @@
                 <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
             </svg>
         </a>
-    </div>
+{{--            <a href="{{ url('/profile/twitter/redirect') }}" class="social-item bg-twitter">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+                Connexion
+            </a>--}}
+            <form id="tweetForm" name="tweetForm">
+                <p>Ecrire un tweet:</p>
+                <textarea id="tweetMsg" name="message" value="" cols="80"></textarea>
+                <input type="button" class="bg-twitter social-item" value="Tweet" name="Envoyer" onclick="send_tweet()">
+            </form>
+
+            <script type="text/javascript">
+                function send_tweet(){
+                    //var msg = prompt("Ecrivez votre tweet:", "");
+                    var msg = document.getElementById("tweetMsg").value;
+                    window.location.href = "?messg=" + msg;
+                }
+            </script>
+
+
+            @php
+            @include(vendor.autoload);
+            use Abraham\TwitterOAuth\TwitterOAuth;
+
+            define('CONSUMER_KEY', 'xdi8Y359o6gxjpOWLDBCtZeUT');
+            define('CONSUMER_SECRET', 'LQzjtk1ji7htA0ed8kwqblx3lLQGVJDbvQDjC6Wkk9YsOimYgF');
+            define('ACCESS_TOKEN', '974277836767932416-s34V8Ro1Tzq3GP3RBTM2bvB5xW1cWJw');
+            define('ACCESS_TOKEN_SECRET', 'naRpW0lLNsWMex5F3zbbuNEo14om8wm2jwDAGcCsD2Ol4');
+
+            /*$oauth = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
+            $accessToken = $oauth->oauth2('oauth2/token', ['grant_type' => 'client_credentials']);
+            $access_token = $accessToken->access_token;
+            $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, null, $access_token);*/
+            $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
+            if (isset($_GET['messg']))
+            {
+                $status = $_GET['messg'];
+                //echo ($status);
+                if ($status != "")
+                    $post_tweets = $connection->post("statuses/update", ["status" => $status]);
+            echo "<script type=\"text/javascript\">window.location.href = \"?\"</script>";
+            }
+            @endphp
+
+            <div id="fb-root"></div>
+
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v4.0&appId=494358124689840"></script>
+
+            <div class="social-item bg-facebook" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fexosuite.fr&amp;src=sdkpreparse"
+                class="fb-xfbml-parse-ignore">Post on Facebook</a></div>
+        </div>
 
     <!-- ... end Main Content -->
 
@@ -221,35 +272,35 @@
 
     <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
 
-        <div class="ui-block">
-            <div class="ui-block-title">
-                <h6 class="title">Profile Intro</h6>
-            </div>
-            <div class="ui-block-content">
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">Profile Intro</h6>
+                </div>
+                <div class="ui-block-content">
 
-                <!-- W-Personal-Info -->
+                    <!-- W-Personal-Info -->
 
-                <ul class="widget w-personal-info item-block">
-                    <li>
-                        <span class="title">About Me:</span>
-                        <span class="text">
+                    <ul class="widget w-personal-info item-block">
+                        <li>
+                            <span class="title">About Me:</span>
+                            <span class="text">
                                 @if ($profile['profile'])
-                                @if ($profile['profile']->description == null)
-                                    Aucune description renseignée.
-                                @else
-                                    {{ $profile['profile']->description }}
+                                    @if ($profile['profile']->description == null)
+                                        Aucune description renseignée.
+                                    @else
+                                        {{ $profile['profile']->description }}
+                                    @endif
                                 @endif
-                            @endif
                             </span>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
 
-                <!-- .. end W-Personal-Info -->
-                <!-- W-Socials -->
+                    <!-- .. end W-Personal-Info -->
+                    <!-- W-Socials -->
 
                 <div class="widget w-socials">
                     <h6 class="title">Other Social Networks:</h6>
-                    <a href="#" class="social-item bg-facebook">
+                    <a href="/facebook" class="social-item bg-facebook">
                         <i class="fab fa-facebook-f" aria-hidden="true"></i>
                         Facebook
                     </a>
@@ -264,268 +315,268 @@
                 </div>
 
 
-                <!-- ... end W-Socials -->
-            </div>
-        </div>
-
-        <div class="ui-block">
-            <div class="ui-block-title">
-                <h6 class="title">James’s Badges</h6>
-            </div>
-            <div class="ui-block-content">
-
-                <!-- W-Badges -->
-
-                <ul class="widget w-badges">
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge1.png" alt="author">
-                            <div class="label-avatar bg-primary">2</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge4.png" alt="author">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge3.png" alt="author">
-                            <div class="label-avatar bg-blue">4</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge6.png" alt="author">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge11.png" alt="author">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge8.png" alt="author">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge10.png" alt="author">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge13.png" alt="author">
-                            <div class="label-avatar bg-breez">2</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge7.png" alt="author">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="24-CommunityBadges.html">
-                            <img src="/img/social/badge12.png" alt="author">
-                        </a>
-                    </li>
-                </ul>
-
-                <!--.. end W-Badges -->
-            </div>
-        </div>
-
-        <div class="ui-block">
-            <div class="ui-block-title">
-                <h6 class="title">My Spotify Playlist</h6>
+                    <!-- ... end W-Socials -->
+                </div>
             </div>
 
-            <!-- W-Playlist -->
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">James’s Badges</h6>
+                </div>
+                <div class="ui-block-content">
 
-            <ol class="widget w-playlist">
-                <li class="js-open-popup" data-popup-target=".playlist-popup">
-                    <div class="playlist-thumb">
-                        <img src="/img/social/playlist6.jpg" alt="thumb-composition">
-                        <div class="overlay"></div>
-                        <a href="#" class="play-icon">
-                            <svg class="olymp-music-play-icon-big">
-                                <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
-                            </svg>
-                        </a>
-                    </div>
+                    <!-- W-Badges -->
 
-                    <div class="composition">
-                        <a href="#" class="composition-name">The Past Starts Slow...</a>
-                        <a href="#" class="composition-author">System of a Revenge</a>
-                    </div>
+                    <ul class="widget w-badges">
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge1.png" alt="author">
+                                <div class="label-avatar bg-primary">2</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge4.png" alt="author">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge3.png" alt="author">
+                                <div class="label-avatar bg-blue">4</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge6.png" alt="author">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge11.png" alt="author">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge8.png" alt="author">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge10.png" alt="author">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge13.png" alt="author">
+                                <div class="label-avatar bg-breez">2</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge7.png" alt="author">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="24-CommunityBadges.html">
+                                <img src="/img/social/badge12.png" alt="author">
+                            </a>
+                        </li>
+                    </ul>
 
-                    <div class="composition-time">
-                        <time class="published" datetime="2017-03-24T18:18">3:22</time>
-                        <div class="more">
-                            <svg class="olymp-three-dots-icon">
-                                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-                            </svg>
-                            <ul class="more-dropdown">
-                                <li>
-                                    <a href="#">Add Song to Player</a>
-                                </li>
-                                <li>
-                                    <a href="#">Add Playlist to Player</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </li>
-
-                <li class="js-open-popup" data-popup-target=".playlist-popup">
-                    <div class="playlist-thumb">
-                        <img src="/img/social/playlist7.jpg" alt="thumb-composition">
-                        <div class="overlay"></div>
-                        <a href="#" class="play-icon">
-                            <svg class="olymp-music-play-icon-big">
-                                <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div class="composition">
-                        <a href="#" class="composition-name">The Pretender</a>
-                        <a href="#" class="composition-author">Kung Fighters</a>
-                    </div>
-
-                    <div class="composition-time">
-                        <time class="published" datetime="2017-03-24T18:18">5:48</time>
-                        <div class="more">
-                            <svg class="olymp-three-dots-icon">
-                                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-                            </svg>
-                            <ul class="more-dropdown">
-                                <li>
-                                    <a href="#">Add Song to Player</a>
-                                </li>
-                                <li>
-                                    <a href="#">Add Playlist to Player</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </li>
-                <li class="js-open-popup" data-popup-target=".playlist-popup">
-                    <div class="playlist-thumb">
-                        <img src="/img/social/playlist8.jpg" alt="thumb-composition">
-                        <div class="overlay"></div>
-                        <a href="#" class="play-icon">
-                            <svg class="olymp-music-play-icon-big">
-                                <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div class="composition">
-                        <a href="#" class="composition-name">Blood Brothers</a>
-                        <a href="#" class="composition-author">Iron Maid</a>
-                    </div>
-
-                    <div class="composition-time">
-                        <time class="published" datetime="2017-03-24T18:18">3:06</time>
-                        <div class="more">
-                            <svg class="olymp-three-dots-icon">
-                                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-                            </svg>
-                            <ul class="more-dropdown">
-                                <li>
-                                    <a href="#">Add Song to Player</a>
-                                </li>
-                                <li>
-                                    <a href="#">Add Playlist to Player</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </li>
-                <li class="js-open-popup" data-popup-target=".playlist-popup">
-                    <div class="playlist-thumb">
-                        <img src="/img/social/playlist9.jpg" alt="thumb-composition">
-                        <div class="overlay"></div>
-                        <a href="#" class="play-icon">
-                            <svg class="olymp-music-play-icon-big">
-                                <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div class="composition">
-                        <a href="#" class="composition-name">Seven Nation Army</a>
-                        <a href="#" class="composition-author">The Black Stripes</a>
-                    </div>
-
-                    <div class="composition-time">
-                        <time class="published" datetime="2017-03-24T18:18">6:17</time>
-                        <div class="more">
-                            <svg class="olymp-three-dots-icon">
-                                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-                            </svg>
-                            <ul class="more-dropdown">
-                                <li>
-                                    <a href="#">Add Song to Player</a>
-                                </li>
-                                <li>
-                                    <a href="#">Add Playlist to Player</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </li>
-                <li class="js-open-popup" data-popup-target=".playlist-popup">
-                    <div class="playlist-thumb">
-                        <img src="/img/social/playlist10.jpg" alt="thumb-composition">
-                        <div class="overlay"></div>
-                        <a href="#" class="play-icon">
-                            <svg class="olymp-music-play-icon-big">
-                                <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div class="composition">
-                        <a href="#" class="composition-name">Killer Queen</a>
-                        <a href="#" class="composition-author">Archiduke</a>
-                    </div>
-
-                    <div class="composition-time">
-                        <time class="published" datetime="2017-03-24T18:18">5:40</time>
-                        <div class="more">
-                            <svg class="olymp-three-dots-icon">
-                                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-                            </svg>
-                            <ul class="more-dropdown">
-                                <li>
-                                    <a href="#">Add Song to Player</a>
-                                </li>
-                                <li>
-                                    <a href="#">Add Playlist to Player</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </li>
-            </ol>
-
-            <!-- .. end W-Playlist -->
-        </div>
-
-        <div class="ui-block">
-            <div class="ui-block-title">
-                <h6 class="title">Twitter Feed</h6>
+                    <!--.. end W-Badges -->
+                </div>
             </div>
 
-            <!-- W-Twitter -->
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">My Spotify Playlist</h6>
+                </div>
+
+                <!-- W-Playlist -->
+
+                <ol class="widget w-playlist">
+                    <li class="js-open-popup" data-popup-target=".playlist-popup">
+                        <div class="playlist-thumb">
+                            <img src="/img/social/playlist6.jpg" alt="thumb-composition">
+                            <div class="overlay"></div>
+                            <a href="#" class="play-icon">
+                                <svg class="olymp-music-play-icon-big">
+                                    <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="composition">
+                            <a href="#" class="composition-name">The Past Starts Slow...</a>
+                            <a href="#" class="composition-author">System of a Revenge</a>
+                        </div>
+
+                        <div class="composition-time">
+                            <time class="published" datetime="2017-03-24T18:18">3:22</time>
+                            <div class="more">
+                                <svg class="olymp-three-dots-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                                </svg>
+                                <ul class="more-dropdown">
+                                    <li>
+                                        <a href="#">Add Song to Player</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Add Playlist to Player</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+
+                    <li class="js-open-popup" data-popup-target=".playlist-popup">
+                        <div class="playlist-thumb">
+                            <img src="/img/social/playlist7.jpg" alt="thumb-composition">
+                            <div class="overlay"></div>
+                            <a href="#" class="play-icon">
+                                <svg class="olymp-music-play-icon-big">
+                                    <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="composition">
+                            <a href="#" class="composition-name">The Pretender</a>
+                            <a href="#" class="composition-author">Kung Fighters</a>
+                        </div>
+
+                        <div class="composition-time">
+                            <time class="published" datetime="2017-03-24T18:18">5:48</time>
+                            <div class="more">
+                                <svg class="olymp-three-dots-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                                </svg>
+                                <ul class="more-dropdown">
+                                    <li>
+                                        <a href="#">Add Song to Player</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Add Playlist to Player</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="js-open-popup" data-popup-target=".playlist-popup">
+                        <div class="playlist-thumb">
+                            <img src="/img/social/playlist8.jpg" alt="thumb-composition">
+                            <div class="overlay"></div>
+                            <a href="#" class="play-icon">
+                                <svg class="olymp-music-play-icon-big">
+                                    <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="composition">
+                            <a href="#" class="composition-name">Blood Brothers</a>
+                            <a href="#" class="composition-author">Iron Maid</a>
+                        </div>
+
+                        <div class="composition-time">
+                            <time class="published" datetime="2017-03-24T18:18">3:06</time>
+                            <div class="more">
+                                <svg class="olymp-three-dots-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                                </svg>
+                                <ul class="more-dropdown">
+                                    <li>
+                                        <a href="#">Add Song to Player</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Add Playlist to Player</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="js-open-popup" data-popup-target=".playlist-popup">
+                        <div class="playlist-thumb">
+                            <img src="/img/social/playlist9.jpg" alt="thumb-composition">
+                            <div class="overlay"></div>
+                            <a href="#" class="play-icon">
+                                <svg class="olymp-music-play-icon-big">
+                                    <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="composition">
+                            <a href="#" class="composition-name">Seven Nation Army</a>
+                            <a href="#" class="composition-author">The Black Stripes</a>
+                        </div>
+
+                        <div class="composition-time">
+                            <time class="published" datetime="2017-03-24T18:18">6:17</time>
+                            <div class="more">
+                                <svg class="olymp-three-dots-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                                </svg>
+                                <ul class="more-dropdown">
+                                    <li>
+                                        <a href="#">Add Song to Player</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Add Playlist to Player</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="js-open-popup" data-popup-target=".playlist-popup">
+                        <div class="playlist-thumb">
+                            <img src="/img/social/playlist10.jpg" alt="thumb-composition">
+                            <div class="overlay"></div>
+                            <a href="#" class="play-icon">
+                                <svg class="olymp-music-play-icon-big">
+                                    <use xlink:href="/svg-icons/sprites/icons-music.svg#olymp-music-play-icon-big"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="composition">
+                            <a href="#" class="composition-name">Killer Queen</a>
+                            <a href="#" class="composition-author">Archiduke</a>
+                        </div>
+
+                        <div class="composition-time">
+                            <time class="published" datetime="2017-03-24T18:18">5:40</time>
+                            <div class="more">
+                                <svg class="olymp-three-dots-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                                </svg>
+                                <ul class="more-dropdown">
+                                    <li>
+                                        <a href="#">Add Song to Player</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Add Playlist to Player</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                </ol>
+
+                <!-- .. end W-Playlist -->
+            </div>
+
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">Twitter Feed</h6>
+                </div>
+
+                <!-- W-Twitter -->
 
             <ul class="widget w-twitter">
                 <li class="twitter-item">
@@ -579,161 +630,161 @@
             </ul>
 
 
-            <!-- .. end W-Twitter -->
+                <!-- .. end W-Twitter -->
+            </div>
+
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">Last Videos</h6>
+                </div>
+                <div class="ui-block-content">
+
+                    <!-- W-Latest-Video -->
+
+                    <ul class="widget w-last-video">
+                        <li>
+                            <a href="https://vimeo.com/ondemand/viewfromabluemoon4k/147865858"
+                               class="play-video play-video--small">
+                                <svg class="olymp-play-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-play-icon"></use>
+                                </svg>
+                            </a>
+                            <img src="/img/social/video8.jpg" alt="video">
+                            <div class="video-content">
+                                <div class="title">System of a Revenge - Hypnotize...</div>
+                                <time class="published" datetime="2017-03-24T18:18">3:25</time>
+                            </div>
+                            <div class="overlay"></div>
+                        </li>
+                        <li>
+                            <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video play-video--small">
+                                <svg class="olymp-play-icon">
+                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-play-icon"></use>
+                                </svg>
+                            </a>
+                            <img src="/img/social/video7.jpg" alt="video">
+                            <div class="video-content">
+                                <div class="title">Green Goo - Live at Dan’s Arena</div>
+                                <time class="published" datetime="2017-03-24T18:18">5:48</time>
+                            </div>
+                            <div class="overlay"></div>
+                        </li>
+                    </ul>
+
+                    <!-- .. end W-Latest-Video -->
+                </div>
+            </div>
+
         </div>
 
-        <div class="ui-block">
-            <div class="ui-block-title">
-                <h6 class="title">Last Videos</h6>
+        <!-- ... end Left Sidebar -->
+
+
+        <!-- Right Sidebar -->
+
+        <div class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
+
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">Last Photos</h6>
+                </div>
+                <div class="ui-block-content">
+
+                    <!-- W-Latest-Photo -->
+
+                    <ul class="widget w-last-photo js-zoom-gallery">
+                        <li>
+                            <a href="/img/social/last-photo10-large.jpg">
+                                <img src="/img/social/last-photo10-large.jpg" alt="photo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/img/social/last-phot11-large.jpg">
+                                <img src="/img/social/last-phot11-large.jpg" alt="photo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/img/social/last-phot12-large.jpg">
+                                <img src="/img/social/last-phot12-large.jpg" alt="photo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/img/social/last-phot13-large.jpg">
+                                <img src="/img/social/last-phot13-large.jpg" alt="photo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/img/social/last-phot14-large.jpg">
+                                <img src="/img/social/last-phot14-large.jpg" alt="photo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/img/social/last-phot15-large.jpg">
+                                <img src="/img/social/last-phot15-large.jpg" alt="photo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/img/social/last-phot16-large.jpg">
+                                <img src="/img/social/last-phot16-large.jpg" alt="photo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/img/social/last-phot17-large.jpg">
+                                <img src="/img/social/last-phot17-large.jpg" alt="photo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/img/social/last-phot18-large.jpg">
+                                <img src="/img/social/last-phot18-large.jpg" alt="photo">
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <!-- .. end W-Latest-Photo -->
+                </div>
             </div>
-            <div class="ui-block-content">
 
-                <!-- W-Latest-Video -->
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">Blog Posts</h6>
+                </div>
+                <!-- W-Blog-Posts -->
 
-                <ul class="widget w-last-video">
+                <ul class="widget w-blog-posts">
                     <li>
-                        <a href="https://vimeo.com/ondemand/viewfromabluemoon4k/147865858"
-                           class="play-video play-video--small">
-                            <svg class="olymp-play-icon">
-                                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-play-icon"></use>
-                            </svg>
-                        </a>
-                        <img src="/img/social/video8.jpg" alt="video">
-                        <div class="video-content">
-                            <div class="title">System of a Revenge - Hypnotize...</div>
-                            <time class="published" datetime="2017-03-24T18:18">3:25</time>
-                        </div>
-                        <div class="overlay"></div>
+                        <article class="hentry post">
+
+                            <a href="#" class="h4">My Perfect Vacations in South America and Europe</a>
+
+                            <p>Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod por incidid ut
+                                labore et.</p>
+
+                            <div class="post__date">
+                                <time class="published" datetime="2017-03-24T18:18">
+                                    7 hours ago
+                                </time>
+                            </div>
+
+                        </article>
                     </li>
                     <li>
-                        <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video play-video--small">
-                            <svg class="olymp-play-icon">
-                                <use xlink:href="svg-icons/sprites/icons.svg#olymp-play-icon"></use>
-                            </svg>
-                        </a>
-                        <img src="/img/social/video7.jpg" alt="video">
-                        <div class="video-content">
-                            <div class="title">Green Goo - Live at Dan’s Arena</div>
-                            <time class="published" datetime="2017-03-24T18:18">5:48</time>
-                        </div>
-                        <div class="overlay"></div>
+                        <article class="hentry post">
+
+                            <a href="#" class="h4">The Big Experience of Travelling Alone</a>
+
+                            <p>Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod por incidid ut
+                                labore et.</p>
+
+                            <div class="post__date">
+                                <time class="published" datetime="2017-03-24T18:18">
+                                    March 18th, at 6:52pm
+                                </time>
+                            </div>
+
+                        </article>
                     </li>
                 </ul>
-
-                <!-- .. end W-Latest-Video -->
-            </div>
-        </div>
-
-    </div>
-
-    <!-- ... end Left Sidebar -->
-
-
-    <!-- Right Sidebar -->
-
-    <div class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
-
-        <div class="ui-block">
-            <div class="ui-block-title">
-                <h6 class="title">Last Photos</h6>
-            </div>
-            <div class="ui-block-content">
-
-                <!-- W-Latest-Photo -->
-
-                <ul class="widget w-last-photo js-zoom-gallery">
-                    <li>
-                        <a href="/img/social/last-photo10-large.jpg">
-                            <img src="/img/social/last-photo10-large.jpg" alt="photo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/img/social/last-phot11-large.jpg">
-                            <img src="/img/social/last-phot11-large.jpg" alt="photo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/img/social/last-phot12-large.jpg">
-                            <img src="/img/social/last-phot12-large.jpg" alt="photo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/img/social/last-phot13-large.jpg">
-                            <img src="/img/social/last-phot13-large.jpg" alt="photo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/img/social/last-phot14-large.jpg">
-                            <img src="/img/social/last-phot14-large.jpg" alt="photo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/img/social/last-phot15-large.jpg">
-                            <img src="/img/social/last-phot15-large.jpg" alt="photo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/img/social/last-phot16-large.jpg">
-                            <img src="/img/social/last-phot16-large.jpg" alt="photo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/img/social/last-phot17-large.jpg">
-                            <img src="/img/social/last-phot17-large.jpg" alt="photo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/img/social/last-phot18-large.jpg">
-                            <img src="/img/social/last-phot18-large.jpg" alt="photo">
-                        </a>
-                    </li>
-                </ul>
-
-
-                <!-- .. end W-Latest-Photo -->
-            </div>
-        </div>
-
-        <div class="ui-block">
-            <div class="ui-block-title">
-                <h6 class="title">Blog Posts</h6>
-            </div>
-            <!-- W-Blog-Posts -->
-
-            <ul class="widget w-blog-posts">
-                <li>
-                    <article class="hentry post">
-
-                        <a href="#" class="h4">My Perfect Vacations in South America and Europe</a>
-
-                        <p>Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod por incidid ut
-                            labore et.</p>
-
-                        <div class="post__date">
-                            <time class="published" datetime="2017-03-24T18:18">
-                                7 hours ago
-                            </time>
-                        </div>
-
-                    </article>
-                </li>
-                <li>
-                    <article class="hentry post">
-
-                        <a href="#" class="h4">The Big Experience of Travelling Alone</a>
-
-                        <p>Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod por incidid ut
-                            labore et.</p>
-
-                        <div class="post__date">
-                            <time class="published" datetime="2017-03-24T18:18">
-                                March 18th, at 6:52pm
-                            </time>
-                        </div>
-
-                    </article>
-                </li>
-            </ul>
 
             <!-- .. end W-Blog-Posts -->
         </div>

@@ -60,7 +60,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="27-ManageWidgets.html">
+                    <a href="/profile/widgets">
                         <svg class="olymp-manage-widgets-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="Manage Widgets"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-manage-widgets-icon"></use></svg>
                     </a>
                 </li>
@@ -141,7 +141,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="27-ManageWidgets.html">
+                    <a href="{{ route('get_newsfeed') }}">
                         <svg class="olymp-manage-widgets-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="Manage Widgets"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-manage-widgets-icon"></use></svg>
                         <span class="left-menu-title">Manage Widgets</span>
                     </a>
