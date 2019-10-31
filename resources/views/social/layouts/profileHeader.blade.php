@@ -11,10 +11,10 @@
                             <div class="col col-lg-5 col-md-5 col-sm-12 col-12">
                                 <ul class="profile-menu">
                                     <li>
-                                        <a href="/profile" class="active">Timeline</a>
+                                        <a href="/profile">Timeline</a>
                                     </li>
                                     <li>
-                                        <a href="05-ProfilePage-About.html">About</a>
+                                        <a href="/profile/runs">Runs</a>
                                     </li>
                                     <li>
                                         <a href="/profile/friends">Friends</a>

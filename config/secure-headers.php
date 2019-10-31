@@ -406,7 +406,7 @@ return [
                 'https://www.google-analytics.com',
                 'https://www.google.com/recaptcha/api.js',
                 'https://www.gstatic.com/recaptcha/api2/v1555968629716/recaptcha__fr.js',
-                'https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js'
+                'https://api.tiles.mapbox.com/'
             ],
 
             'hashes' => [
@@ -475,7 +475,14 @@ return [
         'img-src' => [
             'allow' => [
                 '*',
-                'data:'
+                'data:',
+                'blob:'
+            ]
+        ],
+
+        'child-src' => [
+            'allow' => [
+                'blob:'
             ]
         ],
 
@@ -497,7 +504,10 @@ return [
                 strtolower(env('APP_URL')),
                 strtolower(env('SOCIAL_APP_DOMAIN')),
                 strtolower(env('API_DOMAIN')),
-                strtolower(env('ADMIN_DOMAIN'))
+                strtolower(env('ADMIN_DOMAIN')),
+                'https://*.tiles.mapbox.com',
+                'https://events.mapbox.com',
+                'https://api.mapbox.com'
             ]
         ],
 
@@ -552,7 +562,9 @@ return [
         ],
 
         'worker-src' => [
-            //
+            'allow' => [
+                'blob:'
+            ]
         ],
 
         'plugin-types' => [

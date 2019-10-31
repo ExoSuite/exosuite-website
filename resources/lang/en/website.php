@@ -120,6 +120,7 @@ return [
     'login.mail' => 'Email address',
     'login.password' => 'Password',
     'login.forgotPassword' => 'Forgot your password ?',
+    'login.textTitle' => 'Welcome to social network of ExoSuite !',
     'register' => 'Register !',
     'register.firstName' => 'First Name',
     'register.lastName' => 'Last Name',

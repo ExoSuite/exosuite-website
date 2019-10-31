@@ -16269,7 +16269,7 @@ select.selectpicker {
 }
 
 .bootstrap-select.btn-group .dropdown-menu li.selected a {
-    color: #fff;
+    color: #000000;
 }
 
 .bootstrap-select.btn-group .dropdown-menu li a.opt {
@@ -21328,4 +21328,12 @@ input[type=checkbox] {
 
 .menu-avatar {
     height: 38px;
+}
+
+.runs {
+    color: #ff5e3a;
+}
+
+.runs:hover {
+    color: orange;
 }

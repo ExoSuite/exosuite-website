@@ -120,6 +120,7 @@ return [
     'login.mail' => 'Adresse email',
     'login.password' => 'Mot de passe',
     'login.forgotPassword' => 'Mot de passe oublié ?',
+    'login.textTitle' => 'Bienvenue dans l\'espace social ExoSuite !',
     'register' => 'Créer un compte !',
     'register.firstName' => 'Votre prénom',
     'register.lastName' => 'Votre nom',

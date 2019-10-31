@@ -86,7 +86,7 @@ class LoginController extends Controller
         try {
             return $this->attemptLogin($request);
         } catch (ClientException $exception) {
-            // dd($exception->getMessage());
+             //dd($exception->getMessage());
             // TODO: define behavior to print the error in $this->sendFailedLoginResponse($request);
         }
 
@@ -95,19 +95,7 @@ class LoginController extends Controller
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
 
-        $this->sendFailedLoginResponse($request);
-    }
-
-    /**
-     * Get the failed login response instance.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return void
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    protected function sendFailedLoginResponse(Request $request)
-    {
-        throw ValidationException::withMessages([$this->username() => [trans('auth.failed')],]);
+        return redirect(route('login'))->withErrors(trans('auth.failed'));
     }
 
     /**

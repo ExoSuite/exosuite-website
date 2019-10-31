@@ -37,7 +37,7 @@ Route::domain(Parser::getDomain())->group(function () {
 
     Route::get('social', 'SimpleViewController@social')->name('get_social');
 
-    Route::post('/register', 'Auth\RegisterController@register')->name('registerAPI');
+    Route::post('register', 'Auth\RegisterController@register')->name('registerAPI');
 
     Route::group(["prefix" => "login"], function () {
         //  don't modify to get_login or laravel will not understand!
@@ -49,6 +49,8 @@ Route::domain(Parser::getDomain())->group(function () {
 
 Route::domain(config('social_app.domain'))->group(function () {
     Route::group(['middleware' => 'auth'], function () {
+        Route::get('/groups', 'SocialController@groupView')->name('get_group_view');
+        Route::post('/groups', 'SocialController@createGroup')->name('post_group');
         Route::post('/addpost', 'ProfileController@addpostView');
         Route::post('/editpost', 'ProfileController@updatepostView');
         Route::post('/getAllPost', 'ProfileController@getpostfromdashboard');
@@ -59,6 +61,7 @@ Route::domain(config('social_app.domain'))->group(function () {
             Route::get('/edit', 'ProfileController@editMyProfileView');
             Route::post('/edit', 'ProfileController@editMyProfile');
             Route::post('/avatar', 'ProfileController@uploadAvatar')->name('post_avatar');
+            Route::get('/runs', 'ProfileController@getRuns')->name('get_runs');
             //Route::get('friends', 'ProfileController@friendsView');
             Route::group(["prefix" => "widgets"], function () {
                Route::get('/', 'ProfileController@editWidgetsView');

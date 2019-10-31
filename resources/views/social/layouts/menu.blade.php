@@ -3,7 +3,7 @@
 
         <a href="/" class="logo">
             <div class="img-wrap">
-                <img src="/img/exosuite-icon.png" alt="Olympus">
+                <img src="/img/exosuite-icon.png" alt="ExoSuite">
             </div>
         </a>
 
@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="17-FriendGroups.html">
+                    <a href="{{ route('get_group_view') }}">
                         <svg class="olymp-happy-faces-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FRIEND GROUPS"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-happy-faces-icon"></use></svg>
                     </a>
                 </li>
