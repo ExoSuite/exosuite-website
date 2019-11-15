@@ -93,6 +93,12 @@ Route::domain(config('social_app.domain'))->group(function () {
         //USER PROFILE
         Route::get('/user/{user}/profile', 'friendsgeneralController@getUserProfile')->name('get_user_profile'); //get User
 
+
+        Route::post('/editpost', 'ProfileController@updatepostView');
+        Route::post('/getAllPost', 'ProfileController@getpostfromdashboard');
+        Route::get('/', 'SocialController@home')->name('get_newsfeed');
+        Route::get('/deletepost/{id}', 'ProfileController@deletepostView');
+
         Route::group(["prefix" => "profile"], function () {
             Route::get('/', 'SocialController@profile')->name('get_profile');
             Route::get('/edit', 'ProfileController@editMyProfileView');
