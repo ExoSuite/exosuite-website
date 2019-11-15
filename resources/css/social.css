@@ -45,8 +45,48 @@
 .social-news-author-text {
     margin-left: .5em;
     padding-top: 1.1em;
-@media all and (max-width: 764px){
+}
+
+@media all and (max-width: 764px) {
     .social-desktop-item-menu {
         display: none;
     }
+}
+
+
+
+[id='toggle-heart'] {
+    position: absolute;
+    left: -100vw;
+}
+
+[for='toggle-heart'] {
+    color: black;
+}
+
+[id='toggle-heart']:checked + label {
+    color: gold;
+}
+
+[for='toggle-heart'] {
+    font-size: 10em;
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+}
+
+[for='toggle-heart'] {
+    align-self: center;
+}
+
+@keyframes heart { 0%, 17.5% { font-size: 0; } }
+
+[id='toggle-heart']:checked + label {
+    will-change: font-size;
+    animation: heart 1s cubic-bezier(.17, .89, .32, 1.49);
 }
