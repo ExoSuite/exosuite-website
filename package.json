@@ -32,9 +32,11 @@
     "jwt-decode": "^2.2.0",
     "laravel-echo": "^1.5.2",
     "lodash": "^4.17.11",
+    "mapbox-gl": "^1.1.0",
     "mobx": "^5.9.0",
     "mobx-react": "^5.4.3",
     "perfect-scrollbar": "^1.4.0",
+    "react-chat-popup": "^1.1.2",
     "react-toastify": "^4.5.2",
     "socket.io-client": "^2.2.0"
   }

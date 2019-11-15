@@ -1,5 +1,4 @@
-import * as React from 'react';
-import {findDOMNode} from 'react-dom';
+import * as React from 'react'
 import {observer} from "mobx-react";
 
 interface messages {
@@ -10,7 +9,7 @@ interface messages {
 }
 
 @observer
-export default class ListMessage extends React.Component<any, any> {
+export class ListMessage extends React.Component<any, any> {
     private readonly userId: string;
 
     constructor(props) {
@@ -20,6 +19,12 @@ export default class ListMessage extends React.Component<any, any> {
 
     async componentWillMount() {
         await this.props.messages.callAPIForSetMessages();
+        if (this.props.groupId !== "") {
+            // @ts-ignore
+            window.Echo.join(`group.${this.props.groupId}`).listen('.NewMessage', e => {
+                this.props.messages.pushNewMessage(e);
+            });
+        }
     }
 
     render() {
@@ -27,7 +32,7 @@ export default class ListMessage extends React.Component<any, any> {
         return (
             <ul className="notification-list chat-message chat-message-field">
                 {
-                    messages.data && messages.map((item: messages) => {
+                    messages && messages.map((item: messages) => {
                         return (
                             <li key={item.id}>
                                 <div

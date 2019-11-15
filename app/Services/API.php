@@ -13,6 +13,10 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Http\File;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class API
@@ -82,17 +86,23 @@ class API implements MakeAPIRequest
      */
     public function postPicture(string $uri, UploadedFile $data, array $headers = [])
     {
-        dd($data);
-        $picture = fopen($data, 'r');
-        $response = $this->client->post($uri, [
+        $file = new File($data->getPathname());
+        $tmp_picture_path = Storage::putFile("temp_dir", $file);
+        $tmp_picture = Storage::readStream(strval($tmp_picture_path));
+        $response = $this->client->post(
+            $uri,
+            [
                 'multipart' => [
                     [
                         'name' => 'picture',
-                        'contents' => $picture,
+                        'contents' => $tmp_picture,
+                        'filename' => "avatar." . $data->getClientOriginalExtension()
                     ]
                 ],
                 'headers' => $headers
-            ]);
+            ]
+        );
+        Storage::delete(strval($tmp_picture_path));
         return $response;
     }
 
@@ -116,8 +126,9 @@ class API implements MakeAPIRequest
      */
     public function patch(string $uri, $data, array $headers = [])
     {
-        if ($data instanceof Collection)
+        if ($data instanceof Collection) {
             $data = $data->all();
+        }
         $promise = $this->client->patchAsync($uri, ['json' => $data, 'headers' => $headers]);
         return $this->wait($promise);
     }
@@ -142,7 +153,7 @@ class API implements MakeAPIRequest
      */
     public function delete(string $uri, array $data = [], array $headers = [])
     {
-        $promise = $this->client->putAsync($uri, ['query' => $data, 'headers' => $headers]);
+        $promise = $this->client->deleteAsync($uri, ['query' => $data, 'headers' => $headers]);
         return $this->wait($promise);
     }
 }

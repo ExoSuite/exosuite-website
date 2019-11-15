@@ -11,10 +11,10 @@
                             <div class="col col-lg-5 col-md-5 col-sm-12 col-12">
                                 <ul class="profile-menu">
                                     <li>
-                                        <a href="/profile" class="active">Timeline</a>
+                                        <a href="/profile">Timeline</a>
                                     </li>
                                     <li>
-                                        <a href="05-ProfilePage-About.html">About</a>
+                                        <a href="/profile/runs">Runs</a>
                                     </li>
                                     <li>
                                         <a href="#">my Friends : {{ $getmyfriend['total'] }}</a>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="top-header-author">
                         <a href="/profile" class="author-thumb">
-                            <img src="/img/social/author-main1.jpg" alt="author">
+                            <img src="{{ config("api.domain") }}user/{{$userId}}/profile/picture/avatar?token={{ $pictureToken }}" alt="author" class="profilePicture">
                         </a>
                         <div class="author-content">
                             <a href="/profile"

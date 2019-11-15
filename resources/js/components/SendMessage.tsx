@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from 'react'
 import {observer} from "mobx-react";
 
 @observer
-export default class SendMessageForm extends React.Component<any, any> {
+export class SendMessage extends React.Component<any, any> {
     private readonly userId: string;
     private messageInput: string;
     private form: HTMLFormElement | undefined | null;
@@ -40,7 +40,7 @@ export default class SendMessageForm extends React.Component<any, any> {
                     <div className="add-options-message">
                         <a href="#" className="options-message">
                             <svg className="olymp-computer-icon">
-                                <use xlinkHref="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                                <use xlinkHref="/svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
                             </svg>
                         </a>
                     </div>

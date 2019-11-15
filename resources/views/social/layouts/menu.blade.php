@@ -3,7 +3,7 @@
 
         <a href="/" class="logo">
             <div class="img-wrap">
-                <img src="/img/exosuite-icon.png" alt="Olympus">
+                <img src="/img/exosuite-icon.png" alt="ExoSuite">
             </div>
         </a>
 
@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="17-FriendGroups.html">
+                    <a href="{{ route('get_group_view') }}">
                         <svg class="olymp-happy-faces-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FRIEND GROUPS"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-happy-faces-icon"></use></svg>
                     </a>
                 </li>
@@ -511,7 +511,7 @@
 
         <div class="author-page author vcard inline-items more">
             <div class="author-thumb">
-                <img alt="author" src="/img/social/author-page.jpg" class="avatar">
+                <img alt="author" src="{{ config("api.domain") }}user/{{$userId}}/profile/picture/avatar?token={{ $pictureToken }}" class="avatar menu-avatar">
                 <span class="icon-status online"></span>
                 <div class="more-dropdown more-with-triangle">
                     <div class="mCustomScrollbar" data-mcs-theme="dark">

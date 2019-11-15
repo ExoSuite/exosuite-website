@@ -400,7 +400,13 @@ return [
 
         'script-src' => [
             'allow' => [
-                'data:'
+                'data:',
+                'https://apis.google.com',
+                'https://www.googletagmanager.com',
+                'https://www.google-analytics.com',
+                'https://www.google.com/recaptcha/api.js',
+                'https://www.gstatic.com/recaptcha/api2/v1555968629716/recaptcha__fr.js',
+                'https://api.tiles.mapbox.com/'
             ],
 
             'hashes' => [
@@ -469,7 +475,14 @@ return [
         'img-src' => [
             'allow' => [
                 '*',
-                'data:'
+                'data:',
+                'blob:'
+            ]
+        ],
+
+        'child-src' => [
+            'allow' => [
+                'blob:'
             ]
         ],
 
@@ -490,7 +503,11 @@ return [
                 strtolower(env('MIX_IO_DOMAIN')),
                 strtolower(env('APP_URL')),
                 strtolower(env('SOCIAL_APP_DOMAIN')),
-                strtolower(env('API_DOMAIN'))
+                strtolower(env('API_DOMAIN')),
+                strtolower(env('ADMIN_DOMAIN')),
+                'https://*.tiles.mapbox.com',
+                'https://events.mapbox.com',
+                'https://api.mapbox.com'
             ]
         ],
 
@@ -514,7 +531,8 @@ return [
                 'https://teamexosuite.cloud/',
                 'https://exosuite.fr/',
                 strtolower(env("APP_URL")),
-                strtolower(env('SOCIAL_APP_DOMAIN'))
+                strtolower(env('SOCIAL_APP_DOMAIN')),
+                strtolower(env('ADMIN_DOMAIN'))
             ]
         ],
 
@@ -525,7 +543,9 @@ return [
         'frame-src' => [
             'allow' => [
                 'http://www.youtube.com/',
-                'http://player.vimeo.com/'
+                'http://player.vimeo.com/',
+                'https://content.googleapis.com/',
+                'https://www.google.com/'
             ]
         ],
 
@@ -542,7 +562,9 @@ return [
         ],
 
         'worker-src' => [
-            //
+            'allow' => [
+                'blob:'
+            ]
         ],
 
         'plugin-types' => [
