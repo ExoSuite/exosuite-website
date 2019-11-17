@@ -23,13 +23,16 @@ class ProfileController extends Controller
         if ($response['profile']->birthday != null) {
             $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
         }
-        return view('social.editprofile')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data']));
+        $allusers = API::get("/user/search", ["text" => "*"],  ['Authorization' => 'Bearer ' . $access_token]);
+        return view('social.editprofile')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data'], 'allusers' => $allusers));
     }
 
     public function profileView($id)
     {
+        $access_token = session()->get('access_token');
         $user = Auth::user();
-        return view('profile')->with(array('user' => $user, 'id' => $id));
+        $allusers = API::get("/user/search", ["text" => "*"],  ['Authorization' => 'Bearer ' . $access_token]);
+        return view('profile')->with(array('user' => $user, 'id' => $id, 'allusers' => $allusers));
     }
 
     public function editMyProfile(Request $request)
@@ -66,13 +69,24 @@ class ProfileController extends Controller
     }
 
 
-    public function addpostView(Request $request)
-    {
+    public function addpostView(Request $request){
         $access_token = session()->get('access_token');
         $user_id = Auth::id();
         $postContent = $request["postText"];
-        $response = API::Post("/user/$user_id/dashboard/posts", ["content" => $postContent], ['Authorization' => 'Bearer ' . $access_token]);
+        $response = API::Post("/user/$user_id/dashboard/posts", [
+            "content" => $postContent
+        ], ['Authorization' => 'Bearer ' . $access_token]);
         return redirect(route('get_newsfeed'));
+    }
+
+    public function addpostViewProfile(Request $request){
+        $access_token = session()->get('access_token');
+        $user_id = Auth::id();
+        $postContent = $request["postText"];
+        $response = API::Post("/user/$user_id/dashboard/posts", [
+            "content" => $postContent
+        ], ['Authorization' => 'Bearer ' . $access_token]);
+        return redirect(route('get_profile'));
     }
 
     public function updatepostView(Request $request)
@@ -106,6 +120,32 @@ class ProfileController extends Controller
         return redirect(route('get_newsfeed'));
     }
 
+    public function createCommentary(Request $request){
+        $access_token = session()->get('access_token');
+
+        $user_id = Auth::id();
+        $postId = $request['id'];
+        $comcontent = $request['addcom'];
+       $response = API::post("/user/$user_id/dashboard/posts/$postId/commentaries",  ['content' => $comcontent], ['Authorization' => 'Bearer ' . $access_token]);
+        return redirect(route('get_profile'));
+    }
+
+    public function updateCommentary(Request $request){
+        $access_token = session()->get('access_token');
+        $user_id = Auth::id();
+        $postID = $request['postId'];
+        $commentaryID = $request['commentId'];
+       $response = API::patch("/user/$user_id/dashboard/posts/$postID/commentaries/$commentaryID",  ['content' => $request['comment']], ['Authorization' => 'Bearer ' . $access_token]);
+        return redirect(route('get_profile'));
+    }
+    public function deleteCommentary(Request $request){
+        $access_token = session()->get('access_token');
+        $user_id = Auth::id();
+        $postID = $request['postId'];
+        $commentaryID = $request['commentId'];
+        API::delete("/user/$user_id/dashboard/posts/$postID/commentaries/$commentaryID",  [], ['Authorization' => 'Bearer ' . $access_token]);
+        return redirect(route('get_profile'));
+    }
     public function getRuns()
     {
         $accessToken = session()->get('access_token');

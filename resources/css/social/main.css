@@ -13729,6 +13729,19 @@ ol ol li {
     -ms-flex-align: center;
     align-items: center;
 }
+/*heart icon*/
+.ico {
+    border-radius: 50%;
+    cursor: pointer;
+    fill: #232323;
+    transition: .4s;
+
+}
+
+.liked {
+    transform: rotate(360deg);
+    fill: #C62828;
+}
 
 .table-cell {
     display: table-cell;

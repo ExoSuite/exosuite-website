@@ -16,7 +16,18 @@ class SocialController extends Controller
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $posts = API::get("/user/$userId/dashboard/posts", [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
-        return view('social.profile')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => array_reverse($posts)));
+        $friends = API::get("user/$userId/friendship/", [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        $getmyfollows =  API::get("user/me/follows/following/count/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $getmyfriends =  API::get("user/me/friendship/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
+        return view('social.profile')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => $posts, 'friends' => $friends, 'allusers' => $allusers, 'getmyfollow' => $getmyfollows, 'getmyfriend' => $getmyfriends));
+    }
+
+    public function likePost($postId)
+    {
+        $accessToken = session()->get('access_token');
+        $userId = Auth::id();
+        API::post("/user/$userId/dashboard/posts/$postId/likes", [], ['Authorization' => 'Bearer ' . $accessToken]);
     }
 
     public function home()
@@ -26,7 +37,9 @@ class SocialController extends Controller
         $pictureToken = session()->get('view-picture')['accessToken'];
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return view('social.newsfeed')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId));
+        $posts = API::get("/user/$userId/dashboard/posts", [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        return view('social.newsfeed')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => $posts, 'allusers' => $allusers));
     }
 
     public function achievmentsHome()
