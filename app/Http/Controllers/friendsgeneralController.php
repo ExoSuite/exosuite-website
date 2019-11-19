@@ -60,8 +60,8 @@ class friendsgeneralController
         }
         else
             $checkfollowbool = false;
-        $getMyFriendshipWith =  API::get("user/". $id ."/friendship/existingFriendship",  [], ['Authorization' => 'Bearer ' . $access_token]);
-        dd($getMyFriendshipWith);
+       // $getMyFriendshipWith =  API::get("user/". $id ."/friendship/existingFriendship",  [], ['Authorization' => 'Bearer ' . $access_token]);
+       // dd($getMyFriendshipWith);
        /* if( $getMyFriendshipWith['value'] == true)
         {
             dd( $getMyFriendshipWith['value']);
