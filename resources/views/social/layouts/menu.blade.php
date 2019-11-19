@@ -391,23 +391,25 @@
                 </div>
 
                 <div class="mCustomScrollbar" data-mcs-theme="dark">
+
                     <ul class="notification-list friend-requests">
+
+                        @foreach($mypendingrequest as $mypendings)
                         <li>
                             <div class="author-thumb">
                                 <img src="/img/social/avatar55-sm.jpg" alt="author">
                             </div>
                             <div class="notification-event">
-                                <a href="#" class="h6 notification-friend">Tamara Romanoff</a>
-                                <span class="chat-message-item">Mutual Friend: Sarah Hetfield</span>
+                                <a href="#" class="h6 notification-friend">{{ $mypendings->user->first_name . ' ' . $mypendings->user->last_name}}</a>
                             </div>
                             <span class="notification-icon">
-									<a href="{{ "/me/friendship/{request}/accept/" }}" class="accept-request">
+									<a href="{{ route("acceptrequest", $mypendings->id) }}" class="accept-request">
 										<span class="icon-add without-text">
 											<svg class="olymp-happy-face-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
 										</span>
 									</a>
 
-									<a href="{{ "/me/friendship/{request}/decline/" }}" class="accept-request request-del">
+									<a href="{{  route("declinerequest", $mypendings->id) }}" class="accept-request request-del">
 										<span class="icon-minus">
 											<svg class="olymp-happy-face-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
 										</span>
@@ -419,7 +421,7 @@
                                 <svg class="olymp-three-dots-icon"><use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
                             </div>
                         </li>
-
+                     @endforeach
 
                     </ul>
                 </div>

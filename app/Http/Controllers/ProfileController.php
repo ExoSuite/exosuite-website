@@ -24,7 +24,8 @@ class ProfileController extends Controller
             $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
         }
         $allusers = API::get("/user/search", ["text" => "*"],  ['Authorization' => 'Bearer ' . $access_token]);
-        return view('social.editprofile')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data'], 'allusers' => $allusers));
+         $mypendingrequest = API::get('/user/me/pending_requests/',  [], ['Authorization' => 'Bearer ' . $access_token]);
+        return view('social.editprofile')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data'], 'allusers' => $allusers, 'mypendingrequest' => $mypendingrequest));
     }
 
     public function profileView($id)

@@ -16,8 +16,12 @@ class followController
     public function deleteaFollow($id){
         $accessToken = session()->get('access_token');
         $userId = $id;
-        API::delete("user/$userId/follows/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return redirect(route('get_profile'));
+        $follow = API::get("user/$userId/follows", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $followId = $follow['id'];
+        if ($followId != null) {
+            API::delete("user/me/follows/$followId", [], ['Authorization' => 'Bearer ' . $accessToken]);
+            return redirect(route('get_user_profile', $id));
+        }
     }
     public function checkIfIamFollowing(){
         $accessToken = session()->get('access_token');
@@ -71,7 +75,7 @@ class followController
         $accessToken = session()->get('access_token');
         $userId = $id;
         API::post("user/$userId/follows/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return redirect(route('www.google.com'));
+        return redirect(route('get_user_profile', $id));
     }
 
 

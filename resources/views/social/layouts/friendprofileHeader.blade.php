@@ -10,12 +10,12 @@
                         <div class="row">
                             <div class="col col-lg-5 col-md-5 col-sm-12 col-12">
                                 <ul class="profile-menu">
-                                   {{-- <li>
-                                        <a>Friends : {{ //numberoffriends here }}</a>
+                                    <li>
+                                        <a>Friends : {{ $getuserfriends['total'] }}</a>
                                     </li>
                                     <li>
-                                        <a >Follows : {{//numberoffollows here}}</a>
-                                    </li>--}}
+                                        <a >Follows : {{ $getuserfollows['total'] }}</a>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -23,7 +23,7 @@
                                 <ul class="profile-menu">
 
                                     <li>
-                                        <button class="btn btn-primary" id="charleshenri">
+                                        <a class="btn btn-primary" id="charleshenri">
                                             ajouter en amis
                                             <script>
                                                 var element = document.getElementById("charleshenri").addEventListener("click", alerter);
@@ -31,6 +31,8 @@
                                                    alert("demande d'amitiée envoyée");
                                                     this.style.backgroundColor  = "grey";
                                                     this.style.bordercolor  = "grey";
+                                                    this.style.color = "White";
+                                                    document.getElementById("charleshenri").innerHTML = "supprimer des amis";
                                                    //faire la requete : Route::post('user/{user}/friendship/', 'friendsgeneralController@sendFriendshipRequest')
                                                    /* User Story :
                                                         - A demande B en ami(e) (création de la requête: user/${user_id}/friendship)   //user_id de la personne ciblée
@@ -40,16 +42,30 @@
                                                     - Declin : user/me/friendship/${request_id}/decline*/
                                                 }
                                             </script>
-                                        </button>
+                                        </a>
                                     </li>
 
                                     <li>
-                                        <a href=" {{  route("createafollow", $userId)}}" class="btn btn-primary">
+                                        <a href=" {{ route('createafollow', $userId)}}" id="createfollowid" class="btn btn-primary" value="{{ $checkfollowbool }}">
                                             Suivre
                                         </a>
-                                        <a href=" {{  route("deleteaFollow", $userId)}}" class="btn btn-primary">
+
+
+                                        <a href=" {{route("deleteafollow", $userId)}}" class="btn btn-primary" id="deletefollowid" value="{{ $checkfollowbool }}" >
                                            ne plus Suivre
                                         </a>
+
+                                        <script>
+                                           var checkbool = document.getElementById("createfollowid").value;
+                                            if(checkbool == 1){
+                                                document.getElementById("createfollowid").style.visibility = "hidden";
+                                                document.getElementById("deletefollowid").style.visibility = "visible";
+                                            }
+                                            else if (checkbool != 1){
+                                                document.getElementById("deletefollowid").style.visibility = "hidden";
+                                                document.getElementById("createfollowid").style.visibility = "visible";
+                                            }
+                                        </script>
                                     </li>
                                     <li>
                                         <div class="more">

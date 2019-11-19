@@ -20,7 +20,8 @@ class SocialController extends Controller
         $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $accessToken])['data'];
         $getmyfollows =  API::get("user/me/follows/following/count/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
         $getmyfriends =  API::get("user/me/friendship/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return view('social.profile')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => $posts, 'friends' => $friends, 'allusers' => $allusers, 'getmyfollow' => $getmyfollows, 'getmyfriend' => $getmyfriends));
+        $mypendingrequest =  API::get('/user/me/pending_requests/',  [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        return view('social.profile')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => $posts, 'friends' => $friends, 'allusers' => $allusers, 'getmyfollow' => $getmyfollows, 'getmyfriend' => $getmyfriends, 'mypendingrequest' => $mypendingrequest));
     }
 
     public function likePost($postId)
@@ -39,7 +40,8 @@ class SocialController extends Controller
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $posts = API::get("/user/$userId/dashboard/posts", [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
         $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $accessToken])['data'];
-        return view('social.newsfeed')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => $posts, 'allusers' => $allusers));
+        $mypendingrequest =  API::get('/user/me/pending_requests/',  [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        return view('social.newsfeed')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => $posts, 'allusers' => $allusers,'mypendingrequest' => $mypendingrequest));
     }
 
     public function achievmentsHome()

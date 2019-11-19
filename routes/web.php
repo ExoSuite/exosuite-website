@@ -69,12 +69,13 @@ Route::domain(config('social_app.domain'))->group(function () {
         Route::delete('user/{user}/friendship/', 'friendsgeneralController@deleteFriendships')->name('deletefriend');
         Route::get('/me/friendship/', 'friendsgeneralController@getMyFriendships');
         Route::post('user/{user}/friendship/', 'friendsgeneralController@sendFriendshipRequest')->name('sendfriendrequest');
-        Route::post('/me/friendship/{request}/accept/', 'friendsgeneralController@acceptRequest')->name('acceptrequest');
-        Route::post('/me/friendship/{request}/decline', 'friendsgeneralController@declineRequest')->name('declinerequest');
+        Route::get('/acceptrequest/{userId}', 'friendsgeneralController@acceptRequest')->name('acceptrequest');
+        Route::get('/declinerequest/{userId}', 'friendsgeneralController@declineRequest')->name('declinerequest');
+        Route::get('user/{user}/friendship/existingFriendship','friendsgeneralController@existingFriendship')->name('existingFriendship');
 
         //FOLLOWS
         Route::get('user/{user}/follows/', 'followController@checkIfIamFollowing')->name('getifiamfollowing'); //get if i am following
-        Route::delete('user/{user}/follows/', 'followController@deleteaFollow')->name('deleteaFollow'); //delete follow
+        Route::get('user/{user}/follows/delete', 'followController@deleteaFollow')->name('deleteafollow'); //delete a follow
         Route::get('user/{user}/follows/followers/', 'followController@getFollowers')->name('getfollowers'); //get followers
         Route::get('user/me/follows/followers/', 'followController@getMyFollowers')->name('getmyfollowers'); //get my followers
         Route::get('user/{user}/follows/followers/count/', 'followController@getFollowersCount')->name('getusersfollowerscount'); //get user's followers count
@@ -83,12 +84,18 @@ Route::domain(config('social_app.domain'))->group(function () {
         Route::get('user/me/follows/following/', 'followController@getMyFollows')->name('getmyfollows'); //get my follows
         Route::get('user/{user}/follows/following/count/', 'followController@getFollowsUsersCount')->name('getusersfollowscount'); //get users follows count
         Route::get('user/me/follows/following/count/', 'followController@getMyFollowsCount')->name('getMyFollowsCount'); //get my follows count
-        Route::post('user/{user}/follows/', 'followController@createaFollow')->name('createafollow');//create a follow
+        Route::get('user/{user}/follows/', 'followController@createaFollow')->name('createafollow');//create a follow
 
-        //PENDING REQUESTS
+        //USERS
         Route::get('/user/me', 'friendsgeneralController@getUser')->name('get_user'); //get User
         Route::get('/user/search', 'friendsgeneralController@SearchUser')->name('search_user'); //SearchUser
         Route::get('/user/me/groups', 'friendsgeneralController@getMyGroups')->name('getmy_groups'); //getMyGroups
+
+        //PENDING REQUESTS
+        Route::get('/me/pending_requests/', 'friendsgeneralController@getmypending')->name('getmypending'); //get my pending requests
+        Route::get('user/{user}/pending_requests/', 'friendsgeneralController@getuserspendings')->name('getuserspending'); //get user pending requests
+        Route::get('/me/pending_requests/{request}', 'friendsgeneralController@deletepending')->name('deletepending'); //delete pending request
+
 
         //USER PROFILE
         Route::get('/user/{user}/profile', 'friendsgeneralController@getUserProfile')->name('get_user_profile'); //get User
@@ -114,6 +121,7 @@ Route::domain(config('social_app.domain'))->group(function () {
             });
             Route::group(["prefix" => "myfriends"], function () {
                 Route::get('/', 'friendsgeneralController@getmyfriendshome')->name('get_myfriends_page');
+
             });
             Route::group(["prefix" => "friendsrequests"], function () {
                 Route::get('/', 'friendsgeneralController@getmyfriendshome')->name('get_friendsrequests_page');
@@ -121,6 +129,7 @@ Route::domain(config('social_app.domain'))->group(function () {
             Route::group(["prefix" => "follow"], function () {
                 Route::get('/', 'friendsgeneralController@getmyfriendshome')->name('get_follow_page');
             });
+
         });
         Route::group(["prefix" => "user"], function () {
             Route::get('/{id}', 'ProfileController@profileView');
