@@ -1663,16 +1663,17 @@
     var counter = 0;
     var nbcomment = 0;
 
-    likeBtn.addEventListener('click', function() {
-        likeBtn.classList.toggle('liked');
-        if (counter == 0)
-            counter = 1;
-        else
-            counter = 0;
-        document.getElementById("spanlike").innerHTML = counter;
-    });
-    document.getElementById("nbcom").innerHTML = nbcomment;
-
+    if (likeBtn != null) {
+        likeBtn.addEventListener('click', function() {
+            likeBtn.classList.toggle('liked');
+            if (counter == 0)
+                counter = 1;
+            else
+                counter = 0;
+            document.getElementById("spanlike").innerHTML = counter;
+        });
+        document.getElementById("nbcom").innerHTML = nbcomment;
+    }
 </script>
 </body>
 </html>

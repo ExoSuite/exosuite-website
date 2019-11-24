@@ -65,13 +65,12 @@ Route::domain(config('social_app.domain'))->group(function () {
         Route::post('/editpost', 'ProfileController@updatepostView');
 
         //FRIENDS
-        Route::get('user/{user}/friendship/', 'friendsgeneralController@getFriendships'); //get friends from someone
-        Route::delete('user/{user}/friendship/', 'friendsgeneralController@deleteFriendships')->name('deletefriend');
-        Route::get('/me/friendship/', 'friendsgeneralController@getMyFriendships');
-        Route::post('user/{user}/friendship/', 'friendsgeneralController@sendFriendshipRequest')->name('sendfriendrequest');
-        Route::get('/acceptrequest/{userId}', 'friendsgeneralController@acceptRequest')->name('acceptrequest');
-        Route::get('/declinerequest/{userId}', 'friendsgeneralController@declineRequest')->name('declinerequest');
-        Route::get('user/{user}/friendship/existingFriendship','friendsgeneralController@existingFriendship')->name('existingFriendship');
+        Route::get('user/{user}/friendship/delete', 'friendsgeneralController@deleteFriendships')->name('deletefriend'); //supprimer un amis
+        Route::get('/me/friendship/', 'friendsgeneralController@getMyFriendships'); //get mes amis
+        Route::get('user/{user}/friendship/', 'friendsgeneralController@sendFriendshipRequest')->name('sendfriendrequest'); //envoyer demande d'mais
+        Route::get('/acceptrequest/{userId}', 'friendsgeneralController@acceptRequest')->name('acceptrequest'); // accepter les demandes d'amis
+        Route::get('/declinerequest/{userId}', 'friendsgeneralController@declineRequest')->name('declinerequest'); //refuser une demande d'mais
+        Route::get('user/{user}/friendship/existingFriendship','friendsgeneralController@existingFriendship')->name('existingFriendship'); //check si il existe une amitié
 
         //FOLLOWS
         Route::get('user/{user}/follows/', 'followController@checkIfIamFollowing')->name('getifiamfollowing'); //get if i am following

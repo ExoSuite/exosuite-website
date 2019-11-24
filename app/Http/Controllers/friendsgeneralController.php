@@ -8,6 +8,7 @@ use App\Facades\API;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function GuzzleHttp\Promise\all;
 
 
 class friendsgeneralController
@@ -60,14 +61,7 @@ class friendsgeneralController
         }
         else
             $checkfollowbool = false;
-       // $getMyFriendshipWith =  API::get("user/". $id ."/friendship/existingFriendship",  [], ['Authorization' => 'Bearer ' . $access_token]);
-       // dd($getMyFriendshipWith);
-       /* if( $getMyFriendshipWith['value'] == true)
-        {
-            dd( $getMyFriendshipWith['value']);
-        }
-        else
-            dd( "not your friend");*/
+        $getMyFriendshipWith =  API::get("user/". $id ."/friendship/existingFriendship",  [], ['Authorization' => 'Bearer ' . $access_token]);
         $pictureToken = session()->get('view-picture')['accessToken'];
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $access_token]);
         if ($response['profile']->birthday != null) {
@@ -77,7 +71,7 @@ class friendsgeneralController
         $getuserfriends =  API::get("/user/" . $id . "/friendship/",  [], ['Authorization' => 'Bearer ' . $access_token]);
         $mypendingrequest =  API::get('/user/me/pending_requests/',  [], ['Authorization' => 'Bearer ' . $access_token])['data'];
         $allusers = API::get("/user/search", ["text" => "*"],  ['Authorization' => 'Bearer ' . $access_token]);
-        return view('social.friendProfile')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data'], 'allusers' => $allusers, 'chmf ' => $chimf, 'getuserfollows' =>   $getuserfollows, 'getuserfriends' => $getuserfriends, 'mypendingrequest' => $mypendingrequest, 'checkfollowbool' =>  $checkfollowbool));
+        return view('social.friendProfile')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data'], 'allusers' => $allusers['data'], 'chmf ' => $chimf, 'getuserfollows' =>   $getuserfollows, 'getuserfriends' => $getuserfriends, 'mypendingrequest' => $mypendingrequest, 'checkfollowbool' =>  $checkfollowbool, 'getMyFriendshipWith' => $getMyFriendshipWith));
     }
 
     public function getFriendships($id){
@@ -89,9 +83,7 @@ class friendsgeneralController
 
     public function deleteFriendships($id){
         $accessToken = session()->get('access_token');
-        $userId = $id;
-        API::delete("user/$userId/friendship/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return redirect(route('get_profile'));
+        return API::delete("user/me/friendship/$id",  [], ['Authorization' => 'Bearer ' . $accessToken]);
     }
 
     public function getMyFriendships(){
@@ -111,18 +103,19 @@ class friendsgeneralController
     public function sendFriendshipRequest($id){
         $accessToken = session()->get('access_token');
         $userId = $id;
-        API::post("user/$userId/friendship/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return redirect(route('get_profile'));
+        return API::post("user/$userId/friendship/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
     }
 
     public function acceptRequest($userId){
         $accessToken = session()->get('access_token');
         API::post("user/me/friendship/$userId/accept/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
+        return redirect(route('get_user_profile', $userId));
     }
 
     public function declineRequest($userId){
         $accessToken = session()->get('access_token');
         API::post("user/me/friendship/$userId/decline/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
+        return redirect(route('get_user_profile', $userId));
     }
 
     public function getUser()

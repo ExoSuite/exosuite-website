@@ -23,25 +23,10 @@
                                 <ul class="profile-menu">
 
                                     <li>
-                                        <a class="btn btn-primary" id="charleshenri">
-                                            ajouter en amis
-                                            <script>
-                                                var element = document.getElementById("charleshenri").addEventListener("click", alerter);
-                                                function alerter() {
-                                                   alert("demande d'amitiée envoyée");
-                                                    this.style.backgroundColor  = "grey";
-                                                    this.style.bordercolor  = "grey";
-                                                    this.style.color = "White";
-                                                    document.getElementById("charleshenri").innerHTML = "supprimer des amis";
-                                                   //faire la requete : Route::post('user/{user}/friendship/', 'friendsgeneralController@sendFriendshipRequest')
-                                                   /* User Story :
-                                                        - A demande B en ami(e) (création de la requête: user/${user_id}/friendship)   //user_id de la personne ciblée
-                                                    - B accède à ses requetes en attentes (get des requetes : user/me/pending_requests)
-                                                    - B répond à la requete via :
-                                                        - Acceptation : user/me/friendship/${request_id}/accept
-                                                    - Declin : user/me/friendship/${request_id}/decline*/
-                                                }
-                                            </script>
+                                        <a class="btn btn-primary" onclick="sendFriendshipRequest(this)" id="{{$userId}}" @if ($getMyFriendshipWith['friendship_entity'] != null) friendshipId="{{$getMyFriendshipWith['friendship_entity']->id}}" @endif()>
+                                            {{
+                                            ($getMyFriendshipWith['value'] ? "Retirer des amis" : "Ajouter en ami")
+                                            }}
                                         </a>
                                     </li>
 
