@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Facades\API;
 use Carbon\Carbon;
 
-class ProfileController extends Controller
+class FriendProfileController extends Controller
 {
     private const userFields = array("first_name", "last_name", "nick_name");
 
