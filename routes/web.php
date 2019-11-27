@@ -57,11 +57,12 @@ Route::domain(config('social_app.domain'))->group(function () {
         Route::get('/', 'SocialController@home')->name('get_newsfeed');
 
         //PROFILE
-        Route::delete('/deletepost/{id}', 'ProfileController@deletepostView');
+        Route::get('/deletepost/{id}', 'ProfileController@deletepostView');
         route::post('/createCommentary', 'ProfileController@createCommentary');
-        route::delete('/deleteComm/{commentId}/{postId}', 'ProfileController@deleteCommentary');
+        route::get('/deleteComm/{commentId}/{postId}', 'ProfileController@deleteCommentary');
         route::post('/updateCommentary', 'ProfileController@updateCommentary');
         Route::get('/like/{postId}', 'SocialController@likePost');
+        Route::get('/unlike/{postId}', 'SocialController@unlikePost');
         Route::post('/editpost', 'ProfileController@updatepostView');
 
         //FRIENDS

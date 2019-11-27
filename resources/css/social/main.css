@@ -9021,11 +9021,6 @@ ol ol li {
     color: #ff5e3a;
 }
 
-.post-add-icon:active, .post-add-icon:focus {
-    fill: #c2c5d9;
-    color: #c2c5d9;
-}
-
 .names-people-likes {
     font-size: 12px;
 }

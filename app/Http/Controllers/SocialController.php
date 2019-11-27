@@ -16,11 +16,20 @@ class SocialController extends Controller
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $posts = API::get("/user/$userId/dashboard/posts", [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        foreach ($posts as $post) {
+            $post->likes = API::get("/user/$userId/dashboard/posts/$post->id/likes", [], ['Authorization' => 'Bearer ' . $accessToken]);
+            foreach ($post->likes as $struct) {
+                if ($userId === $struct->liker_id)
+                    $post->isMyLike = $struct;
+                else
+                    $post->isMyLike = null;
+            }
+        }
         $friends = API::get("user/$userId/friendship/", [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
         $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $accessToken])['data'];
-        $getmyfollows =  API::get("user/me/follows/following/count/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
-        $getmyfriends =  API::get("user/me/friendship/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
-        $mypendingrequest =  API::get('/user/me/pending_requests/',  [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        $getmyfollows = API::get("user/me/follows/following/count/", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $getmyfriends = API::get("user/me/friendship/", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $mypendingrequest = API::get('/user/me/pending_requests/', [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
         return view('social.profile')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => $posts, 'friends' => $friends, 'allusers' => $allusers, 'getmyfollow' => $getmyfollows, 'getmyfriend' => $getmyfriends, 'mypendingrequest' => $mypendingrequest));
     }
 
@@ -28,7 +37,14 @@ class SocialController extends Controller
     {
         $accessToken = session()->get('access_token');
         $userId = Auth::id();
-        API::post("/user/$userId/dashboard/posts/$postId/likes", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        return API::post("/user/$userId/dashboard/posts/$postId/likes", [], ['Authorization' => 'Bearer ' . $accessToken]);
+    }
+
+    public function unlikePost($postId)
+    {
+        $accessToken = session()->get('access_token');
+        $userId = Auth::id();
+        return API::delete("/user/$userId/dashboard/posts/$postId/likes", [], ['Authorization' => 'Bearer ' . $accessToken]);
     }
 
     public function home()
@@ -40,8 +56,10 @@ class SocialController extends Controller
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $posts = API::get("/user/$userId/dashboard/posts", [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
         $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $accessToken])['data'];
-        $mypendingrequest =  API::get('/user/me/pending_requests/',  [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
-        return view('social.newsfeed')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => $posts, 'allusers' => $allusers,'mypendingrequest' => $mypendingrequest));
+        $mypendingrequest = API::get('/user/me/pending_requests/', [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        foreach ($posts as $post)
+            $post->likes = API::get("/user/$userId/dashboard/posts/$post->id/likes", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        return view('social.newsfeed')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'posts' => $posts, 'allusers' => $allusers, 'mypendingrequest' => $mypendingrequest));
     }
 
     public function achievmentsHome()

@@ -527,7 +527,6 @@ $(document).ready(function () {
 			valueField: e.id,
 			id: e.id
 		})
-	console.log("MON FUCKIN ID = " + e.id);
 	});
 	//{{ env('SOCIAL_APP_DOMAIN') . "/profile/$id" }}
 	if (topUserSearch.length) {

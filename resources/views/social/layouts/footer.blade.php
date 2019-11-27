@@ -29,13 +29,35 @@
     async function sendFriendshipRequest(e) {
         if (e.innerText === "Ajouter en ami") {
             await callAPIForSendFriendShip(e.id).then(() => {
-                document.getElementById(e.id).innerText =  "En attente d'ajout";
+                document.getElementById(e.id).innerText = "En attente d'ajout";
             });
-        }
-        else {
+        } else {
             await callAPIForDeleteFriendShip(e.id).then(() => {
                 document.getElementById(e.id).innerText = "Ajouter en ami";
             });
         }
+    }
+
+    async function like(e) {
+        const nbLikes = document.getElementById('nbLikes');
+        let accessToken = "";
+        await getAccessToken()
+            .then(res => accessToken = res);
+        if (!e.classList.contains("liked"))
+            return await fetch(`/like/${nbLikes.getAttribute('postId')}`, initCallAPI(accessToken, 'GET'))
+                .then(response => response.json())
+                .then(data => {
+                    e.classList.add("liked");
+                    nbLikes.innerText = parseInt(nbLikes.innerText) + 1;
+                    return data;
+                });
+        else
+            return await fetch(`/unlike/${nbLikes.getAttribute('postId')}`, initCallAPI(accessToken, 'GET'))
+                .then(response => response.json())
+                .then(data => {
+                    e.classList.remove("liked");
+                    nbLikes.innerText = parseInt(nbLikes.innerText) - 1;
+                    return data;
+                });
     }
 </script>

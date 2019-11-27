@@ -52,25 +52,34 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active inline-items" data-toggle="tab" href="#home-1" role="tab" aria-expanded="true">
+                            <a class="nav-link active inline-items" data-toggle="tab" href="#home-1" role="tab"
+                               aria-expanded="true">
 
-                                <svg class="olymp-status-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-status-icon"></use></svg>
+                                <svg class="olymp-status-icon">
+                                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-status-icon"></use>
+                                </svg>
 
                                 <span>Status</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link inline-items" data-toggle="tab" href="#profile-1" role="tab" aria-expanded="false">
+                            <a class="nav-link inline-items" data-toggle="tab" href="#profile-1" role="tab"
+                               aria-expanded="false">
 
-                                <svg class="olymp-multimedia-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-multimedia-icon"></use></svg>
+                                <svg class="olymp-multimedia-icon">
+                                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-multimedia-icon"></use>
+                                </svg>
 
                                 <span>Multimedia</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link inline-items" data-toggle="tab" href="#blog" role="tab" aria-expanded="false">
-                                <svg class="olymp-blog-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-blog-icon"></use></svg>
+                            <a class="nav-link inline-items" data-toggle="tab" href="#blog" role="tab"
+                               aria-expanded="false">
+                                <svg class="olymp-blog-icon">
+                                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-blog-icon"></use>
+                                </svg>
 
                                 <span>Blog Post</span>
                             </a>
@@ -90,15 +99,25 @@
                                     <textarea class="form-control" placeholder="" name="postText"></textarea>
                                 </div>
                                 <div class="add-options-message">
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD PHOTOS">
-                                        <svg class="olymp-camera-icon" data-toggle="modal" data-target="#update-header-photo"><use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use></svg>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD PHOTOS">
+                                        <svg class="olymp-camera-icon" data-toggle="modal"
+                                             data-target="#update-header-photo">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use>
+                                        </svg>
                                     </a>
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="TAG YOUR FRIENDS">
-                                        <svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="TAG YOUR FRIENDS">
+                                        <svg class="olymp-computer-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                                        </svg>
                                     </a>
 
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD LOCATION">
-                                        <svg class="olymp-small-pin-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use></svg>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD LOCATION">
+                                        <svg class="olymp-small-pin-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use>
+                                        </svg>
                                     </a>
 
                                     <button class="btn btn-primary btn-md-2">Post Status</button>
@@ -115,22 +134,33 @@
                                 </div>
                                 <div class="form-group with-icon label-floating is-empty">
                                     <label class="control-label">Share what you are thinking here...</label>
-                                    <textarea class="form-control" placeholder=""  ></textarea>
+                                    <textarea class="form-control" placeholder=""></textarea>
                                 </div>
                                 <div class="add-options-message">
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD PHOTOS">
-                                        <svg class="olymp-camera-icon" data-toggle="modal" data-target="#update-header-photo"><use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use></svg>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD PHOTOS">
+                                        <svg class="olymp-camera-icon" data-toggle="modal"
+                                             data-target="#update-header-photo">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use>
+                                        </svg>
                                     </a>
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="TAG YOUR FRIENDS">
-                                        <svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="TAG YOUR FRIENDS">
+                                        <svg class="olymp-computer-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                                        </svg>
                                     </a>
 
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD LOCATION">
-                                        <svg class="olymp-small-pin-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use></svg>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD LOCATION">
+                                        <svg class="olymp-small-pin-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use>
+                                        </svg>
                                     </a>
 
                                     <button class="btn btn-primary btn-md-2">Post Status</button>
-                                    <button   class="btn btn-md-2 btn-border-think btn-transparent c-grey">Preview</button>
+                                    <button class="btn btn-md-2 btn-border-think btn-transparent c-grey">Preview
+                                    </button>
 
                                 </div>
 
@@ -144,22 +174,33 @@
                                 </div>
                                 <div class="form-group with-icon label-floating is-empty">
                                     <label class="control-label">Share what you are thinking here...</label>
-                                    <textarea class="form-control" placeholder=""  ></textarea>
+                                    <textarea class="form-control" placeholder=""></textarea>
                                 </div>
                                 <div class="add-options-message">
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD PHOTOS">
-                                        <svg class="olymp-camera-icon" data-toggle="modal" data-target="#update-header-photo"><use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use></svg>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD PHOTOS">
+                                        <svg class="olymp-camera-icon" data-toggle="modal"
+                                             data-target="#update-header-photo">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use>
+                                        </svg>
                                     </a>
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="TAG YOUR FRIENDS">
-                                        <svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="TAG YOUR FRIENDS">
+                                        <svg class="olymp-computer-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                                        </svg>
                                     </a>
 
-                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"   data-original-title="ADD LOCATION">
-                                        <svg class="olymp-small-pin-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use></svg>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD LOCATION">
+                                        <svg class="olymp-small-pin-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use>
+                                        </svg>
                                     </a>
 
                                     <button class="btn btn-primary btn-md-2">Post Status</button>
-                                    <button   class="btn btn-md-2 btn-border-think btn-transparent c-grey">Preview</button>
+                                    <button class="btn btn-md-2 btn-border-think btn-transparent c-grey">Preview
+                                    </button>
 
                                 </div>
 
@@ -168,7 +209,7 @@
                     </div>
                 </div>
 
-                <!-- ... end News Feed Form  -->			</div>
+                <!-- ... end News Feed Form  -->            </div>
 
             <div id="newsfeed-items-grid">
 
@@ -200,21 +241,27 @@
 
                                     <form action="/editpost" method="POST">
                                         @csrf()
-                                        <input name="postId" type="hidden" value="{{$post->id}}" />
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <input name="postId" type="hidden" value="{{$post->id}}"/>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <textarea class="form-control" placeholder="{{$post->content}}" name="editText" ></textarea>
+                                                        <textarea class="form-control" placeholder="{{$post->content}}"
+                                                                  name="editText"></textarea>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary">Save changes
+                                                        </button>
 
                                                     </div>
 
@@ -237,11 +284,25 @@
                             </div>
                             <p> {{$post->content}} </p>
                             <div class="post-additional-info inline-items">
-
-                                <a href="#" class="post-add-icon inline-items">
-                                    <input id="toggle-heart" type="checkbox"/>
-                                    <label for="toggle-heart">❤</label>
-                                </a>
+                                @if(isset($post->isMyLike))
+                                    <a href="javascript:void(0)" class="post-add-icon inline-items liked"
+                                       onclick="like(this)">
+                                        <svg class="olymp-heart-icon">
+                                            <use xlink:href="/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
+                                        </svg>
+                                        <span id="nbLikes"
+                                              postId="{{$post->id}}">{{count($post->likes)}}</span>
+                                    </a>
+                                @else()
+                                    <a href="javascript:void(0)" class="post-add-icon inline-items"
+                                       onclick="like(this)">
+                                        <svg class="olymp-heart-icon">
+                                            <use xlink:href="/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
+                                        </svg>
+                                        <span id="nbLikes"
+                                              postId="{{$post->id}}">{{count($post->likes)}}</span>
+                                    </a>
+                                @endif()
 
                                 {{--{{ "/createCommentary/" . $post->id }}--}}
 
@@ -286,7 +347,8 @@
                                                 @csrf()
                                                 <input name="commentId" type="hidden" value="{{$commentary->id}}"/>
                                                 <input name="postId" type="hidden" value="{{$post->id}}"/>
-                                                <div class="modal fade" id="{{$commentary->id}}" tabindex="-1" role="dialog"
+                                                <div class="modal fade" id="{{$commentary->id}}" tabindex="-1"
+                                                     role="dialog"
                                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -297,14 +359,16 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                        <textarea class="form-control" placeholder="{{$commentary->content}}"
+                                                        <textarea class="form-control"
+                                                                  placeholder="{{$commentary->content}}"
                                                                   name="comment"></textarea>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close
                                                                 </button>
-                                                                <button type="submit" class="btn btn-primary">Save changes
+                                                                <button type="submit" class="btn btn-primary">Save
+                                                                    changes
                                                                 </button>
 
                                                             </div>
@@ -321,10 +385,12 @@
                                                 </svg>
                                                 <ul class="more-dropdown">
                                                     <li>
-                                                        <a href="" data-toggle="modal" data-target="{{'#' . $commentary->id}}">Edit comment</a>
+                                                        <a href="" data-toggle="modal"
+                                                           data-target="{{'#' . $commentary->id}}">Edit comment</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ "/deleteComm/" . $commentary->id . "/" . $post->id}}">Delete comment</a>
+                                                        <a href="{{ "/deleteComm/" . $commentary->id . "/" . $post->id}}">Delete
+                                                            comment</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -339,20 +405,20 @@
                 @endforeach
             </div>
 
-        <a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html"
-           data-container="newsfeed-items-grid">
-            <svg class="olymp-three-dots-icon">
-                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-            </svg>
-        </a>
-    </div>
+            <a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html"
+               data-container="newsfeed-items-grid">
+                <svg class="olymp-three-dots-icon">
+                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                </svg>
+            </a>
+        </div>
 
-    <!-- ... end Main Content -->
+        <!-- ... end Main Content -->
 
 
-    <!-- Left Sidebar -->
+        <!-- Left Sidebar -->
 
-    <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
+        <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
 
             <div class="ui-block">
                 <div class="ui-block-title">
@@ -660,56 +726,56 @@
 
                 <!-- W-Twitter -->
 
-            <ul class="widget w-twitter">
-                <li class="twitter-item">
-                    <div class="author-folder">
-                        <img src="/img/social/twitter-avatar1.png" alt="avatar">
-                        <div class="author">
-                            <a href="#" class="author-name">Space Cowboy</a>
-                            <a href="#" class="group">@james_spiegelOK</a>
+                <ul class="widget w-twitter">
+                    <li class="twitter-item">
+                        <div class="author-folder">
+                            <img src="/img/social/twitter-avatar1.png" alt="avatar">
+                            <div class="author">
+                                <a href="#" class="author-name">Space Cowboy</a>
+                                <a href="#" class="group">@james_spiegelOK</a>
+                            </div>
                         </div>
-                    </div>
-                    <p>Tomorrow with the agency we will run 5 km for charity. Come and give us your support!
-                        <a href="#" class="link-post">#Daydream5K</a></p>
-                    <span class="post__date">
+                        <p>Tomorrow with the agency we will run 5 km for charity. Come and give us your support!
+                            <a href="#" class="link-post">#Daydream5K</a></p>
+                        <span class="post__date">
                             <time class="published" datetime="2017-03-24T18:18">
                                 2 hours ago
                             </time>
                         </span>
-                </li>
-                <li class="twitter-item">
-                    <div class="author-folder">
-                        <img src="/img/social/twitter-avatar1.png" alt="avatar">
-                        <div class="author">
-                            <a href="#" class="author-name">Space Cowboy</a>
-                            <a href="#" class="group">@james_spiegelOK</a>
+                    </li>
+                    <li class="twitter-item">
+                        <div class="author-folder">
+                            <img src="/img/social/twitter-avatar1.png" alt="avatar">
+                            <div class="author">
+                                <a href="#" class="author-name">Space Cowboy</a>
+                                <a href="#" class="group">@james_spiegelOK</a>
+                            </div>
                         </div>
-                    </div>
-                    <p>Check out the new website of “The Bebop Bar”! <a href="#" class="link-post">bytle/thbp53f</a>
-                    </p>
-                    <span class="post__date">
+                        <p>Check out the new website of “The Bebop Bar”! <a href="#" class="link-post">bytle/thbp53f</a>
+                        </p>
+                        <span class="post__date">
                             <time class="published" datetime="2017-03-24T18:18">
                                 16 hours ago
                             </time>
                         </span>
-                </li>
-                <li class="twitter-item">
-                    <div class="author-folder">
-                        <img src="/img/social/twitter-avatar1.png" alt="avatar">
-                        <div class="author">
-                            <a href="#" class="author-name">Space Cowboy</a>
-                            <a href="#" class="group">@james_spiegelOK</a>
+                    </li>
+                    <li class="twitter-item">
+                        <div class="author-folder">
+                            <img src="/img/social/twitter-avatar1.png" alt="avatar">
+                            <div class="author">
+                                <a href="#" class="author-name">Space Cowboy</a>
+                                <a href="#" class="group">@james_spiegelOK</a>
+                            </div>
                         </div>
-                    </div>
-                    <p>The Sunday is the annual agency camping trip and I still haven’t got a tent
-                        <a href="#" class="link-post">#TheWild #Indoors</a></p>
-                    <span class="post__date">
+                        <p>The Sunday is the annual agency camping trip and I still haven’t got a tent
+                            <a href="#" class="link-post">#TheWild #Indoors</a></p>
+                        <span class="post__date">
                             <time class="published" datetime="2017-03-24T18:18">
                                 Yesterday
                             </time>
                         </span>
-                </li>
-            </ul>
+                    </li>
+                </ul>
 
 
                 <!-- .. end W-Twitter -->
@@ -1836,7 +1902,7 @@
     var nbcomment = 0;
 
     if (likeBtn != null) {
-        likeBtn.addEventListener('click', function() {
+        likeBtn.addEventListener('click', function () {
             likeBtn.classList.toggle('liked');
             if (counter == 0)
                 counter = 1;
