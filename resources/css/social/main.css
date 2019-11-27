@@ -9021,11 +9021,6 @@ ol ol li {
     color: #ff5e3a;
 }
 
-.post-add-icon:active, .post-add-icon:focus {
-    fill: #c2c5d9;
-    color: #c2c5d9;
-}
-
 .names-people-likes {
     font-size: 12px;
 }
@@ -13728,6 +13723,19 @@ ol ol li {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+}
+/*heart icon*/
+.ico {
+    border-radius: 50%;
+    cursor: pointer;
+    fill: #232323;
+    transition: .4s;
+
+}
+
+.liked {
+    transform: rotate(360deg);
+    fill: #C62828;
 }
 
 .table-cell {
