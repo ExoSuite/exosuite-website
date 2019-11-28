@@ -6,9 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Facades\API;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use function GuzzleHttp\Promise\all;
 
 
 class friendsgeneralController
@@ -108,8 +106,8 @@ class friendsgeneralController
 
     public function acceptRequest($userId){
         $accessToken = session()->get('access_token');
-        API::post("user/me/friendship/$userId/accept/",  [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return redirect(route('get_user_profile', $userId));
+        API::post("user/me/friendship/$userId/accept",  [], ['Authorization' => 'Bearer ' . $accessToken]);
+        return back();
     }
 
     public function declineRequest($userId){
