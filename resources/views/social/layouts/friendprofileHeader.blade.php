@@ -25,7 +25,7 @@
                                     <li>
                                         <a class="btn btn-primary" onclick="sendFriendshipRequest(this)" id="{{$userId}}" @if ($getMyFriendshipWith['friendship_entity'] != null) friendshipId="{{$getMyFriendshipWith['friendship_entity']->id}}" @endif()>
                                             {{
-                                            ($getMyFriendshipWith['value'] ? "Retirer des amis" : "Ajouter en ami")
+                                            (!$getMyFriendshipWith['value'] ? "Retirer des amis" : "Ajouter en ami")
                                             }}
                                         </a>
                                     </li>

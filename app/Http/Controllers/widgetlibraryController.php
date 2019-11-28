@@ -18,10 +18,7 @@ class widgetlibraryController
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $accessToken])['data'];
-        return view('social.widgetslibrary')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'allusers' => $allusers));
-    }
-
-    public function togglebuttonevent(){
-      
+        $mypendingrequest =  API::get('/user/me/pending_requests/',  [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        return view('social.widgetslibrary')->with(array('mypendingrequest' => $mypendingrequest, 'profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'allusers' => $allusers));
     }
 }

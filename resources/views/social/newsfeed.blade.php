@@ -286,7 +286,7 @@
                             <p> {{$post->content}} </p>
 
                             <div class="post-additional-info inline-items">
-                                @if($post->isMyLike)
+                                @if(isset($post->isMyLike))
                                     <a href="javascript:void(0)" class="post-add-icon inline-items liked"
                                        onclick="like(this)">
                                         <svg class="olymp-heart-icon">
