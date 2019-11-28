@@ -9021,11 +9021,6 @@ ol ol li {
     color: #ff5e3a;
 }
 
-.post-add-icon:active, .post-add-icon:focus {
-    fill: #c2c5d9;
-    color: #c2c5d9;
-}
-
 .names-people-likes {
     font-size: 12px;
 }
@@ -13729,6 +13724,19 @@ ol ol li {
     -ms-flex-align: center;
     align-items: center;
 }
+/*heart icon*/
+.ico {
+    border-radius: 50%;
+    cursor: pointer;
+    fill: #232323;
+    transition: .4s;
+
+}
+
+.liked {
+    transform: rotate(360deg);
+    fill: #C62828;
+}
 
 .table-cell {
     display: table-cell;
@@ -16269,7 +16277,7 @@ select.selectpicker {
 }
 
 .bootstrap-select.btn-group .dropdown-menu li.selected a {
-    color: #fff;
+    color: #000000;
 }
 
 .bootstrap-select.btn-group .dropdown-menu li a.opt {
@@ -21328,4 +21336,12 @@ input[type=checkbox] {
 
 .menu-avatar {
     height: 38px;
+}
+
+.runs {
+    color: #ff5e3a;
+}
+
+.runs:hover {
+    color: orange;
 }

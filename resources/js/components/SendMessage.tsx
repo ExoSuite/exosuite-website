@@ -40,7 +40,7 @@ export class SendMessage extends React.Component<any, any> {
                     <div className="add-options-message">
                         <a href="#" className="options-message">
                             <svg className="olymp-computer-icon">
-                                <use xlinkHref="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                                <use xlinkHref="/svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
                             </svg>
                         </a>
                     </div>

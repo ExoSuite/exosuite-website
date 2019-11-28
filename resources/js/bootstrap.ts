@@ -1,6 +1,4 @@
 import Echo from "laravel-echo"
-import {Api} from "./Request/Api";
-import {HttpRequest} from "./Request/HttpRequest";
 
 (<any>window)._ = require('lodash');
 
@@ -45,3 +43,5 @@ if (token) {
     // @ts-ignore
     auth: {headers: {Authorization: "Bearer " + document.getElementById('io-token').getAttribute('content')}}
 });
+
+const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
