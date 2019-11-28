@@ -56,16 +56,16 @@
 
 
             #grille1{
-                border: 1px solid red;
+                border: 1px solid #ff000010;
                 float: left;
             }
             #grille2{
-                border: 1px solid blue;
+                border: 1px solid #0000ff10;
                 float: left;
             }
 
             .elem{
-                background-color: #f6f6ae;
+                background-color: #fff;
             }
 
             .grille{
@@ -116,6 +116,8 @@
                 var nb1 = 0;
                 var nb2 = 0;
 
+                var runs;
+
                 $(function() {
                     gridster[0] = $("#grille1  ul").gridster({
                         widget_margins: [10, 10],
@@ -123,7 +125,7 @@
                         min_cols: 2,
                         max_cols: 3,
                         namespace: '#grille1',
-                        resize: { enabled: true }
+                        resize: { enabled: false }
                     }).data('gridster');
                     gridster[1] = $("#grille2  ul").gridster({
                         widget_margins: [10, 10],
@@ -135,10 +137,9 @@
                     }).data('gridster');
                 });
 
-
                 function add_grid1() {
                     var msg = prompt("Entrez un texte:", "");
-                    gridster[0].add_widget('<li class="elem" data-id="' + nb1 + '">' + nb1 + '. ' + msg + '<span class="close-w" data-close="' + nb1 + '">X</span></li>', 2, 1);
+                    gridster[0].add_widget('<li class="elem" data-id="' + nb1 + '">' + nb1 + '. ' + msg + '</li>', 2, 1);
                     nb1++;
                 }
 
@@ -157,9 +158,63 @@
                     gridster[0].remove_widget($('#grille1 ul').find("[data-id='" + id + "']"));
                 });
 
+                @php
+                    $runs = \App\Http\Controllers\ProfileController::getRuns();
+                    $records = \App\Http\Controllers\ProfileController::getRecords();
+                //echo $records;
+                @endphp
+
+                var js_runs = [
+                                @foreach ($runs as $run)
+                        ["{{ $run->name }}"],
+                            @endforeach
+                    ];
+                var js_runs_id = [
+                        @foreach ($runs as $run)
+                    ["{{ $run->id }}"],
+                    @endforeach
+                ];
+                var js_records = [
+                     @foreach($records as $record)
+                        ["{{ $record }}"],
+                    @endforeach
+                ];
+
                 function add_grid2() {
                     var msg2 = prompt("Entrez un texte:", "");
-                    gridster[1].add_widget('<li class="elem" id="rWidget' + nb2 + '">' + nb2 + '. ' + msg2 + '</li>', 2, 1);
+
+
+                    if (msg2 == "runs") {
+                        //var content = '<li class="elem" id="rWidget' + nb2 + '">' + nb2 + '. ' + js_runs + '</li>';
+                        var content = '<li class="elem" id="rWidget' + nb2 + '">' + nb2 + '. ';
+                        for (var i=0; i<js_runs.length; i++)
+                        {
+                            content += js_runs[i] + '<br> - id: ' + js_runs_id[i] + '<br>';
+                        }
+                        content += '</li>';
+                        gridster[1].add_widget(content, 2, 1);
+                    }
+                    else if (msg2 == "records")
+                    {
+                        var content = '<li class="elem" id="rWidget' + nb2 + '">' + nb2 + '. ';
+                        if (js_records.length === 0)
+                        {
+                            content += "Vous n'avez aucun record enregistré <br/>";
+                        }
+                        else
+                        {
+                            for (var i=0; i<js_records.length; i++)
+                            {
+                                content += js_records[i] + '<br> - id: ' + '<br>';
+                            }
+                        }
+                        content += '</li>';
+                        gridster[1].add_widget(content, 2, 1);
+
+                    }
+                    else {
+                        gridster[1].add_widget('<li class="elem" id="rWidget' + nb2 + '">' + nb2 + '. ' + msg2 + '</li>', 2, 1);
+                    }
                     nb2++;
                 }
 
@@ -168,12 +223,39 @@
                     gridster[1].remove_widget( $('#grille2 li').eq(nbRemove2) );
                 }
 
+
             </script>
-        </div>
+    </div>
+{{--
+    <div>
+        @php
+            $runs = \App\Http\Controllers\ProfileController::getRuns();
+            $records = \App\Http\Controllers\ProfileController::getRecords();
+        //$serial_rec = serialize($records);
+        //$test = implode(',', $serial_rec);
+        @endphp
+
+    @foreach($runs as $run)
+        <p class="testrun">
+            run name: <br/>
+        {{ $run->name }} <br/>
+            run id: <br/>
+        {{ $run->id }} <br/>
+        </p>
+        @endforeach
+        @foreach($records as $rec)
+        <p class="records">
+            Liste des records: <br/>
+            {{ $rec }}
+        </p>
+            @endforeach
+    </div>
+--}}
     </div>
 </div>
 
-        <!-- ... end Main Content -->
+
+<!-- ... end Main Content -->
 
 
         <!-- Left Sidebar -->
