@@ -11,7 +11,6 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",
-    "@types/node": "^10.12.18",
     "axios": "^0.18",
     "babel-preset-react": "^6.24.1",
     "browser-sync": "^2.26.3",
@@ -40,5 +39,8 @@
     "react-chat-popup": "^1.1.2",
     "react-toastify": "^4.5.2",
     "socket.io-client": "^2.2.0"
+  },
+  "peerDependencies": {
+    "@types/node": "^10.12.18"
   }
 }

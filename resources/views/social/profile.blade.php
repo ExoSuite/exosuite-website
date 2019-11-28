@@ -44,6 +44,173 @@
         <!-- Main Content -->
 
         <div class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+            <div class="ui-block">
+
+                <!-- News Feed Form  -->
+
+                <div class="news-feed-form">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active inline-items" data-toggle="tab" href="#home-1" role="tab"
+                               aria-expanded="true">
+
+                                <svg class="olymp-status-icon">
+                                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-status-icon"></use>
+                                </svg>
+
+                                <span>Status</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link inline-items" data-toggle="tab" href="#profile-1" role="tab"
+                               aria-expanded="false">
+
+                                <svg class="olymp-multimedia-icon">
+                                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-multimedia-icon"></use>
+                                </svg>
+
+                                <span>Multimedia</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link inline-items" data-toggle="tab" href="#blog" role="tab"
+                               aria-expanded="false">
+                                <svg class="olymp-blog-icon">
+                                    <use xlink:href="svg-icons/sprites/icons.svg#olymp-blog-icon"></use>
+                                </svg>
+
+                                <span>Blog Post</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home-1" role="tabpanel" aria-expanded="true">
+                            <form action="/addpost" method="POST">
+                                @csrf()
+                                <div class="author-thumb">
+                                    <img src="/img/social/author-page.jpg" alt="author">
+                                </div>
+                                <div class="form-group with-icon label-floating is-empty">
+                                    <label class="control-label">Share what you are thinking here...</label>
+                                    <textarea class="form-control" placeholder="" name="postText"></textarea>
+                                </div>
+                                <div class="add-options-message">
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD PHOTOS">
+                                        <svg class="olymp-camera-icon" data-toggle="modal"
+                                             data-target="#update-header-photo">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="TAG YOUR FRIENDS">
+                                        <svg class="olymp-computer-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                                        </svg>
+                                    </a>
+
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD LOCATION">
+                                        <svg class="olymp-small-pin-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use>
+                                        </svg>
+                                    </a>
+
+                                    <button class="btn btn-primary btn-md-2">Post Status</button>
+
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="tab-pane" id="profile-1" role="tabpanel" aria-expanded="true">
+                            <form>
+                                <div class="author-thumb">
+                                    <img src="/img/social/author-page.jpg" alt="author">
+                                </div>
+                                <div class="form-group with-icon label-floating is-empty">
+                                    <label class="control-label">Share what you are thinking here...</label>
+                                    <textarea class="form-control" placeholder=""></textarea>
+                                </div>
+                                <div class="add-options-message">
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD PHOTOS">
+                                        <svg class="olymp-camera-icon" data-toggle="modal"
+                                             data-target="#update-header-photo">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="TAG YOUR FRIENDS">
+                                        <svg class="olymp-computer-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                                        </svg>
+                                    </a>
+
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD LOCATION">
+                                        <svg class="olymp-small-pin-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use>
+                                        </svg>
+                                    </a>
+
+                                    <button class="btn btn-primary btn-md-2">Post Status</button>
+                                    <button class="btn btn-md-2 btn-border-think btn-transparent c-grey">Preview
+                                    </button>
+
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="tab-pane" id="blog" role="tabpanel" aria-expanded="true">
+                            <form>
+                                <div class="author-thumb">
+                                    <img src="/img/social/author-page.jpg" alt="author">
+                                </div>
+                                <div class="form-group with-icon label-floating is-empty">
+                                    <label class="control-label">Share what you are thinking here...</label>
+                                    <textarea class="form-control" placeholder=""></textarea>
+                                </div>
+                                <div class="add-options-message">
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD PHOTOS">
+                                        <svg class="olymp-camera-icon" data-toggle="modal"
+                                             data-target="#update-header-photo">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-camera-icon"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="TAG YOUR FRIENDS">
+                                        <svg class="olymp-computer-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use>
+                                        </svg>
+                                    </a>
+
+                                    <a href="#" class="options-message" data-toggle="tooltip" data-placement="top"
+                                       data-original-title="ADD LOCATION">
+                                        <svg class="olymp-small-pin-icon">
+                                            <use xlink:href="svg-icons/sprites/icons.svg#olymp-small-pin-icon"></use>
+                                        </svg>
+                                    </a>
+
+                                    <button class="btn btn-primary btn-md-2">Post Status</button>
+                                    <button class="btn btn-md-2 btn-border-think btn-transparent c-grey">Preview
+                                    </button>
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ... end News Feed Form  -->            </div>
+
             <div id="newsfeed-items-grid">
 
                 @foreach($posts as $post)
@@ -74,21 +241,27 @@
 
                                     <form action="/editpost" method="POST">
                                         @csrf()
-                                        <input name="postId" type="hidden" value="{{$post->id}}" />
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <input name="postId" type="hidden" value="{{$post->id}}"/>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <textarea class="form-control" placeholder="{{$post->content}}" name="editText" ></textarea>
+                                                        <textarea class="form-control" placeholder="{{$post->content}}"
+                                                                  name="editText"></textarea>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary">Save changes
+                                                        </button>
 
                                                     </div>
 
@@ -110,49 +283,28 @@
 
                             </div>
                             <p> {{$post->content}} </p>
-
                             <div class="post-additional-info inline-items">
+                                @if(isset($post->isMyLike))
+                                    <a href="javascript:void(0)" class="post-add-icon inline-items liked"
+                                       onclick="like(this)">
+                                        <svg class="olymp-heart-icon">
+                                            <use xlink:href="/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
+                                        </svg>
+                                        <span id="nbLikes"
+                                              postId="{{$post->id}}">{{count($post->likes)}}</span>
+                                    </a>
+                                @else()
+                                    <a href="javascript:void(0)" class="post-add-icon inline-items"
+                                       onclick="like(this)">
+                                        <svg class="olymp-heart-icon">
+                                            <use xlink:href="/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
+                                        </svg>
+                                        <span id="nbLikes"
+                                              postId="{{$post->id}}">{{count($post->likes)}}</span>
+                                    </a>
+                                @endif()
 
-                                <a href="#" class="post-add-icon inline-items">
-                                    <svg class="olymp-heart-icon">
-                                        <use xlink:href="/svg-icons/sprites/icons.svg#olymp-heart-icon"></use>
-                                    </svg>
-                                    <span>8</span>
-                                </a>
-
-                                <ul class="friends-harmonic">
-                                    <li>
-                                        <a href="#">
-                                            <img src="/img/social/friend-harmonic7.jpg" alt="friend">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="/img/social/friend-harmonic8.jpg" alt="friend">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="/img/social/friend-harmonic9.jpg" alt="friend">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="/img/social/friend-harmonic10.jpg" alt="friend">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="/img/social/friend-harmonic11.jpg" alt="friend">
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="names-people-likes">
-                                    <a href="#">Jenny</a>, <a href="#">Robert</a> and
-                                    <br>6 more liked this
-                                </div>
-
+                                {{--{{ "/createCommentary/" . $post->id }}--}}
 
                                 <div class="comments-shared">
                                     <a href="#" class="post-add-icon inline-items">
@@ -161,65 +313,112 @@
                                         </svg>
                                         <span>17</span>
                                     </a>
-
-                                    <a href="#" class="post-add-icon inline-items">
-                                        <svg class="olymp-share-icon">
-                                            <use xlink:href="/svg-icons/sprites/icons.svg#olymp-share-icon"></use>
-                                        </svg>
-                                        <span>24</span>
-                                    </a>
                                 </div>
 
-
+                            </div>
+                            <div>
+                                <form action="/createCommentary" method="POST">
+                                    @csrf()
+                                    <div class="author-thumb">
+                                        <img src="/img/social/author-page.jpg" alt="author">
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <input type="text" name="addcom" placeholder="add a commentary"/>
+                                        <input type="hidden" name="id" value="{{ $post->id }}"/>
+                                    </div>
+                                </form>
                             </div>
 
-                            <div class="control-block-button post-control-button">
 
-                                <a href="#" class="btn btn-control featured-post">
-                                    <svg class="olymp-trophy-icon">
-                                        <use xlink:href="/svg-icons/sprites/icons.svg#olymp-trophy-icon"></use>
-                                    </svg>
-                                </a>
+                            <br>
+                            <div>
+                                @foreach($post->commentaries as $commentary)
+                                    <div style="border-bottom: 1px solid lightgrey;">
+                                        <ui>
+                                            <div>
+                                                <img src="/img/social/friend-harmonic7.jpg" alt="friend">
+                                            </div>
+                                            <div>
+                                                <text>{{ $commentary->content }}</text>
+                                            </div>
+                                            {{--updatecommentary--}}
+                                            <form action="/updateCommentary" method="POST">
+                                                @csrf()
+                                                <input name="commentId" type="hidden" value="{{$commentary->id}}"/>
+                                                <input name="postId" type="hidden" value="{{$post->id}}"/>
+                                                <div class="modal fade" id="{{$commentary->id}}" tabindex="-1"
+                                                     role="dialog"
+                                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                        <textarea class="form-control"
+                                                                  placeholder="{{$commentary->content}}"
+                                                                  name="comment"></textarea>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close
+                                                                </button>
+                                                                <button type="submit" class="btn btn-primary">Save
+                                                                    changes
+                                                                </button>
 
-                                <a href="#" class="btn btn-control">
-                                    <svg class="olymp-like-post-icon">
-                                        <use xlink:href="/svg-icons/sprites/icons.svg#olymp-like-post-icon"></use>
-                                    </svg>
-                                </a>
+                                                            </div>
 
-                                <a href="#" class="btn btn-control">
-                                    <svg class="olymp-comments-post-icon">
-                                        <use xlink:href="/svg-icons/sprites/icons.svg#olymp-comments-post-icon"></use>
-                                    </svg>
-                                </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            {{--                                    end update com--}}
 
-                                <a href="#" class="btn btn-control">
-                                    <svg class="olymp-share-icon">
-                                        <use xlink:href="/svg-icons/sprites/icons.svg#olymp-share-icon"></use>
-                                    </svg>
-                                </a>
-
+                                            <div class="more">
+                                                <svg class="olymp-three-dots-icon">
+                                                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                                                </svg>
+                                                <ul class="more-dropdown">
+                                                    <li>
+                                                        <a href="" data-toggle="modal"
+                                                           data-target="{{'#' . $commentary->id}}">Edit comment</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ "/deleteComm/" . $commentary->id . "/" . $post->id}}">Delete
+                                                            comment</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </ui>
+                                        <br>
+                                    </div>
+                                @endforeach
+                                <br>
                             </div>
-
                         </article>
                     </div>
                 @endforeach
             </div>
 
-        <a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html"
-           data-container="newsfeed-items-grid">
-            <svg class="olymp-three-dots-icon">
-                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-            </svg>
-        </a>
-    </div>
+            <a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html"
+               data-container="newsfeed-items-grid">
+                <svg class="olymp-three-dots-icon">
+                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
+                </svg>
+            </a>
+        </div>
 
-    <!-- ... end Main Content -->
+        <!-- ... end Main Content -->
 
 
-    <!-- Left Sidebar -->
+        <!-- Left Sidebar -->
 
-    <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
+        <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
 
             <div class="ui-block">
                 <div class="ui-block-title">
@@ -527,56 +726,56 @@
 
                 <!-- W-Twitter -->
 
-            <ul class="widget w-twitter">
-                <li class="twitter-item">
-                    <div class="author-folder">
-                        <img src="/img/social/twitter-avatar1.png" alt="avatar">
-                        <div class="author">
-                            <a href="#" class="author-name">Space Cowboy</a>
-                            <a href="#" class="group">@james_spiegelOK</a>
+                <ul class="widget w-twitter">
+                    <li class="twitter-item">
+                        <div class="author-folder">
+                            <img src="/img/social/twitter-avatar1.png" alt="avatar">
+                            <div class="author">
+                                <a href="#" class="author-name">Space Cowboy</a>
+                                <a href="#" class="group">@james_spiegelOK</a>
+                            </div>
                         </div>
-                    </div>
-                    <p>Tomorrow with the agency we will run 5 km for charity. Come and give us your support!
-                        <a href="#" class="link-post">#Daydream5K</a></p>
-                    <span class="post__date">
+                        <p>Tomorrow with the agency we will run 5 km for charity. Come and give us your support!
+                            <a href="#" class="link-post">#Daydream5K</a></p>
+                        <span class="post__date">
                             <time class="published" datetime="2017-03-24T18:18">
                                 2 hours ago
                             </time>
                         </span>
-                </li>
-                <li class="twitter-item">
-                    <div class="author-folder">
-                        <img src="/img/social/twitter-avatar1.png" alt="avatar">
-                        <div class="author">
-                            <a href="#" class="author-name">Space Cowboy</a>
-                            <a href="#" class="group">@james_spiegelOK</a>
+                    </li>
+                    <li class="twitter-item">
+                        <div class="author-folder">
+                            <img src="/img/social/twitter-avatar1.png" alt="avatar">
+                            <div class="author">
+                                <a href="#" class="author-name">Space Cowboy</a>
+                                <a href="#" class="group">@james_spiegelOK</a>
+                            </div>
                         </div>
-                    </div>
-                    <p>Check out the new website of “The Bebop Bar”! <a href="#" class="link-post">bytle/thbp53f</a>
-                    </p>
-                    <span class="post__date">
+                        <p>Check out the new website of “The Bebop Bar”! <a href="#" class="link-post">bytle/thbp53f</a>
+                        </p>
+                        <span class="post__date">
                             <time class="published" datetime="2017-03-24T18:18">
                                 16 hours ago
                             </time>
                         </span>
-                </li>
-                <li class="twitter-item">
-                    <div class="author-folder">
-                        <img src="/img/social/twitter-avatar1.png" alt="avatar">
-                        <div class="author">
-                            <a href="#" class="author-name">Space Cowboy</a>
-                            <a href="#" class="group">@james_spiegelOK</a>
+                    </li>
+                    <li class="twitter-item">
+                        <div class="author-folder">
+                            <img src="/img/social/twitter-avatar1.png" alt="avatar">
+                            <div class="author">
+                                <a href="#" class="author-name">Space Cowboy</a>
+                                <a href="#" class="group">@james_spiegelOK</a>
+                            </div>
                         </div>
-                    </div>
-                    <p>The Sunday is the annual agency camping trip and I still haven’t got a tent
-                        <a href="#" class="link-post">#TheWild #Indoors</a></p>
-                    <span class="post__date">
+                        <p>The Sunday is the annual agency camping trip and I still haven’t got a tent
+                            <a href="#" class="link-post">#TheWild #Indoors</a></p>
+                        <span class="post__date">
                             <time class="published" datetime="2017-03-24T18:18">
                                 Yesterday
                             </time>
                         </span>
-                </li>
-            </ul>
+                    </li>
+                </ul>
 
 
                 <!-- .. end W-Twitter -->
@@ -1696,5 +1895,23 @@
 @include('social.layouts.popupchat')
 
 @include('social.layouts.footer')
+
+<script type="text/javascript">
+    var likeBtn = document.querySelector('.ico');
+    var counter = 0;
+    var nbcomment = 0;
+
+    if (likeBtn != null) {
+        likeBtn.addEventListener('click', function () {
+            likeBtn.classList.toggle('liked');
+            if (counter == 0)
+                counter = 1;
+            else
+                counter = 0;
+            document.getElementById("spanlike").innerHTML = counter;
+        });
+        document.getElementById("nbcom").innerHTML = nbcomment;
+    }
+</script>
 </body>
 </html>
