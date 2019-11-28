@@ -147,6 +147,7 @@ class ProfileController extends Controller
         API::delete("/user/$user_id/dashboard/posts/$postID/commentaries/$commentaryID",  [], ['Authorization' => 'Bearer ' . $access_token]);
         return redirect(route('get_profile'));
     }
+
     public function getRuns()
     {
         $accessToken = session()->get('access_token');
@@ -155,6 +156,10 @@ class ProfileController extends Controller
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $runs = API::get('/user/me/run', [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        $mypendingrequest = API::get('/user/me/pending_requests/', [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        $getmyfollows = API::get("user/me/follows/following/count/", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $getmyfriends = API::get("user/me/friendship/", [], ['Authorization' => 'Bearer ' . $accessToken]);
         $userRuns = array();
         foreach ($runs['data'] as $run)
             array_push($userRuns, API::get("/user/me/run/$run->id/user_run", [], ['Authorization' => 'Bearer ' . $accessToken])['data']);
@@ -164,7 +169,11 @@ class ProfileController extends Controller
             'pictureToken' => $pictureToken,
             'userId' => $userId,
             'runs' => $runs['data'],
-            'userRuns' => $userRuns));
+            'userRuns' => $userRuns,
+            'allusers' => $allusers,
+            'mypendingrequest' => $mypendingrequest,
+            'getmyfriend' => $getmyfriends,
+            'getmyfollow' => $getmyfollows));
     }
       public function editWidgetsView(){
           $access_token = session()->get('access_token');
@@ -172,13 +181,20 @@ class ProfileController extends Controller
           $userId = Auth::id();
           $pictureToken = session()->get('view-picture')['accessToken'];
           $groups = API::get('user/me/groups', [], ['Authorization' => 'Bearer ' . $access_token]);
+          $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $access_token])['data'];
+          $mypendingrequest = API::get('/user/me/pending_requests/', [], ['Authorization' => 'Bearer ' . $access_token])['data'];
           if ($response['profile']->birthday != null) {
               $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
           }
-          return view('social.widgets')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data']));
+          return view('social.widgets')->with(array('profile' => $response,
+              'userId' => $userId,
+              'pictureToken' => $pictureToken,
+              'groups' => $groups['data'],
+              'allusers' => $allusers,
+              'mypendingrequest' => $mypendingrequest));
       }
 
-      public static function getRuns(){
+      public static function getRunsForWidgets(){
           $access_token = session()->get('access_token');
           $userId = Auth::id();
           $runs = API::get('user/me/run', [], ['Authorization' => 'Bearer ' . $access_token]);

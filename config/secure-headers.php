@@ -406,7 +406,9 @@ return [
                 'https://www.google-analytics.com',
                 'https://www.google.com/recaptcha/api.js',
                 'https://www.gstatic.com/recaptcha/api2/v1555968629716/recaptcha__fr.js',
-                'https://api.tiles.mapbox.com/'
+                'https://api.tiles.mapbox.com/',
+                'https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js',
+                'https://connect.facebook.net/fr_FR/sdk.js'
             ],
 
             'hashes' => [

@@ -44,7 +44,37 @@
         <!-- Main Content -->
 
         <div class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-            <div class="ui-block">
+
+        {{--            <a href="{{ url('/profile/twitter/redirect') }}" class="social-item bg-twitter">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                        Connexion
+                    </a>--}}
+        <form id="tweetForm" name="tweetForm">
+            <p>Ecrire un tweet:</p>
+            <textarea id="tweetMsg" name="message" value="" cols="80"></textarea>
+            <input type="button" class="bg-twitter social-item" value="Tweet" name="Envoyer" onclick="send_tweet()">
+        </form>
+
+        <script type="text/javascript">
+            function send_tweet(){
+                //var msg = prompt("Ecrivez votre tweet:", "");
+                var msg = document.getElementById("tweetMsg").value;
+                window.location.href = "?messg=" + msg;
+            }
+        </script>
+
+            <div id="fb-root"></div>
+
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v4.0&appId=494358124689840"></script>
+
+            <div class="social-item bg-facebook" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fexosuite.fr&amp;src=sdkpreparse"
+                   class="fb-xfbml-parse-ignore">Post on Facebook</a>
+            </div>
+
+
+        <div class="ui-block">
 
                 <!-- News Feed Form  -->
 
@@ -212,6 +242,8 @@
                 <!-- ... end News Feed Form  -->            </div>
 
             <div id="newsfeed-items-grid">
+
+
 
                 @foreach($posts as $post)
                     <div class="ui-block">
@@ -405,36 +437,6 @@
                 @endforeach
             </div>
 
-            <a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html"
-               data-container="newsfeed-items-grid">
-                <svg class="olymp-three-dots-icon">
-                    <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-                </svg>
-            </a>
-        </div>
-        <a id="load-more-button" href="#" class="btn btn-control btn-more" data-load-link="items-to-load.html"
-           data-container="newsfeed-items-grid">
-            <svg class="olymp-three-dots-icon">
-                <use xlink:href="/svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use>
-            </svg>
-        </a>
-{{--            <a href="{{ url('/profile/twitter/redirect') }}" class="social-item bg-twitter">
-                <i class="fab fa-twitter" aria-hidden="true"></i>
-                Connexion
-            </a>--}}
-            <form id="tweetForm" name="tweetForm">
-                <p>Ecrire un tweet:</p>
-                <textarea id="tweetMsg" name="message" value="" cols="80"></textarea>
-                <input type="button" class="bg-twitter social-item" value="Tweet" name="Envoyer" onclick="send_tweet()">
-            </form>
-
-            <script type="text/javascript">
-                function send_tweet(){
-                    //var msg = prompt("Ecrivez votre tweet:", "");
-                    var msg = document.getElementById("tweetMsg").value;
-                    window.location.href = "?messg=" + msg;
-                }
-            </script>
 
 
             @php
@@ -461,14 +463,6 @@
             }
             @endphp
 
-            <div id="fb-root"></div>
-
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v4.0&appId=494358124689840"></script>
-
-            <div class="social-item bg-facebook" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small">
-                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fexosuite.fr&amp;src=sdkpreparse"
-                class="fb-xfbml-parse-ignore">Post on Facebook</a></div>
         </div>
 
         <!-- ... end Main Content -->

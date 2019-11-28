@@ -6,7 +6,7 @@
     <!-- JQuery -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="/js/social/jquery.gridster.js"></script>
+    <!-- <script src="/js/social/jquery.gridster.js"></script> -->
     <script src="/js/app.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/css/social/vendor/jquery.gridster.css" />
@@ -159,7 +159,7 @@
                 });
 
                 @php
-                    $runs = \App\Http\Controllers\ProfileController::getRuns();
+                    $runs = \App\Http\Controllers\ProfileController::getRunsForWidgets();
                     $records = \App\Http\Controllers\ProfileController::getRecords();
                 //echo $records;
                 @endphp
