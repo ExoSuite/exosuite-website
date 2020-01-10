@@ -23,8 +23,8 @@ class ProfileController extends Controller
         if ($response['profile']->birthday != null) {
             $response['profile']->birthday = Carbon::createFromFormat('Y-m-d', $response['profile']->birthday)->format('d/m/Y');
         }
-        $allusers = API::get("/user/search", ["text" => "*"],  ['Authorization' => 'Bearer ' . $access_token]);
-         $mypendingrequest = API::get('/user/me/pending_requests/',  [], ['Authorization' => 'Bearer ' . $access_token]);
+        $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $access_token]);
+        $mypendingrequest = API::get('/user/me/pending_requests/', [], ['Authorization' => 'Bearer ' . $access_token])['data'];
         return view('social.editprofile')->with(array('profile' => $response, 'userId' => $userId, 'pictureToken' => $pictureToken, 'groups' => $groups['data'], 'allusers' => $allusers, 'mypendingrequest' => $mypendingrequest));
     }
 
@@ -32,7 +32,7 @@ class ProfileController extends Controller
     {
         $access_token = session()->get('access_token');
         $user = Auth::user();
-        $allusers = API::get("/user/search", ["text" => "*"],  ['Authorization' => 'Bearer ' . $access_token]);
+        $allusers = API::get("/user/search", ["text" => "*"], ['Authorization' => 'Bearer ' . $access_token]);
         return view('profile')->with(array('user' => $user, 'id' => $id, 'allusers' => $allusers));
     }
 
@@ -70,23 +70,21 @@ class ProfileController extends Controller
     }
 
 
-    public function addpostView(Request $request){
+    public function addpostView(Request $request)
+    {
         $access_token = session()->get('access_token');
         $user_id = Auth::id();
         $postContent = $request["postText"];
-        $response = API::Post("/user/$user_id/dashboard/posts", [
-            "content" => $postContent
-        ], ['Authorization' => 'Bearer ' . $access_token]);
+        $response = API::Post("/user/$user_id/dashboard/posts", ["content" => $postContent], ['Authorization' => 'Bearer ' . $access_token]);
         return redirect(route('get_newsfeed'));
     }
 
-    public function addpostViewProfile(Request $request){
+    public function addpostViewProfile(Request $request)
+    {
         $access_token = session()->get('access_token');
         $user_id = Auth::id();
         $postContent = $request["postText"];
-        $response = API::Post("/user/$user_id/dashboard/posts", [
-            "content" => $postContent
-        ], ['Authorization' => 'Bearer ' . $access_token]);
+        $response = API::Post("/user/$user_id/dashboard/posts", ["content" => $postContent], ['Authorization' => 'Bearer ' . $access_token]);
         return redirect(route('get_profile'));
     }
 
@@ -121,32 +119,37 @@ class ProfileController extends Controller
         return redirect(route('get_newsfeed'));
     }
 
-    public function createCommentary(Request $request){
+    public function createCommentary(Request $request)
+    {
         $access_token = session()->get('access_token');
 
         $user_id = Auth::id();
         $postId = $request['id'];
         $comcontent = $request['addcom'];
-       $response = API::post("/user/$user_id/dashboard/posts/$postId/commentaries",  ['content' => $comcontent], ['Authorization' => 'Bearer ' . $access_token]);
+        $response = API::post("/user/$user_id/dashboard/posts/$postId/commentaries", ['content' => $comcontent], ['Authorization' => 'Bearer ' . $access_token]);
         return redirect(route('get_profile'));
     }
 
-    public function updateCommentary(Request $request){
+    public function updateCommentary(Request $request)
+    {
         $access_token = session()->get('access_token');
         $user_id = Auth::id();
         $postID = $request['postId'];
         $commentaryID = $request['commentId'];
-       $response = API::patch("/user/$user_id/dashboard/posts/$postID/commentaries/$commentaryID",  ['content' => $request['comment']], ['Authorization' => 'Bearer ' . $access_token]);
+        $response = API::patch("/user/$user_id/dashboard/posts/$postID/commentaries/$commentaryID", ['content' => $request['comment']], ['Authorization' => 'Bearer ' . $access_token]);
         return redirect(route('get_profile'));
     }
-    public function deleteCommentary(Request $request){
+
+    public function deleteCommentary(Request $request)
+    {
         $access_token = session()->get('access_token');
         $user_id = Auth::id();
         $postID = $request['postId'];
         $commentaryID = $request['commentId'];
-        API::delete("/user/$user_id/dashboard/posts/$postID/commentaries/$commentaryID",  [], ['Authorization' => 'Bearer ' . $access_token]);
+        API::delete("/user/$user_id/dashboard/posts/$postID/commentaries/$commentaryID", [], ['Authorization' => 'Bearer ' . $access_token]);
         return redirect(route('get_profile'));
     }
+
     public function getRuns()
     {
         $accessToken = session()->get('access_token');
@@ -156,14 +159,12 @@ class ProfileController extends Controller
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $runs = API::get('/user/me/run', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $userRuns = array();
+        $allusers = API::get("/user/search", ["text" => "*"],  ['Authorization' => 'Bearer ' . $accessToken]);
+        $mypendingrequest = API::get('/user/me/pending_requests/', [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
         foreach ($runs['data'] as $run)
             array_push($userRuns, API::get("/user/me/run/$run->id/user_run", [], ['Authorization' => 'Bearer ' . $accessToken])['data']);
-        return view('social.runs')->with(array(
-            'profile' => $profile,
-            'groups' => $groups['data'],
-            'pictureToken' => $pictureToken,
-            'userId' => $userId,
-            'runs' => $runs['data'],
-            'userRuns' => $userRuns));
+        $getmyfriends = API::get("user/me/friendship/", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $getmyfollows = API::get("user/me/follows/following/count/", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        return view('social.runs')->with(array('getmyfollow' => $getmyfollows,'getmyfriend' => $getmyfriends, 'mypendingrequest' => $mypendingrequest, 'allusers'=> $allusers,'profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'runs' => $runs['data'], 'userRuns' => $userRuns));
     }
 }

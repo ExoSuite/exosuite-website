@@ -87,7 +87,11 @@ class SocialController extends Controller
         $profile = API::get('/user/me', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
         $result = API::get("/user/search", ['text' => '*'], ['Authorization' => 'Bearer ' . $accessToken]);
-        return view('social.createGroup')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'resultSearch' => $result));
+        $getmyfriends = API::get("user/me/friendship/", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $getmyfollows = API::get("user/me/follows/following/count/", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $allusers = API::get("/user/search", ["text" => "*"],  ['Authorization' => 'Bearer ' . $accessToken]);
+        $mypendingrequest = API::get('/user/me/pending_requests/', [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        return view('social.createGroup')->with(array('getmyfollow' => $getmyfollows,'getmyfriend' => $getmyfriends, 'mypendingrequest' => $mypendingrequest, 'allusers'=> $allusers,'profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId, 'resultSearch' => $result));
     }
 
     public function createGroup(Request $request)
@@ -100,7 +104,11 @@ class SocialController extends Controller
         $groupToken = session()->get('group')['accessToken'];
         API::post('/group', ['users' => $toFind], ['Authorization' => 'Bearer ' . $groupToken]);
         $groups = API::get('/user/me/groups', [], ['Authorization' => 'Bearer ' . $accessToken]);
-        return view('social.createGroup')->with(array('profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId));
+        $getmyfriends = API::get("user/me/friendship/", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $getmyfollows = API::get("user/me/follows/following/count/", [], ['Authorization' => 'Bearer ' . $accessToken]);
+        $allusers = API::get("/user/search", ["text" => "*"],  ['Authorization' => 'Bearer ' . $accessToken]);
+        $mypendingrequest = API::get('/user/me/pending_requests/', [], ['Authorization' => 'Bearer ' . $accessToken])['data'];
+        return view('social.createGroup')->with(array('getmyfollow' => $getmyfollows,'getmyfriend' => $getmyfriends, 'mypendingrequest' => $mypendingrequest, 'allusers'=> $allusers,'profile' => $profile, 'groups' => $groups['data'], 'pictureToken' => $pictureToken, 'userId' => $userId));
     }
 
     public function search(Request $request)
